@@ -463,13 +463,27 @@
         line = "Model: " + g.home.name + " " + f.pct(pr.pHome, 0) + " · draw " + f.pct(pr.pDraw, 0) + " · " + g.away.name + " " + f.pct(pr.pAway, 0);
       } else {
         const fav = pr.pHome >= pr.pAway ? ["home", g.home.name, pr.pHome] : ["away", g.away.name, pr.pAway];
-        line = "Model: " + fav[1] + " " + f.pct(fav[2], 0) + (imp && imp[fav[0]] != null ? " · market " + f.pct(imp[fav[0]], 0) : " · no market line yet");
+        line = "Model: " + fav[1] + " " + f.pct(fav[2], 0) + (imp && imp[fav[0]] != null ? " · market " + f.pct(imp[fav[0]], 0) : "");
       }
       if (imp && thr != null) edge = ["home", "away", "draw"].some((k) => { const pk = pr["p" + k[0].toUpperCase() + k.slice(1)]; return pk != null && imp[k] != null && pk - imp[k] > thr; });
     }
     const ml = el("div", "small", line);
     ml.style.marginTop = "4px";
     card.appendChild(ml);
+    // market odds on the card itself
+    const mk = g.market;
+    let mtxt;
+    if (!mk) mtxt = "Market: no odds posted yet";
+    else if (sport === "epl") mtxt = "Market: " + g.home.name + " " + (mk.decH ? mk.decH.toFixed(2) : "n/a") + " · draw " + (mk.decD ? mk.decD.toFixed(2) : "n/a") + " · " + g.away.name + " " + (mk.decA ? mk.decA.toFixed(2) : "n/a");
+    else {
+      const parts = [];
+      if (mk.mlAway != null || mk.mlHome != null) parts.push(g.away.abbr + " " + f.american(mk.mlAway) + " / " + g.home.abbr + " " + f.american(mk.mlHome));
+      if (mk.homeLine != null) parts.push(g.home.abbr + " " + lineText(mk.homeLine));
+      if (mk.total != null) parts.push("O/U " + mk.total);
+      mtxt = "Market: " + (parts.length ? parts.join(" · ") : "n/a");
+    }
+    const mkl = el("div", "small muted", mtxt + (mk && mk.live ? " (live)" : ""));
+    card.appendChild(mkl);
     if (edge) card.appendChild(el("span", "edge small", "model edge"));
     card.appendChild(el("div", "open-hint", "Click for odds, model and players"));
     const open = () => {
@@ -604,7 +618,12 @@
           const mk = (PROP_MARKETS[sport] || []).find(([re]) => re.test(nm));
           if (!mk) continue;
           const [, stat, scale] = mk;
-          (data.byAthlete[m[1]] = data.byAthlete[m[1]] || {})[stat] = { line: line * (scale || 1), raw: line, market: nm, updated: it.lastUpdated };
+          const price = it.odds && it.odds.american ? num(it.odds.american.value) : null;
+          const slot = (data.byAthlete[m[1]] = data.byAthlete[m[1]] || {});
+          // ESPN returns each over/under pair as two items, over first then under (checked against
+          // 0.5 RBI / runs / walks lines, where the "1 or more" side is always the longer price).
+          if (slot[stat] && slot[stat].raw === line && slot[stat].under == null) slot[stat].under = price;
+          else slot[stat] = { line: line * (scale || 1), raw: line, market: nm, updated: it.lastUpdated, over: price, under: null };
         }
         page += 1;
       } while (page <= pages && page <= 5);
@@ -689,7 +708,14 @@
           const d = v - ln.line;
           vs = (d > 0 ? "+" : "") + (k.includes("pct") ? d.toFixed(3) : d.toFixed(1));
         }
-        const row = [STAT_LABEL[k] || k.replace(/_/g, " "), fmtProj(k, v), ln ? fmtLine(k, ln.line) : (market && !market.error ? "–" : "…"), vs];
+        const L = oddsLib();
+        const po = ln ? L.americanToProb(ln.over) : null, pu = ln ? L.americanToProb(ln.under) : null;
+        const mkOver = po != null && pu != null ? po / (po + pu) : null; // no-vig market P(over)
+        const row = [STAT_LABEL[k] || k.replace(/_/g, " "), fmtProj(k, v),
+          ln ? fmtLine(k, ln.line) : (market && !market.error ? "–" : "…"),
+          ln && ln.over != null ? window.Site.fmt.american(ln.over) + " / " + window.Site.fmt.american(ln.under) : (ln ? "n/a" : ""),
+          mkOver != null ? Math.round(mkOver * 100) + "%" : (ln ? "n/a" : ""),
+          vs];
         if (showAct) { const a = actualFor(act, k); row.push(a == null ? (actual ? "–" : "n/a") : a); }
         return row;
       });
@@ -697,11 +723,11 @@
       if (!market) mnote = "Sportsbook lines are still loading; close and reopen in a moment.";
       else if (market.error) mnote = "Sportsbook player lines unavailable right now (" + market.error + ").";
       else if (!market.provider) mnote = "No sportsbook player lines posted for this game yet.";
-      else mnote = "Market line = the " + market.provider + " over/under for that stat, via ESPN's public odds feed. '–' means no line is posted for this player and stat." + (sport === "mlb" ? " Innings = outs-recorded line ÷ 3." : "");
+      else mnote = "Line and odds = the " + market.provider + " over/under for that stat, via ESPN's public odds feed (American odds, over first). Market P(over) removes the bookmaker's margin: P(over) ÷ (P(over) + P(under)). '–' means no line is posted for this player and stat." + (sport === "mlb" ? " Innings = outs-recorded line ÷ 3." : "");
       window.Site.showPlayer({
         title: nm,
         subtitle: [p.position, side.name, g.away.name + " at " + g.home.name].filter(Boolean).join(" · "),
-        headers: ["Stat", "Model", "Market line", "Model vs line"].concat(showAct ? ["Actual"] : []),
+        headers: ["Stat", "Model", "Line", "Over / under odds", "Market P(over)", "Model vs line"].concat(showAct ? ["Actual"] : []),
         rows,
         notes: [
           mnote,
@@ -770,6 +796,47 @@
     })();
   }
 
+  // ---------------- game odds from ESPN's core odds feed ----------------
+  // The public scoreboard drops odds once a game starts. The core odds feed keeps them and adds
+  // an in-game book ("DraftKings - Live Odds"), so live games use that and upcoming games without
+  // scoreboard odds use the pre-game book. GET only, cached 60 s per game.
+  const coreOddsCache = {};
+  async function coreOdds(sport, g) {
+    const key = sport + ":" + g.id, hit = coreOddsCache[key];
+    if (hit && Date.now() - hit.at < 60 * 1000) return hit.data;
+    const url = "https://sports.core.api.espn.com/v2/sports/" + CORE[sport] + "/events/" + g.id + "/competitions/" + g.id + "/odds";
+    let data = null;
+    try {
+      const d = await getJSON(url);
+      const items = (d.items || []).filter((i) => i && i.provider);
+      const live = items.find((i) => /live/i.test(i.provider.name || ""));
+      const pre = items.find((i) => !/live/i.test(i.provider.name || ""));
+      const o = g.state === "in" ? (live || pre) : (pre || live);
+      if (o) {
+        const h = o.homeTeamOdds || {}, a = o.awayTeamOdds || {};
+        let homeLine = num(o.spread);
+        // spread is quoted for the home side; flip if the favorite flags disagree with its sign
+        if (homeLine != null && homeLine !== 0 && ((h.favorite && homeLine > 0) || (a.favorite && homeLine < 0))) homeLine = -homeLine;
+        const cur = o.current || {};
+        data = {
+          source: (g.state === "in" && o === live ? "live odds via ESPN (" : "odds via ESPN (") + o.provider.name.replace(/\s*-\s*live odds/i, "") + ")",
+          live: g.state === "in" && o === live,
+          homeLine: sport === "epl" ? null : homeLine,
+          total: num(o.overUnder),
+          mlHome: num(h.moneyLine), mlAway: num(a.moneyLine),
+          overPrice: cur.over ? num(cur.over.american) : null, underPrice: cur.under ? num(cur.under.american) : null,
+        };
+        if (sport === "epl") {
+          const dr = o.drawOdds || {};
+          data.decH = OM.americanToDecimal(data.mlHome); data.decA = OM.americanToDecimal(data.mlAway); data.decD = OM.americanToDecimal(num(dr.moneyLine));
+        }
+        if (data.homeLine == null && data.total == null && data.mlHome == null) data = null;
+      }
+    } catch (e) { data = null; }
+    coreOddsCache[key] = { at: Date.now(), data };
+    return data;
+  }
+
   // ---------------- controller ----------------
   let current = null, timer = null, ticker = null, lastAt = 0, running = false, showAll = false;
 
@@ -796,6 +863,14 @@
         g.market = mk || g.odds || null;
         g.pred = await predictGame(sport, ctx.model, g);
       }
+      // live games (and upcoming games the scoreboard left without odds) get ESPN's core odds feed
+      await Promise.all(events.map(async (g) => {
+        if (g.state === "post") return;
+        const fromApi = g.market && g.market !== g.odds;
+        if (fromApi || (g.state === "pre" && g.odds)) return;
+        const co = await coreOdds(sport, g);
+        if (co) g.market = co;
+      }));
       box.textContent = "";
       const shown = showAll ? events : events.slice(0, SHOW_FIRST);
       shown.forEach((g) => box.appendChild(cardFor(sport, g, ctx)));
@@ -844,5 +919,5 @@
     ticker = setInterval(tick, 1000);
   }
 
-  window.Live = { show, refresh, codeFor, ESPN_CODE, EPL_NAME, _parseEvent: parseEvent, _implied: implied, _loadProps: loadProps, _roster: roster, _matchAthlete: matchAthlete };
+  window.Live = { show, refresh, codeFor, ESPN_CODE, EPL_NAME, _parseEvent: parseEvent, _implied: implied, _loadProps: loadProps, _roster: roster, _matchAthlete: matchAthlete, _coreOdds: coreOdds };
 })();
