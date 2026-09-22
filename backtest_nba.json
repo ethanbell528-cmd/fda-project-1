@@ -1,6 +1,6 @@
 {
  "sport": "nba",
- "generated_at": "2026-09-22",
+ "generated_at": "2026-06-13",
  "edge_threshold": 0.03,
  "train_seasons": "1992-2023",
  "train_games": 40187,

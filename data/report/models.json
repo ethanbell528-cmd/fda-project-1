@@ -10,7 +10,7 @@
   },
   "edge_threshold": 0.03,
   "edge_rationale": "An edge is flagged only when the model's win probability exceeds the no-vig market probability by more than 3 percentage points. The threshold was fixed before any holdout result was seen; it is roughly one sportsbook margin, so smaller gaps are treated as noise.",
-  "player_formula": "projection = w * mean(last n games, n <= 10) + (1 - w) * mean(base window) * u; w = n / (n + 5); base window = the player's games in the reference season and the season before; u = mean usage over the last n games / mean usage over the base window, clipped to [0.5, 1.5]; usage = QB: pass_att+carries, RB: carries+targets, WR/TE: targets",
+  "player_formula": "projection = w * mean(last n games, n <= 10) + (1 - w) * mean(base window) * u; w = n / (n + 5); base window = the player's games in the reference season and the season before; u = mean usage over the last n games / mean usage over the base window, clipped to [0.5, 1.5]; usage = QB: pass_att+carries, RB: carries+targets, WR/TE: targets. Featured players per team: QB: top 1 (QB) by total pass_att+carries over the team's last 10 games; RB: top 1 (RB) by total carries+targets over the team's last 10 games; WR/TE: top 2 (WR/TE) by total targets over the team's last 10 games.",
   "constants": {
    "recent_n": 10,
    "rest_cap": 14,
@@ -107,7 +107,7 @@
   },
   "edge_threshold": 0.03,
   "edge_rationale": "An edge is flagged only when the model's win probability exceeds the no-vig market probability by more than 3 percentage points. The threshold was fixed before any holdout result was seen; it is roughly one sportsbook margin, so smaller gaps are treated as noise.",
-  "player_formula": "projection = w * mean(last n games, n <= 10) + (1 - w) * mean(base window) * u; w = n / (n + 5); base window = the player's games in the reference season and the season before; u = mean usage over the last n games / mean usage over the base window, clipped to [0.5, 1.5]; usage = all: min",
+  "player_formula": "projection = w * mean(last n games, n <= 10) + (1 - w) * mean(base window) * u; w = n / (n + 5); base window = the player's games in the reference season and the season before; u = mean usage over the last n games / mean usage over the base window, clipped to [0.5, 1.5]; usage = all: min. Featured players per team: all: top 3 by total min over the team's last 10 games.",
   "constants": {
    "recent_n": 10,
    "rest_cap": 5,
@@ -212,7 +212,7 @@
   },
   "edge_threshold": 0.03,
   "edge_rationale": "An edge is flagged only when the model's win probability exceeds the no-vig market probability by more than 3 percentage points. The threshold was fixed before any holdout result was seen; it is roughly one sportsbook margin, so smaller gaps are treated as noise.",
-  "player_formula": "projection = w * mean(last n games, n <= 10) + (1 - w) * mean(base window) * u; w = n / (n + 5); base window = the player's games in the reference season and the season before; u = mean usage over the last n games / mean usage over the base window, clipped to [0.5, 1.5]; usage = batter: pa, pitcher: ip_outs",
+  "player_formula": "projection = w * mean(last n games, n <= 10) + (1 - w) * mean(base window) * u; w = n / (n + 5); base window = the player's games in the reference season and the season before; u = mean usage over the last n games / mean usage over the base window, clipped to [0.5, 1.5]; usage = batter: pa, pitcher: ip_outs. Featured players per team: batter: top 4 by total pa over the team's last 10 games; pitcher: top all by total ip_outs over the team's last 10 games (MLB pitchers: every pitcher with 3+ starts this season).",
   "constants": {
    "recent_n": 10,
    "rest_cap": 3,
@@ -317,7 +317,7 @@
   },
   "edge_threshold": 0.03,
   "edge_rationale": "An edge is flagged only when the model's win probability exceeds the no-vig market probability by more than 3 percentage points. The threshold was fixed before any holdout result was seen; it is roughly one sportsbook margin, so smaller gaps are treated as noise.",
-  "player_formula": "projection = w * mean(last n games, n <= 10) + (1 - w) * mean(base window) * u; w = n / (n + 5); base window = the player's games in the reference season and the season before; u = mean usage over the last n games / mean usage over the base window, clipped to [0.5, 1.5]; usage = skater: toi. Goalie save % = w * saves/shots over the last n starts + (1 - w) * saves/shots over the base window.",
+  "player_formula": "projection = w * mean(last n games, n <= 10) + (1 - w) * mean(base window) * u; w = n / (n + 5); base window = the player's games in the reference season and the season before; u = mean usage over the last n games / mean usage over the base window, clipped to [0.5, 1.5]; usage = skater: toi. Goalie save % = w * saves/shots over the last n starts + (1 - w) * saves/shots over the base window.. Featured players per team: skater: top 3 by total toi over the team's last 10 games; goalies: top 2 by starts in the team's last 10 games.",
   "constants": {
    "recent_n": 10,
    "rest_cap": 5,
@@ -430,7 +430,7 @@
   },
   "edge_threshold": 0.03,
   "edge_rationale": "An edge is flagged only when the model's win probability exceeds the no-vig market probability by more than 3 percentage points. The threshold was fixed before any holdout result was seen; it is roughly one sportsbook margin, so smaller gaps are treated as noise.",
-  "player_formula": "projection = w * mean(last n games, n <= 10) + (1 - w) * mean(base window) * u; w = n / (n + 5); base window = the player's games in the reference season and the season before; u = mean usage over the last n games / mean usage over the base window, clipped to [0.5, 1.5]; usage = all: minutes",
+  "player_formula": "projection = w * mean(last n games, n <= 10) + (1 - w) * mean(base window) * u; w = n / (n + 5); base window = the player's games in the reference season and the season before; u = mean usage over the last n games / mean usage over the base window, clipped to [0.5, 1.5]; usage = outfield: minutes. Featured players per team: outfield: top 4 (DEF/MID/FWD) by goals+assists over the base window.",
   "constants": {
    "recent_n": 10,
    "rest_cap": 10,
