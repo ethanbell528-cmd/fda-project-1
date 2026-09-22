@@ -126,3 +126,54 @@
 
   window.Site = { SPORTS, SPORT_ORDER, css, sportColor, fmt, loadJSON, loadCSV, applyChartDefaults, renderTable, currentTheme };
 })();
+
+/* Shared player pop-up (a native <dialog>): Site.showPlayer({ title, subtitle, headers, rows, notes }).
+   Text is inserted with textContent only. Esc, the close button, or a click outside closes it. */
+(function () {
+  "use strict";
+  let dlg = null;
+  function ensure() {
+    if (dlg) return dlg;
+    dlg = document.createElement("dialog");
+    dlg.className = "player-dialog";
+    dlg.setAttribute("aria-labelledby", "pd-title");
+    dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
+    document.body.appendChild(dlg);
+    return dlg;
+  }
+  function el(tag, cls, text) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  window.Site.showPlayer = function (o) {
+    const d = ensure();
+    d.textContent = "";
+    const box = el("div", "pd-box");
+    const head = el("div", "pd-head");
+    const titles = el("div");
+    const h = el("h2", null, o.title || "Player");
+    h.id = "pd-title";
+    titles.appendChild(h);
+    if (o.subtitle) titles.appendChild(el("p", "muted small", o.subtitle));
+    head.appendChild(titles);
+    const x = el("button", "btn ghost pd-close", "Close");
+    x.type = "button";
+    x.addEventListener("click", () => d.close());
+    head.appendChild(x);
+    box.appendChild(head);
+    const tw = el("div", "table-wrap");
+    const t = el("table");
+    const hr = t.createTHead().insertRow();
+    (o.headers || []).forEach((c) => hr.appendChild(el("th", null, c)));
+    const tb = t.createTBody();
+    (o.rows || []).forEach((r) => { const tr = tb.insertRow(); r.forEach((c) => { tr.insertCell().textContent = c == null ? "n/a" : c; }); });
+    tw.appendChild(t);
+    box.appendChild(tw);
+    (o.notes || []).forEach((n) => box.appendChild(el("p", "muted small", n)));
+    d.appendChild(box);
+    if (typeof d.showModal === "function") d.showModal(); else d.setAttribute("open", "");
+    x.focus();
+  };
+})();

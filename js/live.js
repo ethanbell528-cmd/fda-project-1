@@ -628,6 +628,46 @@
 
     // market: null = not loaded yet, {error} = failed, else {provider, byAthlete, ids}
     let market = null;
+    const linesFor = (side, p) => {
+      const athleteId = market && market.ids ? market.ids[side.code + "|" + (p.player || p.name)] : null;
+      return athleteId && market.byAthlete ? market.byAthlete[athleteId] || {} : {};
+    };
+    const openPlayer = (side, p) => {
+      const nm = p.player || p.name || "?";
+      const act = actual ? (actual[nm] || byFold[norm(nm)] || null) : null;
+      const showAct = g.state !== "pre";
+      const lines = linesFor(side, p);
+      const rows = projFields(p).map(([k, v]) => {
+        const ln = lines[k];
+        let vs = "";
+        if (ln && COUNT_STATS.has(k) && ln.line < 5 && ln.line % 1 !== 0) {
+          const po = poissonOver(v, ln.line);
+          vs = po == null ? "" : "P(over) " + Math.round(po * 100) + "%";
+        } else if (ln) {
+          const d = v - ln.line;
+          vs = (d > 0 ? "+" : "") + (k.includes("pct") ? d.toFixed(3) : d.toFixed(1));
+        }
+        const row = [STAT_LABEL[k] || k.replace(/_/g, " "), fmtProj(k, v), ln ? fmtLine(k, ln.line) : (market && !market.error ? "–" : "…"), vs];
+        if (showAct) { const a = actualFor(act, k); row.push(a == null ? (actual ? "–" : "n/a") : a); }
+        return row;
+      });
+      let mnote;
+      if (!market) mnote = "Sportsbook lines are still loading; close and reopen in a moment.";
+      else if (market.error) mnote = "Sportsbook player lines unavailable right now (" + market.error + ").";
+      else if (!market.provider) mnote = "No sportsbook player lines posted for this game yet.";
+      else mnote = "Market line = the " + market.provider + " over/under for that stat, via ESPN's public odds feed. '–' means no line is posted for this player and stat." + (sport === "mlb" ? " Innings = outs-recorded line ÷ 3." : "");
+      window.Site.showPlayer({
+        title: nm,
+        subtitle: [p.position, side.name, g.away.name + " at " + g.home.name].filter(Boolean).join(" · "),
+        headers: ["Stat", "Model", "Market line", "Model vs line"].concat(showAct ? ["Actual"] : []),
+        rows,
+        notes: [
+          mnote,
+          "Model = projected per-game stat. " + (p.basis ? "Basis: " + p.basis + ". " : "") + "Projection = w × average of the last n games + (1 − w) × base-season average × usage adjustment, w = n ÷ (n + 5).",
+          "Model vs line: for small count lines (such as 0.5 hits) it is the model's chance of going over, from a Poisson distribution with the projection as its mean; otherwise projection minus line. Not backtested (no free historical prop lines), so no edge flag.",
+        ].concat(showAct ? ["Actual stats from ESPN's box score; '–' = no line in the box score."] : []),
+      });
+    };
     const draw = () => {
       body.textContent = "";
       const showAct = g.state !== "pre";
@@ -637,53 +677,28 @@
         h.style.marginTop = "6px";
         body.appendChild(h);
         if (!list.length) { body.appendChild(el("p", "muted", "n/a: the model has no player projections for this team.")); continue; }
-        const t = el("table", "compare props");
-        const head = t.createTHead().insertRow();
-        ["Player", "Stat", "Model", "Market line", "Model vs line"].concat(showAct ? ["Actual"] : []).forEach((x) => head.appendChild(el("th", null, x)));
-        const tb = t.createTBody();
+        const wrap = el("div", "player-list");
         for (const p of list) {
           const nm = p.player || p.name || "?";
-          const act = actual ? (actual[nm] || byFold[norm(nm)] || null) : null;
-          const athleteId = market && market.ids ? market.ids[side.code + "|" + nm] : null;
-          const lines = athleteId && market.byAthlete ? market.byAthlete[athleteId] || {} : {};
-          const fields = projFields(p);
-          fields.forEach(([k, v], i) => {
-            const r = tb.insertRow();
-            if (i === 0) {
-              const c = r.insertCell();
-              c.rowSpan = fields.length;
-              c.textContent = nm + (p.position ? " · " + p.position : "");
-              c.style.whiteSpace = "normal";
-              c.style.verticalAlign = "top";
-            }
-            r.insertCell().textContent = STAT_LABEL[k] || k.replace(/_/g, " ");
-            r.insertCell().textContent = fmtProj(k, v);
-            const ln = lines[k];
-            r.insertCell().textContent = ln ? fmtLine(k, ln.line) : (market && !market.error ? "–" : "…");
-            const dc = r.insertCell();
-            if (ln && COUNT_STATS.has(k) && ln.line < 5 && ln.line % 1 !== 0) {
-              const po = poissonOver(v, ln.line);
-              dc.textContent = po == null ? "" : "P(over) " + Math.round(po * 100) + "%";
-            } else if (ln) {
-              const d = v - ln.line;
-              dc.textContent = (d > 0 ? "+" : "") + (k.includes("pct") ? d.toFixed(3) : d.toFixed(1));
-              dc.className = d > 0 ? "up" : d < 0 ? "down" : "";
-            }
-            if (showAct) { const a = actualFor(act, k); r.insertCell().textContent = a == null ? (actual ? "–" : "n/a") : a; }
-          });
+          const b = el("button", "player-btn");
+          b.type = "button";
+          b.appendChild(document.createTextNode(nm));
+          if (p.position) b.appendChild(el("span", "pos", p.position));
+          const lines = linesFor(side, p);
+          const nLines = Object.keys(lines).length;
+          if (market && !market.error && market.provider) b.appendChild(el("span", "badge", nLines ? nLines + " line" + (nLines === 1 ? "" : "s") : "no lines"));
+          b.setAttribute("aria-haspopup", "dialog");
+          b.addEventListener("click", () => openPlayer(side, p));
+          wrap.appendChild(b);
         }
-        body.appendChild(t);
+        body.appendChild(wrap);
       }
-      let mnote;
-      if (!market) mnote = "Loading sportsbook player lines…";
-      else if (market.error) mnote = "Sportsbook player lines unavailable right now (" + market.error + ").";
-      else if (!market.provider) mnote = "No sportsbook player lines posted for this game yet.";
-      else mnote = "Market = the " + market.provider + " over/under line for that stat, via ESPN's public odds feed (" + market.matched + " of " + market.total + " players matched; '–' = no line posted)." +
-        (sport === "mlb" ? " Innings lines are the outs-recorded line ÷ 3." : "");
-      body.appendChild(el("p", "muted", mnote));
-      body.appendChild(el("p", "muted", (basis ? "Projection basis: " + basis + ". " : "") +
-        "Model vs line: for small count lines (for example 0.5 hits or 1.5 strikeouts) it is the model’s chance of going over, from a Poisson distribution with the projection as its mean; otherwise it is projection minus line. These player-prop comparisons are not backtested because no free historical prop lines exist, so no edge flag is shown." +
-        (showAct ? " Actual stats from ESPN's box score; '–' = no line in the box score." : "")));
+      let status;
+      if (!market) status = "Loading sportsbook player lines…";
+      else if (market.error) status = "Sportsbook player lines unavailable (" + market.error + ").";
+      else if (!market.provider) status = "No sportsbook player lines posted yet.";
+      else status = market.provider + " lines found for " + market.matched + " of " + market.total + " players.";
+      body.appendChild(el("p", "muted", "Click a player to see the model projection next to the market line" + (g.state !== "pre" ? " and the actual stat" : "") + ". " + status));
     };
     draw();
 

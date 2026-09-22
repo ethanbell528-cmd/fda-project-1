@@ -53,6 +53,25 @@
     if (prev && pairs.some(([v]) => v === prev)) sel.value = prev;
   }
 
+  function openPlayer(r) {
+    const rows = Object.keys(r.stats).map((k) => [LABEL[k] || k, fmtStat(k, r.stats[k])]);
+    rows.push(["Recent games used (n)", r.n == null ? "n/a" : String(r.n)]);
+    rows.push(["Recent weight w = n ÷ (n + 5)", r.w == null ? "n/a" : r.w.toFixed(2)]);
+    rows.push(["Usage adjustment u", r.u == null ? "n/a" : "×" + r.u.toFixed(2)]);
+    S.showPlayer({
+      title: r.player,
+      subtitle: [r.position, r.teamName && r.teamName !== r.team ? r.teamName + " (" + r.team + ")" : r.team, S.SPORTS[sport].name].filter(Boolean).join(" · "),
+      headers: ["Projection per game", "Value"],
+      rows,
+      notes: [
+        "Projection = w × average of the last n games (n ≤ 10) + (1 − w) × base-season average × u. " +
+        "The base window is the reference season (" + model.player_reference_season + ") plus the season before. " +
+        "u compares recent playing time with the base window, clipped to 0.5–1.5.",
+        "Sportsbook lines for this player appear on the game cards above when the player has an upcoming game with posted lines.",
+      ],
+    });
+  }
+
   function render() {
     const box = $("proj-table");
     if (!model) return;
@@ -65,11 +84,20 @@
     const sortKey = cols[0];
     view.sort((a, b) => ((b.stats[sortKey] ?? -1) - (a.stats[sortKey] ?? -1)) || a.player.localeCompare(b.player));
 
-    const headers = ["Player", "Team", "Pos"].concat(cols.map((k) => LABEL[k] || k), ["Recent games", "Recent weight", "Usage adj."]);
+    const headers = ["Player", "Team", "Pos"].concat(cols.map((k) => LABEL[k] || k));
     const body = view.map((r) => [r.player, r.team, r.position || ""]
-      .concat(cols.map((k) => (k in r.stats ? fmtStat(k, r.stats[k]) : "–")),
-        [r.n == null ? "n/a" : String(r.n), r.w == null ? "n/a" : r.w.toFixed(2), r.u == null ? "n/a" : "×" + r.u.toFixed(2)]));
+      .concat(cols.map((k) => (k in r.stats ? fmtStat(k, r.stats[k]) : "–"))));
     S.renderTable(box, headers, body);
+    // player names become buttons that open that player's detail pop-up
+    box.querySelectorAll("tbody tr").forEach((tr, i) => {
+      const r = view[i], cell = tr.cells[0];
+      cell.textContent = "";
+      const b = el("button", "link-btn", r.player);
+      b.type = "button";
+      b.setAttribute("aria-haspopup", "dialog");
+      b.addEventListener("click", () => openPlayer(r));
+      cell.appendChild(b);
+    });
     $("proj-count").textContent = view.length + " player" + (view.length === 1 ? "" : "s") + " shown, sorted by " + (LABEL[sortKey] || sortKey || "name") + ". Values are per game.";
   }
 

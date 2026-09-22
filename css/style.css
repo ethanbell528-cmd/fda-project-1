@@ -258,3 +258,21 @@ footer .disclaimer { max-width: 820px; }
 .game .props td, .game .props th { padding: 3px 5px; font-size: 0.78rem; }
 /* difference sign is not good/bad, so it stays in ink, not status colors */
 .game .props td.up, .game .props td.down { font-weight: 700; color: var(--ink); }
+
+/* player pop-up + clickable player names */
+.player-dialog { border: 1px solid var(--border); border-radius: var(--radius); padding: 0; background: var(--surface); color: var(--ink); width: min(560px, calc(100vw - 32px)); max-height: calc(100vh - 48px); }
+.player-dialog::backdrop { background: rgba(0, 0, 0, 0.45); }
+.pd-box { padding: 16px 18px; }
+.pd-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+.pd-head h2 { margin: 0; font-size: 1.2rem; }
+.pd-head p { margin: 2px 0 0; }
+.pd-close { padding: 5px 10px; font-size: 0.85rem; }
+.player-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 4px; }
+.player-btn {
+  font: inherit; font-size: 0.82rem; font-weight: 600; cursor: pointer; text-align: left;
+  border: 1px solid var(--border); background: var(--page); color: var(--ink); border-radius: 999px; padding: 4px 10px;
+}
+.player-btn:hover, .player-btn:focus-visible { background: var(--surface-2); outline: 2px solid var(--accent); outline-offset: 1px; }
+.player-btn .pos { color: var(--muted); font-weight: 500; margin-left: 4px; }
+.player-btn .badge { color: var(--muted); font-weight: 500; font-size: 0.75rem; margin-left: 6px; }
+.link-btn { font: inherit; font-weight: 600; background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; text-align: left; text-decoration: underline; text-underline-offset: 2px; }
