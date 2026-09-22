@@ -252,3 +252,4 @@ footer .disclaimer { max-width: 820px; }
   #dashboard .switches { gap: 10px; }
   #dashboard .seg { flex-wrap: wrap; }
 }
+.method a, .method code, .method li, .method p { overflow-wrap: anywhere; }

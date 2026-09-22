@@ -1,0 +1,59 @@
+{
+ "rows": [
+  {
+   "sport": "nfl",
+   "over": 0.494003,
+   "games": 9338,
+   "push_rate": 0.015706,
+   "avg_line": 42.649278,
+   "avg_actual": 43.370507,
+   "first": "1990",
+   "last": "2026",
+   "mae": 10.634289
+  },
+  {
+   "sport": "nba",
+   "over": 0.497968,
+   "games": 24110,
+   "push_rate": 0.012937,
+   "avg_line": 211.231751,
+   "avg_actual": 211.588185,
+   "first": "2007-08",
+   "last": "2025-26",
+   "mae": 13.958784
+  },
+  {
+   "sport": "mlb",
+   "over": 0.493758,
+   "games": 26596,
+   "push_rate": 0.049532,
+   "avg_line": 8.372579,
+   "avg_actual": 8.809628,
+   "first": "2010",
+   "last": "2021",
+   "mae": 3.397273
+  },
+  {
+   "sport": "nhl",
+   "over": 0.493034,
+   "games": 17729,
+   "push_rate": 0.080494,
+   "avg_line": 5.534101,
+   "avg_actual": 5.709196,
+   "first": "2007-08",
+   "last": "2022-23",
+   "mae": 1.780198
+  },
+  {
+   "sport": "epl",
+   "over": 0.518596,
+   "games": 9034,
+   "push_rate": 0.0,
+   "avg_line": 2.5,
+   "avg_actual": 2.732123,
+   "first": "2002-03",
+   "last": "2026-27",
+   "mae": 1.347354
+  }
+ ]
+}

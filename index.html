@@ -23,7 +23,70 @@
   </nav>
 
   <main class="wrap" id="report">
-    <!-- REPORT CONTENT -->
+    <header class="hero">
+      <div class="eyebrow">NFL · NBA · MLB · NHL · EPL · 1990 to today</div>
+      <h1>The Closing Line: can a simple model beat Vegas?</h1>
+      <p class="byline">By <strong>Ethan Bell</strong> · Financial Data Analytics · Data Website Project</p>
+      <p class="lede" id="lede">Loading the summary numbers…</p>
+      <noscript><p class="lede">This report builds its numbers from the JSON files in <code>data/report/</code>; please enable JavaScript to see them.</p></noscript>
+      <div class="tiles" id="tiles" aria-label="Headline numbers"></div>
+      <nav class="toc" id="toc" aria-label="Findings"></nav>
+    </header>
+
+    <div id="findings"></div>
+
+    <section class="finding method" id="methodology" aria-labelledby="method-title">
+      <div class="kicker">Methodology</div>
+      <h2 id="method-title">Where the data comes from and how every number is computed</h2>
+
+      <h3>What one row is</h3>
+      <p>The core data set is a panel with <strong>one row per team per game</strong>: every game appears twice, once from each team's side, with the date, season, sport, team, opponent, home/away/neutral, points (or runs or goals) for and against, the result, and, where a betting market existed, the line, the total, the moneyline or 1X2 odds and the outcome against them. The time column is the date and season; the group columns are sport and team. There is one file per sport (<code>data/nfl.csv</code>, <code>data/nba.csv</code>, <code>data/mlb.csv</code>, <code>data/nhl.csv</code>, <code>data/epl.csv</code>) with the same 24 columns. Player data lives in separate files: per-game rows for recent seasons (<code>data/&lt;sport&gt;_players.csv</code>) and season totals for the full span (<code>data/&lt;sport&gt;_player_seasons.csv</code>).</p>
+      <div class="card" style="margin-top:12px"><div id="coverage-table"></div></div>
+
+      <h3>Data sources</h3>
+      <ul id="sources">
+        <li><strong>NFL games 1990 to 1998, spreads and totals:</strong> the “NFL scores and betting data” archive (spreadspoke, originally on Kaggle), from the GitHub mirror <a href="https://github.com/RussellHerzog/nfl_game_outcomes">github.com/RussellHerzog/nfl_game_outcomes</a>.</li>
+        <li><strong>NFL games 1999 onward, spreads, totals, moneylines, and weekly player stats:</strong> nflverse, <a href="https://github.com/nflverse/nflverse-data/releases">github.com/nflverse/nflverse-data/releases</a> (schedules and stats_player). Licensed CC-BY-4.0.</li>
+        <li><strong>NBA games 1990-91 to 2000-01:</strong> FiveThirtyEight NBA Elo data, <a href="https://github.com/fivethirtyeight/data/tree/master/nba-elo">github.com/fivethirtyeight/data/tree/master/nba-elo</a>. Licensed CC-BY-4.0.</li>
+        <li><strong>NBA games, team and player box scores 2001-02 onward, and closing lines 2022-23 onward:</strong> hoopR NBA data (ESPN), SportsDataverse, <a href="https://github.com/sportsdataverse/hoopR-nba-data">github.com/sportsdataverse/hoopR-nba-data</a>. Licensed CC-BY-4.0.</li>
+        <li><strong>NBA, NHL and MLB closing odds (seasons up to 2021-22, NHL partly 2022-23):</strong> SportsbookReviewsOnline archive files, via <a href="https://github.com/DillonKoch/Sports_Betting/tree/master/Data/Odds/NBA">github.com/DillonKoch/Sports_Betting</a> (NBA), the Internet Archive copy of <a href="https://web.archive.org/web/2023/https://www.sportsbookreviewsonline.com/">sportsbookreviewsonline.com</a> (NHL) and <a href="https://www.sportsbookreviewsonline.com/">sportsbookreviewsonline.com</a> (MLB).</li>
+        <li><strong>MLB games 1990 to 2025, starting pitchers and player-game stats:</strong> Retrosheet game logs and box-score files, <a href="https://www.retrosheet.org/">www.retrosheet.org</a>. <em>The information used here was obtained free of charge from and is copyrighted by Retrosheet. Interested parties may contact Retrosheet at www.retrosheet.org.</em></li>
+        <li><strong>MLB 2026 games and box scores:</strong> MLB Stats API, <a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1">statsapi.mlb.com</a>; player id crosswalk from the Chadwick Bureau register, <a href="https://github.com/chadwickbureau/register">github.com/chadwickbureau/register</a>.</li>
+        <li><strong>NHL games, skater and goalie game logs:</strong> NHL Stats API, <a href="https://api.nhle.com/stats/rest/en/game">api.nhle.com/stats/rest/en/game</a>.</li>
+        <li><strong>EPL results, 1X2, Asian handicap and over/under odds:</strong> Football-Data.co.uk, <a href="https://www.football-data.co.uk/englandm.php">www.football-data.co.uk/englandm.php</a>.</li>
+        <li><strong>EPL player goals and assists:</strong> Fantasy Premier League history compiled by vaastav, <a href="https://github.com/vaastav/Fantasy-Premier-League">github.com/vaastav/Fantasy-Premier-League</a> (FPL scoring rules, not official Opta records).</li>
+        <li><strong>Live scores and fallback odds:</strong> ESPN's public scoreboard feed (<code>site.api.espn.com/apis/site/v2/sports/…/scoreboard</code>); live odds, when a key is configured, from <a href="https://the-odds-api.com/">The Odds API</a>. Both are read with HTTP GET only.</li>
+      </ul>
+
+      <h3>Rows dropped and why</h3>
+      <div id="dropped"></div>
+
+      <h3>How every rate, ratio and average is computed</h3>
+      <p>The report and the dashboard use exactly the same definitions:</p>
+      <ul>
+        <li><strong>Win %</strong> = rows with result W ÷ all rows (ties and draws count as non-wins).</li>
+        <li><strong>Cover %</strong> = cover ÷ (cover + miss), with pushes and games without a line left out. A team covers when <code>margin + line &gt; 0</code>, where <code>line</code> is the team's own handicap (negative = favored). For EPL Asian handicaps, a quarter line that would pay a half-win is counted as a cover.</li>
+        <li><strong>Over %</strong> = over ÷ (over + under), with pushes left out. EPL's total line is 2.5 goals, set only for matches where the source has over/under 2.5 odds.</li>
+        <li><strong>Favorite</strong> = rows with <code>favorite = 1</code>: the team with the negative line, or, when there is no line, the team with the higher no-vig implied win probability. NBA seasons from 2022-23 have spreads but no moneylines, so the favorite is defined by the spread alone there.</li>
+        <li><strong>Home win %</strong> = win % over rows with <code>home_away = H</code>; neutral-site games (Super Bowls, international games, the 2020 NBA bubble) are excluded.</li>
+        <li><strong>Average total</strong> = mean of <code>total</code>, the two teams' combined score, over one row per game. The scoring index divides each season's average by the average over the sport's first ten seasons and multiplies by 100.</li>
+        <li><strong>Days of rest</strong> = days between a team's game and its previous game in the same regular season.</li>
+        <li><strong>No-vig implied probability.</strong> For American odds <code>A</code>, the raw probability is <code>−A ÷ (−A + 100)</code> when A &lt; 0 and <code>100 ÷ (A + 100)</code> when A &gt; 0. The two sides are divided by their sum so they add to 1. For EPL 1X2 decimal odds <code>d</code>, the raw probability is <code>1 ÷ d</code>, normalised over home, draw and away.</li>
+        <li><strong>Fair odds from a model probability p.</strong> American: <code>−100·p ÷ (1 − p)</code> when p ≥ 0.5, otherwise <code>100·(1 − p) ÷ p</code>. Decimal (EPL): <code>1 ÷ p</code>.</li>
+        <li><strong>Log loss</strong> = −mean(y·ln p + (1 − y)·ln(1 − p)) and <strong>Brier score</strong> = mean((p − y)²), where y = 1 if the team won. Lower is better for both.</li>
+        <li><strong>Return at −110</strong> = (wins × 100 − losses × 110) ÷ (bets × 110), pushes returned; this is the standard price of a spread bet and needs a 52.4% win rate to break even.</li>
+      </ul>
+      <div id="model-method"></div>
+
+      <h3>Honest limits</h3>
+      <ul id="limits">
+        <li>Betting lines before 2007-08 (NBA, NHL) and 2010 (MLB) do not exist in any free archive, so those seasons show “n/a” for line fields. MLB lines stop after 2021 and NHL lines after part of 2022-23 because no free archive covers later seasons.</li>
+        <li>Only EPL from 2019-20 has odds explicitly recorded at kick-off. NFL lines are the sources' pre-game reference lines. The NBA, NHL and MLB archives label their lines as closing lines, but that cannot be independently verified. EPL odds before 2019-20 are pre-match snapshots.</li>
+        <li>Player-game stats start in 1999 (NFL), 2001-02 (NBA) and 2016-17 (EPL). MLB and NHL player data cover the full span.</li>
+        <li>The NHL treats Utah (2024-25 onward) as a new franchise, so Arizona (ARI) and Utah (UTA) appear as separate teams.</li>
+        <li>NHL scores are as published: a shootout win counts as a one-goal win.</li>
+      </ul>
+    </section>
   </main>
 
   <footer>

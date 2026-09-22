@@ -1,0 +1,44 @@
+{
+ "rows": [
+  {
+   "sport": "nfl",
+   "games": 5313,
+   "brier": 0.211181,
+   "logloss": 0.609638,
+   "first": "2006",
+   "last": "2026"
+  },
+  {
+   "sport": "nba",
+   "games": 19142,
+   "brier": 0.201638,
+   "logloss": 0.587598,
+   "first": "2007-08",
+   "last": "2021-22"
+  },
+  {
+   "sport": "mlb",
+   "games": 28006,
+   "brier": 0.240468,
+   "logloss": 0.673742,
+   "first": "2010",
+   "last": "2021"
+  },
+  {
+   "sport": "nhl",
+   "games": 19281,
+   "brier": 0.239312,
+   "logloss": 0.671369,
+   "first": "2007-08",
+   "last": "2022-23"
+  },
+  {
+   "sport": "epl",
+   "games": 9928,
+   "brier": 0.177688,
+   "logloss": 0.532128,
+   "first": "2000-01",
+   "last": "2026-27"
+  }
+ ]
+}

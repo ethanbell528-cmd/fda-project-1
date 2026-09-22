@@ -1,0 +1,672 @@
+{
+ "rows": [
+  {
+   "sport": "nfl",
+   "stat": "passing yards",
+   "player": "Tom Brady",
+   "career_total": 89216,
+   "seasons": 23,
+   "runner_up": "Drew Brees",
+   "runner_up_total": 80428,
+   "peak_label": "2021",
+   "peak": 5316,
+   "led_league": 4,
+   "span_first": "1999",
+   "span_last": "2026",
+   "arc": [
+    {
+     "season": 2000,
+     "label": "2000",
+     "val": 6,
+     "games": 1
+    },
+    {
+     "season": 2001,
+     "label": "2001",
+     "val": 2843,
+     "games": 15
+    },
+    {
+     "season": 2002,
+     "label": "2002",
+     "val": 3764,
+     "games": 16
+    },
+    {
+     "season": 2003,
+     "label": "2003",
+     "val": 3620,
+     "games": 16
+    },
+    {
+     "season": 2004,
+     "label": "2004",
+     "val": 3690,
+     "games": 16
+    },
+    {
+     "season": 2005,
+     "label": "2005",
+     "val": 4110,
+     "games": 16
+    },
+    {
+     "season": 2006,
+     "label": "2006",
+     "val": 3533,
+     "games": 16
+    },
+    {
+     "season": 2007,
+     "label": "2007",
+     "val": 4806,
+     "games": 16
+    },
+    {
+     "season": 2008,
+     "label": "2008",
+     "val": 76,
+     "games": 1
+    },
+    {
+     "season": 2009,
+     "label": "2009",
+     "val": 4398,
+     "games": 16
+    },
+    {
+     "season": 2010,
+     "label": "2010",
+     "val": 3900,
+     "games": 16
+    },
+    {
+     "season": 2011,
+     "label": "2011",
+     "val": 5235,
+     "games": 16
+    },
+    {
+     "season": 2012,
+     "label": "2012",
+     "val": 4827,
+     "games": 16
+    },
+    {
+     "season": 2013,
+     "label": "2013",
+     "val": 4343,
+     "games": 16
+    },
+    {
+     "season": 2014,
+     "label": "2014",
+     "val": 4109,
+     "games": 16
+    },
+    {
+     "season": 2015,
+     "label": "2015",
+     "val": 4770,
+     "games": 16
+    },
+    {
+     "season": 2016,
+     "label": "2016",
+     "val": 3554,
+     "games": 12
+    },
+    {
+     "season": 2017,
+     "label": "2017",
+     "val": 4577,
+     "games": 16
+    },
+    {
+     "season": 2018,
+     "label": "2018",
+     "val": 4355,
+     "games": 16
+    },
+    {
+     "season": 2019,
+     "label": "2019",
+     "val": 4057,
+     "games": 16
+    },
+    {
+     "season": 2020,
+     "label": "2020",
+     "val": 4633,
+     "games": 16
+    },
+    {
+     "season": 2021,
+     "label": "2021",
+     "val": 5316,
+     "games": 17
+    },
+    {
+     "season": 2022,
+     "label": "2022",
+     "val": 4694,
+     "games": 17
+    }
+   ]
+  },
+  {
+   "sport": "nba",
+   "stat": "points",
+   "player": "LeBron James",
+   "career_total": 43435,
+   "seasons": 23,
+   "runner_up": "Kevin Durant",
+   "runner_up_total": 32564,
+   "peak_label": "2005-06",
+   "peak": 2478,
+   "led_league": 1,
+   "span_first": "2001-02",
+   "span_last": "2025-26",
+   "arc": [
+    {
+     "season": 2003,
+     "label": "2003-04",
+     "val": 1654,
+     "games": 79
+    },
+    {
+     "season": 2004,
+     "label": "2004-05",
+     "val": 2175,
+     "games": 80
+    },
+    {
+     "season": 2005,
+     "label": "2005-06",
+     "val": 2478,
+     "games": 79
+    },
+    {
+     "season": 2006,
+     "label": "2006-07",
+     "val": 2132,
+     "games": 78
+    },
+    {
+     "season": 2007,
+     "label": "2007-08",
+     "val": 2250,
+     "games": 75
+    },
+    {
+     "season": 2008,
+     "label": "2008-09",
+     "val": 2304,
+     "games": 81
+    },
+    {
+     "season": 2009,
+     "label": "2009-10",
+     "val": 2258,
+     "games": 76
+    },
+    {
+     "season": 2010,
+     "label": "2010-11",
+     "val": 2111,
+     "games": 79
+    },
+    {
+     "season": 2011,
+     "label": "2011-12",
+     "val": 1683,
+     "games": 62
+    },
+    {
+     "season": 2012,
+     "label": "2012-13",
+     "val": 2007,
+     "games": 75
+    },
+    {
+     "season": 2013,
+     "label": "2013-14",
+     "val": 2089,
+     "games": 77
+    },
+    {
+     "season": 2014,
+     "label": "2014-15",
+     "val": 1743,
+     "games": 69
+    },
+    {
+     "season": 2015,
+     "label": "2015-16",
+     "val": 1920,
+     "games": 76
+    },
+    {
+     "season": 2016,
+     "label": "2016-17",
+     "val": 1954,
+     "games": 74
+    },
+    {
+     "season": 2017,
+     "label": "2017-18",
+     "val": 2251,
+     "games": 82
+    },
+    {
+     "season": 2018,
+     "label": "2018-19",
+     "val": 1505,
+     "games": 55
+    },
+    {
+     "season": 2019,
+     "label": "2019-20",
+     "val": 1698,
+     "games": 67
+    },
+    {
+     "season": 2020,
+     "label": "2020-21",
+     "val": 1126,
+     "games": 45
+    },
+    {
+     "season": 2021,
+     "label": "2021-22",
+     "val": 1695,
+     "games": 56
+    },
+    {
+     "season": 2022,
+     "label": "2022-23",
+     "val": 1590,
+     "games": 55
+    },
+    {
+     "season": 2023,
+     "label": "2023-24",
+     "val": 1846,
+     "games": 72
+    },
+    {
+     "season": 2024,
+     "label": "2024-25",
+     "val": 1710,
+     "games": 70
+    },
+    {
+     "season": 2025,
+     "label": "2025-26",
+     "val": 1256,
+     "games": 60
+    }
+   ]
+  },
+  {
+   "sport": "mlb",
+   "stat": "home runs",
+   "player": "Albert Pujols",
+   "career_total": 703,
+   "seasons": 22,
+   "runner_up": "Alex Rodriguez",
+   "runner_up_total": 696,
+   "peak_label": "2006",
+   "peak": 49,
+   "led_league": 1,
+   "span_first": "1990",
+   "span_last": "2026",
+   "arc": [
+    {
+     "season": 2001,
+     "label": "2001",
+     "val": 37,
+     "games": 161
+    },
+    {
+     "season": 2002,
+     "label": "2002",
+     "val": 34,
+     "games": 157
+    },
+    {
+     "season": 2003,
+     "label": "2003",
+     "val": 43,
+     "games": 157
+    },
+    {
+     "season": 2004,
+     "label": "2004",
+     "val": 46,
+     "games": 154
+    },
+    {
+     "season": 2005,
+     "label": "2005",
+     "val": 41,
+     "games": 161
+    },
+    {
+     "season": 2006,
+     "label": "2006",
+     "val": 49,
+     "games": 143
+    },
+    {
+     "season": 2007,
+     "label": "2007",
+     "val": 32,
+     "games": 158
+    },
+    {
+     "season": 2008,
+     "label": "2008",
+     "val": 37,
+     "games": 148
+    },
+    {
+     "season": 2009,
+     "label": "2009",
+     "val": 47,
+     "games": 160
+    },
+    {
+     "season": 2010,
+     "label": "2010",
+     "val": 42,
+     "games": 159
+    },
+    {
+     "season": 2011,
+     "label": "2011",
+     "val": 37,
+     "games": 147
+    },
+    {
+     "season": 2012,
+     "label": "2012",
+     "val": 30,
+     "games": 154
+    },
+    {
+     "season": 2013,
+     "label": "2013",
+     "val": 17,
+     "games": 99
+    },
+    {
+     "season": 2014,
+     "label": "2014",
+     "val": 28,
+     "games": 159
+    },
+    {
+     "season": 2015,
+     "label": "2015",
+     "val": 40,
+     "games": 157
+    },
+    {
+     "season": 2016,
+     "label": "2016",
+     "val": 31,
+     "games": 152
+    },
+    {
+     "season": 2017,
+     "label": "2017",
+     "val": 23,
+     "games": 149
+    },
+    {
+     "season": 2018,
+     "label": "2018",
+     "val": 19,
+     "games": 117
+    },
+    {
+     "season": 2019,
+     "label": "2019",
+     "val": 23,
+     "games": 131
+    },
+    {
+     "season": 2020,
+     "label": "2020",
+     "val": 6,
+     "games": 39
+    },
+    {
+     "season": 2021,
+     "label": "2021",
+     "val": 17,
+     "games": 109
+    },
+    {
+     "season": 2022,
+     "label": "2022",
+     "val": 24,
+     "games": 109
+    }
+   ]
+  },
+  {
+   "sport": "nhl",
+   "stat": "goals",
+   "player": "Alex Ovechkin",
+   "career_total": 929,
+   "seasons": 21,
+   "runner_up": "Jaromir Jagr",
+   "runner_up_total": 766,
+   "peak_label": "2007-08",
+   "peak": 65,
+   "led_league": 9,
+   "span_first": "1990-91",
+   "span_last": "2025-26",
+   "arc": [
+    {
+     "season": 2005,
+     "label": "2005-06",
+     "val": 52,
+     "games": 81
+    },
+    {
+     "season": 2006,
+     "label": "2006-07",
+     "val": 46,
+     "games": 82
+    },
+    {
+     "season": 2007,
+     "label": "2007-08",
+     "val": 65,
+     "games": 82
+    },
+    {
+     "season": 2008,
+     "label": "2008-09",
+     "val": 56,
+     "games": 79
+    },
+    {
+     "season": 2009,
+     "label": "2009-10",
+     "val": 50,
+     "games": 72
+    },
+    {
+     "season": 2010,
+     "label": "2010-11",
+     "val": 32,
+     "games": 79
+    },
+    {
+     "season": 2011,
+     "label": "2011-12",
+     "val": 38,
+     "games": 78
+    },
+    {
+     "season": 2012,
+     "label": "2012-13",
+     "val": 32,
+     "games": 48
+    },
+    {
+     "season": 2013,
+     "label": "2013-14",
+     "val": 51,
+     "games": 78
+    },
+    {
+     "season": 2014,
+     "label": "2014-15",
+     "val": 53,
+     "games": 81
+    },
+    {
+     "season": 2015,
+     "label": "2015-16",
+     "val": 50,
+     "games": 79
+    },
+    {
+     "season": 2016,
+     "label": "2016-17",
+     "val": 33,
+     "games": 82
+    },
+    {
+     "season": 2017,
+     "label": "2017-18",
+     "val": 49,
+     "games": 82
+    },
+    {
+     "season": 2018,
+     "label": "2018-19",
+     "val": 51,
+     "games": 81
+    },
+    {
+     "season": 2019,
+     "label": "2019-20",
+     "val": 48,
+     "games": 68
+    },
+    {
+     "season": 2020,
+     "label": "2020-21",
+     "val": 24,
+     "games": 45
+    },
+    {
+     "season": 2021,
+     "label": "2021-22",
+     "val": 50,
+     "games": 77
+    },
+    {
+     "season": 2022,
+     "label": "2022-23",
+     "val": 42,
+     "games": 73
+    },
+    {
+     "season": 2023,
+     "label": "2023-24",
+     "val": 31,
+     "games": 79
+    },
+    {
+     "season": 2024,
+     "label": "2024-25",
+     "val": 44,
+     "games": 65
+    },
+    {
+     "season": 2025,
+     "label": "2025-26",
+     "val": 32,
+     "games": 82
+    }
+   ]
+  },
+  {
+   "sport": "epl",
+   "stat": "goals",
+   "player": "Mohamed Salah",
+   "career_total": 191,
+   "seasons": 9,
+   "runner_up": "Harry Kane",
+   "runner_up_total": 163,
+   "peak_label": "2017-18",
+   "peak": 32,
+   "led_league": 2,
+   "span_first": "2016-17",
+   "span_last": "2026-27",
+   "arc": [
+    {
+     "season": 2017,
+     "label": "2017-18",
+     "val": 32,
+     "games": 36
+    },
+    {
+     "season": 2018,
+     "label": "2018-19",
+     "val": 22,
+     "games": 38
+    },
+    {
+     "season": 2019,
+     "label": "2019-20",
+     "val": 19,
+     "games": 34
+    },
+    {
+     "season": 2020,
+     "label": "2020-21",
+     "val": 22,
+     "games": 37
+    },
+    {
+     "season": 2021,
+     "label": "2021-22",
+     "val": 23,
+     "games": 35
+    },
+    {
+     "season": 2022,
+     "label": "2022-23",
+     "val": 19,
+     "games": 38
+    },
+    {
+     "season": 2023,
+     "label": "2023-24",
+     "val": 18,
+     "games": 32
+    },
+    {
+     "season": 2024,
+     "label": "2024-25",
+     "val": 29,
+     "games": 38
+    },
+    {
+     "season": 2025,
+     "label": "2025-26",
+     "val": 7,
+     "games": 27
+    }
+   ]
+  }
+ ]
+}

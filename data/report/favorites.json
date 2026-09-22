@@ -1,0 +1,69 @@
+{
+ "rows": [
+  {
+   "sport": "nfl",
+   "fav_rows": 9430,
+   "fav_win": 0.666278,
+   "fav_draw": null,
+   "fav_cover": 0.487845,
+   "fav_cover_n": 9173,
+   "dog_cover": 0.512155,
+   "push_rate": 0.027253,
+   "first": "1990",
+   "last": "2026",
+   "line_name": "point spread"
+  },
+  {
+   "sport": "nba",
+   "fav_rows": 24271,
+   "fav_win": 0.686004,
+   "fav_draw": null,
+   "fav_cover": 0.501194,
+   "fav_cover_n": 23869,
+   "dog_cover": 0.498806,
+   "push_rate": 0.016563,
+   "first": "2007-08",
+   "last": "2025-26",
+   "line_name": "point spread"
+  },
+  {
+   "sport": "mlb",
+   "fav_rows": 27503,
+   "fav_win": 0.581064,
+   "fav_draw": null,
+   "fav_cover": 0.426313,
+   "fav_cover_n": 18158,
+   "dog_cover": 0.573687,
+   "push_rate": 0.0,
+   "first": "2010",
+   "last": "2021",
+   "line_name": "run line (±1.5)"
+  },
+  {
+   "sport": "nhl",
+   "fav_rows": 18961,
+   "fav_win": 0.58652,
+   "fav_draw": null,
+   "fav_cover": 0.351594,
+   "fav_cover_n": 10569,
+   "dog_cover": 0.648406,
+   "push_rate": 0.0,
+   "first": "2007-08",
+   "last": "2022-23",
+   "line_name": "puck line (±1.5)"
+  },
+  {
+   "sport": "epl",
+   "fav_rows": 9866,
+   "fav_win": 0.54176,
+   "fav_draw": 0.247922,
+   "fav_cover": 0.502983,
+   "fav_cover_n": 7207,
+   "dog_cover": 0.497017,
+   "push_rate": 0.100811,
+   "first": "2000-01",
+   "last": "2026-27",
+   "line_name": "Asian handicap"
+  }
+ ]
+}
