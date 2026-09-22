@@ -41,6 +41,21 @@
       <div id="live-more"></div>
     </section>
 
+    <section class="card" id="projections" aria-labelledby="proj-title" style="margin-top:12px">
+      <div class="live-head">
+        <h2 id="proj-title" style="margin:0;font-size:1.15rem">Player projections</h2>
+        <span class="small muted" id="proj-count" aria-live="polite"></span>
+      </div>
+      <p class="small muted" id="proj-cap" style="margin:4px 0 10px"></p>
+      <div class="filters" style="margin-bottom:10px">
+        <label class="field">Team<select id="p-team"></select></label>
+        <label class="field">Role<select id="p-role"></select></label>
+        <label class="field">Player search<input id="p-search" type="search" placeholder="Name" autocomplete="off"></label>
+        <button class="btn ghost" type="button" id="p-reset">Reset</button>
+      </div>
+      <div id="proj-table" style="max-height:480px;overflow:auto">Loading projections…</div>
+    </section>
+
     <h2 style="margin:32px 0 8px;font-size:1.3rem" id="hist-title">Historical games</h2>
     <form class="filters" id="filters" aria-label="Filters" onsubmit="return false">
       <label class="field">Season from<select id="f-from"></select></label>
@@ -97,6 +112,7 @@
   <script src="js/site.js"></script>
   <script src="js/predict.js"></script>
   <script src="js/live.js"></script>
+  <script src="js/projections.js"></script>
   <script src="js/dashboard.js"></script>
 </body>
 </html>

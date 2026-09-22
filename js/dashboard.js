@@ -481,6 +481,7 @@
     document.querySelectorAll(".sport-tab").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.sport === sport)));
     setText("hist-title", "Historical " + SPORTS[sport].name + " games");
     if (window.Live) window.Live.show(sport);
+    if (window.Projections) window.Projections.show(sport);
     const body = $("dash-body");
     body.classList.add("stale", "loading");
     $("filters").classList.add("stale");

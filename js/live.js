@@ -438,6 +438,8 @@
       if (det.open && !det.dataset.loaded) { det.dataset.loaded = "1"; renderPlayers(sport, g, ctx, body); }
     });
     card.appendChild(det);
+    // upcoming games: projections come straight from the model file (no request), so show them open
+    if (g.state === "pre") { det.open = true; det.dataset.loaded = "1"; renderPlayers(sport, g, ctx, body); }
     return card;
   }
 
