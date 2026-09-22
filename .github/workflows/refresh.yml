@@ -1,0 +1,113 @@
+# Hourly data refresh: pulls the games played since the last run, rebuilds the panel CSVs and,
+# only when the data changed, retrains every model (current Elo, rest days, form, player
+# projections), re-checks that js/predict.js matches Python, rebuilds the report summaries and
+# commits. GitHub Pages then redeploys the site from main. An hour with no new games commits nothing.
+name: Hourly data refresh
+
+on:
+  schedule:
+    - cron: "0 * * * *"      # every hour on the hour (GitHub may start scheduled runs several minutes late)
+  workflow_dispatch: {}      # "Run workflow" button on the Actions tab
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: data-refresh
+  cancel-in-progress: false  # runs queue up and never overlap
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      # ~1 GB of historical raw downloads persists between runs; only current-season
+      # files are re-fetched (MLB box scores are cached per game and never refetched)
+      - name: Restore raw-data cache
+        id: rawcache
+        uses: actions/cache/restore@v4
+        with:
+          path: data/raw
+          key: raw-${{ github.run_id }}
+          restore-keys: raw-
+
+      - name: Re-download current-season raw files
+        run: python scripts/refresh_current.py
+
+      - name: Download anything still missing
+        run: python scripts/download_data.py
+
+      - name: Clean data and verify course requirements
+        run: python scripts/clean_data.py
+
+      - name: Did the data change?
+        id: data
+        run: |
+          if [ -z "$(git status --porcelain -- data/*.csv data/coverage.json)" ]; then
+            echo "No new games since the last run; skipping training and the report build."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git status --short -- data/*.csv data/coverage.json
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # save a new cache only when something was downloaded (new games) or none existed yet,
+      # so hourly runs with no news don't churn through the repository's 10 GB cache quota
+      - name: Save raw-data cache
+        if: steps.data.outputs.changed == 'true' || steps.rawcache.outputs.cache-matched-key == ''
+        uses: actions/cache/save@v4
+        with:
+          path: data/raw
+          key: raw-${{ github.run_id }}
+
+      - name: Train models and backtests
+        if: steps.data.outputs.changed == 'true'
+        run: python scripts/train_model.py --all
+
+      - name: Check JavaScript predictions match Python
+        if: steps.data.outputs.changed == 'true'
+        run: node scripts/check_predict_parity.js
+
+      - name: Build report summaries
+        if: steps.data.outputs.changed == 'true'
+        run: python scripts/build_report_data.py
+
+      - name: Commit changes (if any)
+        id: commit
+        if: steps.data.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/*.csv data/coverage.json data/report model_*.json backtest_*.json
+          if git diff --cached --quiet; then
+            echo "Nothing to commit."
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "Data refresh $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git pull --rebase origin main
+            git push
+            echo "pushed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # pushes made with the workflow token may not start a Pages build on their own
+      - name: Request a GitHub Pages rebuild
+        if: steps.commit.outputs.pushed == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds"

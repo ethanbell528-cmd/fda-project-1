@@ -2,7 +2,9 @@
 and turning one-row-per-game frames into the two-rows-per-game panel."""
 from __future__ import annotations
 
+import os
 import time
+from datetime import date
 from pathlib import Path
 
 import numpy as np
@@ -25,11 +27,37 @@ def fetch(url: str, dest: Path, force: bool = False, retries: int = 3, **kw) -> 
             r.raise_for_status()
             dest.write_bytes(r.content)
             return dest
-        except requests.RequestException:
-            if i == retries - 1:
+        except requests.RequestException as e:
+            not_found = isinstance(e, requests.HTTPError) and e.response is not None and e.response.status_code == 404
+            if i == retries - 1 or not_found:  # a 404 won't fix itself on retry
                 raise
             time.sleep(2 * (i + 1))
     return dest
+
+
+def today() -> date:
+    """Today's date; set FDA_TODAY=YYYY-MM-DD to simulate another day (testing only)."""
+    v = os.environ.get("FDA_TODAY")
+    return date.fromisoformat(v) if v else date.today()
+
+
+def season_start_year(first_month: int) -> int:
+    """Start year of the season in progress (or most recently started) for a league whose
+    season opens in `first_month`: e.g. NBA/NHL 10, EPL 8, NFL 9, MLB 3."""
+    t = today()
+    return t.year if t.month >= first_month else t.year - 1
+
+
+def fetch_optional(url: str, dest: Path, **kw):
+    """fetch() that returns None (with a printed note) when the file isn't published yet
+    (HTTP 404, e.g. a season that hasn't started). Other errors still raise."""
+    try:
+        return fetch(url, dest, **kw)
+    except requests.HTTPError as e:
+        if e.response is not None and e.response.status_code == 404:
+            print(f"  not published yet (404), skipped: {url}")
+            return None
+        raise
 
 
 def get_json(url: str, retries: int = 3, **kw):

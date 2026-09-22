@@ -21,7 +21,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from common import fetch, to_panel
+from common import fetch, season_start_year, to_panel
 
 GH = "https://raw.githubusercontent.com"
 HOOPR = f"{GH}/sportsdataverse/hoopR-nba-data/main/nba"
@@ -35,7 +35,7 @@ URL_SBRO = f"{GH}/DillonKoch/Sports_Betting/master/Data/Odds/NBA/NBA%20odds%20{{
 
 FIRST_ESPN = 2002          # hoopR season = year the season ENDS (2002 = 2001-02)
 SBRO_SEASONS = range(2007, 2022)   # season start years 2007-08 .. 2021-22
-PLAYER_GAME_FROM = 2024    # per-game player file: 2024-25 onward
+# per-game player file: the last two completed seasons + the one in progress (see players())
 
 # franchise codes = current NBA abbreviations; relocations follow official lineage
 FRANCHISE = {
@@ -86,10 +86,26 @@ def download(raw: Path) -> None:
             fetch(URL_TEAMBOX.format(y=y), raw / "hoopr" / "team_box" / f"team_box_{y}.parquet")
             fetch(URL_PLAYERBOX.format(y=y), raw / "hoopr" / "player_box" / f"player_box_{y}.parquet")
         except Exception:
-            if y <= 2026:
+            if y < espn_current_season():   # seasons that have finished must exist
                 raise
+            print(f"  hoopR box scores for ESPN season {y} not published yet; stopping at {y - 1}")
             break
         y += 1
+
+
+def espn_current_season() -> int:
+    """hoopR/ESPN season number (the year the season ENDS) of the season in progress or most
+    recently started; NBA seasons tip off in October."""
+    return season_start_year(10) + 1
+
+
+def current_files(raw: Path) -> list[Path]:
+    """Raw files that change as the current season is played (re-downloaded by the hourly refresh)."""
+    y = espn_current_season()
+    return [raw / "hoopr" / "nba_schedule_master.csv",
+            raw / "hoopr" / "betting_lines" / "closing_lines_odds_api.parquet",
+            raw / "hoopr" / "team_box" / f"team_box_{y}.parquet",
+            raw / "hoopr" / "player_box" / f"player_box_{y}.parquet"]
 
 
 # ---------------------------------------------------------------- games
@@ -124,9 +140,13 @@ def games_espn(raw: Path, notes: list) -> pd.DataFrame:
     pre = s["season_type"].isin([1, 4]) | ~s["season_type"].isin([2, 3, 5])
     unplayed = ~s["status_type_completed"].fillna(False).astype(bool) | s["home_score"].isna() | s["away_score"].isna()
     keep = ~not_nba & ~pre & ~unplayed
+    fut = sorted(int(y) for y in s.loc[unplayed & ~not_nba & ~pre, "season"].unique()
+                 if y > s.loc[keep, "season"].max())
+    unplayed_note = (" (including the unplayed " + ", ".join(f"{y - 1}-{str(y)[-2:]}" for y in fut) + " schedule)"
+                     if fut else "")
     notes.append(f"2001-02 onward (ESPN via hoopR): {n0:,} schedule rows; dropped {int(not_nba.sum()):,} all-star/exhibition "
                  f"or TBD rows, {int((pre & ~not_nba).sum()):,} preseason rows, {int((unplayed & ~not_nba & ~pre).sum()):,} "
-                 "unplayed or postponed rows (including the unplayed 2026-27 schedule).")
+                 "unplayed or postponed rows" + unplayed_note + ".")
     s = s[keep].copy()
     cup_final = (s["season_type"] == 2) & s["notes_headline"].fillna("").str.contains(
         r"(?:NBA Cup|In-Season Tournament).*Championship", regex=True)
@@ -327,7 +347,10 @@ def players(raw: Path, panel_games: pd.DataFrame, notes: list):
     stats = list(PCOLS.values())
     games_cols = ["game_id", "date", "season", "game_type", "player_id", "player", "team", "opponent", "home_away",
                   "position", "starter", *stats]
-    pg = p[p["season"] >= PLAYER_GAME_FROM][games_cols].sort_values(["date", "game_id", "team", "player"])
+    last = int(p["season"].max())
+    last_done = (p.loc[p["season"] == last, "game_type"] == "playoff").any()
+    player_game_from = last - 1 if last_done else last - 2
+    pg = p[p["season"] >= player_game_from][games_cols].sort_values(["date", "game_id", "team", "player"])
     ps = (p.groupby(["season", "game_type", "player_id", "player", "team"], as_index=False)
           .agg(games=("game_id", "nunique"), starts=("starter", "sum"), **{c: (c, "sum") for c in stats}))
     ps["position"] = p.groupby("player_id")["position"].agg(lambda v: v.mode().iat[0] if v.notna().any() else "").reindex(ps["player_id"]).values

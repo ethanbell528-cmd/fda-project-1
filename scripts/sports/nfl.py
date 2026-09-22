@@ -17,7 +17,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from common import fetch, to_panel
+from common import fetch, fetch_optional, season_start_year, to_panel
 
 GAMES_URL = "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.csv"
 SPREADSPOKE_URL = ("https://raw.githubusercontent.com/RussellHerzog/nfl_game_outcomes/"
@@ -28,7 +28,6 @@ PLAYER_URL = ("https://github.com/nflverse/nflverse-data/releases/download/"
 FIRST_SEASON = 1990
 SPREADSPOKE_LAST = 1998          # nflverse takes over from 1999
 PLAYER_FIRST = 1999
-LAST_PLAYER_SEASON = 2026        # current season; files for later years don't exist yet
 RECENT_PLAYER_SEASONS = 3        # per-game file keeps the last 3 seasons (2 completed + current)
 
 # spreadspoke full names -> current nflverse franchise abbreviations
@@ -56,11 +55,27 @@ FAV_ID_FIX = {"LAR": "LA"}
 NFLVERSE_FIX = {"OAK": "LV", "SD": "LAC", "STL": "LA"}
 
 
+def current_season() -> int:
+    """NFL season in progress or most recently started (regular season opens in September)."""
+    return season_start_year(9)
+
+
 def download(raw_dir: Path) -> None:
     fetch(GAMES_URL, raw_dir / "nflverse_games.csv")
     fetch(SPREADSPOKE_URL, raw_dir / "spreadspoke_RussellHerzog_nfl_game_outcomes.csv")
-    for y in range(PLAYER_FIRST, LAST_PLAYER_SEASON + 1):
-        fetch(PLAYER_URL.format(y=y), raw_dir / "stats_player_week" / f"stats_player_week_{y}.csv")
+    for y in range(PLAYER_FIRST, current_season() + 1):
+        dest = raw_dir / "stats_player_week" / f"stats_player_week_{y}.csv"
+        if y < current_season():
+            fetch(PLAYER_URL.format(y=y), dest)
+        else:  # the newest season's file appears once week 1 is played
+            fetch_optional(PLAYER_URL.format(y=y), dest)
+
+
+def current_files(raw_dir: Path) -> list[Path]:
+    """Raw files that change while the current season is played (re-downloaded by the hourly refresh)."""
+    y = current_season()
+    return [raw_dir / "nflverse_games.csv",
+            raw_dir / "stats_player_week" / f"stats_player_week_{y}.csv"]
 
 
 def _spreadspoke(raw_dir: Path, notes: list) -> pd.DataFrame:
@@ -107,7 +122,8 @@ def _nflverse(raw_dir: Path, notes: list) -> pd.DataFrame:
     n = pd.read_csv(raw_dir / "nflverse_games.csv")
     n = n[n["season"] > SPREADSPOKE_LAST]
     unplayed = n["home_score"].isna() | n["away_score"].isna()
-    notes.append(f"Excluded {int(unplayed.sum())} scheduled 2026 nflverse games that have not been played yet "
+    unplayed_yrs = "/".join(str(int(y)) for y in sorted(n.loc[unplayed, "season"].unique()))
+    notes.append(f"Excluded {int(unplayed.sum())} scheduled {unplayed_yrs} nflverse games that have not been played yet "
                  f"(no final score as of the download).")
     n = n[~unplayed].copy()
     # Sign check: nflverse spread_line > 0 means the HOME team is favored (home moneyline negative).
@@ -146,9 +162,9 @@ def _players(raw_dir: Path, games: pd.DataFrame, notes: list):
         "receptions": "rec", "receiving_yards": "rec_yds", "receiving_tds": "rec_td",
     }
     frames = []
-    for y in range(PLAYER_FIRST, LAST_PLAYER_SEASON + 1):
-        f = raw_dir / "stats_player_week" / f"stats_player_week_{y}.csv"
-        if not f.exists():
+    files = sorted((raw_dir / "stats_player_week").glob("stats_player_week_*.csv"))
+    for f in files:
+        if int(f.stem.rsplit("_", 1)[1]) < PLAYER_FIRST:
             continue
         d = pd.read_csv(f, low_memory=False,
                         usecols=["player_id", "player_display_name", "position", "season", "week",

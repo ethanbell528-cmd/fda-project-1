@@ -706,7 +706,8 @@ def player_spec(sport):
     if sport == "nhl":
         return [{"role": "skater", "filter": None, "usage": ["toi"], "stats": ["goals", "assists", "points"], "top": 3}]
     if sport == "epl":
-        return [{"role": "all", "filter": None, "usage": ["minutes"], "stats": ["goals", "assists"], "top": 3}]
+        return [{"role": "outfield", "filter": ("position", ["DEF", "MID", "FWD"]), "usage": ["minutes"],
+                 "stats": ["goals", "assists"], "top": 4, "rank": ["goals", "assists"]}]
     if sport == "mlb":
         return [{"role": "batter", "filter": ("role", ["batter"]), "usage": ["pa"], "stats": ["h", "hr", "rbi", "sb"], "top": 4},
                 {"role": "pitcher", "filter": ("role", ["pitcher"]), "usage": ["ip_outs"], "stats": ["ip", "k_p", "er"],
@@ -717,6 +718,10 @@ def player_spec(sport):
 def load_players(sport):
     p = pd.read_csv(DATA / f"{sport}_players.csv", dtype={"game_id": str, "player_id": str}, low_memory=False)
     p["date"] = pd.to_datetime(p["date"])
+    if sport == "epl":
+        # FPL renumbers player ids every season (id 381 = Salah in 2025-26, Koumas in 2026-27),
+        # so players are tracked across seasons by name
+        p["player_id"] = p["player"]
     if sport == "mlb":
         p["ip"] = p["ip_outs"] / 3.0
         if "gs" in p:  # pitchers: project per start only
@@ -747,6 +752,13 @@ def project_players(sport):
     ref = int(p["season"].max())
     base = p[p["season"].isin([ref, ref - 1])]
     latest_team = base.sort_values("date").groupby("player_id").tail(1).set_index("player_id")
+    # each team's last RECENT_N games in the base window (every game the team has player rows for)
+    tg = base[["team", "date", "game_id"]].drop_duplicates().sort_values(["date", "game_id"])
+    team_last = {t: set(d["game_id"].tail(RECENT_N)) for t, d in tg.groupby("team")}
+    # each team's own latest season: on a new season's opening night a team that hasn't played
+    # yet still gets its players from last season instead of an empty list
+    team_ref = base.groupby("team")["season"].max()
+    team_ref_games = base[base["season"] == base["team"].map(team_ref)].groupby("team")["game_id"].nunique()
     out = {}
     for spec in player_spec(sport):
         sub = base
@@ -755,30 +767,42 @@ def project_players(sport):
             sub = sub[sub[col].isin(vals)]
         for pid, hist in sub.groupby("player_id"):
             lt = latest_team.loc[pid]
-            if int(lt["season"]) != ref:
-                continue  # not active in the reference season
             team = lt["team"]
+            if int(lt["season"]) != int(team_ref[team]):
+                continue  # not active in his team's latest season
+
             res = blend(hist, spec["stats"], spec["usage"], k)
             if res is None:
                 continue
             proj, n, w, u = res
-            if spec.get("min_starts") and (hist["season"] == ref).sum() < spec["min_starts"]:
-                continue
+            if spec.get("min_starts"):
+                # starts this season; early in a season (< RECENT_N team games) the whole base window counts
+                win = hist if team_ref_games.get(team, 0) < RECENT_N else hist[hist["season"] == team_ref[team]]
+                if len(win) < spec["min_starts"]:
+                    continue
             usage_recent = hist.tail(RECENT_N)[spec["usage"]].sum(axis=1).mean()
+            # featured-player ranking: TOTAL usage in the team's last RECENT_N games, so a one-game
+            # backup or a player who missed games ranks below the regular starter
+            in_last = hist[(hist["team"] == team) & hist["game_id"].isin(team_last.get(team, set()))]
+            usage_team = float(in_last[spec["usage"]].sum(axis=1).sum())
+            rank = (float(hist[spec["rank"]].sum(axis=1).sum()) if spec.get("rank") else usage_team, usage_team)
             entry = {"id": str(pid), "player": str(lt["player"]),
                      "position": str(lt["position"]) if "position" in lt and pd.notna(lt["position"]) else spec["role"],
                      "role": spec["role"], "games_last": int(n), "w": round(w, 4), "usage_adj": round(u, 4),
                      "usage_recent": round(float(usage_recent), 3),
-                     "stats": {s: round(float(v), 3) for s, v in proj.items()}}
+                     "usage_team_last": round(usage_team, 3),
+                     "stats": {s: round(float(v), 3) for s, v in proj.items()},
+                     "_rank": rank}
             out.setdefault(team, []).append(entry)
     # keep the top-usage players per role
     final = {}
     for team, lst in out.items():
         keep = []
         for spec in player_spec(sport):
-            cand = sorted([e for e in lst if e["role"] == spec["role"]], key=lambda e: -e["usage_recent"])
+            cand = sorted([e for e in lst if e["role"] == spec["role"]],
+                          key=lambda e: (-e["_rank"][0], -e["_rank"][1], -e["usage_recent"], e["player"]))
             keep += cand if spec["top"] is None else cand[: spec["top"]]
-        final[team] = keep
+        final[team] = [{k: v for k, v in e.items() if k != "_rank"} for e in keep]
     extra = {}
     if sport == "nhl":
         extra = goalie_projections(ref)
@@ -793,9 +817,16 @@ def goalie_projections(ref):
     g = g[(g["started"] == 1) & g["season"].isin([ref, ref - 1]) & (g["shots_against"] > 0)].sort_values("date")
     out = {}
     last = g.groupby("goalie_id").tail(1).set_index("goalie_id")
+    tg = g[["team", "date", "game_id"]].drop_duplicates().sort_values(["date", "game_id"])
+    team_last = {t: set(d["game_id"].tail(RECENT_N)) for t, d in tg.groupby("team")}
+    team_ref = g.groupby("team")["season"].max()
+    team_ref_games = g[g["season"] == g["team"].map(team_ref)].groupby("team")["game_id"].nunique()
     for gid, hist in g.groupby("goalie_id"):
         lt = last.loc[gid]
-        if int(lt["season"]) != ref or (hist["season"] == ref).sum() < 3:
+        t_ref = int(team_ref[lt["team"]])
+        # 3+ starts in the team's latest season (early in a season, over the whole base window)
+        win = hist if team_ref_games.get(lt["team"], 0) < RECENT_N else hist[hist["season"] == t_ref]
+        if int(lt["season"]) != t_ref or len(win) < 3:
             continue
         L = hist.tail(RECENT_N)
         n = len(L)
@@ -805,9 +836,10 @@ def goalie_projections(ref):
         out.setdefault(lt["team"], []).append({
             "id": str(gid), "player": str(lt["goalie"]), "position": "G", "role": "goalie", "games_last": int(n),
             "w": round(w, 4), "usage_adj": 1.0, "usage_recent": float((hist["season"] == ref).sum()),
+            "usage_team_last": float(((hist["team"] == lt["team"]) & hist["game_id"].isin(team_last.get(lt["team"], set()))).sum()),
             "stats": {"save_pct": round(float(w * svL + (1 - w) * svS), 4)}})
-    for t in out:
-        out[t] = sorted(out[t], key=lambda e: -e["usage_recent"])[:2]
+    for t in out:  # starts in the team's last RECENT_N games, then starts this season
+        out[t] = sorted(out[t], key=lambda e: (-e["usage_team_last"], -e["usage_recent"], e["player"]))[:2]
     return out
 
 
@@ -960,13 +992,15 @@ def train(sport):
     # ---- export model json ----
     next_season = in_prog if in_prog is not None else completed[-1] + 1
     names = TEAM_NAMES.get(sport, {})
-    active = set(g.loc[g["season"] >= (in_prog if in_prog else completed[-1]), "home"]) | \
-        set(g.loc[g["season"] >= (in_prog if in_prog else completed[-1]), "away"])
+    # active = every team of the last completed season plus any team seen in the season in progress,
+    # so on a new season's opening night teams that haven't played yet keep their (regressed) rating
+    recent_seasons = g["season"] >= completed[-1]
+    active = set(g.loc[recent_seasons, "home"]) | set(g.loc[recent_seasons, "away"])
     teams = export_state(sport, st, next_season, elo_c["season_regression"], names)
     teams = {t: v for t, v in teams.items() if t in active}
     players, ref_season = project_players(sport)
     model = {
-        "sport": sport, "version": 1, "trained_at": date.today().isoformat(),
+        "sport": sport, "version": 1, "trained_at": g["date"].max().isoformat(),
         "spans": {"first_season": int(g["season"].min()), "train": f"{first_train}-{hold_start - 1}",
                   "holdout": f"{holdout[0]}-{holdout[-1]}", "in_progress_season": in_prog,
                   "state_through": g["date"].max().isoformat(), "next_season": int(next_season)},
@@ -989,7 +1023,16 @@ def train(sport):
                            "clipped to [0.5, 1.5]; usage = " + ", ".join(
                                f"{s['role']}: {'+'.join(s['usage'])}" for s in player_spec(sport))
                            + (". Goalie save % = w * saves/shots over the last n starts + (1 - w) * saves/shots over the base window."
-                              if sport == "nhl" else "")),
+                              if sport == "nhl" else "")
+                           + ". Featured players per team: " + "; ".join(
+                               f"{s['role']}: top {s['top'] or 'all'}"
+                               + (f" ({'/'.join(s['filter'][1])})" if s["filter"] and s["filter"][0] == "position" else "")
+                               + (f" by {'+'.join(s['rank'])} over the base window" if s.get("rank")
+                                  else f" by total {'+'.join(s['usage'])} over the team's last {RECENT_N} games")
+                               for s in player_spec(sport))
+                           + (f"; goalies: top 2 by starts in the team's last {RECENT_N} games" if sport == "nhl" else "")
+                           + (" (MLB pitchers: every pitcher with 3+ starts this season)" if sport == "mlb" else "")
+                           + "."),
     }
     if sport == "mlb":
         recent_cut = day_num(date(int(next_season) - 1, 1, 1))
@@ -1034,7 +1077,7 @@ def train(sport):
     worst = max(abs(skl["pH"][n] - parity[n]["expected"]["pH"]) for n in range(len(samp)))
 
     backtest = {
-        "sport": sport, "generated_at": date.today().isoformat(),
+        "sport": sport, "generated_at": g["date"].max().isoformat(),  # latest game date: reruns on the same data give identical files
         "edge_threshold": EDGE_THRESHOLD,
         "train_seasons": f"{first_train}-{hold_start - 1}", "train_games": fit.n_train,
         "holdout": hold_eval,

@@ -10,13 +10,12 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from common import fetch, to_panel
+from common import fetch, fetch_optional, season_start_year, to_panel
 
 FD_URL = "https://www.football-data.co.uk/mmz4281/{code}/E0.csv"
 FPL_URL = "https://raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data"
-FIRST, LAST = 1993, 2026          # season start years available today (2026-09-22)
+FIRST = 1993                      # first season start year; the last one comes from the date / raw files
 FPL_FIRST = 2016
-PLAYER_GAME_SEASONS = (2024, 2025, 2026)
 MASTER_LIST_LAST = 2023           # master_team_list.csv covers 2016-17..2023-24
 NO_POSITION_LAST = 2019           # merged_gw lacks `position` for 2016-17..2019-20
 
@@ -43,17 +42,42 @@ def fpl_label(season: int) -> str:
     return f"{season}-{(season + 1) % 100:02d}"
 
 
+def current_season() -> int:
+    """Premier League season in progress or most recently started (kicks off in August)."""
+    return season_start_year(8)
+
+
+def last_season(raw_dir: Path) -> int:
+    """Newest season whose football-data file is on disk (clean() depends only on raw files)."""
+    seasons = []
+    for f in (raw_dir / "football-data").glob("E0_*.csv"):
+        yy = int(f.stem[3:5])
+        seasons.append(1900 + yy if yy >= 90 else 2000 + yy)
+    return max(seasons)
+
+
 def download(raw_dir: Path) -> None:
-    for s in range(FIRST, LAST + 1):
-        fetch(FD_URL.format(code=code(s)), raw_dir / "football-data" / f"E0_{code(s)}.csv")
+    cur = current_season()
+    for s in range(FIRST, cur + 1):
+        get = fetch if s < cur else fetch_optional   # a new season's file appears after matchday 1
+        get(FD_URL.format(code=code(s)), raw_dir / "football-data" / f"E0_{code(s)}.csv")
     fetch(f"{FPL_URL}/master_team_list.csv", raw_dir / "fpl" / "master_team_list.csv")
-    for s in range(FPL_FIRST, LAST + 1):
+    for s in range(FPL_FIRST, cur + 1):
         lab = fpl_label(s)
-        fetch(f"{FPL_URL}/{lab}/gws/merged_gw.csv", raw_dir / "fpl" / f"merged_gw_{lab}.csv")
+        get = fetch if s < cur else fetch_optional
+        get(f"{FPL_URL}/{lab}/gws/merged_gw.csv", raw_dir / "fpl" / f"merged_gw_{lab}.csv")
         if s > MASTER_LIST_LAST:
-            fetch(f"{FPL_URL}/{lab}/teams.csv", raw_dir / "fpl" / f"teams_{lab}.csv")
+            get(f"{FPL_URL}/{lab}/teams.csv", raw_dir / "fpl" / f"teams_{lab}.csv")
         if s <= NO_POSITION_LAST:  # merged_gw has no position column; take it from players_raw
             fetch(f"{FPL_URL}/{lab}/players_raw.csv", raw_dir / "fpl" / f"players_raw_{lab}.csv")
+
+
+def current_files(raw_dir: Path) -> list[Path]:
+    """Raw files that change as the current season is played (re-downloaded by the hourly refresh)."""
+    lab = fpl_label(current_season())
+    return [raw_dir / "football-data" / f"E0_{code(current_season())}.csv",
+            raw_dir / "fpl" / f"merged_gw_{lab}.csv",
+            raw_dir / "fpl" / f"teams_{lab}.csv"]
 
 
 # ---------------------------------------------------------------- matches
@@ -118,7 +142,7 @@ def has_ou(df):
 
 def load_matches(raw_dir: Path, notes: list):
     frames, odds_src, ah_src, ou_src = [], {}, {}, {}
-    for s in range(FIRST, LAST + 1):
+    for s in range(FIRST, last_season(raw_dir) + 1):
         df = read_fd(raw_dir / "football-data" / f"E0_{code(s)}.csv")
         n0 = len(df)
         df["date"] = pd.to_datetime(df["Date"], dayfirst=True, format="mixed")
@@ -183,8 +207,10 @@ def fpl_team_names(raw_dir: Path, season: int) -> dict:
 def load_players(raw_dir: Path, games: pd.DataFrame, notes: list):
     pos_map = {"GK": "GK", "GKP": "GK", "DEF": "DEF", "MID": "MID", "FWD": "FWD", "AM": "MID"}
     frames = []
-    for s in range(FPL_FIRST, LAST + 1):
+    for s in range(FPL_FIRST, last_season(raw_dir) + 1):
         lab = fpl_label(s)
+        if not (raw_dir / "fpl" / f"merged_gw_{lab}.csv").exists():
+            continue  # FPL archive not published yet for this season
         p = read_any(raw_dir / "fpl" / f"merged_gw_{lab}.csv")
         names = fpl_team_names(raw_dir, s)
         teams_in_season = set(games.loc[games["season"] == s, "home"])
@@ -242,9 +268,13 @@ def clean(raw_dir: Path) -> dict:
     g, odds_src, ah_src, ou_src = load_matches(raw_dir, notes)
 
     per = g.groupby("season").size()
-    notes.append("Matches per season: 462 in 1993-94 and 1994-95 (22 clubs), 380 from 1995-96 to 2025-26 "
-                 f"(20 clubs); 2026-27 is in progress with {int(per.get(LAST, 0))} matches played by the download date."
-                 if (per.loc[1993:1994] == 462).all() and (per.loc[1995:2025] == 380).all()
+    LAST = int(per.index.max())
+    complete = int(per.get(LAST, 0)) >= 380
+    done = LAST if complete else LAST - 1
+    notes.append(f"Matches per season: 462 in 1993-94 and 1994-95 (22 clubs), 380 from 1995-96 to {fpl_label(done)} "
+                 + ("(20 clubs)." if complete else
+                    f"(20 clubs); {fpl_label(LAST)} is in progress with {int(per.get(LAST, 0))} matches played by the download date.")
+                 if (per.loc[1993:1994] == 462).all() and (per.loc[1995:done] == 380).all()
                  else f"Matches per season: {per.to_dict()}")
     notes.append("All Premier League matches are regular-season (no playoffs) and played at the home club's ground; "
                  "team codes are football-data.co.uk club names, which are stable across seasons (no relocations).")
@@ -294,9 +324,10 @@ def clean(raw_dir: Path) -> dict:
     notes.append("Player goals and assists come from Fantasy Premier League data (vaastav/Fantasy-Premier-League), "
                  "available from 2016-17; they follow FPL scoring rules, not official Opta records.")
     n26 = players_all[players_all["season"] == LAST]
-    if len(n26):
-        notes.append(f"FPL data for 2026-27 is stale in the source repository: {n26['game_id'].nunique()} matches "
+    if len(n26) and n26["game_id"].nunique() < int(per.get(LAST, 0)):
+        notes.append(f"FPL data for {fpl_label(LAST)} is stale in the source repository: {n26['game_id'].nunique()} matches "
                      f"up to {n26['date'].max()} only.")
+    PLAYER_GAME_SEASONS = (LAST - 2, LAST - 1, LAST)   # two completed seasons + the current one
     players = players_all[players_all["season"].isin(PLAYER_GAME_SEASONS)].sort_values(["date", "game_id", "team", "player"])
     ps = (players_all[players_all["minutes"] > 0]
           .groupby(["season", "player_id", "player", "team"], as_index=False)

@@ -22,15 +22,18 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from common import fetch, get_json, to_panel
+import requests
 
-FIRST, LAST_RETRO, CURRENT = 1990, 2025, 2026
+from common import UA, fetch, fetch_optional, get_json, season_start_year, to_panel
+
+FIRST = 1990
+RETRO_BASE = 2025       # Retrosheet's newest season when this pipeline was written (newer ones are picked up)
 ODDS_YEARS = range(2010, 2022)
-PLAYER_GAME_SEASONS = (2024, 2025, 2026)
 RETRO_NOTICE = ("The information used here was obtained free of charge from and is copyrighted by "
                 "Retrosheet. Interested parties may contact Retrosheet at www.retrosheet.org.")
 
-GL_ZIP = "https://www.retrosheet.org/gamelogs/gl1871_2025.zip"
+GL_INDEX = "https://www.retrosheet.org/gamelogs/index.html"
+GL_ZIP = "https://www.retrosheet.org/gamelogs/gl1871_{y}.zip"
 CSV_ZIP = "https://www.retrosheet.org/downloads/{y}/{y}csvs.zip"
 SBR = "https://www.sportsbookreviewsonline.com/wp-content/uploads/sportsbookreviewsonline_com_737/mlb-odds-{y}.xlsx"
 SCHED = ("https://statsapi.mlb.com/api/v1/schedule?sportId=1&season={y}"
@@ -67,31 +70,71 @@ GAMETYPES = {"regular", "wildcard", "divisionseries", "lcs", "worldseries"}
 
 
 # --------------------------------------------------------------------------- download
+def current_season() -> int:
+    """MLB season in progress or most recently started (opening day is in March)."""
+    return season_start_year(3)
+
+
+def _newest_gamelog_year() -> int:
+    """Newest season in Retrosheet's combined game-log zip (gl1871_YYYY.zip), read from its index page."""
+    try:
+        r = requests.get(GL_INDEX, headers=UA, timeout=60)
+        r.raise_for_status()
+        years = [int(y) for y in re.findall(r"gl1871_(\d{4})\.zip", r.text)]
+        return max(years) if years else RETRO_BASE
+    except requests.RequestException:
+        print("  Retrosheet index unreachable; keeping the game-log archive already on disk")
+        return RETRO_BASE
+
+
+def retro_last(raw: Path) -> int:
+    """Last season taken from Retrosheet: the newest local game-log archive, capped at the newest
+    season whose per-season CSV zip is also on disk. Later seasons come from the MLB Stats API.
+    Depends only on files in data/raw, so clean() is reproducible."""
+    zips = [int(f.stem.split("_")[1]) for f in (raw / "retrosheet").glob("gl1871_*.zip")]
+    y = max(zips) if zips else RETRO_BASE
+    while y > RETRO_BASE and not (raw / "retrosheet_csv" / f"{y}csvs.zip").exists():
+        y -= 1
+    return y
+
+
+def api_years(raw: Path) -> list[int]:
+    """Seasons after Retrosheet's coverage that have a saved Stats API schedule."""
+    last = retro_last(raw)
+    ys = [int(f.stem.split("_")[1]) for f in (raw / "statsapi").glob("schedule_*.json")]
+    return sorted(y for y in ys if y > last)
+
+
 def download(raw: Path) -> None:
-    gl = fetch(GL_ZIP, raw / "retrosheet" / "gl1871_2025.zip")
-    need = [f"gl{y}.txt" for y in range(FIRST, LAST_RETRO + 1)] + PLAYOFF_LOGS
-    if any(not (raw / "retrosheet" / n).exists() for n in need):
-        with zipfile.ZipFile(gl) as z:
-            for n in need:
-                z.extract(n, raw / "retrosheet")
-    for y in range(FIRST, LAST_RETRO + 1):
-        fetch(CSV_ZIP.format(y=y), raw / "retrosheet_csv" / f"{y}csvs.zip")
+    newest = max(_newest_gamelog_year(), RETRO_BASE)
+    fetch(GL_ZIP.format(y=newest), raw / "retrosheet" / f"gl1871_{newest}.zip")
+    for y in range(FIRST, newest + 1):
+        get = fetch if y <= RETRO_BASE else fetch_optional   # per-season CSVs can lag the game logs
+        get(CSV_ZIP.format(y=y), raw / "retrosheet_csv" / f"{y}csvs.zip")
     for y in ODDS_YEARS:
         fetch(SBR.format(y=y), raw / "odds_sbr" / f"mlb_odds_{y}.xlsx")
     for h in "0123456789abcdef":
         fetch(CHADWICK.format(h=h), raw / "chadwick" / f"people-{h}.csv")
-    sched = raw / "statsapi" / f"schedule_{CURRENT}.json"
-    fetch(SCHED.format(y=CURRENT), sched)
-    # one boxscore per final 2026 game, trimmed to the fields we use, cached gzipped
-    boxdir = raw / "statsapi" / f"boxscore_{CURRENT}"
-    boxdir.mkdir(parents=True, exist_ok=True)
-    for g in _schedule_games(sched):
-        dest = boxdir / f"{g['gamePk']}.json.gz"
-        if dest.exists():
-            continue
-        d = get_json(BOX.format(pk=g["gamePk"]))
-        dest.write_bytes(gzip.compress(json.dumps(_trim_box(d)).encode()))
-        time.sleep(0.2)
+    for y in range(retro_last(raw) + 1, current_season() + 1):
+        sched = raw / "statsapi" / f"schedule_{y}.json"
+        fetch(SCHED.format(y=y), sched)
+        # one boxscore per final game, trimmed to the fields we use, cached gzipped (never refetched)
+        boxdir = raw / "statsapi" / f"boxscore_{y}"
+        boxdir.mkdir(parents=True, exist_ok=True)
+        for g in _schedule_games(sched):
+            dest = boxdir / f"{g['gamePk']}.json.gz"
+            if dest.exists():
+                continue
+            d = get_json(BOX.format(pk=g["gamePk"]))
+            dest.write_bytes(gzip.compress(json.dumps(_trim_box(d)).encode()))
+            time.sleep(0.2)
+
+
+def current_files(raw: Path) -> list[Path]:
+    """Raw files that change as the current season is played (re-downloaded by the hourly refresh). The
+    per-game boxscore cache is incremental: only games that finished since the last run are fetched."""
+    y = current_season()
+    return [raw / "statsapi" / f"schedule_{y}.json"] if y > retro_last(raw) else []
 
 
 def _schedule_games(path: Path) -> list[dict]:
@@ -124,8 +167,9 @@ def _innings(line: str) -> int:
     return len(re.findall(r"\(\d+\)|[0-9xX]", str(line))) if isinstance(line, str) else 0
 
 
-def _read_gamelog(path: Path, game_type: str) -> pd.DataFrame:
-    g = pd.read_csv(path, header=None, dtype=str, keep_default_na=False)
+def _read_gamelog(z: zipfile.ZipFile, name: str, game_type: str) -> pd.DataFrame:
+    with z.open(name) as f:  # read straight from the archive (same bytes as the extracted file)
+        g = pd.read_csv(f, header=None, dtype=str, keep_default_na=False)
     g = g[g[0].str[:4].astype(int) >= FIRST]
     out = pd.DataFrame({
         "date": pd.to_datetime(g[0], format="%Y%m%d"),
@@ -163,9 +207,11 @@ def clean(raw: Path) -> dict:
     notes, spans = [RETRO_NOTICE], {}
     games, gi_innings = _retro_games(raw, notes)
     cur, cur_starters, cur_players = _current_season(raw, notes)
-    notes.append(f"{CURRENT} games come from the MLB Stats API (final/official games through the "
-                 f"download date; last game {cur['date'].max().date()}). Retrosheet does not yet cover {CURRENT}.")
-    allg = pd.concat([games, cur], ignore_index=True)
+    if len(cur):
+        yrs = "–".join(dict.fromkeys(str(y) for y in (cur["date"].dt.year.min(), cur["date"].dt.year.max())))
+        notes.append(f"{yrs} games come from the MLB Stats API (final/official games through the "
+                     f"download date; last game {cur['date'].max().date()}). Retrosheet does not yet cover {yrs}.")
+    allg = pd.concat([games, cur], ignore_index=True) if len(cur) else games.copy()
 
     # neutral site = the listed home team played fewer than 5 games at that park that season
     # (Tokyo/London/Mexico City series, Field of Dreams, Little League Classic, one-off relocated
@@ -188,6 +234,8 @@ def clean(raw: Path) -> dict:
     print(f"  run-line favorites (-1.5) cover {100 * (fav.line_result == 'cover').mean():.1f}% of {len(fav):,}")
     print(f"  totals: over {100 * (panel.ou_result == 'over').sum() / (panel.ou_result != '').sum():.1f}% of priced games")
 
+    CURRENT = int(allg["season"].max())
+    PLAYER_GAME_SEASONS = (CURRENT - 2, CURRENT - 1, CURRENT)   # two completed seasons + the newest
     spans.update({
         "scores": f"{FIRST}–{CURRENT}",
         "moneyline": "2010–2021",
@@ -203,20 +251,21 @@ def clean(raw: Path) -> dict:
                       "starter_id": games["home_sp_id"], "starter_name": games["home_sp"]}),
         pd.DataFrame({"game_id": games["game_id"], "team": games["away"],
                       "starter_id": games["away_sp_id"], "starter_name": games["away_sp"]}),
-        _map_starters(cur_starters, raw),
+        _map_starters(cur_starters, raw) if len(cur_starters) else None,
     ], ignore_index=True)
     starters = starters[starters["game_id"].isin(panel["game_id"])]
 
-    players, seasons = _players(raw, panel, cur_players, notes)
+    players, seasons = _players(raw, panel, cur_players, notes, PLAYER_GAME_SEASONS, CURRENT)
     return {"games": panel, "players": players, "player_seasons": seasons,
             "extras": {"starters": starters.sort_values(["game_id", "team"]).reset_index(drop=True)},
             "notes": notes, "spans": spans}
 
 
 def _retro_games(raw: Path, notes: list) -> tuple[pd.DataFrame, None]:
-    rs = raw / "retrosheet"
-    reg = pd.concat([_read_gamelog(rs / f"gl{y}.txt", "regular") for y in range(FIRST, LAST_RETRO + 1)])
-    post = pd.concat([_read_gamelog(rs / f, "playoff") for f in PLAYOFF_LOGS])
+    last = retro_last(raw)
+    with zipfile.ZipFile(raw / "retrosheet" / f"gl1871_{last}.zip") as z:
+        reg = pd.concat([_read_gamelog(z, f"gl{y}.txt", "regular") for y in range(FIRST, last + 1)])
+        post = pd.concat([_read_gamelog(z, f, "playoff") for f in PLAYOFF_LOGS])
     g = pd.concat([reg, post], ignore_index=True)
     n0 = len(g)
     g = g.dropna(subset=["home_score", "away_score"])
@@ -224,7 +273,7 @@ def _retro_games(raw: Path, notes: list) -> tuple[pd.DataFrame, None]:
         notes.append(f"Dropped {n0 - len(g)} Retrosheet games with no final score.")
     # scheduled innings (7 for 2020-21 doubleheaders) from Retrosheet gameinfo
     sched = []
-    for y in range(FIRST, LAST_RETRO + 1):
+    for y in range(FIRST, last + 1):
         gi = _zip_csv(raw / "retrosheet_csv" / f"{y}csvs.zip", "gameinfo.csv", usecols=["gid", "innings"])
         sched.append(gi)
     sched = pd.concat(sched).drop_duplicates("gid").set_index("gid")["innings"]
@@ -241,15 +290,26 @@ def _retro_games(raw: Path, notes: list) -> tuple[pd.DataFrame, None]:
     notes.append("Team codes are current franchise codes: Montreal Expos (MON) -> WSH, Florida Marlins (FLO) -> MIA, "
                  "California/Anaheim Angels (CAL/ANA) -> LAA, Tampa Bay Devil Rays -> TB, Oakland Athletics (OAK) -> ATH, "
                  "Cleveland Indians -> CLE.")
-    notes.append(f"Retrosheet {FIRST}–{LAST_RETRO}: {int((g.game_type == 'regular').sum()):,} regular-season and "
+    notes.append(f"Retrosheet {FIRST}–{last}: {int((g.game_type == 'regular').sum()):,} regular-season and "
                  f"{int((g.game_type == 'playoff').sum()):,} postseason games. All-Star games excluded.")
     return g, None
 
 
 def _current_season(raw: Path, notes: list):
+    """Every season after Retrosheet's coverage, from saved Stats API schedules + boxscores."""
+    rows, starters, prow = [], [], []
+    for year in api_years(raw):
+        _api_season(raw, year, notes, rows, starters, prow)
+    cur = pd.DataFrame(rows, columns=["game_id", "date", "home", "away", "home_score", "away_score",
+                                      "game_type", "decided_in", "park"])
+    starters = pd.DataFrame(starters, columns=["game_id", "team", "mlbam", "starter_name"])
+    return cur, starters, pd.DataFrame(prow)
+
+
+def _api_season(raw: Path, CURRENT: int, notes: list, rows: list, starters: list, prow: list):
     sched_games = _schedule_games(raw / "statsapi" / f"schedule_{CURRENT}.json")
     boxdir = raw / "statsapi" / f"boxscore_{CURRENT}"
-    rows, starters, prow = [], [], []
+    n_rows, gids_started = len(rows), set()
     for sg in sched_games:
         pk = sg["gamePk"]
         home_id, away_id = sg["teams"]["home"]["team"]["id"], sg["teams"]["away"]["team"]["id"]
@@ -275,6 +335,7 @@ def _current_season(raw: Path, notes: list):
             if t["pitchers"]:
                 sp = t["players"][f"ID{t['pitchers'][0]}"]
                 starters.append({"game_id": gid, "team": team, "mlbam": sp["id"], "starter_name": sp["name"]})
+                gids_started.add(gid)
             for key, p in t["players"].items():
                 b, pi = p["batting"], p["pitching"]
                 base = {"date": sg["officialDate"], "season": CURRENT, "game_id": gid, "mlbam_id": p["id"],
@@ -288,11 +349,9 @@ def _current_season(raw: Path, notes: list):
                     prow.append({**base, "role": "pitcher", "ip_outs": pi["outs"], "k_p": pi["strikeOuts"],
                                  "er": pi["earnedRuns"], "bf": pi["battersFaced"],
                                  "gs": int(pi.get("gamesStarted", 0) or 0)})
-    cur = pd.DataFrame(rows)
-    missing_box = len(cur) - len({s["game_id"] for s in starters})
+    missing_box = (len(rows) - n_rows) - len(gids_started)
     if missing_box:
         notes.append(f"{missing_box} {CURRENT} games have no cached boxscore; their player rows and starters are absent.")
-    return cur, pd.DataFrame(starters), pd.DataFrame(prow)
 
 
 def _read_sbr(path: Path, year: int) -> pd.DataFrame:
@@ -389,14 +448,15 @@ def _map_starters(cs: pd.DataFrame, raw: Path) -> pd.DataFrame:
                          "starter_name": cs["starter_name"]})
 
 
-def _players(raw: Path, panel: pd.DataFrame, cur: pd.DataFrame, notes: list):
+def _players(raw: Path, panel: pd.DataFrame, cur: pd.DataFrame, notes: list,
+             PLAYER_GAME_SEASONS: tuple, CURRENT: int):
     chad = _chadwick(raw)
     mlbam_to_retro = dict(zip(chad["key_mlbam"], chad["key_retro"]))
     retro_to_mlbam = dict(zip(chad["key_retro"], chad["key_mlbam"]))
     ha = panel.set_index(["game_id", "team"])["home_away"]
 
     names, bat_s, pit_s, games = {}, [], [], []
-    for y in range(FIRST, LAST_RETRO + 1):
+    for y in range(FIRST, retro_last(raw) + 1):
         z = raw / "retrosheet_csv" / f"{y}csvs.zip"
         ap = _zip_csv(z, "allplayers.csv", usecols=["id", "last", "first"], dtype=str)
         names.update(dict(zip(ap["id"], ap["first"].fillna("") + " " + ap["last"].fillna(""))))
@@ -427,13 +487,19 @@ def _players(raw: Path, panel: pd.DataFrame, cur: pd.DataFrame, notes: list):
                 d = d.assign(role=role, date=pd.to_datetime(d["date"].astype(str), format="%Y%m%d").dt.strftime("%Y-%m-%d"))
                 games.append(d.rename(columns={"gid": "game_id", "id": "player_id", "opp": "opponent"}))
 
-    # Stats API season (current) -> Retrosheet ids where the Chadwick register knows them
+    # Stats API season(s) -> Retrosheet ids where the Chadwick register knows them
+    if cur.empty:
+        cur = pd.DataFrame(columns=["date", "season", "game_id", "mlbam_id", "player", "team", "opponent",
+                                    "game_type", "role", "pa", "ab", "h", "hr", "rbi", "sb", "bb", "so",
+                                    "ip_outs", "k_p", "er", "bf", "gs"])
+    api_lab = "–".join(dict.fromkeys(str(int(y)) for y in (cur["season"].min(), cur["season"].max()))) if len(cur) else "Stats API"
     cur = cur.copy()
     cur["player_id"] = cur["mlbam_id"].map(mlbam_to_retro)
     unmapped = cur["player_id"].isna()
     cur.loc[unmapped, "player_id"] = "mlbam" + cur.loc[unmapped, "mlbam_id"].astype(str)
-    notes.append(f"Player ids are Retrosheet ids; {CURRENT} Stats API players are mapped via the Chadwick register "
-                 f"({int(unmapped.sum()):,} of {len(cur):,} {CURRENT} player-game rows unmapped, kept with id 'mlbam<id>').")
+    if len(cur):
+        notes.append(f"Player ids are Retrosheet ids; {api_lab} Stats API players are mapped via the Chadwick register "
+                     f"({int(unmapped.sum()):,} of {len(cur):,} {api_lab} player-game rows unmapped, kept with id 'mlbam<id>').")
     for _, r in cur.drop_duplicates("player_id").iterrows():
         names.setdefault(r["player_id"], r["player"])
     games.append(cur)

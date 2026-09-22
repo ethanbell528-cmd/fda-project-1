@@ -92,6 +92,20 @@ def download(raw: Path) -> None:
                                       f"and gameDate<\"{_next_month(m)}-01\"")})
 
 
+def current_files(raw: Path) -> list[Path]:
+    """Raw files that change as the latest season is played (re-downloaded by the hourly refresh): the game and
+    team lists plus every cached stats page of the newest season with a completed game. Seasons are
+    read from the NHL's own game list, so a new season is picked up as soon as its first game is final."""
+    files = [raw / "api_games.json", raw / "api_teams.json"]
+    if not (raw / "api_games.json").exists():
+        return files
+    s = _seasons(raw)[-1]
+    files += [raw / "goalie_games" / f"{s}.json", raw / "skater_seasons" / f"{s}.json",
+              raw / "goalie_seasons" / f"{s}.json"]
+    files += sorted((raw / "skater_games").glob(f"{s}_*.json"))
+    return files
+
+
 def _recent_seasons(raw: Path) -> list[int]:
     seasons = _seasons(raw)
     last = seasons[-1]
