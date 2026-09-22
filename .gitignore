@@ -1,0 +1,8 @@
+# raw downloads are rebuilt by scripts/download_data.py
+data/raw/
+.venv/
+__pycache__/
+*.pyc
+# live-odds API key: never commit
+config.js
+.DS_Store
