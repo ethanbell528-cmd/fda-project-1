@@ -23,7 +23,65 @@
   </nav>
 
   <main class="wrap" id="dashboard">
-    <!-- DASHBOARD CONTENT -->
+    <header class="dash-head">
+      <div class="eyebrow">Dashboard</div>
+      <h1>Explore every game since 1990</h1>
+      <p class="muted">Pick a sport, filter the games, and every number, chart and table below recalculates in your browser from the same CSV files the report uses.</p>
+    </header>
+
+    <div class="sport-tabs" role="tablist" aria-label="Sport" id="sport-tabs"></div>
+
+    <section class="card" id="live" aria-labelledby="live-title">
+      <div class="live-head">
+        <h2 id="live-title" style="margin:0;font-size:1.15rem">Games today: model vs. market</h2>
+        <span class="small muted" id="live-updated" aria-live="polite">Not loaded yet</span>
+      </div>
+      <p class="small muted" id="live-note" style="margin:4px 0 0"></p>
+      <div class="games" id="live-games"></div>
+      <div id="live-more"></div>
+    </section>
+
+    <h2 style="margin:32px 0 8px;font-size:1.3rem" id="hist-title">Historical games</h2>
+    <form class="filters" id="filters" aria-label="Filters" onsubmit="return false">
+      <label class="field">Season from<select id="f-from"></select></label>
+      <label class="field">Season to<select id="f-to"></select></label>
+      <label class="field">Team<select id="f-team"></select></label>
+      <label class="field">Opponent<select id="f-opp"></select></label>
+      <label class="field">Home / away<select id="f-ha">
+        <option value="">All</option><option value="H">Home</option><option value="A">Away</option><option value="N">Neutral site</option>
+      </select></label>
+      <label class="field">Game type<select id="f-type">
+        <option value="">All</option><option value="regular">Regular season</option><option value="playoff">Playoffs</option>
+      </select></label>
+      <label class="field">Result<select id="f-result"></select></label>
+      <button class="btn ghost" type="button" id="f-reset">Reset filters</button>
+    </form>
+
+    <div id="dash-body">
+      <p class="small muted" id="status" role="status" style="margin:10px 0 0"></p>
+      <div class="tiles" id="tiles"></div>
+
+      <div class="switches">
+        <div><span class="seg-label">Measure</span>
+          <span class="seg" id="sw-measure" role="group" aria-label="Measure"></span></div>
+        <div><span class="seg-label">Break down by</span>
+          <span class="seg" id="sw-break" role="group" aria-label="Breakdown"></span></div>
+      </div>
+
+      <div class="chart-grid">
+        <div class="card chart-card"><h3 id="c1-title"></h3><p class="caption" id="c1-cap"></p><div class="chart-box"><canvas id="c1" role="img"></canvas></div></div>
+        <div class="card chart-card"><h3 id="c2-title"></h3><p class="caption" id="c2-cap"></p><div class="chart-box"><canvas id="c2" role="img"></canvas></div></div>
+        <div class="card chart-card"><h3 id="c3-title"></h3><p class="caption" id="c3-cap"></p><div class="chart-box"><canvas id="c3" role="img"></canvas></div></div>
+        <div class="card chart-card"><h3 id="c4-title"></h3><p class="caption" id="c4-cap"></p><div class="chart-box"><canvas id="c4" role="img"></canvas></div></div>
+        <div class="card chart-card"><h3 id="c5-title"></h3><p class="caption" id="c5-cap"></p><div class="chart-box"><canvas id="c5" role="img"></canvas></div></div>
+      </div>
+
+      <section class="card" style="margin-top:12px" aria-labelledby="tbl-title">
+        <h3 id="tbl-title" style="margin:0 0 2px;font-size:0.95rem"></h3>
+        <p class="caption small muted" style="margin:0 0 10px">Every number in the tiles and charts above comes from these rows. Cover % and over % leave out pushes and games with no posted line; <em>n</em> is the number of team-games with a line.</p>
+        <div id="tbl" style="max-height:520px;overflow:auto"></div>
+      </section>
+    </div>
   </main>
 
   <footer>
