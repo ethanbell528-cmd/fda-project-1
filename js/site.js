@@ -177,3 +177,42 @@
     x.focus();
   };
 })();
+
+/* Large game pop-up: Site.showGame({ title, subtitle, node }). A separate <dialog> from the
+   player pop-up, so a player can be opened on top of an open game. */
+(function () {
+  "use strict";
+  let dlg = null;
+  window.Site.showGame = function (o) {
+    if (!dlg) {
+      dlg = document.createElement("dialog");
+      dlg.className = "player-dialog game-dialog";
+      dlg.setAttribute("aria-labelledby", "gd-title");
+      dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
+      document.body.appendChild(dlg);
+    }
+    dlg.textContent = "";
+    const box = document.createElement("div");
+    box.className = "pd-box";
+    const head = document.createElement("div");
+    head.className = "pd-head";
+    const titles = document.createElement("div");
+    const h = document.createElement("h2");
+    h.id = "gd-title";
+    h.textContent = o.title || "Game";
+    titles.appendChild(h);
+    if (o.subtitle) { const s = document.createElement("p"); s.className = "muted small"; s.textContent = o.subtitle; titles.appendChild(s); }
+    head.appendChild(titles);
+    const x = document.createElement("button");
+    x.type = "button";
+    x.className = "btn ghost pd-close";
+    x.textContent = "Close";
+    x.addEventListener("click", () => dlg.close());
+    head.appendChild(x);
+    box.appendChild(head);
+    if (o.node) box.appendChild(o.node);
+    dlg.appendChild(box);
+    if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
+    x.focus();
+  };
+})();

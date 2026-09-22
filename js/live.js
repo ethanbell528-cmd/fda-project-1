@@ -339,9 +339,9 @@
     return g.detail || (g.state === "in" ? "Live" : "Final");
   }
 
-  function cardFor(sport, g, ctx) {
+  function detailFor(sport, g, ctx) {
     const f = F();
-    const card = el("article", "game");
+    const card = el("div", "game game-detail");
     const st = el("div", "status" + (g.state === "in" ? " live" : ""), (g.state === "in" ? "● Live · " : g.state === "post" ? "Final · " : "") + statusText(g));
     if (g.state === "post") st.textContent = g.detail || "Final";
     card.appendChild(st);
@@ -429,18 +429,60 @@
     src.textContent = bits.join(" · ");
     card.appendChild(src);
 
-    // players (lazy)
-    const det = el("details", "small");
-    det.style.marginTop = "8px";
-    det.appendChild(el("summary", null, g.state === "pre" ? "Player projections" : "Player projections vs actual"));
-    const body = el("div");
-    det.appendChild(body);
-    det.addEventListener("toggle", function () {
-      if (det.open && !det.dataset.loaded) { det.dataset.loaded = "1"; renderPlayers(sport, g, ctx, body); }
+    // players: rendered when the game pop-up opens
+    const ph = el("h3", null, g.state === "pre" ? "Players: model vs market" : "Players: model vs market vs actual");
+    ph.style.margin = "14px 0 4px";
+    ph.style.fontSize = "1rem";
+    card.appendChild(ph);
+    const body = el("div", "small");
+    card.appendChild(body);
+    let loaded = false;
+    return { node: card, loadPlayers: () => { if (!loaded) { loaded = true; renderPlayers(sport, g, ctx, body); } } };
+  }
+
+  // Compact card on the page; clicking it opens the full game in a large pop-up.
+  function cardFor(sport, g, ctx) {
+    const f = F();
+    const card = el("article", "game game-compact");
+    card.tabIndex = 0;
+    card.setAttribute("role", "button");
+    card.setAttribute("aria-haspopup", "dialog");
+    card.setAttribute("aria-label", g.away.name + " at " + g.home.name + ": open the full game");
+    card.appendChild(el("div", "status" + (g.state === "in" ? " live" : ""), (g.state === "in" ? "● Live · " : "") + statusText(g)));
+    const teams = el("div", "teams");
+    [g.away, g.home].forEach((t, i) => {
+      teams.appendChild(el("span", null, t.name + (i === 1 ? (g.neutral ? " (neutral)" : " (home)") : "")));
+      teams.appendChild(el("span", "num", t.score == null || g.state === "pre" ? "–" : String(t.score)));
     });
-    card.appendChild(det);
-    // upcoming games: projections come straight from the model file (no request), so show them open
-    if (g.state === "pre") { det.open = true; det.dataset.loaded = "1"; renderPlayers(sport, g, ctx, body); }
+    card.appendChild(teams);
+    const pr = g.pred, imp = implied(sport, g.market), thr = ctx.threshold;
+    let line = "Model: n/a";
+    let edge = false;
+    if (pr && !pr.error && pr.pHome != null) {
+      if (sport === "epl") {
+        line = "Model: " + g.home.name + " " + f.pct(pr.pHome, 0) + " · draw " + f.pct(pr.pDraw, 0) + " · " + g.away.name + " " + f.pct(pr.pAway, 0);
+      } else {
+        const fav = pr.pHome >= pr.pAway ? ["home", g.home.name, pr.pHome] : ["away", g.away.name, pr.pAway];
+        line = "Model: " + fav[1] + " " + f.pct(fav[2], 0) + (imp && imp[fav[0]] != null ? " · market " + f.pct(imp[fav[0]], 0) : " · no market line yet");
+      }
+      if (imp && thr != null) edge = ["home", "away", "draw"].some((k) => { const pk = pr["p" + k[0].toUpperCase() + k.slice(1)]; return pk != null && imp[k] != null && pk - imp[k] > thr; });
+    }
+    const ml = el("div", "small", line);
+    ml.style.marginTop = "4px";
+    card.appendChild(ml);
+    if (edge) card.appendChild(el("span", "edge small", "model edge"));
+    card.appendChild(el("div", "open-hint", "Click for odds, model and players"));
+    const open = () => {
+      const d = detailFor(sport, g, ctx);
+      window.Site.showGame({
+        title: g.away.name + " at " + g.home.name,
+        subtitle: window.Site.SPORTS[sport].name + " · " + (g.state === "in" ? "Live · " : "") + statusText(g),
+        node: d.node,
+      });
+      d.loadPlayers();
+    };
+    card.addEventListener("click", open);
+    card.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
     return card;
   }
 
@@ -702,7 +744,7 @@
     };
     draw();
 
-    whenVisible(body, async () => {
+    (async () => { // the players only render inside the open game pop-up, so load the lines right away
       try {
         const [props, rA, rH] = await Promise.all([
           loadProps(sport, g.id),
@@ -725,7 +767,7 @@
         market = { error: e && e.status ? "HTTP " + e.status : "offline" };
       }
       draw();
-    });
+    })();
   }
 
   // ---------------- controller ----------------

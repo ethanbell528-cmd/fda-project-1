@@ -291,3 +291,15 @@ footer .disclaimer { max-width: 820px; }
   #proj-table td:first-child { min-width: 7rem; }
   #proj-table th, #proj-table td { padding: 6px 6px; }
 }
+
+/* compact game cards that open the full game in a large pop-up */
+.game-compact { cursor: pointer; transition: border-color 0.15s, background 0.15s; }
+.game-compact:hover, .game-compact:focus-visible { border-color: var(--accent); background: var(--surface-2); outline: none; }
+.game-compact .edge { display: inline-block; margin-top: 4px; }
+.open-hint { margin-top: 8px; font-size: 0.78rem; font-weight: 600; color: var(--accent); }
+.game-dialog { width: min(760px, calc(100vw - 24px)); }
+.game-dialog .game-detail { border: 0; padding: 0; background: transparent; }
+.game-dialog .game-detail .status { display: none; }
+.game-dialog .game-detail .teams { font-size: 1.3rem; }
+.game-dialog .game .compare th, .game-dialog .game .compare td { padding: 6px 8px; font-size: 0.9rem; }
+.game-dialog .player-btn { font-size: 0.9rem; padding: 6px 12px; }
