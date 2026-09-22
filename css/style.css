@@ -276,3 +276,18 @@ footer .disclaimer { max-width: 820px; }
 .player-btn .pos { color: var(--muted); font-weight: 500; margin-left: 4px; }
 .player-btn .badge { color: var(--muted); font-weight: 500; font-size: 0.75rem; margin-left: 6px; }
 .link-btn { font: inherit; font-weight: 600; background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; text-align: left; text-decoration: underline; text-underline-offset: 2px; }
+
+/* long names (EPL uses full legal names) wrap inside their box instead of spilling out */
+#proj-table td:first-child { white-space: normal; min-width: 8.5rem; max-width: 16rem; }
+.link-btn { overflow-wrap: anywhere; line-height: 1.3; }
+.player-list { min-width: 0; }
+.player-btn { max-width: 100%; white-space: normal; overflow-wrap: anywhere; line-height: 1.3; }
+.player-dialog td:first-child { white-space: normal; }
+.pd-head > div { min-width: 0; }
+.pd-head h2, .pd-head p { overflow-wrap: anywhere; }
+.game, .game .teams > * { min-width: 0; overflow-wrap: anywhere; }
+.game .compare th, .game .compare td { white-space: normal; }
+@media (max-width: 640px) {
+  #proj-table td:first-child { min-width: 7rem; }
+  #proj-table th, #proj-table td { padding: 6px 6px; }
+}
