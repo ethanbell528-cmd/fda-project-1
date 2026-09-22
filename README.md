@@ -9,6 +9,18 @@ Built by **Ethan Bell** for Financial Data Analytics (Data Website Project).
 
 > Educational project, not betting advice. Odds are displayed for comparison only. The site never places bets, has no sportsbook links, and only reads public data with HTTP GET.
 
+## What's on the site
+
+**Report (`index.html`).** A scrolling report covers the summary, six headline numbers and ten findings, each with a chart and its data table. It ends with a methodology section listing every source and formula.
+
+**Dashboard (`dashboard.html`).**
+- **Sport tabs** for NFL, NBA, MLB, NHL and EPL load that sport's data file on demand.
+- **Filters** cover season range, team, opponent, home/away, game type and result, with a reset button.
+- **Six summary tiles and five charts** recalculate with the filters. A measure switch and a breakdown switch change what the charts show. A table lists the numbers behind the current view.
+- **Games today: model vs. market.** Each game is a compact card with the score, the model's pick and the market odds. Click a card to open the full game in a large pop-up. It shows model win % against the market's no-vig odds, moneylines and fair odds, the model and market spread, and the total. Live games show in-game odds, labeled "(live)". The panel refreshes every 60 seconds.
+- **Player pop-ups.** Inside a game, click any featured player to see that player's model projection next to the sportsbook prop. It shows the line, the over and under odds, the market's no-vig chance of the over, and the model's view. Once the game starts, it adds the actual stat.
+- **Player projections table.** It lists every featured player's projected per-game stats, filterable by team, role and name. Click a name for the inputs behind the projection.
+
 ## The data set
 
 One row is **one team in one game**. Every game appears twice, once from each side. The panel has 24 columns: date, season, sport, team, opponent, home/away, score for/against, result, margin, total, how the game was decided, the line, total line, moneyline or 1X2 odds, no-vig implied win probability, and the result against the line and the total.
@@ -74,21 +86,28 @@ A GitHub Actions workflow, `.github/workflows/refresh.yml`, keeps the site curre
 - **Downloads are cached between runs.** The historical raw data, about 1 GB, is kept in the Actions cache. MLB box scores are cached per game and never downloaded twice. A new cache copy is saved only when new data arrived.
 - **Run it by hand** from the repository's Actions tab. Choose "Hourly data refresh", then "Run workflow".
 
-## Live odds key
+## Live odds
 
-The site works without a key. It then uses the odds in ESPN's public scoreboard, labeled "odds via ESPN", and shows "n/a" when no line is posted. To use The Odds API free tier locally, copy `config.example.js` to `config.js` and paste your key. `config.js` is gitignored and never committed, so the published site always uses the ESPN fallback. Requests are GET only, and responses are cached in memory for 60 seconds across sports to protect the free quota.
+The site needs no key. Without one it reads ESPN's public feeds, all with HTTP GET only:
+- **Pre-game odds** come from ESPN's scoreboard, labeled "odds via ESPN".
+- **Live in-game odds** come from ESPN's core odds feed ("DraftKings - Live Odds"), because the scoreboard drops odds once a game starts. They are labeled "(live)".
+- **Player prop lines and prices** come from the same core feed. ESPN lists each over/under pair with the over first, which was checked against 0.5 RBI, runs and walks lines, where the one-or-more side is always the longer price.
+- When no line is posted, the site shows "n/a" or "no odds posted yet".
+
+To use The Odds API free tier locally, copy `config.example.js` to `config.js` and paste your key. `config.js` is gitignored and never committed, so the published site always uses the ESPN feeds. Responses are cached in memory for 60 seconds across sports to protect the free quota.
 
 ## Files
 
 | File | What it does |
 |---|---|
 | `index.html` | Report page: summary, headline numbers, findings with charts, methodology |
-| `dashboard.html` | Dashboard: sport tabs, filters, measure/breakdown switches, charts, table, reset, live games panel |
+| `dashboard.html` | Dashboard: sport tabs, filters, measure/breakdown switches, charts, table, reset, live games panel, player projections |
 | `css/style.css` | Shared fonts, colors (light and dark), layout for both pages |
-| `js/site.js` | Shared helpers: theme toggle, sport metadata, number formatting, CSV/JSON loading, Chart.js defaults |
+| `js/site.js` | Shared helpers: theme toggle, sport metadata, number formatting, CSV/JSON loading, Chart.js defaults, the game and player pop-ups |
 | `js/report.js` | Renders the report's text numbers, tiles and charts from `data/report/*.json` |
 | `js/dashboard.js` | Loads one sport's CSV, applies filters, computes the tiles, charts and table in the browser |
-| `js/live.js` | Live panel: ESPN scoreboard, optional Odds API, team-code mapping, model vs. market cards |
+| `js/live.js` | Live panel: ESPN scoreboard and core odds feed (pre-game and live odds), optional Odds API, team-code mapping, compact game cards, game pop-up, player props matched to ESPN rosters |
+| `js/projections.js` | Player projections table on the dashboard, with a pop-up per player |
 | `js/predict.js` | In-browser model inference per sport, plus Elo and odds math utilities |
 | `config.example.js` | Template for the optional Odds API key (copy to `config.js`) |
 | `model_<sport>.json` | Exported model per sport: Elo constants and current ratings, scaling, coefficients, player projections, edge threshold |
