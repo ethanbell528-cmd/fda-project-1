@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard · The Closing Line</title>
+  <meta name="description" content="Filter 1990-present NFL, NBA, MLB, NHL and EPL games and compare model predictions with live odds.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav" aria-label="Main">
+    <div class="wrap">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><i style="background:var(--nfl)"></i><i style="background:var(--nba)"></i><i style="background:var(--mlb)"></i><i style="background:var(--nhl)"></i><i style="background:var(--epl)"></i></span>The Closing Line</a>
+      <div class="nav-links">
+        <a href="index.html">Report</a>
+        <a href="dashboard.html" aria-current="page">Dashboard</a>
+        <button class="theme-btn" type="button">Dark mode</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap" id="dashboard">
+    <!-- DASHBOARD CONTENT -->
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p class="disclaimer"><strong>Educational project, not betting advice.</strong> Odds are shown for comparison only. This site never places bets, has no sportsbook links, and uses read-only public data. If gambling stops being fun, call or text 1-800-GAMBLER.</p>
+      <p>Built by Ethan Bell for Financial Data Analytics. Data sources and formulas are listed in the <a href="index.html#methodology">methodology</a>.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="config.js" onerror="void 0"></script>
+  <script src="js/site.js"></script>
+  <script src="js/predict.js"></script>
+  <script src="js/live.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
