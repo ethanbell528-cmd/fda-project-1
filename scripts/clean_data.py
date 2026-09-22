@@ -4,6 +4,7 @@ Outputs per sport:
   data/<sport>.csv                one row per team per game (panel, see config.PANEL_COLUMNS)
   data/<sport>_players.csv        player-game rows, recent seasons (feeds projections)
   data/<sport>_player_seasons.csv player-season totals over the full honest span
+  data/<sport>_<extra>.csv        optional sport-specific files (e.g. mlb_starters.csv)
   data/coverage.json              verification numbers + honest-span notes per sport
 
 Then prints the course verification checks (rows >= 50,000, columns >= 8,
@@ -33,6 +34,8 @@ def main(argv):
         panel.to_csv(DATA / f"{s}.csv", index=False)
         out["players"].to_csv(DATA / f"{s}_players.csv", index=False)
         out["player_seasons"].to_csv(DATA / f"{s}_player_seasons.csv", index=False)
+        for name, df in out.get("extras", {}).items():  # e.g. mlb_starters.csv
+            df.to_csv(DATA / f"{s}_{name}.csv", index=False)
         stats["player_game_rows"] = len(out["players"])
         stats["player_season_rows"] = len(out["player_seasons"])
         stats["notes"] = out.get("notes", [])
