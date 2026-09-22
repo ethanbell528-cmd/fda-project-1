@@ -56,6 +56,7 @@
         <li><strong>EPL results, 1X2, Asian handicap and over/under odds:</strong> Football-Data.co.uk, <a href="https://www.football-data.co.uk/englandm.php">www.football-data.co.uk/englandm.php</a>.</li>
         <li><strong>EPL player goals and assists:</strong> Fantasy Premier League history compiled by vaastav, <a href="https://github.com/vaastav/Fantasy-Premier-League">github.com/vaastav/Fantasy-Premier-League</a> (FPL scoring rules, not official Opta records).</li>
         <li><strong>Live scores and fallback odds:</strong> ESPN's public scoreboard feed (<code>site.api.espn.com/apis/site/v2/sports/…/scoreboard</code>); live odds, when a key is configured, from <a href="https://the-odds-api.com/">The Odds API</a>. Both are read with HTTP GET only.</li>
+        <li><strong>Live player prop lines:</strong> the full-game over/under player lines in ESPN's public odds feed (<code>sports.core.api.espn.com/…/odds/&lt;provider&gt;/propBets</code>), from the sportsbook ESPN lists, currently DraftKings. The dashboard shows them next to the model's player projections. For small count lines, such as 0.5 hits or 1.5 strikeouts, the model's chance of going over is P(X ≥ line rounded up), with X Poisson-distributed around the projection. For other stats it shows the projection minus the line. No free archive of historical prop lines exists, so these comparisons are not backtested and carry no edge flag.</li>
       </ul>
 
       <h3>Rows dropped and why</h3>

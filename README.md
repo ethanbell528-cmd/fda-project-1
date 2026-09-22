@@ -45,6 +45,7 @@ Course requirements, printed by `scripts/clean_data.py`: rows ≥ 50,000 (394,70
 | EPL player goals and assists | vaastav Fantasy Premier League archive: https://github.com/vaastav/Fantasy-Premier-League |
 | Live scores and fallback odds | ESPN public scoreboard: `https://site.api.espn.com/apis/site/v2/sports/<sport>/<league>/scoreboard` |
 | Live odds, optional | The Odds API: https://the-odds-api.com |
+| Live player prop lines | ESPN public odds feed (sportsbook as listed by ESPN, e.g. DraftKings): `https://sports.core.api.espn.com/v2/sports/<sport>/leagues/<league>/events/<id>/competitions/<id>/odds/<provider>/propBets` |
 
 *The information used here was obtained free of charge from and is copyrighted by Retrosheet. Interested parties may contact Retrosheet at www.retrosheet.org.*
 
@@ -61,7 +62,17 @@ python scripts/build_report_data.py              # data/report/*.json used by th
 python -m http.server 8000                       # open http://localhost:8000
 ```
 
-Deleting `data/` and every `model_*.json` and rerunning these steps rebuilds the same site. The only exception is the in-progress 2026 seasons, which grow as new games are played. The raw sources are only downloaded when missing, so delete `data/raw/<sport>` to pull fresh games.
+Deleting `data/` and every `model_*.json` and rerunning these steps rebuilds the same site. The only exception is the seasons in progress, which grow as new games are played. The raw sources are only downloaded when missing. To pull the newest games, run `python scripts/refresh_current.py` before the other steps.
+
+## Hourly refresh
+
+A GitHub Actions workflow, `.github/workflows/refresh.yml`, keeps the site current. It runs every hour on the hour, but GitHub may start scheduled runs several minutes late when its servers are busy. Each run re-downloads only the current seasons' files and rebuilds the CSVs. If new games came in, it also retrains every model, checks that the JavaScript predictions still match Python, rebuilds the report summaries and commits the result to `main`, and GitHub Pages redeploys. That moves the current Elo ratings, rest days, recent form and player projections forward. An hour with no new games skips the retraining and commits nothing.
+
+- **Runs never overlap.** A new run waits for the previous one to finish.
+- **Season ranges come from the date.** When a new season starts, its files are fetched automatically. A file that isn't published yet is skipped with a note.
+- **MLB switches sources automatically.** Seasons Retrosheet hasn't published yet come from the MLB Stats API. A newer Retrosheet archive is picked up once it appears.
+- **Downloads are cached between runs.** The historical raw data, about 1 GB, is kept in the Actions cache. MLB box scores are cached per game and never downloaded twice. A new cache copy is saved only when new data arrived.
+- **Run it by hand** from the repository's Actions tab. Choose "Hourly data refresh", then "Run workflow".
 
 ## Live odds key
 
@@ -91,15 +102,17 @@ The site works without a key. It then uses the odds in ESPN's public scoreboard,
 | `data/report/*.json` | Small precomputed summaries the report page reads (it never loads raw CSVs) |
 | `scripts/config.py` | Panel column definitions and sport list (adding a sport starts here) |
 | `scripts/common.py` | Download helpers, odds math, game-to-team-row expansion, integrity checks |
-| `scripts/sports/<sport>.py` | One module per sport: `download()` and `clean()` with every source URL |
+| `scripts/sports/<sport>.py` | One module per sport: `download()`, `clean()` and `current_files()`, with every source URL |
 | `scripts/download_data.py` | Step 1: downloads raw data for all or selected sports |
 | `scripts/clean_data.py` | Step 2: writes the CSVs and prints the course verification checks |
 | `scripts/train_model.py` | Step 3: Elo and models per sport, holdout backtests, JSON export |
 | `scripts/check_predict_parity.js` | Checks that `js/predict.js` reproduces the Python predictions |
 | `scripts/build_report_data.py` | Step 4: builds the report summaries in `data/report/` |
+| `scripts/refresh_current.py` | Re-downloads only the current seasons' raw files (each sport's `current_files()`) before a rebuild |
+| `.github/workflows/refresh.yml` | Hourly GitHub Actions job: refresh, clean, then (only if data changed) train, parity check, report build, commit |
 | `requirements.txt` | Pinned Python dependencies |
 | `.gitignore` | Keeps raw downloads, the virtual environment and `config.js` out of the repo |
 
 ## Adding a sport
 
-Add an entry to `SPORTS` in `scripts/config.py`. Write `scripts/sports/<sport>.py` with `download()` and `clean()` returning the panel via `common.to_panel`. Add its model block to `train_model.py`, then give it a tab entry in `js/site.js`. No existing code needs to change.
+Add an entry to `SPORTS` in `scripts/config.py`. Write `scripts/sports/<sport>.py` with `download()`, `clean()` returning the panel via `common.to_panel`, and `current_files()` listing the raw files the hourly refresh re-downloads. Add its model block to `train_model.py`, then give it a tab entry in `js/site.js`. No existing code needs to change.

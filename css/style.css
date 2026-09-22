@@ -253,3 +253,8 @@ footer .disclaimer { max-width: 820px; }
   #dashboard .seg { flex-wrap: wrap; }
 }
 .method a, .method code, .method li, .method p { overflow-wrap: anywhere; }
+
+/* player props: model vs market */
+.game .props td, .game .props th { padding: 3px 5px; font-size: 0.78rem; }
+/* difference sign is not good/bad, so it stays in ink, not status colors */
+.game .props td.up, .game .props td.down { font-weight: 700; color: var(--ink); }

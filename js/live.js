@@ -166,6 +166,7 @@
       const pr = (c.probables || [])[0];
       return {
         code: codeFor(sport, c.team),
+        espnId: c.team && c.team.id,
         abbr: c.team && c.team.abbreviation,
         name: (c.team && (c.team.shortDisplayName || c.team.displayName)) || "?",
         full: (c.team && c.team.displayName) || "",
@@ -491,6 +492,115 @@
     if ((k === "points" || k === "pts") && act.goals != null && act.assists != null) return Number(act.goals) + Number(act.assists);
     return null;
   }
+  // ---------------- player props: model vs market ----------------
+  // Full-game over/under player lines from ESPN's public odds feed (sportsbook listed by ESPN,
+  // e.g. DraftKings). GET only, no key. Only markets that match a stat the model projects are used;
+  // "milestone", first-scorer and partial-game markets are ignored.
+  const CORE = { nfl: "football/leagues/nfl", nba: "basketball/leagues/nba", mlb: "baseball/leagues/mlb", nhl: "hockey/leagues/nhl", epl: "soccer/leagues/eng.1" };
+  const PROP_MARKETS = {
+    nfl: [[/^total passing yards \(incl\. overtime\)$/i, "pass_yds"], [/^total passing touchdowns \(incl\. overtime\)$/i, "pass_td"],
+          [/^total passing interceptions \(incl\. overtime\)$/i, "int"], [/^total rushing yards \(incl\. overtime\)$/i, "rush_yds"],
+          [/^total receptions \(incl\. overtime\)$/i, "rec"], [/^total receiving yards \(incl\. overtime\)$/i, "rec_yds"]],
+    nba: [[/^total points( \(incl\. overtime\))?$/i, "pts"], [/^total rebounds( \(incl\. overtime\))?$/i, "reb"], [/^total assists( \(incl\. overtime\))?$/i, "ast"]],
+    mlb: [[/^total hits$/i, "h"], [/^total home runs$/i, "hr"], [/^total rbis$/i, "rbi"], [/^total stolen bases$/i, "sb"],
+          [/^total strikeouts$/i, "k_p"], [/^earned runs allowed$/i, "er"], [/^total outs recorded$/i, "ip", 1 / 3]],
+    nhl: [[/^total goals( \(incl\. overtime\))?$/i, "goals"], [/^total assists( \(incl\. overtime\))?$/i, "assists"], [/^total points( \(incl\. overtime\))?$/i, "points"]],
+    epl: [[/^(total )?goals( scored)?$/i, "goals"], [/^(total )?assists$/i, "assists"]],
+  };
+  const PROPS_TTL_MS = 10 * 60 * 1000;
+  const propCache = {}, rosterCache = {};
+
+  function nameKey(s) {
+    return String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase()
+      .replace(/\b(jr|sr|ii|iii|iv|v)\b\.?/g, "").replace(/[^a-z ]/g, " ").split(/\s+/).filter(Boolean);
+  }
+  async function roster(sport, espnTeamId) {
+    if (!espnTeamId) return {};
+    const key = sport + ":" + espnTeamId, hit = rosterCache[key];
+    if (hit && Date.now() - hit.at < 6 * 3600 * 1000) return hit.map;
+    const d = await getJSON(ESPN + LEAGUE[sport] + "/teams/" + espnTeamId + "/roster");
+    const map = {};
+    const add = (a) => { if (a && a.id) map[String(a.id)] = a.fullName || a.displayName || ""; };
+    for (const a of d.athletes || []) { if (a && Array.isArray(a.items)) a.items.forEach(add); else add(a); }
+    rosterCache[key] = { at: Date.now(), map };
+    return map;
+  }
+  // Match a model player (name, team) to an ESPN athlete id on that team's roster.
+  function matchAthlete(name, rosterMap) {
+    const want = nameKey(name);
+    if (!want.length) return null;
+    const entries = Object.entries(rosterMap).map(([id, nm]) => [id, nameKey(nm)]);
+    const full = want.join(" ");
+    let hit = entries.find(([, k]) => k.join(" ") === full);
+    if (!hit) hit = entries.find(([, k]) => k.length > 1 && k[0] === want[0] && k[k.length - 1] === want[want.length - 1]);
+    if (!hit) hit = entries.find(([, k]) => k.length > 1 && k.every((t) => want.includes(t)));
+    if (!hit) {
+      const last = entries.filter(([, k]) => k[k.length - 1] === want[want.length - 1] && k[0] && k[0][0] === want[0][0]);
+      if (last.length === 1) hit = last[0];
+    }
+    return hit ? hit[0] : null;
+  }
+  // -> { provider, byAthlete: { espnAthleteId: { stat: { line, updated } } } } or throws
+  async function loadProps(sport, gameId) {
+    const key = sport + ":" + gameId, hit = propCache[key];
+    if (hit && Date.now() - hit.at < PROPS_TTL_MS) return hit.data;
+    const base = "https://sports.core.api.espn.com/v2/sports/" + CORE[sport] + "/events/" + gameId + "/competitions/" + gameId + "/odds";
+    const list = await getJSON(base);
+    const prov = (list.items || []).find((i) => i && i.propBets) || null;
+    const data = { provider: prov && prov.provider ? prov.provider.name : null, byAthlete: {} };
+    if (prov) {
+      const pid = prov.provider.id;
+      let page = 1, pages = 1;
+      do {
+        const d = await getJSON(base + "/" + pid + "/propBets?limit=1000&page=" + page);
+        pages = d.pageCount || 1;
+        for (const it of d.items || []) {
+          const nm = it.type && it.type.name, ref = it.athlete && it.athlete.$ref;
+          const m = ref && ref.match(/athletes\/(\d+)/);
+          const line = it.current && it.current.target ? Number(it.current.target.value) : NaN;
+          if (!nm || !m || !Number.isFinite(line)) continue;
+          const mk = (PROP_MARKETS[sport] || []).find(([re]) => re.test(nm));
+          if (!mk) continue;
+          const [, stat, scale] = mk;
+          (data.byAthlete[m[1]] = data.byAthlete[m[1]] || {})[stat] = { line: line * (scale || 1), raw: line, market: nm, updated: it.lastUpdated };
+        }
+        page += 1;
+      } while (page <= pages && page <= 5);
+    }
+    propCache[key] = { at: Date.now(), data };
+    return data;
+  }
+  // Count stats with small lines (hits, HR, RBI, SB, TDs, INT, goals, assists, strikeouts, earned runs,
+  // receptions): a line of 0.5 means "1 or more", so the model's average is turned into P(over) with a
+  // Poisson distribution whose mean is the projection. Yardage, innings and NBA stats show the difference.
+  const COUNT_STATS = new Set(["h", "hr", "rbi", "sb", "k_p", "er", "pass_td", "int", "rush_td", "rec_td", "rec", "goals", "assists", "points"]);
+  function poissonOver(mean, line) {
+    if (!(mean >= 0)) return null;
+    const k = Math.floor(line) + 1; // over x.5 means at least floor(x.5)+1
+    let term = Math.exp(-mean), cdf = 0;
+    for (let i = 0; i < k; i++) { cdf += term; term *= mean / (i + 1); }
+    return Math.max(0, Math.min(1, 1 - cdf));
+  }
+  function fmtProj(k, v) { return k.includes("pct") ? v.toFixed(3) : v.toFixed(1); }
+  function fmtLine(k, v) { return k === "ip" ? v.toFixed(2).replace(/0$/, "") : String(Math.round(v * 100) / 100); }
+
+  const STAT_LABEL = {
+    pts: "Points", reb: "Rebounds", ast: "Assists",
+    pass_yds: "Pass yds", pass_td: "Pass TD", int: "INT", rush_yds: "Rush yds", rush_td: "Rush TD",
+    rec: "Receptions", rec_yds: "Rec yds", rec_td: "Rec TD",
+    h: "Hits", hr: "HR", rbi: "RBI", sb: "SB", ip: "Innings", k_p: "Strikeouts", er: "Earned runs",
+    goals: "Goals", assists: "Assists", points: "Points", save_pct: "Save %",
+  };
+  // Run fn once the element scrolls near the viewport (saves requests for off-screen cards).
+  function whenVisible(node, fn) {
+    // hidden tabs never report intersections, so load right away there
+    if (!("IntersectionObserver" in window) || document.visibilityState === "hidden") { fn(); return; }
+    const io = new IntersectionObserver((ents) => {
+      if (ents.some((e) => e.isIntersecting)) { io.disconnect(); fn(); }
+    }, { rootMargin: "200px" });
+    io.observe(node);
+  }
+
   async function renderPlayers(sport, g, ctx, body) {
     body.textContent = "Loading…";
     let actual = null;
@@ -498,51 +608,109 @@
       try { actual = actualsFromSummary(await getJSON(ESPN + LEAGUE[sport] + "/summary?event=" + g.id)); }
       catch (e) { actual = null; }
     }
-    body.textContent = "";
     if (!ctx.model || !window.Predict || typeof window.Predict.players !== "function") {
+      body.textContent = "";
       body.appendChild(el("p", "muted", "Player projections unavailable: " + (ctx.modelReason || "model not loaded") + "."));
       return;
     }
     const byFold = {};
     if (actual) for (const nm of Object.keys(actual)) byFold[norm(nm)] = actual[nm];
-    let basis = "";
+    const sides = [];
     for (const side of [g.away, g.home]) {
       let list = [];
       try {
         const r = await window.Predict.players(sport, ctx.model, side.code, { opponent: side === g.home ? g.away.code : g.home.code, date: g.date });
         list = Array.isArray(r) ? r : (r && (r.players || r.list)) || [];
       } catch (e) { list = []; }
-      const h = el("div", null, side.name);
-      h.style.fontWeight = "700";
-      h.style.marginTop = "6px";
-      body.appendChild(h);
-      if (!list.length) { body.appendChild(el("p", "muted", "n/a: the model has no player projections for this team.")); continue; }
-      if (!basis && list[0].basis) basis = list[0].basis;
-      const t = el("table", "compare");
-      const head = t.createTHead().insertRow();
-      ["Player", "Pos", g.state === "pre" ? "Projection per game" : "Projection / actual"].forEach((x) => head.appendChild(el("th", null, x)));
-      const tb = t.createTBody();
-      list.slice(0, 5).forEach((p) => {
-        const r = tb.insertRow();
-        const nm = p.player || p.name || "?";
-        r.insertCell().textContent = nm;
-        r.insertCell().textContent = p.position || p.role || "";
-        const act = actual ? (actual[nm] || byFold[norm(nm)] || null) : null;
-        const parts = projFields(p).map(([k, v]) => {
-          const a = actualFor(act, k);
-          const pv = k.includes("pct") ? v.toFixed(3) : v.toFixed(1);
-          return k.replace(/_/g, " ") + " " + pv + (g.state === "pre" ? "" : " / " + (a == null ? (actual ? "–" : "n/a") : a));
-        });
-        const c = r.insertCell();
-        c.textContent = parts.join(" · ");
-        c.style.whiteSpace = "normal";
-        c.style.textAlign = "left";
-      });
-      body.appendChild(t);
+      sides.push({ side, list: list.slice(0, 5) });
     }
-    body.appendChild(el("p", "muted", (basis ? "Projection basis: " + basis + ". " : "") + (g.state === "pre"
-      ? "Actual stats appear here once the game starts."
-      : "Actual stats from ESPN's box score; '–' means the player has no line in the box score (did not play or stat not reported).")));
+    const basis = (sides.find((x) => x.list.length) || { list: [{}] }).list[0].basis || "";
+
+    // market: null = not loaded yet, {error} = failed, else {provider, byAthlete, ids}
+    let market = null;
+    const draw = () => {
+      body.textContent = "";
+      const showAct = g.state !== "pre";
+      for (const { side, list } of sides) {
+        const h = el("div", null, side.name);
+        h.style.fontWeight = "700";
+        h.style.marginTop = "6px";
+        body.appendChild(h);
+        if (!list.length) { body.appendChild(el("p", "muted", "n/a: the model has no player projections for this team.")); continue; }
+        const t = el("table", "compare props");
+        const head = t.createTHead().insertRow();
+        ["Player", "Stat", "Model", "Market line", "Model vs line"].concat(showAct ? ["Actual"] : []).forEach((x) => head.appendChild(el("th", null, x)));
+        const tb = t.createTBody();
+        for (const p of list) {
+          const nm = p.player || p.name || "?";
+          const act = actual ? (actual[nm] || byFold[norm(nm)] || null) : null;
+          const athleteId = market && market.ids ? market.ids[side.code + "|" + nm] : null;
+          const lines = athleteId && market.byAthlete ? market.byAthlete[athleteId] || {} : {};
+          const fields = projFields(p);
+          fields.forEach(([k, v], i) => {
+            const r = tb.insertRow();
+            if (i === 0) {
+              const c = r.insertCell();
+              c.rowSpan = fields.length;
+              c.textContent = nm + (p.position ? " · " + p.position : "");
+              c.style.whiteSpace = "normal";
+              c.style.verticalAlign = "top";
+            }
+            r.insertCell().textContent = STAT_LABEL[k] || k.replace(/_/g, " ");
+            r.insertCell().textContent = fmtProj(k, v);
+            const ln = lines[k];
+            r.insertCell().textContent = ln ? fmtLine(k, ln.line) : (market && !market.error ? "–" : "…");
+            const dc = r.insertCell();
+            if (ln && COUNT_STATS.has(k) && ln.line < 5 && ln.line % 1 !== 0) {
+              const po = poissonOver(v, ln.line);
+              dc.textContent = po == null ? "" : "P(over) " + Math.round(po * 100) + "%";
+            } else if (ln) {
+              const d = v - ln.line;
+              dc.textContent = (d > 0 ? "+" : "") + (k.includes("pct") ? d.toFixed(3) : d.toFixed(1));
+              dc.className = d > 0 ? "up" : d < 0 ? "down" : "";
+            }
+            if (showAct) { const a = actualFor(act, k); r.insertCell().textContent = a == null ? (actual ? "–" : "n/a") : a; }
+          });
+        }
+        body.appendChild(t);
+      }
+      let mnote;
+      if (!market) mnote = "Loading sportsbook player lines…";
+      else if (market.error) mnote = "Sportsbook player lines unavailable right now (" + market.error + ").";
+      else if (!market.provider) mnote = "No sportsbook player lines posted for this game yet.";
+      else mnote = "Market = the " + market.provider + " over/under line for that stat, via ESPN's public odds feed (" + market.matched + " of " + market.total + " players matched; '–' = no line posted)." +
+        (sport === "mlb" ? " Innings lines are the outs-recorded line ÷ 3." : "");
+      body.appendChild(el("p", "muted", mnote));
+      body.appendChild(el("p", "muted", (basis ? "Projection basis: " + basis + ". " : "") +
+        "Model vs line: for small count lines (for example 0.5 hits or 1.5 strikeouts) it is the model’s chance of going over, from a Poisson distribution with the projection as its mean; otherwise it is projection minus line. These player-prop comparisons are not backtested because no free historical prop lines exist, so no edge flag is shown." +
+        (showAct ? " Actual stats from ESPN's box score; '–' = no line in the box score." : "")));
+    };
+    draw();
+
+    whenVisible(body, async () => {
+      try {
+        const [props, rA, rH] = await Promise.all([
+          loadProps(sport, g.id),
+          roster(sport, g.away.espnId).catch(() => ({})),
+          roster(sport, g.home.espnId).catch(() => ({})),
+        ]);
+        const ids = {};
+        let matched = 0, total = 0;
+        for (const { side, list } of sides) {
+          const rmap = side === g.home ? rH : rA;
+          for (const p of list) {
+            total += 1;
+            let id = p.id && props.byAthlete[String(p.id)] && rmap[String(p.id)] ? String(p.id) : null; // NBA ids are ESPN ids
+            if (!id) id = matchAthlete(p.player, rmap);
+            if (id) { ids[side.code + "|" + p.player] = id; if (props.byAthlete[id]) matched += 1; }
+          }
+        }
+        market = { provider: props.provider, byAthlete: props.byAthlete, ids, matched, total };
+      } catch (e) {
+        market = { error: e && e.status ? "HTTP " + e.status : "offline" };
+      }
+      draw();
+    });
   }
 
   // ---------------- controller ----------------
@@ -619,5 +787,5 @@
     ticker = setInterval(tick, 1000);
   }
 
-  window.Live = { show, refresh, codeFor, ESPN_CODE, EPL_NAME, _parseEvent: parseEvent, _implied: implied };
+  window.Live = { show, refresh, codeFor, ESPN_CODE, EPL_NAME, _parseEvent: parseEvent, _implied: implied, _loadProps: loadProps, _roster: roster, _matchAthlete: matchAthlete };
 })();
