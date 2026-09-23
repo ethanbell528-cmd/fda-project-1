@@ -572,41 +572,41 @@
   "by_role": {
    "batter": {
     "h": {
-     "n": 47234,
+     "n": 47253,
      "mae_formula": 0.6964,
-     "mae_season_to_date_avg": 0.6906
+     "mae_season_to_date_avg": 0.6907
     },
     "hr": {
-     "n": 47234,
+     "n": 47253,
      "mae_formula": 0.1973,
      "mae_season_to_date_avg": 0.1947
     },
     "rbi": {
-     "n": 47234,
-     "mae_formula": 0.5971,
-     "mae_season_to_date_avg": 0.6007
+     "n": 47253,
+     "mae_formula": 0.597,
+     "mae_season_to_date_avg": 0.6006
     },
     "sb": {
-     "n": 47234,
+     "n": 47253,
      "mae_formula": 0.117,
      "mae_season_to_date_avg": 0.1163
     }
    },
    "pitcher": {
     "ip": {
-     "n": 4207,
-     "mae_formula": 0.9571,
-     "mae_season_to_date_avg": 0.9623
+     "n": 4209,
+     "mae_formula": 0.9572,
+     "mae_season_to_date_avg": 0.9624
     },
     "k_p": {
-     "n": 4207,
-     "mae_formula": 1.82,
-     "mae_season_to_date_avg": 1.8669
+     "n": 4209,
+     "mae_formula": 1.8202,
+     "mae_season_to_date_avg": 1.8672
     },
     "er": {
-     "n": 4207,
-     "mae_formula": 1.6063,
-     "mae_season_to_date_avg": 1.643
+     "n": 4209,
+     "mae_formula": 1.6064,
+     "mae_season_to_date_avg": 1.6431
     }
    }
   }
@@ -1062,9 +1062,9 @@
    "homeStarter": "abboa001",
    "awayStarter": null,
    "expected": {
-    "margin": 0.808617012002,
-    "total": 10.004611191437,
-    "pH": 0.587609696665
+    "margin": 0.80854244861,
+    "total": 10.002871646133,
+    "pH": 0.58759916086
    }
   },
   {
@@ -1075,9 +1075,9 @@
    "homeStarter": "alcas001",
    "awayStarter": "ashba003",
    "expected": {
-    "margin": 0.084931215828,
-    "total": 8.959681569434,
-    "pH": 0.522199987809
+    "margin": 0.085091697952,
+    "total": 8.958220687364,
+    "pH": 0.522210389162
    }
   },
   {
@@ -1088,9 +1088,9 @@
    "homeStarter": "allel003",
    "awayStarter": "backk001",
    "expected": {
-    "margin": 1.00797673244,
-    "total": 9.218825357843,
-    "pH": 0.61277245315
+    "margin": 1.007960930427,
+    "total": 9.217155478348,
+    "pH": 0.612767188666
    }
   },
   {
@@ -1101,9 +1101,9 @@
    "homeStarter": "arris001",
    "awayStarter": null,
    "expected": {
-    "margin": -2.016197350023,
-    "total": 10.162441597516,
-    "pH": 0.30737083128
+    "margin": -2.016271913415,
+    "total": 10.160702052212,
+    "pH": 0.307361575171
    }
   },
   {
@@ -1114,9 +1114,9 @@
    "homeStarter": "bachl001",
    "awayStarter": "bellb002",
    "expected": {
-    "margin": -0.889001970633,
-    "total": 9.633634207745,
-    "pH": 0.464123743955
+    "margin": -0.888841488509,
+    "total": 9.632173325675,
+    "pH": 0.464134112222
    }
   },
   {
@@ -1127,9 +1127,9 @@
    "homeStarter": "barnm002",
    "awayStarter": "bibet001",
    "expected": {
-    "margin": -0.378055301001,
-    "total": 10.318023628191,
-    "pH": 0.465391463692
+    "margin": -0.377894818877,
+    "total": 10.316562746121,
+    "pH": 0.465401835683
    }
   },
   {
@@ -1140,9 +1140,9 @@
    "homeStarter": "beekj001",
    "awayStarter": null,
    "expected": {
-    "margin": 0.523436009342,
-    "total": 8.926215529435,
-    "pH": 0.566804885405
+    "margin": 0.532184067812,
+    "total": 8.841691292018,
+    "pH": 0.566886485238
    }
   },
   {
@@ -1153,9 +1153,9 @@
    "homeStarter": "berrj001",
    "awayStarter": "bousc001",
    "expected": {
-    "margin": 0.03062287521,
-    "total": 9.228973185738,
-    "pH": 0.516905799351
+    "margin": 0.048703154588,
+    "total": 9.225737623101,
+    "pH": 0.518744360355
    }
   },
   {
@@ -1166,9 +1166,9 @@
    "homeStarter": "blacp001",
    "awayStarter": "bradk001",
    "expected": {
-    "margin": 1.010183597339,
-    "total": 9.40861736863,
-    "pH": 0.613210595635
+    "margin": 1.010344079462,
+    "total": 9.40715648656,
+    "pH": 0.613220483201
    }
   },
   {
@@ -1179,9 +1179,9 @@
    "homeStarter": "boltc001",
    "awayStarter": null,
    "expected": {
-    "margin": -0.386682851761,
-    "total": 9.011401131635,
-    "pH": 0.472573967024
+    "margin": -0.386696895901,
+    "total": 9.009460726118,
+    "pH": 0.472571893471
    }
   }
  ],

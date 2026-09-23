@@ -474,7 +474,7 @@
     "intercept": 0.377495,
     "coef": {
      "elo_diff": 0.7444,
-     "neutral": 0.0,
+     "neutral": -0.0,
      "rest_h": -0.0081,
      "rest_a": -0.006,
      "wp10_diff": -0.1871,
@@ -494,7 +494,7 @@
     "intercept": 2.695644,
     "coef": {
      "elo_diff": 0.0757,
-     "neutral": 0.0,
+     "neutral": -0.0,
      "rest_h": 0.0367,
      "rest_a": -0.0228,
      "wp10_diff": -0.0187,
