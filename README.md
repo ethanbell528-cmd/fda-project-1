@@ -107,7 +107,8 @@ To use The Odds API free tier locally, copy `config.example.js` to `config.js` a
 |---|---|
 | `index.html` | Report page: summary, headline numbers, findings with charts, methodology |
 | `replays.html` | 3D Replays page: sport tabs, recent finished games, large 3D replay viewer |
-| `js/intro3d.js` | Report-page intro: three.js night-game scene (jointed quarterback with two-bone IK throwing motion, procedural football, instanced crowd, bloom and tone mapping), scrubbed by scroll. Every model and texture is generated in code, with no external assets. It uses a lighter mode on narrow screens and removes itself if 3D can't load |
+| `js/intro3d.js` | Report-page intro: three.js stadium scene where a purple #8 quarterback (a rigged human body posed by a code-built IK driver) drops back and throws a spiral at the viewer, driven by scroll; removed automatically if 3D can't load |
+| `assets/male_base_mesh.glb` | CC0 rigged human base mesh used for the intro's players (see Credits) |
 | `js/featured3d.js` | Finds each sport's recent finished games on ESPN and opens one in the 3D viewer on the replays page |
 | `dashboard.html` | Dashboard: sport tabs, filters, measure/breakdown switches, charts, table, reset, live games panel, player projections |
 | `css/style.css` | Shared fonts, colors (light and dark), layout for both pages |
@@ -144,3 +145,8 @@ To use The Odds API free tier locally, copy `config.example.js` to `config.js` a
 ## Adding a sport
 
 Add an entry to `SPORTS` in `scripts/config.py`. Write `scripts/sports/<sport>.py` with `download()`, `clean()` returning the panel via `common.to_panel`, and `current_files()` listing the raw files the hourly refresh re-downloads. Add its model block to `train_model.py`, then give it a tab entry in `js/site.js`. No existing code needs to change.
+
+## Credits
+
+- **Human body model:** "Male Base Mesh" by [orange-juice-games](https://orange-juice-games.itch.io/male-base-mesh), dedicated to the public domain under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). Downloaded from [github.com/BoQsc/Godot-3D-Male-Base-Mesh](https://github.com/BoQsc/Godot-3D-Male-Base-Mesh) (`Original/male_base_mesh.glb`). The uniform, pads, helmet, numbers and motion are added in code.
+- **3D library:** [three.js](https://threejs.org) r169 (MIT), loaded from jsDelivr.

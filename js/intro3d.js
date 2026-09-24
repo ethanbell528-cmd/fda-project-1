@@ -1,7 +1,8 @@
 /* Report-page intro: a dual-threat quarterback (generic #8, purple and black) takes the snap in a
    night-game stadium, drops back, and throws a spiral straight at the viewer as they scroll.
    Scroll progress through the tall #intro3d section scrubs the whole sequence. Everything is built
-   in code (geometry, textures, crowd); no external models or real team marks.
+   in code (stadium, textures, crowd, helmet); the body is a CC0 rigged human base mesh
+   (assets/male_base_mesh.glb) posed by a code-built IK driver. No real people, names or team marks.
    Decorative only: the report never depends on it. If WebGL or the three.js CDN fails, the
    section removes itself (see the inline fallback in index.html). Test hook: ?introP=0..1. */
 import * as THREE from "three";
@@ -14,6 +15,8 @@ import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js"
 import { ShaderPass } from "three/addons/postprocessing/ShaderPass.js";
 import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
 import { VignetteShader } from "three/addons/shaders/VignetteShader.js";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import * as SkeletonUtils from "three/addons/utils/SkeletonUtils.js";
 
 const section = document.getElementById("intro3d");
 const stage = section && section.querySelector(".intro-stage");
@@ -222,6 +225,281 @@ function makePlayer({ num = "8", sleeveArm = "R", skin = 0x4a2e20 }) {
   }
   return { root, hips, spine, chest, neck, head, arms, legs };
 }
+
+// ---------------------------------------------------------------- human body (CC0 rigged base mesh)
+// assets/male_base_mesh.glb: "Male Base Mesh" by orange-juice-games, CC0 1.0 (public domain),
+// via github.com/BoQsc/Godot-3D-Male-Base-Mesh. The code-built player above stays as an invisible
+// "driver": its IK solves the throw, and every frame the human skeleton copies the driver's limb
+// directions (swing-only, keeping each bone's rest twist) and its torso rotations.
+const HUMAN_URL = "assets/male_base_mesh.glb?v=1";
+const HUMAN_SCALE = 1.044; // matches the driver's hip-to-sole length (1.025 m)
+function loadHuman() {
+  return new Promise((resolve) => {
+    const timer = setTimeout(() => resolve(null), 4000);
+    new GLTFLoader().load(HUMAN_URL, (g) => { clearTimeout(timer); resolve(g); }, undefined, () => { clearTimeout(timer); resolve(null); });
+  });
+}
+function regionOf(name, t, sleeveArm) {
+  const side = name.endsWith("L") ? "L" : name.endsWith("R") ? "R" : "";
+  if (/^(spine|pelvis[LR])$/.test(name)) return "pants";
+  if (/^spine00[123]$/.test(name) || /^shoulder/.test(name)) return "jersey";
+  if (/^spine00[45]$/.test(name)) return "skin";
+  if (/^upper_arm/.test(name)) return t < 0.5 ? "jersey" : side === sleeveArm ? "sleeve" : "skin";
+  if (/^forearm/.test(name)) return side === sleeveArm ? "sleeve" : "skin";
+  if (/^(hand|f_|thumb)/.test(name)) return "glove";
+  if (/^thigh/.test(name)) return "pants";
+  if (/^shin/.test(name)) return t < 0.42 ? "pants" : "sock";
+  return "cleat"; // foot, toe, heel
+}
+// extra volume per region (metres, before scaling): a football build under pads and pants
+const BULK = { jersey: 0.034, pants: 0.02, sleeve: 0.008, skin: 0.006, sock: 0.006, glove: 0.004, cleat: 0.012 };
+
+function makeHuman(gltf, D, { num = "8", skin = 0x4a2e20, sleeveArm = "R", bulk = 1 }) {
+  const src = SkeletonUtils.clone(gltf.scene);
+  const holder = new THREE.Group();
+  holder.rotation.y = -Math.PI / 2; // the base mesh faces +X; the driver faces +Z
+  holder.scale.setScalar(HUMAN_SCALE);
+  holder.add(src);
+  let mesh = null;
+  const bones = {};
+  src.traverse((o) => { if (o.isSkinnedMesh) mesh = o; if (o.isBone) bones[o.name] = o; });
+  holder.updateMatrixWorld(true);
+
+  // ---- per-vertex region from the dominant bone, then per-triangle material groups
+  const geo = mesh.geometry.clone();
+  const pos = geo.attributes.position, sIdx = geo.attributes.skinIndex, sW = geo.attributes.skinWeight;
+  const skel = mesh.skeleton;
+  const boneHead = skel.boneInverses.map((m) => V().setFromMatrixPosition(m.clone().invert()));
+  const boneTail = skel.bones.map((b, i) => {
+    const c = b.children.find((k) => k.isBone);
+    if (c) return boneHead[skel.bones.indexOf(c)];
+    const rot = new THREE.Matrix4().extractRotation(skel.boneInverses[i].clone().invert());
+    return boneHead[i].clone().add(V(0, 0.12, 0).applyMatrix4(rot));
+  });
+  const vRegion = new Array(pos.count);
+  const aF = new Float32Array(pos.count), aArm = new Float32Array(pos.count), aSide = new Float32Array(pos.count);
+  const p = V();
+  // body cuts at fractions of standing height, placed in gaps between the mesh's edge loops
+  // so the collar, waistband, pant hem and cleat lines come out straight
+  let yMin = Infinity, yMax = -Infinity;
+  for (let i = 0; i < pos.count; i++) { const y = pos.getY(i); yMin = Math.min(yMin, y); yMax = Math.max(yMax, y); }
+  const CUT = { neck: 0.862, waist: 0.536, hem: 0.251, cleat: 0.0667 };
+  for (let i = 0; i < pos.count; i++) {
+    let best = 0, bw = -1;
+    for (let k = 0; k < 4; k++) { const w = sW.getComponent(i, k); if (w > bw) { bw = w; best = sIdx.getComponent(i, k); } }
+    p.fromBufferAttribute(pos, i);
+    const name = skel.bones[best].name;
+    const f = (p.y - yMin) / (yMax - yMin);
+    aF[i] = f;
+    aSide[i] = name.endsWith("R") ? 1 : -1;
+    if (/^(upper_arm|forearm|hand|f_|thumb)/.test(name)) {
+      const h = boneHead[best], tl = boneTail[best], d = tl.clone().sub(h);
+      const t = clamp(p.clone().sub(h).dot(d) / Math.max(d.lengthSq(), 1e-6), 0, 1);
+      vRegion[i] = regionOf(name, t, sleeveArm);
+      // distance along the arm from the shoulder, normalised (upper 0.328, forearm 0.24, hand+fingers ~0.2)
+      aArm[i] = /^upper_arm/.test(name) ? t * 0.328 / 0.77 : /^forearm/.test(name) ? (0.328 + t * 0.24) / 0.77 : 0.75 + t * 0.2;
+    } else {
+      aArm[i] = -1;
+      vRegion[i] = f > CUT.neck ? "skin" : f > CUT.waist ? "jersey" : f > CUT.hem ? "pants" : f > CUT.cleat ? "sock" : "cleat";
+    }
+  }
+  // inflate along seam-welded normals so the silhouette reads as an athlete in pads
+  const key = (i) => [pos.getX(i), pos.getY(i), pos.getZ(i)].map((v) => Math.round(v * 1e4)).join(",");
+  const weldNormals = () => {
+    const acc = new Map();
+    const nrm = geo.attributes.normal;
+    for (let i = 0; i < pos.count; i++) {
+      const k = key(i), n = V().fromBufferAttribute(nrm, i), a = acc.get(k);
+      if (a) a.add(n); else acc.set(k, n);
+    }
+    return acc;
+  };
+  geo.computeVertexNormals();
+  const acc = weldNormals();
+  const moved = [];
+  for (let i = 0; i < pos.count; i++) {
+    const n = acc.get(key(i)).clone().normalize();
+    const b = (BULK[vRegion[i]] || 0) * bulk;
+    moved.push([pos.getX(i) + n.x * b, pos.getY(i) + n.y * b, pos.getZ(i) + n.z * b]);
+  }
+  moved.forEach((m, i) => pos.setXYZ(i, m[0], m[1], m[2]));
+  pos.needsUpdate = true;
+  geo.computeVertexNormals();
+  const acc2 = weldNormals(); // smooth shading across UV seams
+  for (let i = 0; i < pos.count; i++) { const n = acc2.get(key(i)).clone().normalize(); geo.attributes.normal.setXYZ(i, n.x, n.y, n.z); }
+
+  geo.setAttribute("aF", new THREE.BufferAttribute(aF, 1));
+  geo.setAttribute("aArm", new THREE.BufferAttribute(aArm, 1));
+  geo.setAttribute("aSide", new THREE.BufferAttribute(aSide, 1));
+  // one material; the uniform is painted per pixel from interpolated height / arm position,
+  // so collar, waistband, hem, sleeve and glove lines are straight regardless of triangle layout
+  const col = (h) => new THREE.Color(h);
+  const U = {
+    uJersey: { value: col(PURPLE) }, uSleeve: { value: col(sleeveArm === "none" ? PURPLE : 0x121216) },
+    uSkin: { value: col(skin) }, uGlove: { value: col(0x1a1236) }, uPants: { value: col(0xe9e9e9) },
+    uSock: { value: col(0x16121f) }, uCleat: { value: col(0x0b0b0d) }, uGold: { value: col(0xc9a227) }, uWhite: { value: col(0xf2f2f2) },
+    uCut: { value: new THREE.Vector4(CUT.neck, CUT.waist, CUT.hem, CUT.cleat) },
+    uSleeveSide: { value: sleeveArm === "R" ? 1 : sleeveArm === "L" ? -1 : 0 },
+    uNum: { value: null }, uNumBox: { value: new THREE.Vector4(0.11, 0.13, 0, 0.03) },
+  };
+  const mat = new THREE.MeshPhysicalMaterial({ color: 0xffffff, roughness: 0.6, sheen: 0.35, sheenRoughness: 0.7, sheenColor: new THREE.Color(0x5a4cb6) });
+  mat.onBeforeCompile = (sh) => {
+    Object.assign(sh.uniforms, U);
+    sh.vertexShader = sh.vertexShader
+      .replace("#include <common>", "#include <common>\nattribute float aF; attribute float aArm; attribute float aSide; attribute vec3 aP;\nvarying float vF; varying float vArm; varying float vSide; varying vec3 vP;")
+      .replace("#include <begin_vertex>", "#include <begin_vertex>\nvF = aF; vArm = aArm; vSide = aSide; vP = aP;");
+    sh.fragmentShader = sh.fragmentShader
+      .replace("#include <common>", `#include <common>
+varying float vF; varying float vArm; varying float vSide;
+uniform vec3 uJersey, uSleeve, uSkin, uGlove, uPants, uSock, uCleat, uGold, uWhite;
+uniform vec4 uCut; uniform float uSleeveSide;
+uniform sampler2D uNum; uniform vec4 uNumBox;
+varying vec3 vP;
+float regionRough;
+vec3 withNumber(vec3 c) {
+  // uNumBox: front half-size, back half-size, front centre y, back centre y (bind space, chest-relative)
+  vec2 uv = vP.z > 0.0 ? vec2(vP.x / (2.0 * uNumBox.x) + 0.5, (vP.y - uNumBox.z) / (2.0 * uNumBox.x) + 0.5)
+                       : vec2(-vP.x / (2.0 * uNumBox.y) + 0.5, (vP.y - uNumBox.w) / (2.0 * uNumBox.y) + 0.5);
+  if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) return c;
+  vec4 n = texture2D(uNum, uv);
+  return mix(c, n.rgb, n.a);
+}
+vec3 uniformColor() {
+  if (vArm > -0.5) {
+    if (vArm < 0.205) return uJersey;                                   // jersey sleeve over the pads
+    if (vArm < 0.225) return uWhite;                                    // sleeve stripes
+    if (vArm < 0.235) return uGold;
+    if (vArm < 0.738) { regionRough = 0.5; return (uSleeveSide != 0.0 && vSide * uSleeveSide > 0.0) ? uSleeve : uSkin; }
+    regionRough = 0.45; return uGlove;
+  }
+  if (vF > uCut.x) { regionRough = 0.5; return uSkin; }
+  if (vF > uCut.y) return withNumber(uJersey);
+  if (vF > uCut.z) { regionRough = 0.62; return uPants; }
+  if (vF > uCut.w) { regionRough = 0.7; float b = step(0.15, vF) * step(vF, 0.165) + step(0.175, vF) * step(vF, 0.19); return mix(uSock, uJersey, b); }
+  regionRough = 0.32; return uCleat;
+}`)
+      .replace("#include <color_fragment>", "#include <color_fragment>\nregionRough = 0.72;\ndiffuseColor.rgb *= uniformColor();")
+      .replace("#include <roughnessmap_fragment>", "#include <roughnessmap_fragment>\nroughnessFactor = regionRough;");
+  };
+  const mats = [mat];
+  mesh.geometry = geo;
+  mesh.material = mat;
+  mesh.castShadow = true; mesh.receiveShadow = true;
+  mesh.frustumCulled = false;
+
+  // ---- attachments: frames that are upright and facing +Z in the bind pose, following a bone
+  holder.updateMatrixWorld(true);
+  const attach = (boneName, worldPos) => {
+    const bone = bones[boneName];
+    const want = new THREE.Matrix4().compose(worldPos, new THREE.Quaternion(), V(1, 1, 1));
+    const a = new THREE.Object3D();
+    new THREE.Matrix4().copy(bone.matrixWorld).invert().multiply(want).decompose(a.position, a.quaternion, a.scale);
+    bone.add(a);
+    return a;
+  };
+  // rendered (skinned) position of a vertex in world space; the mesh node itself is offset from the skin
+  const bindWorld = (i) => mesh.getVertexPosition(i, V()).applyMatrix4(mesh.matrixWorld);
+  const headW = bones.spine005.getWorldPosition(V());
+  // helmet, facemask, visor, chinstrap: move the driver's helmet parts onto the human head
+  const helmet = attach("spine005", headW.clone().add(V(0, HELMET_UP, HELMET_FWD)));
+  const headKids = D.head.children.slice();
+  headKids.forEach((m, k) => { if (k === 0) return; helmet.add(m); m.visible = true; }); // [0] is the driver's bare head sphere
+  helmet.scale.setScalar(HELMET_SCALE);
+  // chest: shoulder pads (under the jersey) and the numbers
+  const chestW = bones.spine003.getWorldPosition(V());
+  const chest = attach("spine003", chestW.clone());
+  let zF = -1, zB = 1, halfW = 0;
+  for (let i = 0; i < pos.count; i++) {
+    if (vRegion[i] !== "jersey") continue;
+    const w = bindWorld(i);
+    if (Math.abs(w.y - (chestW.y + 0.03)) < 0.05 && Math.abs(w.x - chestW.x) < 0.06) { zF = Math.max(zF, w.z); zB = Math.min(zB, w.z); }
+  }
+  for (let i = 0; i < pos.count; i++) {
+    if (vRegion[i] !== "jersey") continue;
+    const w = bindWorld(i);
+    if (Math.abs(w.y - (chestW.y + 0.1)) < 0.04) halfW = Math.max(halfW, Math.abs(w.x - chestW.x));
+  }
+  if (zF < -0.5) { zF = chestW.z + 0.13; zB = chestW.z - 0.13; }
+  halfW = clamp(halfW, 0.17, 0.26);
+  const padMat = new THREE.MeshPhysicalMaterial({ color: PURPLE, roughness: 0.72, sheen: 0.6, sheenRoughness: 0.7, sheenColor: new THREE.Color(0x6a5cd6) });
+  const pad = new THREE.Mesh(new THREE.SphereGeometry(0.2, 40, 16, 0, Math.PI * 2, 0, Math.PI * 0.5), padMat);
+  pad.position.set(0, PAD_UP, (zF + zB) / 2 - chestW.z);
+  pad.scale.set((halfW + 0.07) / 0.2, 0.6, (zF - zB + 0.06) / 0.4);
+  pad.castShadow = true; pad.receiveShadow = true;
+  chest.add(pad);
+  for (const sx of [-1, 1]) {
+    const cap = new THREE.Mesh(new THREE.SphereGeometry(0.085, 24, 14), padMat);
+    cap.position.set(sx * (halfW + 0.03), PAD_UP, (zF + zB) / 2 - chestW.z);
+    cap.scale.set(0.95, 0.75, 1.05); cap.castShadow = true;
+    chest.add(cap);
+  }
+  // numbers: painted by the uniform shader, projected front/back from bind-space positions
+  const numTex = colorTex(canvas(256, 256, (g, w, h) => { drawNumber(g, num, w / 2, h / 2 + 8, 200, 0.8, "#ffffff", GOLD_HEX); }));
+  const midZ = (zF + zB) / 2;
+  const aP = new Float32Array(pos.count * 3);
+  for (let i = 0; i < pos.count; i++) {
+    const w = bindWorld(i);
+    aP[i * 3] = w.x - chestW.x; aP[i * 3 + 1] = w.y - chestW.y; aP[i * 3 + 2] = w.z - midZ;
+  }
+  geo.setAttribute("aP", new THREE.BufferAttribute(aP, 3));
+  U.uNum.value = numTex;
+  U.uNumBox.value.set(0.125, 0.15, NUM_UP, NUM_UP + 0.02);
+
+  const restLocal = {}, restWorld = {};
+  for (const n of Object.keys(bones)) { restLocal[n] = bones[n].quaternion.clone(); restWorld[n] = bones[n].getWorldQuaternion(new THREE.Quaternion()); }
+  return { holder, mesh, bones, restLocal, restWorld, debug: { zF, zB, halfW, chestY: chestW.y, headY: headW.y } };
+}
+const HELMET_UP = 0.1, HELMET_FWD = 0.015, HELMET_SCALE = 1.0, PAD_UP = 0.1, NUM_UP = -0.02;
+
+// Copy the driver's pose onto the human skeleton (driver rest pose = identity, facing +Z).
+const _qs = new THREE.Quaternion();
+function retarget(H, D) {
+  const B = H.bones;
+  H.holder.position.set(0, 0, 0);
+  H.holder.updateMatrixWorld(true);
+  const wq = (o) => o.getWorldQuaternion(new THREE.Quaternion());
+  const wp = (o) => o.getWorldPosition(V());
+  const setWorld = (name, q) => {
+    const b = B[name];
+    b.quaternion.copy(wq(b.parent).invert().multiply(q));
+    b.updateMatrixWorld(true);
+  };
+  const delta = (name, g) => setWorld(name, wq(g).multiply(H.restWorld[name])); // same rest pose on both
+  const keep = (name) => { B[name].quaternion.copy(H.restLocal[name]); B[name].updateMatrixWorld(true); };
+  const swing = (name, dir) => {
+    keep(name);
+    const q0 = wq(B[name]);
+    const d0 = V(0, 1, 0).applyQuaternion(q0).normalize();
+    _qs.setFromUnitVectors(d0, dir.clone().normalize());
+    setWorld(name, _qs.clone().multiply(q0));
+  };
+  delta("spine", D.hips);
+  delta("spine001", D.spine);
+  delta("spine002", D.spine);
+  delta("spine003", D.chest);
+  for (const s of ["L", "R"]) {
+    const A = D.arms[s];
+    keep("shoulder" + s);
+    swing("upper_arm" + s, wp(A.el).sub(wp(A.sh)));
+    swing("forearm" + s, wp(A.wr).sub(wp(A.el)));
+    swing("hand" + s, V(0, -1, 0).applyQuaternion(wq(A.wr)));
+  }
+  delta("spine004", D.neck);
+  delta("spine005", D.head);
+  for (const s of ["L", "R"]) {
+    const L = D.legs[s];
+    keep("pelvis" + s);
+    swing("thigh" + s, wp(L.kn).sub(wp(L.hp)));
+    swing("shin" + s, wp(L.an).sub(wp(L.kn)));
+    delta("foot" + s, L.an);
+  }
+  // translate so the hip joints sit where the driver's are
+  const hipD = wp(D.legs.L.hp).add(wp(D.legs.R.hp)).multiplyScalar(0.5);
+  const hipH = wp(B.thighL).add(wp(B.thighR)).multiplyScalar(0.5);
+  H.holder.position.copy(hipD.sub(hipH));
+  H.holder.updateMatrixWorld(true);
+}
+function hideDriver(D) { D.root.traverse((o) => { if (o.isMesh) o.visible = false; }); }
 
 // ---- joint-based posing with two-bone IK
 const _m4 = new THREE.Matrix4();
@@ -823,7 +1101,8 @@ function makeSky(scene) {
 }
 
 // ---------------------------------------------------------------- main
-function start() {
+async function start() {
+  const humanGltf = await loadHuman();
   const w0 = stage.clientWidth;
   const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
   const lite = w0 < 700 || !renderer.capabilities.isWebGL2;
@@ -863,6 +1142,28 @@ function start() {
   scene.add(qb.root);
   const center = makePlayer({ num: "66", sleeveArm: "none", skin: 0x6b4630 });
   scene.add(center.root);
+  // human bodies (if the model loaded): the code-built players become invisible IK drivers
+  let qbH = null, centerH = null;
+  if (humanGltf) {
+    try {
+      hideDriver(qb); hideDriver(center);
+      qbH = makeHuman(humanGltf, qb, { num: "8", sleeveArm: "R", skin: 0x4a2e20, bulk: 1 });
+      centerH = makeHuman(humanGltf, center, { num: "66", sleeveArm: "none", skin: 0x6b4630, bulk: 1.45 });
+      scene.add(qbH.holder, centerH.holder);
+      section.dataset.body = "human";
+    } catch (err) {
+      console.warn("human body unavailable, using the built figure:", err);
+      qbH = centerH = null;
+      [qb, center].forEach((D) => D.root.traverse((o) => { if (o.isMesh) o.visible = true; }));
+    }
+  }
+  // ball offset so it sits in the human hand rather than the driver hand
+  const handOffset = () => {
+    if (!qbH) return V();
+    const d = qbH.bones.handR.getWorldPosition(V()).sub(qb.arms.R.wr.getWorldPosition(V()));
+    return d.applyQuaternion(qb.arms.R.hold.getWorldQuaternion(new THREE.Quaternion()).invert());
+  };
+  const pose = (P, H, key, look, p) => { applyPose(P, withSteps(sample(key, p)), look); if (H) retarget(H, P); };
   const { ball, geo: ballGeo } = makeFootball(lite);
   const BALL_IN_HAND = [0.25, -1.35, 0.1];
   qb.arms.R.hold.add(ball);
@@ -886,8 +1187,9 @@ function start() {
 
   // release point and the ball's final spot just in front of the lens
   const lookTarget = V(0, 1.7, 30);
-  applyPose(qb, withSteps(sample(QB, RELEASE)), lookTarget);
-  const releasePos = qb.arms.R.hold.getWorldPosition(V());
+  pose(qb, qbH, QB, lookTarget, RELEASE);
+  ball.position.copy(handOffset());
+  const releasePos = ball.getWorldPosition(V());
   let endPos = V();
   const aimFlight = () => { const e = cameraAt(0.965); endPos = e.pos.clone().addScaledVector(e.look.clone().sub(e.pos).normalize(), 0.2).add(V(0, -0.02, 0)); };
   const flightAt = (t) => releasePos.clone().lerp(endPos, t).add(V(0, Math.sin(Math.PI * t) * 0.32, 0));
@@ -900,12 +1202,13 @@ function start() {
 
   function frame() {
     const p = progress, time = clock.getElapsedTime();
-    applyPose(qb, withSteps(sample(QB, p)), lookTarget);
-    applyPose(center, withSteps(sample(CENTER, p)), V(0, 1.2, 30));
+    pose(qb, qbH, QB, lookTarget, p);
+    pose(center, centerH, CENTER, V(0, 1.2, 30), p);
     const cam = cameraAt(p);
     camera.position.copy(cam.pos); camera.lookAt(cam.look);
     if (p < RELEASE) {
-      if (released) { qb.arms.R.hold.add(ball); ball.position.set(0, 0, 0); ball.rotation.set(...BALL_IN_HAND); released = false; }
+      if (released) { qb.arms.R.hold.add(ball); ball.rotation.set(...BALL_IN_HAND); released = false; }
+      ball.position.copy(handOffset());
       ghosts.forEach((g) => (g.visible = false));
     } else {
       if (!released) { scene.attach(ball); released = true; }
@@ -966,7 +1269,7 @@ try {
   if (!section || !stage) throw new Error("no intro section");
   const test = document.createElement("canvas");
   if (!(test.getContext("webgl2") || test.getContext("webgl"))) throw new Error("no WebGL");
-  start();
+  start().catch((e) => { console.warn("intro disabled:", e); if (section) section.remove(); });
 } catch (e) {
   console.warn("intro disabled:", e);
   if (section) section.remove();
