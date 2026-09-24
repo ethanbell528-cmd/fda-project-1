@@ -8,6 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="importmap">
+    { "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.min.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+    } }
+  </script>
   <link rel="stylesheet" href="css/style.css?v=20260924f">
 </head>
 <body>
@@ -22,6 +28,24 @@
       </div>
     </div>
   </nav>
+
+  <section id="intro3d" class="intro3d" aria-label="Intro animation: a quarterback throws a football toward you as you scroll">
+    <div class="intro-stage">
+      <div class="intro-copy">
+        <div class="eyebrow">NFL · NBA · MLB · NHL · EPL · 1990 to today</div>
+        <p class="intro-title">The Closing Line</p>
+        <p class="intro-sub">Scroll down to take the snap</p>
+        <span class="intro-arrow" aria-hidden="true">↓</span>
+      </div>
+      <a class="intro-skip" href="#report">Skip intro</a>
+      <div class="intro-flash" aria-hidden="true"></div>
+    </div>
+  </section>
+  <script>
+    // if 3D can't start (old browser, blocked CDN), drop the intro so the report opens directly
+    setTimeout(function () { var s = document.getElementById("intro3d"); if (s && !s.classList.contains("ready")) s.remove(); }, 6000);
+  </script>
+  <script type="module" src="js/intro3d.js?v=20260924a"></script>
 
   <main class="wrap" id="report">
     <header class="hero">

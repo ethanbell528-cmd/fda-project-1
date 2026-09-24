@@ -11,7 +11,7 @@ Built by **Ethan Bell** for Financial Data Analytics (Data Website Project).
 
 ## What's on the site
 
-**Report (`index.html`).** A scrolling report covers the summary, six headline numbers and ten findings, each with a chart and its data table. It ends with a methodology section listing every source and formula.
+**Report (`index.html`).** It opens with a scroll-driven 3D intro: a quarterback winds up and throws a spiral straight at the viewer as they scroll, and a "Skip intro" link jumps past it. Below it is a scrolling report covers the summary, six headline numbers and ten findings, each with a chart and its data table. It ends with a methodology section listing every source and formula.
 
 **3D Replays (`replays.html`).** Pick a sport and one of its recent finished games to watch a rotatable 3D replay rebuilt from ESPN's play-by-play. Every live or finished game card on the dashboard also has a "Watch 3D replay" button.
 
@@ -107,6 +107,7 @@ To use The Odds API free tier locally, copy `config.example.js` to `config.js` a
 |---|---|
 | `index.html` | Report page: summary, headline numbers, findings with charts, methodology |
 | `replays.html` | 3D Replays page: sport tabs, recent finished games, large 3D replay viewer |
+| `js/intro3d.js` | Report-page intro: three.js scene of a quarterback throwing a football at the viewer, driven by scroll (removed automatically if 3D can't load) |
 | `js/featured3d.js` | Finds each sport's recent finished games on ESPN and opens one in the 3D viewer on the replays page |
 | `dashboard.html` | Dashboard: sport tabs, filters, measure/breakdown switches, charts, table, reset, live games panel, player projections |
 | `css/style.css` | Shared fonts, colors (light and dark), layout for both pages |
