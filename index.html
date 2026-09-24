@@ -14,7 +14,7 @@
         "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
     } }
   </script>
-  <link rel="stylesheet" href="css/style.css?v=20260924f">
+  <link rel="stylesheet" href="css/style.css?v=20260924h">
 </head>
 <body>
   <nav class="nav" aria-label="Main">
@@ -23,7 +23,7 @@
       <div class="nav-links">
         <a href="index.html" aria-current="page">Report</a>
         <a href="dashboard.html">Dashboard</a>
-        <a href="replays.html" class="nav-3d">3D Replays</a>
+        <a href="replays.html" class="nav-3d">Games &amp; 3D</a>
         <button class="theme-btn" type="button">Dark mode</button>
       </div>
     </div>
@@ -83,6 +83,7 @@
         <li><strong>Live scores and fallback odds:</strong> ESPN's public scoreboard feed (<code>site.api.espn.com/apis/site/v2/sports/…/scoreboard</code>); live odds, when a key is configured, from <a href="https://the-odds-api.com/">The Odds API</a>. Both are read with HTTP GET only.</li>
         <li><strong>Live player prop lines:</strong> the full-game over/under player lines in ESPN's public odds feed (<code>sports.core.api.espn.com/…/odds/&lt;provider&gt;/propBets</code>), from the sportsbook ESPN lists, currently DraftKings. The dashboard shows them next to the model's player projections. For small count lines, such as 0.5 hits or 1.5 strikeouts, the model's chance of going over is P(X ≥ line rounded up), with X Poisson-distributed around the projection. For other stats it shows the projection minus the line. No free archive of historical prop lines exists, so these comparisons are not backtested and carry no edge flag.</li>
         <li><strong>3D game replays (dashboard):</strong> ESPN's public game summary, <code>site.api.espn.com/apis/site/v2/sports/&lt;sport&gt;/&lt;league&gt;/summary?event=&lt;id&gt;</code>. Each drawn marker sits where ESPN recorded the play: NBA shot coordinates, with both teams normalized to one basket by ESPN, so the site shows home at the right basket. It also uses NHL rink coordinates in feet, MLB Gameday spray-chart and pitch-location coordinates, NFL yard lines and EPL shot start and end positions. Plays without a recorded location go on a fixed rule spot when the rules fix it: free throws, strikeouts and walks at home plate, penalties, and kickoffs. Otherwise they go on a time-order rail along the near side, which is not a field position. Older positions in (0, 0) or an unverified 0–1 scale are treated as missing. These are reconstructions from play-by-play locations, not video or player-tracking data.</li>
+        <li><strong>Every game since 1990 with the model's pick:</strong> <code>data/predictions_&lt;sport&gt;.csv</code> holds the exported model's pre-game prediction for every game in the data, built with only information available before that game (Elo before the game, rest, the last ten games, starters' or goalies' earlier games, EPL attack and defense ratings). Each row is labelled: <em>burn-in</em> for the first two seasons, which warm up the Elo ratings and are not used for training; <em>train</em> for in-sample seasons, where the model's coefficients were fit, so a correct pick there is not a true test; <em>holdout</em> for the two out-of-sample backtest seasons; and <em>current</em> for the season in progress. The holdout rows in the file reproduce the backtest log loss exactly. The Games &amp; 3D page matches each game to ESPN's public scoreboard by date and final score. Where ESPN has the play-by-play, the 3D replay is built from it; otherwise the 3D view shows only the final score on the correct surface, plus the inning-by-inning line score for MLB from Retrosheet game-log fields 20–21.</li>
         <li><strong>Stadiums in the 3D replays:</strong> the venue of each game comes from ESPN, and its attributes come from <code>data/venues.json</code>. Capacity, playing surface, roof type, MLB outfield fence distances and EPL pitch dimensions are read from each venue's Wikipedia infobox, pinned to one revision, and MLB wall heights come from a quoted sentence per park. Values a source does not state are left empty. Fences, wall heights and pitch sizes are drawn to scale. Stands are schematic, sized to the published capacity. As a check across 120 recent MLB games, 99.2% of home runs land at or beyond the drawn wall.</li>
       </ul>
 

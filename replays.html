@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>3D Replays · The Closing Line</title>
-  <meta name="description" content="Rotatable 3D replays of NFL, NBA, MLB, NHL and EPL games, rebuilt from ESPN play-by-play locations.">
+  <title>Games &amp; 3D Replays · The Closing Line</title>
+  <meta name="description" content="Every NFL, NBA, MLB and NHL game since 1990 and every EPL match since 1993-94 with the model's pre-game prediction, the market and a 3D view.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
         "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
     } }
   </script>
-  <link rel="stylesheet" href="css/style.css?v=20260924f">
+  <link rel="stylesheet" href="css/style.css?v=20260924h">
 </head>
 <body>
   <nav class="nav" aria-label="Main">
@@ -23,7 +23,7 @@
       <div class="nav-links">
         <a href="index.html">Report</a>
         <a href="dashboard.html">Dashboard</a>
-        <a href="replays.html" class="nav-3d" aria-current="page">3D Replays</a>
+        <a href="replays.html" class="nav-3d" aria-current="page">Games &amp; 3D</a>
         <button class="theme-btn" type="button">Dark mode</button>
       </div>
     </div>
@@ -31,16 +31,38 @@
 
   <main class="wrap" id="replays">
     <header class="dash-head">
-      <div class="eyebrow">3D Replays</div>
-      <h1>Watch how each game happened</h1>
-      <p class="muted">Pick a sport and a game. The replay rebuilds the game in 3D from ESPN's play-by-play: shots, hits, drives and goals at the spots where they happened, in the order they happened. Drag to rotate, scroll or pinch to zoom, and press Play.</p>
+      <div class="eyebrow">Games &amp; 3D Replays</div>
+      <h1>Every game since 1990, with the model's pick</h1>
+      <p class="muted">Pick a sport and any date back to 1990 (EPL: August 1993). Each game shows the model's pre-game prediction next to the final score and the betting market, and opens in 3D. Where ESPN has the play-by-play, the replay rebuilds the game from it; older games show the final result on the real surface.</p>
     </header>
 
     <div class="sport-tabs" role="tablist" aria-label="Sport" id="r-tabs"></div>
 
+    <section class="card" id="history" aria-labelledby="h-title" style="margin-bottom:12px">
+      <div class="live-head">
+        <h2 id="h-title" style="margin:0;font-size:1.15rem">Any game since 1990</h2>
+        <span class="small muted" id="h-span"></span>
+      </div>
+      <div class="filters hist-filters" style="margin-top:10px">
+        <label class="field">Date<input type="date" id="h-date"></label>
+        <label class="field">Team<select id="h-team"><option value="">All teams</option></select></label>
+        <div class="hist-nav">
+          <button class="btn ghost" type="button" id="h-prev" aria-label="Previous game day">◀ Prev day</button>
+          <button class="btn ghost" type="button" id="h-next" aria-label="Next game day">Next day ▶</button>
+        </div>
+        <div class="hist-nav">
+          <button class="btn ghost" type="button" id="h-random">Random game</button>
+          <button class="btn ghost" type="button" id="h-upset">Biggest upset this season</button>
+        </div>
+      </div>
+      <p class="small muted" id="h-note" role="status" style="margin:10px 0 0"></p>
+      <div class="games" id="h-games"></div>
+      <p class="small muted" style="margin:10px 0 0">In-sample = the model's coefficients were fit on that season, so it is not a true test; out-of-sample = seasons the model never saw while it was built. The first two seasons of each sport warm up the Elo ratings and are not used for training. Predictions use only information available before each game.</p>
+    </section>
+
     <section class="card" id="featured3d" aria-labelledby="f3d-title">
       <div class="live-head">
-        <h2 id="f3d-title" style="margin:0;font-size:1.15rem">3D game replay</h2>
+        <h2 id="f3d-title" style="margin:0;font-size:1.15rem">Latest finished games in 3D</h2>
         <label class="field f3d-pick">Game
           <select id="f3d-game" aria-label="Choose a recent game to replay in 3D"></select></label>
       </div>
@@ -57,9 +79,11 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script src="js/site.js?v=20260924"></script>
-  <script src="js/replay3d.js?v=20260924v"></script>
+  <script src="js/replay3d.js?v=20260924i"></script>
   <script src="js/featured3d.js?v=20260924f"></script>
+  <script src="js/history.js?v=20260924b"></script>
   <script>
     (function () {
       const S = window.Site, box = document.getElementById("r-tabs");
@@ -67,6 +91,7 @@
         if (!S.SPORTS[s]) s = "nfl";
         box.querySelectorAll(".sport-tab").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.sport === s)));
         if (location.hash.slice(1) !== s) history.replaceState(null, "", "#" + s);
+        if (window.History3D) window.History3D.show(s);
         window.Featured3D.show(s);
       }
       S.SPORT_ORDER.forEach((s) => {

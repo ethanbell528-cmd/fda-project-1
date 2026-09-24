@@ -13,7 +13,7 @@ Built by **Ethan Bell** for Financial Data Analytics (Data Website Project).
 
 **Report (`index.html`).** It opens with a scroll-driven 3D intro set in a night game. A generic purple #8 dual-threat quarterback takes the snap, drops back three steps and throws a spiral straight at the viewer as they scroll. The stadium is a two-tier bowl with purple seats, a lit suite band, ribbon boards, end-zone video boards, rooftop light rows and about 21,000 fans. All text in the stadium is generic, with no real team, player, sponsor or stadium names. A "Skip intro" link jumps past it. Below it, a scrolling report covers the summary, six headline numbers and ten findings, each with a chart and its data table. It ends with a methodology section listing every source and formula.
 
-**3D Replays (`replays.html`).** Pick a sport and one of its recent finished games to watch a rotatable 3D replay rebuilt from ESPN's play-by-play. Every live or finished game card on the dashboard also has a "Watch 3D replay" button.
+**Games & 3D Replays (`replays.html`).** Pick a sport and any date back to 1990 (EPL: August 1993) to see every game that day. Each card shows the model's pre-game prediction (win probability, spread and total; home/draw/away for EPL), the final score, the betting market when our sources have it, whether the model picked the winner, the result against the line and total, and whether the season was in-sample or out-of-sample for the model. Buttons jump to the previous or next game day, a random game, or the season's biggest upset. Clicking a game opens the full prediction and a 3D view: the rotatable play-by-play replay when ESPN has it, otherwise the final result on the correct surface (with the venue when ESPN names it, and the inning-by-inning line score for MLB). Below it, the latest finished games open straight into 3D. Every live or finished game card on the dashboard also has a "Watch 3D replay" button.
 
 **Dashboard (`dashboard.html`).**
 - **Sport tabs** for NFL, NBA, MLB, NHL and EPL load that sport's data file on demand.
@@ -52,7 +52,7 @@ Course requirements, printed by `scripts/clean_data.py`: rows ≥ 50,000 (394,70
 | NBA games 1990-91 to 2000-01 | FiveThirtyEight NBA Elo data (CC-BY-4.0): https://github.com/fivethirtyeight/data/tree/master/nba-elo |
 | NBA games, box scores 2001-02+, closing lines 2022-23+ | hoopR / SportsDataverse, ESPN data (CC-BY-4.0): https://github.com/sportsdataverse/hoopR-nba-data |
 | NBA odds 2007-08 to 2021-22 | SportsbookReviewsOnline archive files, mirror: https://github.com/DillonKoch/Sports_Betting |
-| MLB games 1990–2025, starting pitchers, player games | Retrosheet: https://www.retrosheet.org (notice below) |
+| MLB games 1990–2025, starting pitchers, player games, inning line scores | Retrosheet: https://www.retrosheet.org (notice below) |
 | MLB 2026 games and box scores | MLB Stats API: https://statsapi.mlb.com/api/v1/schedule |
 | MLB player id crosswalk | Chadwick Bureau register: https://github.com/chadwickbureau/register |
 | MLB odds 2010–2021 | SportsbookReviewsOnline: https://www.sportsbookreviewsonline.com |
@@ -77,7 +77,7 @@ python -m venv .venv && .venv/Scripts/activate   # macOS/Linux: source .venv/bin
 pip install -r requirements.txt                  # Python 3.12
 python scripts/download_data.py                  # raw sources into data/raw/ (about 1 GB, gitignored)
 python scripts/clean_data.py                     # data/<sport>*.csv + data/coverage.json + checks
-python scripts/train_model.py --all              # model_<sport>.json + backtest_<sport>.json
+python scripts/train_model.py --all              # model_<sport>.json + backtest_<sport>.json + data/predictions_<sport>.csv
 node   scripts/check_predict_parity.js           # JS predictions equal Python predictions
 python scripts/build_report_data.py              # data/report/*.json used by the report page
 python scripts/build_venues.py                   # data/venues.json for the 3D replays (pinned Wikipedia revisions)
@@ -111,7 +111,8 @@ To use The Odds API free tier locally, copy `config.example.js` to `config.js` a
 | File | What it does |
 |---|---|
 | `index.html` | Report page: summary, headline numbers, findings with charts, methodology |
-| `replays.html` | 3D Replays page: sport tabs, recent finished games, large 3D replay viewer |
+| `replays.html` | Games & 3D Replays page: every game since 1990 by date with the model's pre-game pick, plus the latest finished games in 3D |
+| `js/history.js` | Historical game browser: loads `data/predictions_<sport>.csv`, lists a date's games, matches each to ESPN for the 3D view |
 | `js/intro3d.js` | Report-page intro: three.js stadium scene where a purple #8 quarterback (a rigged human body posed by a code-built IK driver) drops back and throws a spiral at the viewer, driven by scroll; removed automatically if 3D can't load |
 | `assets/male_base_mesh.glb` | CC0 rigged human base mesh used for the intro's players (see Credits) |
 | `js/featured3d.js` | Finds each sport's recent finished games on ESPN and opens one in the 3D viewer on the replays page |
@@ -134,6 +135,8 @@ To use The Odds API free tier locally, copy `config.example.js` to `config.js` a
 | `data/<sport>_players.csv` | Player-game stats for recent seasons (feeds the projections) |
 | `data/<sport>_player_seasons.csv` | Player-season totals over each sport's full span |
 | `data/mlb_starters.csv` | Starting pitcher for every MLB team-game |
+| `data/mlb_linescores.csv` | Runs per inning (visitor and home) for every Retrosheet-era MLB game, from game-log fields 20–21 |
+| `data/predictions_<sport>.csv` | The model's pre-game prediction for every game since the sport's first season (win probability, draw probability for EPL, predicted margin and total, pre-game Elo), with the final score, the market and a `split` label: `burn-in`, `train` (in-sample), `holdout` (out-of-sample backtest) or `current` |
 | `data/nhl_goalie_starts.csv` | Every NHL goalie appearance with start flag, shots and saves |
 | `data/coverage.json` | Verification numbers, honest spans and rows-dropped notes per sport |
 | `data/report/*.json` | Small precomputed summaries the report page reads (it never loads raw CSVs) |

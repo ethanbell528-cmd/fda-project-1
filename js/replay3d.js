@@ -99,7 +99,10 @@
     const gi = (raw.gameInfo && raw.gameInfo.venue) || (comp && comp.venue) || {};
     const list = ((db && db.venues) || []).filter((v) => v.sport === sport);
     let v = gi.id != null ? list.find((x) => x.espn_ids.includes(String(gi.id))) : null;
-    if (!v && gi.fullName) v = list.find((x) => vkey(x.name) === vkey(gi.fullName));
+    // The venue list was built from 2024-26 games. Match by name only for games from 2024 on: an older
+    // game at a same-named, since-replaced stadium (e.g. Busch Stadium before 2006) must not get today's park.
+    const gdate = String((comp && comp.date) || raw.gameDate || "");
+    if (!v && gi.fullName && (!gdate || gdate >= "2024")) v = list.find((x) => vkey(x.name) === vkey(gi.fullName));
     const addr = gi.address || {};
     const indoor = gi.indoor != null ? gi.indoor : v ? v.espn_indoor : null;
     let roof = v && v.roof, roofNote = "";
@@ -454,19 +457,33 @@
   // tiers and rows are sized so the seat count roughly matches the published capacity, because
   // stand-by-stand layouts are not published consistently.
   const UPM = { nba: 3.281, nhl: 3.281, mlb: 3.281, nfl: 1.0936, epl: 1 }; // scene units per metre
-  function crowdTexture(THREE, seat) {
+  function crowdTexture(THREE, seat, colors) {
     const c = document.createElement("canvas");
-    c.width = 256; c.height = 64;
+    c.width = 512; c.height = 128;
     const g = c.getContext("2d");
-    g.fillStyle = seat; g.fillRect(0, 0, 256, 64);
-    const tones = ["#f2f2f2", "#222222", "#c8b49a", "#6b4a35", "#3a3a3a", seat, seat, seat];
-    g.globalAlpha = 0.55;
-    for (let i = 0; i < 1400; i++) { g.fillStyle = tones[(i * 7919) % tones.length]; g.fillRect((i * 37) % 256, (i * 53) % 64, 2, 2); }
-    g.globalAlpha = 1;
-    for (let y = 0; y < 64; y += 4) { g.fillStyle = "rgba(0,0,0,0.18)"; g.fillRect(0, y, 256, 1); }
+    g.fillStyle = seat; g.fillRect(0, 0, 512, 128);
+    // per-seat crowd: torso blocks in team/neutral clothing with a skin-tone head above,
+    // drawn row by row so the rake of the stand reads as seating rows (still schematic)
+    const home = (colors && colors.home) || "#4b3aa8", away = (colors && colors.away) || "#dedede";
+    const cloth = [home, home, away, "#222226", "#3a3a40", "#6c1f1f", "#2d4b7a", "#dedede", "#b8931f"];
+    const tones = ["#c8a184", "#a06b42", "#6b4630", "#4a2e20", "#e0b896", "#8a5a3a"];
+    let s = 1234567;
+    const rnd = () => (s = (s * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff; // deterministic: the same crowd every visit
+    for (let row = 0; row < 16; row++) {
+      const y = row * 8;
+      for (let x = 0; x < 512; x += 4) {
+        if (rnd() < 0.12) continue; // empty seat shows through
+        g.fillStyle = cloth[(rnd() * cloth.length) | 0];
+        g.fillRect(x, y + 3, 4, 5);
+        g.fillStyle = tones[(rnd() * tones.length) | 0];
+        g.fillRect(x + 1, y + 1, 2, 2);
+      }
+      g.fillStyle = "rgba(0,0,0,0.22)"; g.fillRect(0, y + 7, 512, 1); // row shadow
+    }
     const t = new THREE.CanvasTexture(c);
     t.wrapS = t.wrapT = THREE.RepeatWrapping;
     t.colorSpace = THREE.SRGBColorSpace;
+    t.anisotropy = 4;
     return t;
   }
   // Points along the inside edge of the seating, each with an outward unit normal.
@@ -499,8 +516,8 @@
     const u = UPM[sport], v = venue || {};
     const cap = v.capacity || ({ nba: 18000, nhl: 18000, nfl: 68000, epl: 40000, mlb: 40000 }[sport]);
     const seatHex = "#" + new THREE.Color(0x2f3338).lerp(new THREE.Color(colors.home), 0.28).getHexString(); // dark seats, lightly tinted with the home colour
-    const tex = crowdTexture(THREE, seatHex);
-    const seatMat = new THREE.MeshLambertMaterial({ map: tex, side: THREE.DoubleSide });
+    const tex = crowdTexture(THREE, seatHex, colors);
+    const seatMat = new THREE.MeshStandardMaterial({ map: tex, roughness: 0.95, metalness: 0, side: THREE.DoubleSide });
     const fasciaMat = new THREE.MeshLambertMaterial({ color: 0x2b2b2b, side: THREE.DoubleSide });
     const suiteMat = new THREE.MeshBasicMaterial({ color: 0xf1d9a6, side: THREE.DoubleSide });
     const add = (g, m) => { const o = new THREE.Mesh(g, m); scene.add(o); return o; };
@@ -937,6 +954,7 @@
     if (mq && mq.addEventListener) mq.addEventListener("change", onTheme);
 
     return {
+      scene, THREE, S,
       markers,
       setVisible(step, period, cur) {
         const ab = cur && cur.atBat;
@@ -1009,6 +1027,31 @@
   }
 
   // ---------------- public: open a replay into a container ----------------
+  // the venue: factual line + what is real vs schematic
+  function appendVenue(wrap, sport, venue, S) {
+    const place = [venue.city, venue.state || venue.country].filter(Boolean).join(", ");
+    const bits = [venue.roof ? venue.roof + venue.roofNote : null, venue.surface, venue.capacity ? "capacity " + venue.capacity.toLocaleString("en-US") : null].filter(Boolean);
+    const vl = el("p", "small replay-venue");
+    vl.appendChild(el("strong", null, "Venue: "));
+    vl.appendChild(document.createTextNode(venue.name + (place ? ", " + place : "") + (bits.length ? " · " + bits.join(" · ") : "")));
+    if (venue.source) {
+      vl.appendChild(document.createTextNode(" · "));
+      const a = el("a", null, "source");
+      a.href = venue.source; a.target = "_blank"; a.rel = "noopener";
+      vl.appendChild(a);
+    }
+    wrap.appendChild(vl);
+    const real = {
+      mlb: S.realFence ? "Outfield fence drawn at this park's published distances (" + ["lf", "lcf", "cf", "rcf", "rf"].filter((k) => Number.isFinite(venue.fence[k])).map((k) => k.toUpperCase() + " " + venue.fence[k]).join(", ") + " ft)" +
+        (venue.walls ? "; wall heights where published (" + Object.entries(venue.walls).map(([k, h]) => k.toUpperCase() + " " + h + " ft").join(", ") + "), other segments at a standard 8 ft" : "; wall height not published, drawn at a standard 8 ft") + "." : "This park is not in our venue data, so the fence uses a generic shape.",
+      epl: S.real ? "Pitch drawn at this ground's published size, " + S.L + " × " + S.W + " m, and ESPN's positions are scaled to it." : "Pitch drawn at the standard 105 × 68 m (this ground's size is not in our source).",
+      nfl: "Field is the standard 120 × 53⅓ yd.",
+      nba: "Court is the standard 94 × 50 ft.",
+      nhl: "Rink is the standard 200 × 85 ft.",
+    }[sport];
+    wrap.appendChild(el("p", "muted small replay-note", real + " " + (venue.known ? "Stands are schematic: rows and tiers are sized to the published capacity, and the roof is drawn by type" + (venue.retractable ? " (retractable roofs are shown open)" : "") + "." : "This venue is not in our venue data, so the stands are a generic bowl.")));
+  }
+
   async function open(container, sport, eventId, opts) {
     opts = opts || {};
     container.textContent = "";
@@ -1026,12 +1069,12 @@
     } catch (e) {
       wrap.textContent = "";
       wrap.appendChild(el("p", "muted", "3D replay unavailable: ESPN play-by-play could not be loaded (" + e.message + ")."));
-      return { close() {} };
+      return { close() {}, empty: true };
     }
     wrap.textContent = "";
     if (!data.events.length) {
       wrap.appendChild(el("p", "muted", "No play-by-play has been published for this game yet."));
-      return { close() {} };
+      return { close() {}, empty: true, venue };
     }
 
     // toolbar
@@ -1092,30 +1135,7 @@
     legend.appendChild(el("span", "lg-shapes", "Beads on the grey line along the near side = plays with no location, placed in game-time order from left (start) to right (end). The rail is time order, not a field position; beads light up as playback reaches them. Click any marker or bead to read that play." +
       (data.counts.real ? "" : " The raised band above the " + (sport === "epl" ? "pitch" : sport === "nhl" ? "rink" : sport === "nba" ? "court" : "field") + " is the scoring flow: its height is the home lead (above the grey tied line) or the away lead (below), in the same time order.")));
     wrap.appendChild(legend);
-    // the venue: factual line + what is real vs schematic
-    {
-      const place = [venue.city, venue.state || venue.country].filter(Boolean).join(", ");
-      const bits = [venue.roof ? venue.roof + venue.roofNote : null, venue.surface, venue.capacity ? "capacity " + venue.capacity.toLocaleString("en-US") : null].filter(Boolean);
-      const vl = el("p", "small replay-venue");
-      vl.appendChild(el("strong", null, "Venue: "));
-      vl.appendChild(document.createTextNode(venue.name + (place ? ", " + place : "") + (bits.length ? " · " + bits.join(" · ") : "")));
-      if (venue.source) {
-        vl.appendChild(document.createTextNode(" · "));
-        const a = el("a", null, "source");
-        a.href = venue.source; a.target = "_blank"; a.rel = "noopener";
-        vl.appendChild(a);
-      }
-      wrap.appendChild(vl);
-      const real = {
-        mlb: S.realFence ? "Outfield fence drawn at this park's published distances (" + ["lf", "lcf", "cf", "rcf", "rf"].filter((k) => Number.isFinite(venue.fence[k])).map((k) => k.toUpperCase() + " " + venue.fence[k]).join(", ") + " ft)" +
-          (venue.walls ? "; wall heights where published (" + Object.entries(venue.walls).map(([k, h]) => k.toUpperCase() + " " + h + " ft").join(", ") + "), other segments at a standard 8 ft" : "; wall height not published, drawn at a standard 8 ft") + "." : "This park is not in our venue data, so the fence uses a generic shape.",
-        epl: S.real ? "Pitch drawn at this ground's published size, " + S.L + " × " + S.W + " m, and ESPN's positions are scaled to it." : "Pitch drawn at the standard 105 × 68 m (this ground's size is not in our source).",
-        nfl: "Field is the standard 120 × 53⅓ yd.",
-        nba: "Court is the standard 94 × 50 ft.",
-        nhl: "Rink is the standard 200 × 85 ft.",
-      }[sport];
-      wrap.appendChild(el("p", "muted small replay-note", real + " " + (venue.known ? "Stands are schematic: rows and tiers are sized to the published capacity, and the roof is drawn by type" + (venue.retractable ? " (retractable roofs are shown open)" : "") + "." : "This venue is not in our venue data, so the stands are a generic bowl.")));
-    }
+    appendVenue(wrap, sport, venue, S);
     const C = data.counts;
     wrap.appendChild(el("p", "muted small replay-note", "Reconstructed from ESPN play-by-play (not video or player tracking). All " + data.events.length + " plays are shown: " +
       C.real + " at real recorded positions, " + (C.fixed + C.carried) + " on fixed rule spots" + (C.carried ? " (including " + C.carried + " carried from the previous play)" : "") + ", and " + C.rail + " on the time-order rail."));
@@ -1230,7 +1250,108 @@
     };
   }
 
-  window.Replay3D = { open, _parse: parse, _teamColors: teamColors, _venueFor: venueFor, _surfaceFor: surfaceFor };
+  // ---------------- final-result 3D view (games with no play-by-play) ----------------
+  // info = { home: {abbr, score}, away: {abbr, score}, date, label, venue: {fullName, city, state, indoor, grass} | null,
+  //          linescore: {away: "010000100", home: "00000011x"} | null (MLB, Retrosheet), note }
+  function innings(line) { return String(line || "").match(/\(\d+\)|[0-9xX]/g) || []; }
+  async function openFinal(container, sport, info) {
+    container.textContent = "";
+    const wrap = el("div", "replay");
+    container.appendChild(wrap);
+    wrap.appendChild(el("p", "replay-empty", info.note || "No play-by-play exists for this game; the 3D view shows the final result only."));
+    const board = el("div", "replay-board");
+    const score = el("div", "replay-score", info.away.abbr + " " + info.away.score + "  –  " + info.home.score + " " + info.home.abbr);
+    board.append(score, el("div", "replay-caption", ["Final", info.label, info.date].filter(Boolean).join(" · ")));
+    wrap.appendChild(board);
+    const stage = el("div", "replay-stage");
+    const mount = el("div", "replay-canvas");
+    stage.appendChild(mount);
+    wrap.appendChild(stage);
+    let db = null;
+    try { db = await loadVenues(); } catch (e) { db = null; }
+    const v = info.venue;
+    const raw = v ? { gameDate: info.date, gameInfo: { venue: { id: v.id, fullName: v.fullName, address: { city: v.city, state: v.state }, indoor: v.indoor, grass: v.grass } } } : {};
+    const venue = venueFor(sport, raw, db);
+    if (!v) venue.name = "Venue not identified (no ESPN record of this game)";
+    const S = surfaceFor(sport, venue);
+    const teams = { home: { abbr: info.home.abbr, name: info.home.abbr, score: info.home.score }, away: { abbr: info.away.abbr, name: info.away.abbr, score: info.away.score } };
+    const colors = teamColors(teams, SURFACE[sport].base);
+    const legend = el("div", "replay-legend small");
+    const sw = (c, t) => { const s2 = el("span", "lg-item"); const d = el("i", "lg-dot"); d.style.background = c; s2.append(d, document.createTextNode(t)); return s2; };
+    legend.append(sw(colors.away, teams.away.abbr + " (away)"), sw(colors.home, teams.home.abbr + " (home)"));
+    const ls = sport === "mlb" && info.linescore ? { a: innings(info.linescore.away), h: innings(info.linescore.home) } : null;
+    legend.appendChild(el("span", "lg-shapes", ls ? "Stacked cubes in the outfield = runs scored in each inning (one cube per run, innings left to right), from the Retrosheet line score. The scoreboard shows the same line score."
+      : "The scoreboard shows the final score. No per-play or per-period detail exists in the data for this game, so nothing else is drawn."));
+    wrap.appendChild(legend);
+    appendVenue(wrap, sport, venue, S);
+
+    let three = null;
+    try {
+      const L = await loadThree();
+      three = buildScene(L, sport, { S, teams, events: [], counts: { real: 1 } }, colors, mount, null, venue);
+      const { THREE, scene } = three;
+      // scoreboard: a canvas texture on a plane beyond the far side of the surface, facing the default camera
+      const cv = document.createElement("canvas");
+      cv.width = 1024; cv.height = ls ? 300 : 256;
+      const g = cv.getContext("2d");
+      g.fillStyle = "#0b0f14"; g.fillRect(0, 0, cv.width, cv.height);
+      g.strokeStyle = "#ffffff33"; g.lineWidth = 6; g.strokeRect(3, 3, cv.width - 6, cv.height - 6);
+      g.fillStyle = "#ffffff"; g.textBaseline = "middle";
+      if (ls) {
+        const n = Math.max(9, ls.a.length, ls.h.length);
+        const x0 = 150, cw = Math.min(64, (cv.width - x0 - 110) / n);
+        g.font = "bold 34px Inter, Arial, sans-serif"; g.fillStyle = "#9aa3ad";
+        for (let k = 0; k < n; k++) { g.textAlign = "center"; g.fillText(String(k + 1), x0 + cw * (k + 0.5), 50); }
+        g.fillText("R", cv.width - 60, 50);
+        [[ls.a, teams.away], [ls.h, teams.home]].forEach(([row, t], r) => {
+          const y = 140 + r * 100;
+          g.textAlign = "left"; g.fillStyle = r ? colors.home : colors.away; g.font = "bold 48px Inter, Arial, sans-serif";
+          g.fillText(t.abbr, 24, y);
+          g.fillStyle = "#ffffff"; g.font = "bold 40px Inter, Arial, sans-serif"; g.textAlign = "center";
+          for (let k = 0; k < n; k++) g.fillText((row[k] || "").replace(/[()]/g, "").toUpperCase(), x0 + cw * (k + 0.5), y);
+          g.font = "bold 52px Inter, Arial, sans-serif"; g.fillText(String(t.score), cv.width - 60, y);
+        });
+      } else {
+        g.textAlign = "center"; g.font = "bold 92px Inter, Arial, sans-serif";
+        g.fillStyle = colors.away; g.fillText(teams.away.abbr + " " + teams.away.score, cv.width * 0.27, 120);
+        g.fillStyle = "#ffffff"; g.fillText("–", cv.width * 0.5, 120);
+        g.fillStyle = colors.home; g.fillText(teams.home.score + " " + teams.home.abbr, cv.width * 0.73, 120);
+        g.fillStyle = "#9aa3ad"; g.font = "bold 36px Inter, Arial, sans-serif"; g.fillText(["FINAL", info.date].filter(Boolean).join("  ·  "), cv.width / 2, 210);
+      }
+      const tex = new THREE.CanvasTexture(cv);
+      tex.colorSpace = THREE.SRGBColorSpace;
+      const span = sport === "mlb" ? 300 : Math.max(S.L, S.W) * 0.55;
+      const bw = span, bh = span * (cv.height / cv.width);
+      // drawn on top of the stands (no depth test) just beyond the far side, inside the default view
+      const scb = new THREE.Mesh(new THREE.PlaneGeometry(bw, bh), new THREE.MeshBasicMaterial({ map: tex, side: THREE.DoubleSide, depthTest: false }));
+      scb.renderOrder = 10;
+      if (sport === "mlb") scb.position.set(0, 90, -460);
+      else scb.position.set(0, bh / 2 + 4, -S.W / 2 - 3);
+      scene.add(scb);
+      if (ls) {
+        // one cube per run, innings left to right across the outfield grass; away row behind the home row
+        const n = Math.max(9, ls.a.length, ls.h.length), cube = 9;
+        const geo = new THREE.BoxGeometry(cube, cube, cube);
+        const mats = { a: new THREE.MeshStandardMaterial({ color: colors.away, roughness: 0.5 }), h: new THREE.MeshStandardMaterial({ color: colors.home, roughness: 0.5 }) };
+        [["a", -275], ["h", -250]].forEach(([k, z]) => {
+          ls[k].forEach((tok, i) => {
+            const runs = parseInt(tok.replace(/[()]/g, ""), 10);
+            if (!Number.isFinite(runs)) return;
+            for (let q = 0; q < runs; q++) {
+              const m = new THREE.Mesh(geo, mats[k]);
+              m.position.set(-((n - 1) / 2) * 24 + i * 24, cube / 2 + q * (cube + 1), z);
+              scene.add(m);
+            }
+          });
+        });
+      }
+    } catch (e) {
+      mount.appendChild(el("p", "muted", "3D view unavailable in this browser (" + (e && e.message ? e.message : "WebGL or the 3D library could not load") + ")."));
+    }
+    return { close() { if (three) three.dispose(); three = null; } };
+  }
+
+  window.Replay3D = { open, openFinal, _parse: parse, _teamColors: teamColors, _venueFor: venueFor, _surfaceFor: surfaceFor };
 
   // Debug/testing only: dashboard.html?replayTest=nba:401859967 opens that game's replay directly.
   document.addEventListener("DOMContentLoaded", () => {

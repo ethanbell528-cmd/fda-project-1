@@ -255,9 +255,18 @@ def clean(raw: Path) -> dict:
     ], ignore_index=True)
     starters = starters[starters["game_id"].isin(panel["game_id"])]
 
+    # inning-by-inning line scores (Retrosheet game-log fields 20-21, visitor then home) for the
+    # historical 3D view; seasons from the Stats API have none here (their ESPN play-by-play is used)
+    linescores = pd.DataFrame({"game_id": games["game_id"], "away_line": games["away_line"],
+                               "home_line": games["home_line_score"]})
+    linescores = linescores[linescores["game_id"].isin(panel["game_id"])].sort_values("game_id").reset_index(drop=True)
+    notes.append(f"Line scores (runs per inning) for {len(linescores):,} games come from Retrosheet game-log fields "
+                 "20-21 (data/mlb_linescores.csv); 'x' = home half not played, (10) = ten or more runs in an inning.")
+
     players, seasons = _players(raw, panel, cur_players, notes, PLAYER_GAME_SEASONS, CURRENT)
     return {"games": panel, "players": players, "player_seasons": seasons,
-            "extras": {"starters": starters.sort_values(["game_id", "team"]).reset_index(drop=True)},
+            "extras": {"starters": starters.sort_values(["game_id", "team"]).reset_index(drop=True),
+                       "linescores": linescores},
             "notes": notes, "spans": spans}
 
 

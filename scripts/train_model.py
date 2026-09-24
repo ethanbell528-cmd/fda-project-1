@@ -328,7 +328,7 @@ def run_pipeline(sport, g, elo_c):
     names = {}
     if st_info:
         hk_all, ak_all, names, extra = st_info
-    rows, elo_exp = [], []
+    rows, elo_exp, pre_elo = [], [], []
     # seed the league scoring level with the first season's mean so early games have a sane value
     st["league"]["lg_total"] = float((g.loc[g["season"] == g["season"].min(), "hs"] +
                                       g.loc[g["season"] == g["season"].min(), "as_"]).mean())
@@ -346,6 +346,7 @@ def run_pipeline(sport, g, elo_c):
                 ts["last_season"] = s
         hkey = hk_all[i] if st_info else None
         akey = ak_all[i] if st_info else None
+        pre_elo.append((st["teams"][h]["elo"], st["teams"][a]["elo"]))
         x = featurize(sport, st, h, a, r.day, r.neutral, hkey, akey)
         rows.append(x)
         d = x["elo_diff"]
@@ -405,6 +406,7 @@ def run_pipeline(sport, g, elo_c):
                     g_sh_sum -= o[1]
                 st["league"]["lg_sv"] = g_sv_sum / g_sh_sum
     X = pd.DataFrame(rows)[feature_names(sport)]
+    st["pre_elo"] = np.array(pre_elo)  # (home, away) pre-game ratings per game, for predictions_<sport>.csv
     return X, np.array(elo_exp), st
 
 
@@ -951,6 +953,61 @@ def market_era(g, completed, holdout_seasons):
     return good[-2:] if len(good) >= 2 else None
 
 
+def write_predictions(sport, fit, X, g, st, first_train, holdout, hold_start, in_prog, completed):
+    """One row per game since the sport's first season: the exported model's pre-game prediction
+    (features use only information available before the game), the result and the market.
+    split: burn-in = Elo warm-up seasons, never used for training; train = in-sample (the model was fit
+    on these seasons); holdout = out-of-sample backtest seasons; current = season in progress."""
+    pr = fit.predict(X)
+    season = g["season"]
+    comp = season.isin(completed)
+    split = np.select(
+        [season < first_train, season.isin(holdout), season == (in_prog if in_prog is not None else -1),
+         comp & (season >= first_train) & (season < hold_start)],
+        ["burn-in", "holdout", "current", "train"], default="other")
+    pe = st["pre_elo"]
+    out = pd.DataFrame({
+        "game_id": g["game_id"].values,
+        "date": [d.isoformat() for d in g["date"]],
+        "season": season.values,
+        "type": np.where(g["game_type"] == "playoff", "P", "R"),
+        "home": g["home"].values, "away": g["away"].values,
+        "hs": g["hs"].values, "as": g["as_"].values,
+        "neutral": g["neutral"].values,
+        "p_home": np.round(pr["pH"], 4),
+    })
+    if sport == "epl":
+        out["p_draw"] = np.round(pr["pD"], 4)
+    out["pred_margin"] = np.round(pr["margin"], 2)
+    out["pred_total"] = np.round(pr["total"], 2)
+    out["elo_home_pre"] = np.round(pe[:, 0], 1)
+    out["elo_away_pre"] = np.round(pe[:, 1], 1)
+    out["home_line"] = g["home_line"].values
+    out["total_line"] = g["total_line"].values
+    if sport == "epl":
+        out["odds_h"], out["odds_d"], out["odds_a"] = g["odds_h"].values, g["odds_d"].values, g["odds_a"].values
+    else:
+        out["mkt_p_home"] = np.round(g["p_mkt_home"].astype(float).values, 4)
+        out["home_ml"], out["away_ml"] = g["home_ml"].values, g["away_ml"].values
+    out["split"] = split
+    assert (out["split"] != "other").all(), f"{sport}: unlabelled prediction rows"
+    path = DATA / f"predictions_{sport}.csv"
+    out.to_csv(path, index=False, lineterminator=chr(10))
+    # the holdout rows must reproduce the backtest's log loss (probabilities are rounded to 4 dp in the file)
+    h = out[out["split"] == "holdout"]
+    m = (h["hs"] - h["as"]).to_numpy(float)
+    if sport == "epl":
+        P = np.column_stack([h["p_home"], h["p_draw"], 1 - h["p_home"] - h["p_draw"]])
+        Y = np.column_stack([m > 0, m == 0, m < 0]).astype(float)
+        ll = ll3(P, Y)
+    else:
+        k = m != 0
+        ll = ll2(h["p_home"].to_numpy(float)[k], (m[k] > 0).astype(float))
+    print(f"[{sport}] predictions: {len(out):,} games -> {path.name} ({path.stat().st_size / 1e6:.1f} MB); "
+          f"holdout log loss from the file {ll:.5f}")
+    return ll
+
+
 def train(sport):
     c = CFG[sport]
     g = load_games(sport)
@@ -1100,6 +1157,8 @@ def train(sport):
         ],
     }
     (ROOT / f"backtest_{sport}.json").write_text(json.dumps(backtest, indent=1, default=jdefault))
+    ll_file = write_predictions(sport, fit, X, g, st, first_train, holdout, hold_start, in_prog, completed)
+    assert r4(ll_file) == hold_eval["win_model"]["log_loss"],         f"{sport}: predictions file holdout log loss {ll_file} != backtest {hold_eval['win_model']['log_loss']}"
     summarize(sport, backtest, path)
     return backtest
 
