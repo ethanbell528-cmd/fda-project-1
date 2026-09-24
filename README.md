@@ -13,6 +13,8 @@ Built by **Ethan Bell** for Financial Data Analytics (Data Website Project).
 
 **Report (`index.html`).** A scrolling report covers the summary, six headline numbers and ten findings, each with a chart and its data table. It ends with a methodology section listing every source and formula.
 
+**3D Replays (`replays.html`).** Pick a sport and one of its recent finished games to watch a rotatable 3D replay rebuilt from ESPN's play-by-play. Every live or finished game card on the dashboard also has a "Watch 3D replay" button.
+
 **Dashboard (`dashboard.html`).**
 - **Sport tabs** for NFL, NBA, MLB, NHL and EPL load that sport's data file on demand.
 - **Filters** cover season range, team, opponent, home/away, game type and result, with a reset button.
@@ -104,6 +106,8 @@ To use The Odds API free tier locally, copy `config.example.js` to `config.js` a
 | File | What it does |
 |---|---|
 | `index.html` | Report page: summary, headline numbers, findings with charts, methodology |
+| `replays.html` | 3D Replays page: sport tabs, recent finished games, large 3D replay viewer |
+| `js/featured3d.js` | Finds each sport's recent finished games on ESPN and opens one in the 3D viewer on the replays page |
 | `dashboard.html` | Dashboard: sport tabs, filters, measure/breakdown switches, charts, table, reset, live games panel, player projections |
 | `css/style.css` | Shared fonts, colors (light and dark), layout for both pages |
 | `js/site.js` | Shared helpers: theme toggle, sport metadata, number formatting, CSV/JSON loading, Chart.js defaults, the game and player pop-ups |

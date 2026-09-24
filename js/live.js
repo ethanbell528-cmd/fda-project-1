@@ -391,12 +391,12 @@
     const pOf = (o, k) => (o ? o["p" + k[0].toUpperCase() + k.slice(1)] : null);
 
     // model probabilities with edge flags
-    row("Model win %", cols.map((c) => {
+    row(g.state === "pre" ? "Model win %" : "Pre-game model win %", cols.map((c) => {
       const p = pr && !pr.error ? pOf(pr, c[1]) : null;
       if (p == null) return pr && pr.error ? "error" : "n/a";
       const ip = imp ? imp[c[1]] : null;
       const diff = ip != null ? p - ip : null;
-      if (thr != null && diff != null && diff > thr) return { text: f.pct(p) + " edge", cls: "edge", title: "Model is " + (diff * 100).toFixed(1) + " points above the market's no-vig probability" };
+      if (g.state === "pre" && thr != null && diff != null && diff > thr) return { text: f.pct(p) + " edge", cls: "edge", title: "Model is " + (diff * 100).toFixed(1) + " points above the market's no-vig probability" };
       return f.pct(p);
     }));
     row("Market no-vig %", cols.map((c) => (imp && imp[c[1]] != null ? f.pct(imp[c[1]]) : "n/a")));
@@ -446,7 +446,7 @@
     if (g.state === "pre") {
       rbox.appendChild(el("p", "muted small", "The 3D replay appears here once the game starts, built from ESPN's play-by-play locations."));
     } else {
-      const rb = el("button", "btn", g.state === "in" ? "Load live 3D replay" : "Load 3D replay");
+      const rb = el("button", "btn btn-3d btn-3d-load", g.state === "in" ? "▶ Watch live 3D replay" : "▶ Watch 3D replay");
       rb.type = "button";
       rb.addEventListener("click", async () => {
         rb.disabled = true;
@@ -491,12 +491,12 @@
     let edge = false;
     if (pr && !pr.error && pr.pHome != null) {
       if (sport === "epl") {
-        line = "Model: " + g.home.name + " " + f.pct(pr.pHome, 0) + " · draw " + f.pct(pr.pDraw, 0) + " · " + g.away.name + " " + f.pct(pr.pAway, 0);
+        line = (g.state === "pre" ? "Model: " : "Pre-game model: ") + g.home.name + " " + f.pct(pr.pHome, 0) + " · draw " + f.pct(pr.pDraw, 0) + " · " + g.away.name + " " + f.pct(pr.pAway, 0);
       } else {
         const fav = pr.pHome >= pr.pAway ? ["home", g.home.name, pr.pHome] : ["away", g.away.name, pr.pAway];
-        line = "Model: " + fav[1] + " " + f.pct(fav[2], 0) + (imp && imp[fav[0]] != null ? " · market " + f.pct(imp[fav[0]], 0) : "");
+        line = (g.state === "pre" ? "Model: " : "Pre-game model: ") + fav[1] + " " + f.pct(fav[2], 0) + (imp && imp[fav[0]] != null ? " · market " + f.pct(imp[fav[0]], 0) : "");
       }
-      if (imp && thr != null) edge = ["home", "away", "draw"].some((k) => { const pk = pr["p" + k[0].toUpperCase() + k.slice(1)]; return pk != null && imp[k] != null && pk - imp[k] > thr; });
+      if (imp && thr != null && g.state === "pre") edge = ["home", "away", "draw"].some((k) => { const pk = pr["p" + k[0].toUpperCase() + k.slice(1)]; return pk != null && imp[k] != null && pk - imp[k] > thr; });
     }
     const ml = el("div", "small", line);
     ml.style.marginTop = "4px";
@@ -516,8 +516,8 @@
     const mkl = el("div", "small muted", mtxt + (mk && mk.live ? " (live)" : ""));
     card.appendChild(mkl);
     if (edge) card.appendChild(el("span", "edge small", "model edge"));
-    card.appendChild(el("div", "open-hint", "Click for odds, model and players"));
-    const open = () => {
+    card.appendChild(el("div", "open-hint", g.state === "pre" ? "Click for odds, model and players" : "Click for odds, players and the 3D replay"));
+    const open = (withReplay) => {
       const d = detailFor(sport, g, ctx);
       window.Site.showGame({
         title: g.away.name + " at " + g.home.name,
@@ -525,9 +525,19 @@
         node: d.node,
       });
       d.loadPlayers();
+      if (withReplay === true) {
+        const b = d.node.querySelector(".btn-3d-load");
+        if (b) { b.click(); b.scrollIntoView({ block: "start" }); }
+      }
     };
-    card.addEventListener("click", open);
-    card.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
+    if (g.state !== "pre") {
+      const wb = el("button", "btn btn-3d", g.state === "in" ? "▶ Watch live 3D replay" : "▶ Watch 3D replay");
+      wb.type = "button";
+      wb.addEventListener("click", (e) => { e.stopPropagation(); open(true); });
+      card.appendChild(wb);
+    }
+    card.addEventListener("click", () => open(false));
+    card.addEventListener("keydown", (e) => { if (e.target === card && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); open(false); } });
     return card;
   }
 
@@ -854,7 +864,7 @@
           live: g.state === "in" && o === live,
           homeLine: sport === "epl" ? null : homeLine,
           total: num(o.overUnder),
-          mlHome: num(h.moneyLine), mlAway: num(a.moneyLine),
+          mlHome: num(h.moneyLine) || null, mlAway: num(a.moneyLine) || null, // 0 = market suspended
           overPrice: cur.over ? num(cur.over.american) : null, underPrice: cur.under ? num(cur.under.american) : null,
         };
         if (sport === "epl") {

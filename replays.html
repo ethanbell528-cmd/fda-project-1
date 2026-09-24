@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D Replays · The Closing Line</title>
+  <meta name="description" content="Rotatable 3D replays of NFL, NBA, MLB, NHL and EPL games, rebuilt from ESPN play-by-play locations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="importmap">
+    { "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.min.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+    } }
+  </script>
+  <link rel="stylesheet" href="css/style.css?v=20260924f">
+</head>
+<body>
+  <nav class="nav" aria-label="Main">
+    <div class="wrap">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><i style="background:var(--nfl)"></i><i style="background:var(--nba)"></i><i style="background:var(--mlb)"></i><i style="background:var(--nhl)"></i><i style="background:var(--epl)"></i></span>The Closing Line</a>
+      <div class="nav-links">
+        <a href="index.html">Report</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="replays.html" class="nav-3d" aria-current="page">3D Replays</a>
+        <button class="theme-btn" type="button">Dark mode</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap" id="replays">
+    <header class="dash-head">
+      <div class="eyebrow">3D Replays</div>
+      <h1>Watch how each game happened</h1>
+      <p class="muted">Pick a sport and a game. The replay rebuilds the game in 3D from ESPN's play-by-play: shots, hits, drives and goals at the spots where they happened, in the order they happened. Drag to rotate, scroll or pinch to zoom, and press Play.</p>
+    </header>
+
+    <div class="sport-tabs" role="tablist" aria-label="Sport" id="r-tabs"></div>
+
+    <section class="card" id="featured3d" aria-labelledby="f3d-title">
+      <div class="live-head">
+        <h2 id="f3d-title" style="margin:0;font-size:1.15rem">3D game replay</h2>
+        <label class="field f3d-pick">Game
+          <select id="f3d-game" aria-label="Choose a recent game to replay in 3D"></select></label>
+      </div>
+      <p class="small muted" id="f3d-note" style="margin:4px 0 8px"></p>
+      <div id="f3d-view" class="f3d-view">Loading…</div>
+    </section>
+    <p class="small muted" style="margin-top:12px">For today's games with odds and model predictions, open the <a href="dashboard.html">dashboard</a>; every live or finished game there has a "Watch 3D replay" button too.</p>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p class="disclaimer"><strong>Educational project, not betting advice.</strong> Odds are shown for comparison only. This site never places bets, has no sportsbook links, and uses read-only public data. If gambling stops being fun, call or text 1-800-GAMBLER.</p>
+      <p>Built by Ethan Bell for Financial Data Analytics. Data sources and formulas are listed in the <a href="index.html#methodology">methodology</a>.</p>
+    </div>
+  </footer>
+
+  <script src="js/site.js?v=20260924"></script>
+  <script src="js/replay3d.js?v=20260924d"></script>
+  <script src="js/featured3d.js?v=20260924f"></script>
+  <script>
+    (function () {
+      const S = window.Site, box = document.getElementById("r-tabs");
+      function pick(s) {
+        if (!S.SPORTS[s]) s = "nfl";
+        box.querySelectorAll(".sport-tab").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.sport === s)));
+        if (location.hash.slice(1) !== s) history.replaceState(null, "", "#" + s);
+        window.Featured3D.show(s);
+      }
+      S.SPORT_ORDER.forEach((s) => {
+        const b = document.createElement("button");
+        b.type = "button"; b.className = "sport-tab"; b.setAttribute("role", "tab"); b.dataset.sport = s;
+        const dot = document.createElement("span"); dot.className = "dot"; dot.style.background = "var(--" + s + ")";
+        b.appendChild(dot); b.appendChild(document.createTextNode(S.SPORTS[s].name));
+        b.addEventListener("click", () => pick(s));
+        box.appendChild(b);
+      });
+      window.addEventListener("hashchange", () => pick(location.hash.slice(1)));
+      document.addEventListener("DOMContentLoaded", () => pick(location.hash.slice(1)));
+    })();
+  </script>
+</body>
+</html>

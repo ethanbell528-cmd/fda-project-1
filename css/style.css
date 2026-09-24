@@ -338,3 +338,22 @@ footer .disclaimer { max-width: 820px; }
 }
 .sz-key { margin-top: 2px; font-size: 0.66rem; color: var(--muted); }
 .replay-empty { margin: 8px 0 0; padding: 8px 10px; border-radius: 8px; background: var(--surface-2); color: var(--ink); font-size: 0.85rem; }
+
+/* featured 3D replay on the dashboard */
+#featured3d .live-head .field select { min-width: 0; max-width: 100%; }
+.f3d-view { min-height: 120px; }
+@media (max-width: 640px) { #featured3d .live-head .field { width: 100%; } #featured3d .live-head .field select { flex: 1; } }
+
+/* prominent 3D replay buttons */
+.btn-3d {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 10px;
+  background: var(--accent); border-color: var(--accent); color: var(--accent-ink);
+  font-size: 0.95rem; font-weight: 800; padding: 9px 16px; border-radius: 999px;
+  box-shadow: 0 2px 10px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.btn-3d:hover, .btn-3d:focus-visible { filter: brightness(1.1); outline: 2px solid var(--ink); outline-offset: 2px; }
+.game-compact .btn-3d { width: 100%; justify-content: center; }
+.nav-links a.nav-3d { color: var(--accent); }
+.nav-links a.nav-3d[aria-current="page"] { background: var(--accent); color: var(--accent-ink); }
+.f3d-pick { flex-direction: row; align-items: center; gap: 8px; }
+@media (max-width: 640px) { .f3d-pick { width: 100%; } .f3d-pick select { flex: 1; min-width: 0; } }
