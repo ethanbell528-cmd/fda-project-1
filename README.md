@@ -21,6 +21,7 @@ Built by **Ethan Bell** for Financial Data Analytics (Data Website Project).
 - **Six summary tiles and five charts** recalculate with the filters. A measure switch and a breakdown switch change what the charts show. A table lists the numbers behind the current view.
 - **Games today: model vs. market.** Each game is a compact card with the score, the model's pick and the market odds. Click a card to open the full game in a large pop-up. It shows model win % against the market's no-vig odds, moneylines and fair odds, the model and market spread, and the total. Live games show in-game odds, labeled "(live)". The panel refreshes every 60 seconds.
 - **3D replays.** Every live or finished game has a "Load 3D replay" button in its pop-up, for all five sports. It rebuilds the game on a 3D court, rink, field or pitch from ESPN's play-by-play locations: NBA shot spots with arcs to the rim, NHL shot and goal spots, MLB batted-ball arcs plus a strike-zone inset, NFL drives play by play, and EPL shots to goal. It has play/pause, a timeline scrubber, speed and period filters, a running scoreboard, rotate and zoom, and a text list of every play. Every play is shown in 3D and labeled as one of three kinds. Real positions are where ESPN recorded the play. Fixed rule spots include free throws on the free-throw line, strikeouts and walks at home plate, and penalties on the penalty spot. Everything else is a bead on a time-order rail along the near side, which is ordered by game time and is not a field position. Games with no recorded positions also get a scoring-flow band above the surface. The replay counts each kind, and the counts add up to all plays. It is not video or player tracking.
+- **Real venues in the replays.** Each replay is drawn in the stadium or arena where that game was played, from `data/venues.json`. The venue line under the replay gives the name, city, roof, surface and capacity, with a link to its source. Ballparks use their published fence distances, such as Fenway's 310 ft left field and 302 ft right field, and their published wall heights where a source gives them, such as the 37 ft Green Monster and Houston's 19 ft left-field wall. Other wall segments are drawn at a standard 8 ft. EPL pitches use each ground's published size, such as Craven Cottage at 100 × 65 m, and ESPN's positions are scaled to it. Roofs are drawn by type: fixed domes and translucent roofs as see-through shells, and retractable roofs as open frames. Stands are schematic, with rows and tiers sized to the published capacity, because stand-by-stand layouts are not published consistently. A game at a venue not in the data gets a generic bowl, and the replay says so. As a check across 120 recent MLB games, 99.2% of home runs land at or beyond the drawn wall, and 89.2% of fly and line-drive outs land inside it.
 - **Games on any date.** A date picker loads any day's scoreboard, so past games can be replayed. Only today's board refreshes automatically.
 - **Player pop-ups.** Inside a game, click any featured player to see that player's model projection next to the sportsbook prop. It shows the line, the over and under odds, the market's no-vig chance of the over, and the model's view. Once the game starts, it adds the actual stat.
 - **Player projections table.** It lists every featured player's projected per-game stats, filterable by team, role and name. Click a name for the inputs behind the projection.
@@ -62,6 +63,9 @@ Course requirements, printed by `scripts/clean_data.py`: rows ≥ 50,000 (394,70
 | Live scores and fallback odds | ESPN public scoreboard: `https://site.api.espn.com/apis/site/v2/sports/<sport>/<league>/scoreboard` |
 | Live odds, optional | The Odds API: https://the-odds-api.com |
 | 3D replays (play-by-play locations) | ESPN public game summary: `https://site.api.espn.com/apis/site/v2/sports/<sport>/<league>/summary?event=<id>` |
+| Venue list for the 3D replays | ESPN public scoreboards (the venue id, name, city and indoor flag of every 2024–26 game in the five leagues) |
+| Venue attributes (capacity, surface, roof, MLB fence distances, EPL pitch size) | Each venue's Wikipedia article infobox, pinned to one revision per venue (the revision link is stored in `data/venues.json`) |
+| MLB wall heights | The sentence quoted per park in `scripts/venues_input.json`: Wikipedia articles, plus CBS Sports for Houston's left-field wall (https://www.cbssports.com/mlb/news/lets-get-to-know-houstons-minute-maid-park-the-train-and-that-odd-blue-house) |
 | Live player prop lines | ESPN public odds feed (sportsbook as listed by ESPN, e.g. DraftKings): `https://sports.core.api.espn.com/v2/sports/<sport>/leagues/<league>/events/<id>/competitions/<id>/odds/<provider>/propBets` |
 
 *The information used here was obtained free of charge from and is copyrighted by Retrosheet. Interested parties may contact Retrosheet at www.retrosheet.org.*
@@ -76,6 +80,7 @@ python scripts/clean_data.py                     # data/<sport>*.csv + data/cove
 python scripts/train_model.py --all              # model_<sport>.json + backtest_<sport>.json
 node   scripts/check_predict_parity.js           # JS predictions equal Python predictions
 python scripts/build_report_data.py              # data/report/*.json used by the report page
+python scripts/build_venues.py                   # data/venues.json for the 3D replays (pinned Wikipedia revisions)
 python -m http.server 8000                       # open http://localhost:8000
 ```
 
@@ -116,6 +121,9 @@ To use The Odds API free tier locally, copy `config.example.js` to `config.js` a
 | `js/report.js` | Renders the report's text numbers, tiles and charts from `data/report/*.json` |
 | `js/dashboard.js` | Loads one sport's CSV, applies filters, computes the tiles, charts and table in the browser |
 | `js/live.js` | Live panel: ESPN scoreboard and core odds feed (pre-game and live odds), optional Odds API, team-code mapping, compact game cards, game pop-up, player props matched to ESPN rosters |
+| `scripts/build_venues.py` | Builds `data/venues.json` from `scripts/venues_input.json`: fetches each venue's pinned Wikipedia revision and parses capacity, surface, roof, fence distances and pitch size; unknown values stay null |
+| `scripts/venues_input.json` | Every venue ESPN used for a 2024–26 game (ESPN venue ids), its pinned Wikipedia revision, and hand-curated MLB wall heights with the quoted source sentence |
+| `data/venues.json` | Venue attributes used by the 3D replays, each with its source link, revision and verification date |
 | `js/replay3d.js` | 3D game replays: fetches ESPN's play-by-play summary, maps each sport's coordinates onto a three.js court, rink, field or pitch (three.js loaded from jsDelivr only when a replay opens), with timeline controls and an accessible play list |
 | `js/projections.js` | Player projections table on the dashboard, with a pop-up per player |
 | `js/predict.js` | In-browser model inference per sport, plus Elo and odds math utilities |

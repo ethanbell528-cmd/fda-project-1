@@ -1,0 +1,4729 @@
+{
+ "description": "Venue attributes for the 3D replays. Numbers come from the cited Wikipedia revision (infobox) or, for wall heights, the quoted sentence; null means the source does not state it. Tiers, bowl shape and EPL stand heights are not published consistently, so they are null and the replay draws a schematic bowl scaled by capacity.",
+ "built": "2026-09-24",
+ "venues": [
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "4440",
+    "10378"
+   ],
+   "name": "American Express Stadium",
+   "city": "Falmer",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "BHA"
+   ],
+   "neutral_site_only": false,
+   "capacity": 32176,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 105.0,
+    "width_m": 68.0
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Falmer_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375839498",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "192"
+   ],
+   "name": "Anfield",
+   "city": "Liverpool",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "LIV"
+   ],
+   "neutral_site_only": false,
+   "capacity": 61276,
+   "surface": null,
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 101.0,
+    "width_m": 68.0
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Anfield",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1373862232",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "1680"
+   ],
+   "name": "Coventry Building Society Arena",
+   "city": "Coventry",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "COV"
+   ],
+   "neutral_site_only": false,
+   "capacity": 32609,
+   "surface": "hybrid grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 120.0,
+    "width_m": 68.0
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Coventry_Building_Society_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372083394",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "279"
+   ],
+   "name": "Craven Cottage",
+   "city": "London",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "FUL"
+   ],
+   "neutral_site_only": false,
+   "capacity": 28107,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 100.0,
+    "width_m": 65.0
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Craven_Cottage",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376143729",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "190"
+   ],
+   "name": "Elland Road",
+   "city": "Leeds",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "LEE"
+   ],
+   "neutral_site_only": false,
+   "capacity": 37633,
+   "surface": "hybrid grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 105.0,
+    "width_m": 68.0
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Elland_Road",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372883515",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "2267"
+   ],
+   "name": "Emirates Stadium",
+   "city": "London",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "ARS"
+   ],
+   "neutral_site_only": false,
+   "capacity": 60704,
+   "surface": "hybrid grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 105.0,
+    "width_m": 68.0
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Emirates_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376476197",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "4036"
+   ],
+   "name": "Etihad Stadium",
+   "city": "Manchester",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "MNC"
+   ],
+   "neutral_site_only": false,
+   "capacity": 61038,
+   "surface": "hybrid grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 105.0,
+    "width_m": 68.0
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Etihad_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376402358",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "253"
+   ],
+   "name": "Goodison Park",
+   "city": "Liverpool",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "EVE"
+   ],
+   "neutral_site_only": false,
+   "capacity": 39414,
+   "surface": "hybrid grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 100.5,
+    "width_m": 68.0
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Goodison_Park",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375638265",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "8480",
+    "9658"
+   ],
+   "name": "Gtech Community Stadium",
+   "city": "London",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "BRE"
+   ],
+   "neutral_site_only": false,
+   "capacity": 17250,
+   "surface": "hybrid grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 105.0,
+    "width_m": 68.0
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Brentford_Community_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372069969",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "10318"
+   ],
+   "name": "Hill Dickinson Stadium",
+   "city": "Liverpool",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "EVE"
+   ],
+   "neutral_site_only": false,
+   "capacity": 52769,
+   "surface": null,
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 105.0,
+    "width_m": 68.0
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Hill_Dickinson_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376540117",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "5774"
+   ],
+   "name": "King Power Stadium",
+   "city": "Leicester",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "LEI"
+   ],
+   "neutral_site_only": false,
+   "capacity": 32259,
+   "surface": "hybrid grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 105.0,
+    "width_m": 68.0
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/King_Power_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1374103279",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "6660"
+   ],
+   "name": "London Stadium",
+   "city": "London",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "WHU"
+   ],
+   "neutral_site_only": false,
+   "capacity": 62500,
+   "surface": "hybrid grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 105.0,
+    "width_m": 68.0
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/London_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372329281",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [],
+   "name": "MKM Stadium",
+   "city": "Kingston upon Hull",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "HUL"
+   ],
+   "neutral_site_only": false,
+   "capacity": 24983,
+   "surface": "hybrid grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/MKM_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372082786",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "136"
+   ],
+   "name": "Molineux Stadium",
+   "city": "Wolverhampton",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "WOL"
+   ],
+   "neutral_site_only": false,
+   "capacity": 31750,
+   "surface": "hybrid grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 105.0,
+    "width_m": 68.0
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Molineux_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372216834",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "250"
+   ],
+   "name": "Old Trafford",
+   "city": "Manchester",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "MAN"
+   ],
+   "neutral_site_only": false,
+   "capacity": 74158,
+   "surface": "hybrid grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 105.0,
+    "width_m": 68.0
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Old_Trafford",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376114762",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "257"
+   ],
+   "name": "Portman Road",
+   "city": "Ipswich",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "IPS"
+   ],
+   "neutral_site_only": false,
+   "capacity": 30056,
+   "surface": "hybrid grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 102.4,
+    "width_m": 75.0
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Portman_Road",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372901600",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "135"
+   ],
+   "name": "Selhurst Park",
+   "city": "London",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "CRY"
+   ],
+   "neutral_site_only": false,
+   "capacity": 25194,
+   "surface": "hybrid grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 101.0,
+    "width_m": 68.0
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Selhurst_Park",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376302429",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "152",
+    "4684"
+   ],
+   "name": "St. James' Park",
+   "city": "Newcastle-upon-Tyne",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "NEW"
+   ],
+   "neutral_site_only": false,
+   "capacity": 52719,
+   "surface": "hybrid grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 105.0,
+    "width_m": 68.0
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/St_James'_Park",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372845830",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "4850"
+   ],
+   "name": "St. Mary's Stadium",
+   "city": "Southampton",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "SOU"
+   ],
+   "neutral_site_only": false,
+   "capacity": 32384,
+   "surface": "hybrid grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 105.0,
+    "width_m": 68.0
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/St_Mary's_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376463204",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "194"
+   ],
+   "name": "Stadium of Light",
+   "city": "Sunderland",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "SUN"
+   ],
+   "neutral_site_only": false,
+   "capacity": 49000,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 105.2,
+    "width_m": 68.6
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Stadium_of_Light",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372235958",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "249"
+   ],
+   "name": "Stamford Bridge",
+   "city": "London",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "CHE"
+   ],
+   "neutral_site_only": false,
+   "capacity": 40044,
+   "surface": "hybrid grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 103.0,
+    "width_m": 67.5
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Stamford_Bridge_(stadium)",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375232985",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "131"
+   ],
+   "name": "The City Ground",
+   "city": "Nottingham",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "NFO"
+   ],
+   "neutral_site_only": false,
+   "capacity": 31212,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 105.0,
+    "width_m": 71.0
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/City_Ground",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375729564",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "7827"
+   ],
+   "name": "Tottenham Hotspur Stadium",
+   "city": "London",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "TOT"
+   ],
+   "neutral_site_only": false,
+   "capacity": 62850,
+   "surface": "hybrid grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 105.0,
+    "width_m": 68.0
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Tottenham_Hotspur_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375183094",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "197"
+   ],
+   "name": "Turf Moor",
+   "city": "Burnley",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "BUR"
+   ],
+   "neutral_site_only": false,
+   "capacity": 21944,
+   "surface": "hybrid grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 105.0,
+    "width_m": 68.0
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Turf_Moor",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372246296",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "307"
+   ],
+   "name": "Villa Park",
+   "city": "Birmingham",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "AVL"
+   ],
+   "neutral_site_only": false,
+   "capacity": 43205,
+   "surface": "hybrid grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 105.0,
+    "width_m": 68.0
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Villa_Park",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372249423",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "epl",
+   "espn_ids": [
+    "6020"
+   ],
+   "name": "Vitality Stadium",
+   "city": "Bournemouth",
+   "state": null,
+   "country": "England",
+   "espn_indoor": null,
+   "home_teams": [
+    "BOU"
+   ],
+   "neutral_site_only": false,
+   "capacity": 12357,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": {
+    "length_m": 105.0,
+    "width_m": 68.0
+   },
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Dean_Court",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372079891",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "4242"
+   ],
+   "name": "American Family Field",
+   "city": "Milwaukee",
+   "state": "Wisconsin",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "MIL"
+   ],
+   "neutral_site_only": false,
+   "capacity": 41900,
+   "surface": "grass",
+   "roof": "retractable",
+   "fence_ft": {
+    "lf": 342,
+    "lcf": 371,
+    "cf": 400,
+    "rcf": 374,
+    "rf": 337
+   },
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/American_Family_Field",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376438911",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "3"
+   ],
+   "name": "Angel Stadium",
+   "city": "Anaheim",
+   "state": "California",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "LAA"
+   ],
+   "neutral_site_only": false,
+   "capacity": 45517,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 347,
+    "lcf": 390,
+    "cf": 396,
+    "rcf": 370,
+    "rf": 350
+   },
+   "wall_height_ft": {
+    "rcf": 19
+   },
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Angel_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372944511",
+   "verified": "2026-09-24",
+   "wall_height_source": "https://en.wikipedia.org/wiki/Angel_Stadium",
+   "wall_height_quote": "the 8 ft high fence in right center field ... replaced by a 19 ft high wall which contains a scoreboard"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "87"
+   ],
+   "name": "Busch Stadium",
+   "city": "St. Louis",
+   "state": "Missouri",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "STL"
+   ],
+   "neutral_site_only": false,
+   "capacity": 44383,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 336,
+    "lcf": 375,
+    "cf": 400,
+    "rcf": 375,
+    "rf": 335
+   },
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Busch_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372071068",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "30"
+   ],
+   "name": "Chase Field",
+   "city": "Phoenix",
+   "state": "Arizona",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "ARI"
+   ],
+   "neutral_site_only": false,
+   "capacity": 48330,
+   "surface": "artificial turf",
+   "roof": "retractable",
+   "fence_ft": {
+    "lf": 330,
+    "lcf": 374,
+    "cf": 407,
+    "rcf": 374,
+    "rf": 334
+   },
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Chase_Field",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372074897",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "209"
+   ],
+   "name": "Citi Field",
+   "city": "Queens",
+   "state": "New York",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "NYM"
+   ],
+   "neutral_site_only": false,
+   "capacity": 41922,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 335,
+    "lcf": 358,
+    "cf": 408,
+    "rcf": 375,
+    "rf": 330
+   },
+   "wall_height_ft": {
+    "lf": 8
+   },
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Citi_Field",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372075852",
+   "verified": "2026-09-24",
+   "wall_height_source": "https://en.wikipedia.org/wiki/Citi_Field",
+   "wall_height_quote": "building an 8 ft wall in front of the high 16 ft wall in left field"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "84"
+   ],
+   "name": "Citizens Bank Park",
+   "city": "Philadelphia",
+   "state": "Pennsylvania",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "NL",
+    "PHI"
+   ],
+   "neutral_site_only": false,
+   "capacity": 42901,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 329,
+    "lcf": 374,
+    "cf": 401,
+    "rcf": 369,
+    "rf": 330
+   },
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Citizens_Bank_Park",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375902485",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "45"
+   ],
+   "name": "Comerica Park",
+   "city": "Detroit",
+   "state": "Michigan",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "DET"
+   ],
+   "neutral_site_only": false,
+   "capacity": 41083,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 342,
+    "lcf": 370,
+    "cf": 412,
+    "rcf": 365,
+    "rf": 330
+   },
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Comerica_Park",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376178715",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "27"
+   ],
+   "name": "Coors Field",
+   "city": "Denver",
+   "state": "Colorado",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "COL"
+   ],
+   "neutral_site_only": false,
+   "capacity": 46897,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 347,
+    "lcf": 390,
+    "cf": 415,
+    "rcf": 375,
+    "rf": 350
+   },
+   "wall_height_ft": {
+    "rcf": 16.5
+   },
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Coors_Field",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375299958",
+   "verified": "2026-09-24",
+   "wall_height_source": "https://en.wikipedia.org/wiki/Coors_Field",
+   "wall_height_quote": "From right field to center field in front of the bullpens the fence was raised 8 feet 9 inches to a height of 16 feet 6 inches"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "44"
+   ],
+   "name": "Daikin Park",
+   "city": "Houston",
+   "state": "Texas",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "HOU"
+   ],
+   "neutral_site_only": false,
+   "capacity": 41168,
+   "surface": "grass",
+   "roof": "retractable",
+   "fence_ft": {
+    "lf": 315,
+    "lcf": 366,
+    "cf": 409,
+    "rcf": 370,
+    "rf": 326
+   },
+   "wall_height_ft": {
+    "lf": 19
+   },
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Daikin_Park",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372078987",
+   "verified": "2026-09-24",
+   "wall_height_source": "https://www.cbssports.com/mlb/news/lets-get-to-know-houstons-minute-maid-park-the-train-and-that-odd-blue-house",
+   "wall_height_quote": "Wall height: LF - 19 feet"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "19"
+   ],
+   "name": "Dodger Stadium",
+   "city": "Los Angeles",
+   "state": "California",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "LAD"
+   ],
+   "neutral_site_only": false,
+   "capacity": 56000,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 330,
+    "lcf": 360,
+    "cf": 395,
+    "rcf": 375,
+    "rf": 330
+   },
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Dodger_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375093238",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "7103"
+   ],
+   "name": "Estadio Alfredo Harp Helú",
+   "city": "Mexico City",
+   "state": null,
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "ARI"
+   ],
+   "neutral_site_only": true,
+   "capacity": 20062,
+   "surface": "artificial turf",
+   "roof": null,
+   "fence_ft": {
+    "lf": 332,
+    "cf": 410,
+    "rf": 332
+   },
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Estadio_Alfredo_Harp_Helú",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372146611",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "2"
+   ],
+   "name": "Fenway Park",
+   "city": "Boston",
+   "state": "Massachusetts",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "BOS"
+   ],
+   "neutral_site_only": false,
+   "capacity": 37305,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 310,
+    "lcf": 379,
+    "cf": 389,
+    "rcf": 380,
+    "rf": 302
+   },
+   "wall_height_ft": {
+    "lf": 37.17
+   },
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Fenway_Park",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376280796",
+   "verified": "2026-09-24",
+   "wall_height_source": "https://en.wikipedia.org/wiki/Fenway_Park",
+   "wall_height_quote": "The Green Monster measures 37.167 ft tall."
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "232"
+   ],
+   "name": "Field of Dreams",
+   "city": "Dyersville",
+   "state": "Iowa",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "MIN"
+   ],
+   "neutral_site_only": true,
+   "capacity": null,
+   "surface": null,
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": null,
+   "source_revision": null,
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "231"
+   ],
+   "name": "Globe Life Field",
+   "city": "Arlington",
+   "state": "Texas",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "TEX"
+   ],
+   "neutral_site_only": false,
+   "capacity": null,
+   "surface": "artificial turf",
+   "roof": "retractable",
+   "fence_ft": {
+    "lf": 329,
+    "lcf": 372,
+    "cf": 407,
+    "rcf": 374,
+    "rf": 326
+   },
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Globe_Life_Field",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375074421",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "83"
+   ],
+   "name": "Great American Ball Park",
+   "city": "Cincinnati",
+   "state": "Ohio",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "CIN"
+   ],
+   "neutral_site_only": false,
+   "capacity": 43500,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 328,
+    "lcf": 379,
+    "cf": 404,
+    "rcf": 370,
+    "rf": 325
+   },
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Great_American_Ball_Park",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372183869",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "223"
+   ],
+   "name": "Journey Bank Ballpark at Historic Bowman Field",
+   "city": "Williamsport",
+   "state": "Pennsylvania",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "MIL"
+   ],
+   "neutral_site_only": true,
+   "capacity": 2366,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 323,
+    "cf": 411,
+    "rf": 331
+   },
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Bowman_Field",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372276761",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "7"
+   ],
+   "name": "Kauffman Stadium",
+   "city": "Kansas City",
+   "state": "Missouri",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "KC"
+   ],
+   "neutral_site_only": false,
+   "capacity": 38053,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 330,
+    "lcf": 379,
+    "cf": 410,
+    "rcf": 379,
+    "rf": 330
+   },
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Kauffman_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376240550",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "234"
+   ],
+   "name": "Las Vegas Ballpark",
+   "city": "Las Vegas",
+   "state": "Nevada",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "ATH"
+   ],
+   "neutral_site_only": false,
+   "capacity": 8196,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 340,
+    "lcf": 380,
+    "cf": 415,
+    "rcf": 380,
+    "rf": 340
+   },
+   "wall_height_ft": {
+    "lf": 14,
+    "lcf": 10,
+    "cf": 10,
+    "rcf": 10,
+    "rf": 10
+   },
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Las_Vegas_Ballpark",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376468509",
+   "verified": "2026-09-24",
+   "wall_height_source": "https://en.wikipedia.org/wiki/Las_Vegas_Ballpark",
+   "wall_height_quote": "The home run wall, with the exception of left field where the wall is 14 feet high, is 10 feet high."
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "89"
+   ],
+   "name": "Nationals Park",
+   "city": "Washington",
+   "state": "District of Columbia",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "WSH"
+   ],
+   "neutral_site_only": false,
+   "capacity": 41373,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 337,
+    "lcf": 377,
+    "cf": 402,
+    "rcf": 370,
+    "rf": 335
+   },
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Nationals_Park",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372219153",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "43"
+   ],
+   "name": "Oracle Park",
+   "city": "San Francisco",
+   "state": "California",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "SF"
+   ],
+   "neutral_site_only": false,
+   "capacity": 41331,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 339,
+    "lcf": 399,
+    "cf": 391,
+    "rcf": 415,
+    "rf": 309
+   },
+   "wall_height_ft": {
+    "lf": 8.0,
+    "cf": 7.0,
+    "rcf": 20.0,
+    "rf": 24.0
+   },
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Oracle_Park",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372223272",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "1"
+   ],
+   "name": "Oriole Park at Camden Yards",
+   "city": "Baltimore",
+   "state": "Maryland",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "BAL"
+   ],
+   "neutral_site_only": false,
+   "capacity": 42455,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 333,
+    "lcf": 376,
+    "cf": 400,
+    "rcf": 373,
+    "rf": 318
+   },
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Oriole_Park_at_Camden_Yards",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1373538120",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "47"
+   ],
+   "name": "PNC Park",
+   "city": "Pittsburgh",
+   "state": "Pennsylvania",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "PIT"
+   ],
+   "neutral_site_only": false,
+   "capacity": 38747,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 325,
+    "lcf": 383,
+    "cf": 399,
+    "rcf": 375,
+    "rf": 320
+   },
+   "wall_height_ft": {
+    "lf": 6,
+    "cf": 10,
+    "rf": 21
+   },
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/PNC_Park",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372203648",
+   "verified": "2026-09-24",
+   "wall_height_source": "https://en.wikipedia.org/wiki/PNC_Park",
+   "wall_height_quote": "The outfield fence ranges from a height of 6 ft in left field to 10 ft in center field and 21 ft in right field"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "85"
+   ],
+   "name": "Petco Park",
+   "city": "San Diego",
+   "state": "California",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "SD"
+   ],
+   "neutral_site_only": false,
+   "capacity": 39860,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 336,
+    "lcf": 386,
+    "cf": 396,
+    "rcf": 391,
+    "rf": 331
+   },
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Petco_Park",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372213879",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "5"
+   ],
+   "name": "Progressive Field",
+   "city": "Cleveland",
+   "state": "Ohio",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "CLE"
+   ],
+   "neutral_site_only": false,
+   "capacity": 34820,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 325,
+    "lcf": 370,
+    "cf": 400,
+    "rcf": 375,
+    "rf": 325
+   },
+   "wall_height_ft": {
+    "lf": 19,
+    "rf": 9.0
+   },
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Progressive_Field",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376167798",
+   "verified": "2026-09-24",
+   "wall_height_source": "https://en.wikipedia.org/wiki/Progressive_Field",
+   "wall_height_quote": "left field has a 19 ft high wall, known as the \"Little Green Monster\""
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "4"
+   ],
+   "name": "Rate Field",
+   "city": "Chicago",
+   "state": "Illinois",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "CHW"
+   ],
+   "neutral_site_only": false,
+   "capacity": 40615,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 330,
+    "lcf": 375,
+    "cf": 400,
+    "rcf": 375,
+    "rf": 335
+   },
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Rate_Field",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1374420747",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "14"
+   ],
+   "name": "Rogers Centre",
+   "city": "Toronto",
+   "state": "Ontario",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "TOR"
+   ],
+   "neutral_site_only": false,
+   "capacity": 39150,
+   "surface": "artificial turf",
+   "roof": null,
+   "fence_ft": {
+    "lf": 328,
+    "lcf": 368,
+    "cf": 400,
+    "rcf": 359,
+    "rf": 328
+   },
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Rogers_Centre",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375472462",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "7109"
+   ],
+   "name": "Sutter Health Park",
+   "city": "Sacramento",
+   "state": "California",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "ATH"
+   ],
+   "neutral_site_only": false,
+   "capacity": 10624,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 330,
+    "cf": 403,
+    "rf": 325
+   },
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Sutter_Health_Park",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1373978791",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "41"
+   ],
+   "name": "T-Mobile Park",
+   "city": "Seattle",
+   "state": "Washington",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "SEA"
+   ],
+   "neutral_site_only": false,
+   "capacity": 47368,
+   "surface": "grass",
+   "roof": "retractable",
+   "fence_ft": {
+    "lf": 331,
+    "lcf": 378,
+    "cf": 401,
+    "rcf": 381,
+    "rf": 326
+   },
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/T-Mobile_Park",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372704946",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "210"
+   ],
+   "name": "Target Field",
+   "city": "Minneapolis",
+   "state": "Minnesota",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "MIN"
+   ],
+   "neutral_site_only": false,
+   "capacity": 38544,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 339,
+    "lcf": 377,
+    "cf": 411,
+    "rcf": 367,
+    "rf": 328
+   },
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Target_Field",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1374059233",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "31"
+   ],
+   "name": "Tropicana Field",
+   "city": "St. Petersburg",
+   "state": "Florida",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "TB"
+   ],
+   "neutral_site_only": false,
+   "capacity": 25025,
+   "surface": "artificial turf",
+   "roof": null,
+   "fence_ft": {
+    "lf": 315,
+    "lcf": 370,
+    "cf": 404,
+    "rcf": 370,
+    "rf": 322
+   },
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Tropicana_Field",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376380810",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "218"
+   ],
+   "name": "Truist Park",
+   "city": "Atlanta",
+   "state": "Georgia",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "ATL"
+   ],
+   "neutral_site_only": false,
+   "capacity": 41108,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 335,
+    "lcf": 385,
+    "cf": 400,
+    "rcf": 375,
+    "rf": 325
+   },
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Truist_Park",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372245868",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "16"
+   ],
+   "name": "Wrigley Field",
+   "city": "Chicago",
+   "state": "Illinois",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "CHC"
+   ],
+   "neutral_site_only": false,
+   "capacity": 41649,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 355,
+    "lcf": 368,
+    "cf": 400,
+    "rcf": 368,
+    "rf": 353
+   },
+   "wall_height_ft": {
+    "lf": 11,
+    "rf": 11
+   },
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Wrigley_Field",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375399130",
+   "verified": "2026-09-24",
+   "wall_height_source": "https://en.wikipedia.org/wiki/Wrigley_Field",
+   "wall_height_quote": "The ivy-covered walls in the left and right field corners were reduced from 15 to 11 feet in height prior to the 2015 season"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "208"
+   ],
+   "name": "Yankee Stadium",
+   "city": "Bronx",
+   "state": "New York",
+   "country": null,
+   "espn_indoor": false,
+   "home_teams": [
+    "NYY"
+   ],
+   "neutral_site_only": false,
+   "capacity": 46537,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": {
+    "lf": 318,
+    "lcf": 399,
+    "cf": 408,
+    "rcf": 385,
+    "rf": 314
+   },
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Yankee_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1373264787",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "mlb",
+   "espn_ids": [
+    "4223"
+   ],
+   "name": "loanDepot park",
+   "city": "Miami",
+   "state": "Florida",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "MIA"
+   ],
+   "neutral_site_only": false,
+   "capacity": 36742,
+   "surface": "artificial turf",
+   "roof": null,
+   "fence_ft": {
+    "lf": 344,
+    "lcf": 386,
+    "cf": 400,
+    "rcf": 387,
+    "rf": 335
+   },
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/LoanDepot_Park",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376431410",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "516"
+   ],
+   "name": "American Airlines Center",
+   "city": "Dallas",
+   "state": "TX",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "DAL"
+   ],
+   "neutral_site_only": false,
+   "capacity": 19200,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/American_Airlines_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372062771",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "892"
+   ],
+   "name": "Ball Arena",
+   "city": "Denver",
+   "state": "CO",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "DEN"
+   ],
+   "neutral_site_only": false,
+   "capacity": 19520,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/Ball_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376024860",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "3559"
+   ],
+   "name": "Barclays Center",
+   "city": "Brooklyn",
+   "state": "NY",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "BKN"
+   ],
+   "neutral_site_only": false,
+   "capacity": 17732,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Barclays_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375751232",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "1823"
+   ],
+   "name": "Capital One Arena",
+   "city": "Washington",
+   "state": "DC",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "WSH"
+   ],
+   "neutral_site_only": false,
+   "capacity": 20356,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/Capital_One_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375927841",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "6270"
+   ],
+   "name": "Chase Center",
+   "city": "San Francisco",
+   "state": "CA",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "GS"
+   ],
+   "neutral_site_only": false,
+   "capacity": 18064,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Chase_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375801626",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "3093"
+   ],
+   "name": "Delta Center",
+   "city": "Salt Lake City",
+   "state": "UT",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "UTAH"
+   ],
+   "neutral_site_only": false,
+   "capacity": 18186,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/Delta_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372080061",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "1392"
+   ],
+   "name": "FedExForum",
+   "city": "Memphis",
+   "state": "TN",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "MEM"
+   ],
+   "neutral_site_only": false,
+   "capacity": 16667,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/FedExForum",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1373012936",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "5777"
+   ],
+   "name": "Fiserv Forum",
+   "city": "Milwaukee",
+   "state": "WI",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "MIL"
+   ],
+   "neutral_site_only": false,
+   "capacity": 17385,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Fiserv_Forum",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372176420",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "780"
+   ],
+   "name": "Frost Bank Center",
+   "city": "San Antonio",
+   "state": "TX",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "SA"
+   ],
+   "neutral_site_only": false,
+   "capacity": 18418,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Frost_Bank_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372180807",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "2183"
+   ],
+   "name": "Gainbridge Fieldhouse",
+   "city": "Indianapolis",
+   "state": "IN",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "IND"
+   ],
+   "neutral_site_only": false,
+   "capacity": 17274,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Gainbridge_Fieldhouse",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1374223283",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "5310"
+   ],
+   "name": "Golden 1 Center",
+   "city": "Sacramento",
+   "state": "CA",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "SAC"
+   ],
+   "neutral_site_only": false,
+   "capacity": 17608,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Golden_1_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372478082",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "10642"
+   ],
+   "name": "Intuit Dome",
+   "city": "Inglewood",
+   "state": "CA",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "LAC"
+   ],
+   "neutral_site_only": false,
+   "capacity": 18300,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Intuit_Dome",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375752322",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "3438"
+   ],
+   "name": "Kaseya Center",
+   "city": "Miami",
+   "state": "FL",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "MIA"
+   ],
+   "neutral_site_only": false,
+   "capacity": 19600,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Kaseya_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372209509",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "3432"
+   ],
+   "name": "Kia Center",
+   "city": "Orlando",
+   "state": "FL",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "ORL"
+   ],
+   "neutral_site_only": false,
+   "capacity": 18846,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Kia_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376082870",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "5404"
+   ],
+   "name": "Little Caesars Arena",
+   "city": "Detroit",
+   "state": "MI",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "DET"
+   ],
+   "neutral_site_only": false,
+   "capacity": 20332,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/Little_Caesars_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1374189433",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "1830"
+   ],
+   "name": "Madison Square Garden",
+   "city": "New York",
+   "state": "NY",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "NY"
+   ],
+   "neutral_site_only": false,
+   "capacity": 19812,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/Madison_Square_Garden",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376511512",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "3423"
+   ],
+   "name": "Moda Center",
+   "city": "Portland",
+   "state": "OR",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "POR"
+   ],
+   "neutral_site_only": false,
+   "capacity": 19393,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Moda_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375298076",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "1949"
+   ],
+   "name": "Mortgage Matchup Center",
+   "city": "Phoenix",
+   "state": "AZ",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "PHX"
+   ],
+   "neutral_site_only": false,
+   "capacity": 17071,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Mortgage_Matchup_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1373970643",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "2559"
+   ],
+   "name": "Paycom Center",
+   "city": "Oklahoma City",
+   "state": "OK",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "OKC"
+   ],
+   "neutral_site_only": false,
+   "capacity": 18203,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Paycom_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372206126",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "3417"
+   ],
+   "name": "Rocket Arena",
+   "city": "Cleveland",
+   "state": "OH",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "CLE"
+   ],
+   "neutral_site_only": false,
+   "capacity": 19432,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Rocket_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372225680",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "1838"
+   ],
+   "name": "Scotiabank Arena",
+   "city": "Toronto",
+   "state": "ON",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "TOR"
+   ],
+   "neutral_site_only": false,
+   "capacity": 19800,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/Scotiabank_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375772110",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "985"
+   ],
+   "name": "Smoothie King Center",
+   "city": "New Orleans",
+   "state": "LA",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "NO"
+   ],
+   "neutral_site_only": false,
+   "capacity": 16867,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Smoothie_King_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372800481",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "1893"
+   ],
+   "name": "Spectrum Center",
+   "city": "Charlotte",
+   "state": "NC",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "CHA"
+   ],
+   "neutral_site_only": false,
+   "capacity": 19444,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Spectrum_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376080717",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "1827"
+   ],
+   "name": "State Farm Arena",
+   "city": "Atlanta",
+   "state": "GA",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "ATL"
+   ],
+   "neutral_site_only": false,
+   "capacity": 17608,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/State_Farm_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372236264",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "5060"
+   ],
+   "name": "T-Mobile Arena",
+   "city": "Las Vegas",
+   "state": "NV",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "NY"
+   ],
+   "neutral_site_only": true,
+   "capacity": 18000,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/T-Mobile_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372563222",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "1824"
+   ],
+   "name": "TD Garden",
+   "city": "Boston",
+   "state": "MA",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "BOS"
+   ],
+   "neutral_site_only": false,
+   "capacity": 19156,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/TD_Garden",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372238200",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "2029"
+   ],
+   "name": "Target Center",
+   "city": "Minneapolis",
+   "state": "MN",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "MIN"
+   ],
+   "neutral_site_only": false,
+   "capacity": 18798,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Target_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376538851",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "1394"
+   ],
+   "name": "Toyota Center (Houston)",
+   "city": "Houston",
+   "state": "TX",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "HOU"
+   ],
+   "neutral_site_only": false,
+   "capacity": 18104,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Toyota_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372245040",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "11593"
+   ],
+   "name": "Uber Arena",
+   "city": "Berlin",
+   "state": null,
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "ORL"
+   ],
+   "neutral_site_only": true,
+   "capacity": 14500,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Uber_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375765960",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "1847"
+   ],
+   "name": "United Center",
+   "city": "Chicago",
+   "state": "IL",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "CHI"
+   ],
+   "neutral_site_only": false,
+   "capacity": 20917,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/United_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375751561",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "1845"
+   ],
+   "name": "Xfinity Mobile Arena",
+   "city": "Philadelphia",
+   "state": "PA",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "PHI"
+   ],
+   "neutral_site_only": false,
+   "capacity": 20478,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/Xfinity_Mobile_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375902562",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nba",
+   "espn_ids": [
+    "1841"
+   ],
+   "name": "crypto.com Arena",
+   "city": "Los Angeles",
+   "state": "CA",
+   "country": null,
+   "espn_indoor": true,
+   "home_teams": [
+    "LAL"
+   ],
+   "neutral_site_only": false,
+   "capacity": 19079,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/Crypto.com_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375769975",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3687"
+   ],
+   "name": "AT&T Stadium",
+   "city": "Arlington",
+   "state": "TX",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "DAL"
+   ],
+   "neutral_site_only": false,
+   "capacity": 80000,
+   "surface": "artificial turf",
+   "roof": "retractable",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/AT&T_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375731351",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3752"
+   ],
+   "name": "Acrisure Stadium",
+   "city": "Pittsburgh",
+   "state": "PA",
+   "country": "USA",
+   "espn_indoor": false,
+   "home_teams": [
+    "PIT"
+   ],
+   "neutral_site_only": false,
+   "capacity": 68400,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Acrisure_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372194646",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "6501"
+   ],
+   "name": "Allegiant Stadium",
+   "city": "Las Vegas",
+   "state": "NV",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "LV"
+   ],
+   "neutral_site_only": false,
+   "capacity": 65000,
+   "surface": "grass",
+   "roof": "fixed translucent roof",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Allegiant_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376027835",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3622"
+   ],
+   "name": "Arrowhead Stadium",
+   "city": "Kansas City",
+   "state": "MO",
+   "country": "USA",
+   "espn_indoor": false,
+   "home_teams": [
+    "KC"
+   ],
+   "neutral_site_only": false,
+   "capacity": 76416,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Arrowhead_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375749409",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3628"
+   ],
+   "name": "Bank of America Stadium",
+   "city": "Charlotte",
+   "state": "NC",
+   "country": "USA",
+   "espn_indoor": false,
+   "home_teams": [
+    "CAR"
+   ],
+   "neutral_site_only": false,
+   "capacity": 75037,
+   "surface": "artificial turf",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Bank_of_America_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1374879480",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3493"
+   ],
+   "name": "Caesars Superdome",
+   "city": "New Orleans",
+   "state": "LA",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "NO"
+   ],
+   "neutral_site_only": false,
+   "capacity": 73208,
+   "surface": "artificial turf",
+   "roof": "fixed dome",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Caesars_Superdome",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376038977",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "8748"
+   ],
+   "name": "Corinthians Arena",
+   "city": "Sao Paulo",
+   "state": null,
+   "country": "Brazil",
+   "espn_indoor": false,
+   "home_teams": [
+    "LAC"
+   ],
+   "neutral_site_only": true,
+   "capacity": 48905,
+   "surface": "hybrid grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Arena_Corinthians",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376487761",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "4737"
+   ],
+   "name": "Croke Park",
+   "city": "Dublin",
+   "state": null,
+   "country": "Ireland",
+   "espn_indoor": false,
+   "home_teams": [
+    "PIT"
+   ],
+   "neutral_site_only": true,
+   "capacity": 82300,
+   "surface": null,
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Croke_Park",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1373630877",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3937"
+   ],
+   "name": "Empower Field at Mile High",
+   "city": "Denver",
+   "state": "CO",
+   "country": "USA",
+   "espn_indoor": false,
+   "home_teams": [
+    "DEN"
+   ],
+   "neutral_site_only": false,
+   "capacity": 76125,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Empower_Field_at_Mile_High",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375502447",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3712"
+   ],
+   "name": "EverBank Stadium",
+   "city": "Jacksonville",
+   "state": "FL",
+   "country": "USA",
+   "espn_indoor": false,
+   "home_teams": [
+    "JAX"
+   ],
+   "neutral_site_only": false,
+   "capacity": 67814,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/EverBank_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372151265",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3727"
+   ],
+   "name": "Ford Field",
+   "city": "Detroit",
+   "state": "MI",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "DET"
+   ],
+   "neutral_site_only": false,
+   "capacity": 65000,
+   "surface": "artificial turf",
+   "roof": "fixed dome",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Ford_Field",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375366384",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3738"
+   ],
+   "name": "Gillette Stadium",
+   "city": "Foxborough",
+   "state": "MA",
+   "country": "USA",
+   "espn_indoor": false,
+   "home_teams": [
+    "NE"
+   ],
+   "neutral_site_only": false,
+   "capacity": 64628,
+   "surface": "artificial turf",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Gillette_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375562531",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3948"
+   ],
+   "name": "Hard Rock Stadium",
+   "city": "Miami Gardens",
+   "state": "FL",
+   "country": "USA",
+   "espn_indoor": false,
+   "home_teams": [
+    "MIA"
+   ],
+   "neutral_site_only": false,
+   "capacity": 64767,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Hard_Rock_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375341705",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "11938"
+   ],
+   "name": "Highmark Stadium",
+   "city": "Orchard Park",
+   "state": "NY",
+   "country": "USA",
+   "espn_indoor": false,
+   "home_teams": [
+    "BUF"
+   ],
+   "neutral_site_only": false,
+   "capacity": 63000,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Highmark_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376055436",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3883"
+   ],
+   "name": "Highmark Stadium (Old)",
+   "city": "Orchard Park",
+   "state": "NY",
+   "country": "USA",
+   "espn_indoor": false,
+   "home_teams": [
+    "BUF"
+   ],
+   "neutral_site_only": false,
+   "capacity": 71608,
+   "surface": "artificial turf",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Ralph_Wilson_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1374259886",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3679"
+   ],
+   "name": "Huntington Bank Field",
+   "city": "Cleveland",
+   "state": "OH",
+   "country": "USA",
+   "espn_indoor": false,
+   "home_teams": [
+    "CLE"
+   ],
+   "neutral_site_only": false,
+   "capacity": 67431,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Huntington_Bank_Field",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372204591",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3798"
+   ],
+   "name": "Lambeau Field",
+   "city": "Green Bay",
+   "state": "WI",
+   "country": "USA",
+   "espn_indoor": false,
+   "home_teams": [
+    "GB"
+   ],
+   "neutral_site_only": false,
+   "capacity": 81441,
+   "surface": "hybrid grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Lambeau_Field",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1373835701",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "4738"
+   ],
+   "name": "Levi's Stadium",
+   "city": "Santa Clara",
+   "state": "CA",
+   "country": "USA",
+   "espn_indoor": false,
+   "home_teams": [
+    "SF"
+   ],
+   "neutral_site_only": false,
+   "capacity": 68500,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Levi's_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375976386",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3806"
+   ],
+   "name": "Lincoln Financial Field",
+   "city": "Philadelphia",
+   "state": "PA",
+   "country": "USA",
+   "espn_indoor": false,
+   "home_teams": [
+    "PHI"
+   ],
+   "neutral_site_only": false,
+   "capacity": 67594,
+   "surface": "hybrid grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Lincoln_Financial_Field",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376012877",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3812"
+   ],
+   "name": "Lucas Oil Stadium",
+   "city": "Indianapolis",
+   "state": "IN",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "IND"
+   ],
+   "neutral_site_only": false,
+   "capacity": 63000,
+   "surface": "artificial turf",
+   "roof": "retractable",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Lucas_Oil_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376242711",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3673"
+   ],
+   "name": "Lumen Field",
+   "city": "Seattle",
+   "state": "WA",
+   "country": "USA",
+   "espn_indoor": false,
+   "home_teams": [
+    "SEA"
+   ],
+   "neutral_site_only": false,
+   "capacity": 68740,
+   "surface": "artificial turf",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Lumen_Field",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1373998493",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3814"
+   ],
+   "name": "M&T Bank Stadium",
+   "city": "Baltimore",
+   "state": "MD",
+   "country": "USA",
+   "espn_indoor": false,
+   "home_teams": [
+    "BAL"
+   ],
+   "neutral_site_only": false,
+   "capacity": 70745,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/M&T_Bank_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375592985",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "9119"
+   ],
+   "name": "Melbourne Cricket Ground",
+   "city": "Melbourne",
+   "state": "VIC",
+   "country": "Australia",
+   "espn_indoor": false,
+   "home_teams": [
+    "LAR"
+   ],
+   "neutral_site_only": true,
+   "capacity": 100024,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Melbourne_Cricket_Ground",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376474031",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "5348"
+   ],
+   "name": "Mercedes-Benz Stadium",
+   "city": "Atlanta",
+   "state": "GA",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "ATL"
+   ],
+   "neutral_site_only": false,
+   "capacity": 71000,
+   "surface": "artificial turf",
+   "roof": "retractable",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Mercedes-Benz_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376316081",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3839"
+   ],
+   "name": "MetLife Stadium",
+   "city": "East Rutherford",
+   "state": "NJ",
+   "country": "USA",
+   "espn_indoor": false,
+   "home_teams": [
+    "NYG",
+    "NYJ"
+   ],
+   "neutral_site_only": false,
+   "capacity": 82500,
+   "surface": "artificial turf",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/MetLife_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375726224",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3810"
+   ],
+   "name": "Nissan Stadium",
+   "city": "Nashville",
+   "state": "TN",
+   "country": "USA",
+   "espn_indoor": false,
+   "home_teams": [
+    "TEN"
+   ],
+   "neutral_site_only": false,
+   "capacity": 69143,
+   "surface": "artificial turf",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Nissan_Stadium_(Nashville)",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375930209",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3719"
+   ],
+   "name": "Northwest Stadium",
+   "city": "Landover",
+   "state": "MD",
+   "country": "USA",
+   "espn_indoor": false,
+   "home_teams": [
+    "WSH"
+   ],
+   "neutral_site_only": false,
+   "capacity": 64000,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Northwest_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1374296465",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "7696"
+   ],
+   "name": "Olympic Stadium Berlin",
+   "city": "Berlin",
+   "state": null,
+   "country": "Germany",
+   "espn_indoor": false,
+   "home_teams": [
+    "IND"
+   ],
+   "neutral_site_only": true,
+   "capacity": 74475,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Olympiastadion_(Berlin)",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376286858",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3874"
+   ],
+   "name": "Paycor Stadium",
+   "city": "Cincinnati",
+   "state": "OH",
+   "country": "USA",
+   "espn_indoor": false,
+   "home_teams": [
+    "CIN"
+   ],
+   "neutral_site_only": false,
+   "capacity": 65515,
+   "surface": "artificial turf",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Paycor_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372206140",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3886"
+   ],
+   "name": "Raymond James Stadium",
+   "city": "Tampa",
+   "state": "FL",
+   "country": "USA",
+   "espn_indoor": false,
+   "home_teams": [
+    "TB"
+   ],
+   "neutral_site_only": false,
+   "capacity": 69218,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Raymond_James_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372224116",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3891"
+   ],
+   "name": "Reliant Stadium",
+   "city": "Houston",
+   "state": "TX",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "HOU"
+   ],
+   "neutral_site_only": false,
+   "capacity": 72220,
+   "surface": "artificial turf",
+   "roof": "retractable",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Reliant_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376433325",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "1353"
+   ],
+   "name": "Santiago Bernabéu",
+   "city": "Madrid",
+   "state": null,
+   "country": "Spain",
+   "espn_indoor": true,
+   "home_teams": [
+    "MIA"
+   ],
+   "neutral_site_only": true,
+   "capacity": 83186,
+   "surface": "hybrid grass",
+   "roof": "retractable",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Bernabéu_(stadium)",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376542686",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "7065"
+   ],
+   "name": "SoFi Stadium",
+   "city": "Inglewood",
+   "state": "CA",
+   "country": "USA",
+   "espn_indoor": false,
+   "home_teams": [
+    "LAC",
+    "LAR"
+   ],
+   "neutral_site_only": false,
+   "capacity": 70240,
+   "surface": "artificial turf",
+   "roof": "fixed translucent roof",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/SoFi_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376180925",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3933"
+   ],
+   "name": "Soldier Field",
+   "city": "Chicago",
+   "state": "IL",
+   "country": "USA",
+   "espn_indoor": false,
+   "home_teams": [
+    "CHI"
+   ],
+   "neutral_site_only": false,
+   "capacity": 62500,
+   "surface": "grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Soldier_Field",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376287121",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "3970"
+   ],
+   "name": "State Farm Stadium",
+   "city": "Glendale",
+   "state": "AZ",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "ARI"
+   ],
+   "neutral_site_only": false,
+   "capacity": 63400,
+   "surface": "grass",
+   "roof": "retractable",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/State_Farm_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372236288",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "5534"
+   ],
+   "name": "Tottenham Hotspur Stadium",
+   "city": "London",
+   "state": null,
+   "country": "England",
+   "espn_indoor": false,
+   "home_teams": [
+    "CLE",
+    "NYJ"
+   ],
+   "neutral_site_only": true,
+   "capacity": 62850,
+   "surface": "hybrid grass",
+   "roof": null,
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Tottenham_Hotspur_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375183094",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "5239"
+   ],
+   "name": "U.S. Bank Stadium",
+   "city": "Minneapolis",
+   "state": "MN",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "MIN"
+   ],
+   "neutral_site_only": false,
+   "capacity": 66202,
+   "surface": "artificial turf",
+   "roof": "fixed translucent roof",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/U.S._Bank_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375367007",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nfl",
+   "espn_ids": [
+    "2455"
+   ],
+   "name": "Wembley Stadium",
+   "city": "London",
+   "state": null,
+   "country": "England",
+   "espn_indoor": false,
+   "home_teams": [
+    "JAX"
+   ],
+   "neutral_site_only": true,
+   "capacity": 86000,
+   "surface": "hybrid grass",
+   "roof": "partially retractable",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": null,
+   "source": "https://en.wikipedia.org/wiki/Wembley_Stadium",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375313098",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "1840"
+   ],
+   "name": "Amerant Bank Arena",
+   "city": "Sunrise",
+   "state": "FL",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "FLA"
+   ],
+   "neutral_site_only": false,
+   "capacity": 19250,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Amerant_Bank_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376421226",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "516"
+   ],
+   "name": "American Airlines Center",
+   "city": "Dallas",
+   "state": "TX",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "DAL"
+   ],
+   "neutral_site_only": false,
+   "capacity": 18532,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/American_Airlines_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372062771",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "2214"
+   ],
+   "name": "Avicii Arena",
+   "city": "Stockholm",
+   "state": null,
+   "country": "Sweden",
+   "espn_indoor": true,
+   "home_teams": [
+    "NSH",
+    "PIT"
+   ],
+   "neutral_site_only": true,
+   "capacity": 13950,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Avicii_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372613267",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "892"
+   ],
+   "name": "Ball Arena",
+   "city": "Denver",
+   "state": "CO",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "COL"
+   ],
+   "neutral_site_only": false,
+   "capacity": 17809,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/Ball_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376024860",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "1831"
+   ],
+   "name": "Bell Centre",
+   "city": "Montreal",
+   "state": "QC",
+   "country": "Canada",
+   "espn_indoor": true,
+   "home_teams": [
+    "MTL"
+   ],
+   "neutral_site_only": false,
+   "capacity": 20962,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Bell_Centre",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372067486",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "1396"
+   ],
+   "name": "Benchmark International Arena",
+   "city": "Tampa",
+   "state": "FL",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "TB"
+   ],
+   "neutral_site_only": false,
+   "capacity": 19092,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Benchmark_International_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376541285",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "1834"
+   ],
+   "name": "Bridgestone Arena",
+   "city": "Nashville",
+   "state": "TN",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "NSH"
+   ],
+   "neutral_site_only": false,
+   "capacity": 17159,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Bridgestone_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1373721363",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "1397"
+   ],
+   "name": "Canada Life Centre",
+   "city": "Winnipeg",
+   "state": "MB",
+   "country": "Canada",
+   "espn_indoor": true,
+   "home_teams": [
+    "WPG"
+   ],
+   "neutral_site_only": false,
+   "capacity": 15225,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Canada_Life_Centre",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1374001973",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "1832"
+   ],
+   "name": "Canadian Tire Centre",
+   "city": "Ottawa",
+   "state": "ON",
+   "country": "Canada",
+   "espn_indoor": true,
+   "home_teams": [
+    "OTT"
+   ],
+   "neutral_site_only": false,
+   "capacity": 17010,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Canadian_Tire_Centre",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376333088",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "1823"
+   ],
+   "name": "Capital One Arena",
+   "city": "Washington",
+   "state": "DC",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "WSH"
+   ],
+   "neutral_site_only": false,
+   "capacity": 18573,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/Capital_One_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375927841",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "7224"
+   ],
+   "name": "Climate Pledge Arena",
+   "city": "Seattle",
+   "state": "WA",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "SEA"
+   ],
+   "neutral_site_only": false,
+   "capacity": 17151,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Climate_Pledge_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376105473",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "3093"
+   ],
+   "name": "Delta Center",
+   "city": "Salt Lake City",
+   "state": "UT",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "UTA"
+   ],
+   "neutral_site_only": false,
+   "capacity": 16020,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/Delta_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372080061",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "1839"
+   ],
+   "name": "Enterprise Center",
+   "city": "St. Louis",
+   "state": "MO",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "STL"
+   ],
+   "neutral_site_only": false,
+   "capacity": 18096,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Enterprise_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372086380",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "1835"
+   ],
+   "name": "Grand Casino Arena",
+   "city": "Saint Paul",
+   "state": "MN",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "MIN"
+   ],
+   "neutral_site_only": false,
+   "capacity": 17954,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Grand_Casino_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376094788",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "1842"
+   ],
+   "name": "Honda Center",
+   "city": "Anaheim",
+   "state": "CA",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "ANA"
+   ],
+   "neutral_site_only": false,
+   "capacity": 17174,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Honda_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372399818",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "1848"
+   ],
+   "name": "KeyBank Center",
+   "city": "Buffalo",
+   "state": "NY",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "BUF"
+   ],
+   "neutral_site_only": false,
+   "capacity": 19070,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/KeyBank_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375699062",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "999"
+   ],
+   "name": "Lenovo Center",
+   "city": "Raleigh",
+   "state": "NC",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "CAR"
+   ],
+   "neutral_site_only": false,
+   "capacity": 18547,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Lenovo_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375067702",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "5404"
+   ],
+   "name": "Little Caesars Arena",
+   "city": "Detroit",
+   "state": "MI",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "DET"
+   ],
+   "neutral_site_only": false,
+   "capacity": 19515,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/Little_Caesars_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1374189433",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "1830"
+   ],
+   "name": "Madison Square Garden",
+   "city": "New York",
+   "state": "NY",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "NYR"
+   ],
+   "neutral_site_only": false,
+   "capacity": 19812,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/Madison_Square_Garden",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376511512",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "1828"
+   ],
+   "name": "Nationwide Arena",
+   "city": "Columbus",
+   "state": "OH",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "CBJ"
+   ],
+   "neutral_site_only": false,
+   "capacity": 18500,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Nationwide_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376025469",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "1837"
+   ],
+   "name": "PPG Paints Arena",
+   "city": "Pittsburgh",
+   "state": "PA",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "PIT"
+   ],
+   "neutral_site_only": false,
+   "capacity": 18187,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/PPG_Paints_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372292889",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "1826"
+   ],
+   "name": "Prudential Center",
+   "city": "Newark",
+   "state": "NJ",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "NJ"
+   ],
+   "neutral_site_only": false,
+   "capacity": 16514,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Prudential_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375499243",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "1833"
+   ],
+   "name": "Rogers Arena",
+   "city": "Vancouver",
+   "state": "BC",
+   "country": "Canada",
+   "espn_indoor": true,
+   "home_teams": [
+    "VAN"
+   ],
+   "neutral_site_only": false,
+   "capacity": 18871,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Rogers_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372225854",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "5282"
+   ],
+   "name": "Rogers Place",
+   "city": "Edmonton",
+   "state": "AB",
+   "country": "Canada",
+   "espn_indoor": true,
+   "home_teams": [
+    "EDM"
+   ],
+   "neutral_site_only": false,
+   "capacity": 18347,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Rogers_Place",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372225908",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "1653"
+   ],
+   "name": "SAP Center at San Jose",
+   "city": "San Jose",
+   "state": "CA",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "SJ"
+   ],
+   "neutral_site_only": false,
+   "capacity": 17435,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/SAP_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1376082812",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "1838"
+   ],
+   "name": "Scotiabank Arena",
+   "city": "Toronto",
+   "state": "ON",
+   "country": "Canada",
+   "espn_indoor": true,
+   "home_teams": [
+    "TOR"
+   ],
+   "neutral_site_only": false,
+   "capacity": 18819,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/Scotiabank_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375772110",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "1843"
+   ],
+   "name": "Scotiabank Saddledome",
+   "city": "Calgary",
+   "state": "AB",
+   "country": "Canada",
+   "espn_indoor": true,
+   "home_teams": [
+    "CGY"
+   ],
+   "neutral_site_only": false,
+   "capacity": 19289,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/Scotiabank_Saddledome",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372974591",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "5060"
+   ],
+   "name": "T-Mobile Arena",
+   "city": "Las Vegas",
+   "state": "NV",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "VGK"
+   ],
+   "neutral_site_only": false,
+   "capacity": 17500,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/T-Mobile_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372563222",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "1824"
+   ],
+   "name": "TD Garden",
+   "city": "Boston",
+   "state": "MA",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "BOS"
+   ],
+   "neutral_site_only": false,
+   "capacity": 17850,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/TD_Garden",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1372238200",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "7226"
+   ],
+   "name": "UBS Arena",
+   "city": "Elmont",
+   "state": "NY",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "NYI"
+   ],
+   "neutral_site_only": false,
+   "capacity": 17255,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": false,
+   "source": "https://en.wikipedia.org/wiki/UBS_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1374271562",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "1847"
+   ],
+   "name": "United Center",
+   "city": "Chicago",
+   "state": "IL",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "CHI"
+   ],
+   "neutral_site_only": false,
+   "capacity": 19717,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/United_Center",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375751561",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "1845"
+   ],
+   "name": "Xfinity Mobile Arena",
+   "city": "Philadelphia",
+   "state": "PA",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "PHI"
+   ],
+   "neutral_site_only": false,
+   "capacity": 19173,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/Xfinity_Mobile_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375902562",
+   "verified": "2026-09-24"
+  },
+  {
+   "sport": "nhl",
+   "espn_ids": [
+    "1841"
+   ],
+   "name": "crypto.com Arena",
+   "city": "Los Angeles",
+   "state": "CA",
+   "country": "USA",
+   "espn_indoor": true,
+   "home_teams": [
+    "LA"
+   ],
+   "neutral_site_only": false,
+   "capacity": 18145,
+   "surface": null,
+   "roof": "indoor arena",
+   "fence_ft": null,
+   "wall_height_ft": null,
+   "pitch": null,
+   "tiers": null,
+   "bowl": null,
+   "shared_arena": true,
+   "source": "https://en.wikipedia.org/wiki/Crypto.com_Arena",
+   "source_revision": "https://en.wikipedia.org/w/index.php?oldid=1375769975",
+   "verified": "2026-09-24"
+  }
+ ]
+}

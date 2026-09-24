@@ -1,0 +1,2849 @@
+[
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "4440",
+   "10378"
+  ],
+  "name": "American Express Stadium",
+  "city": "Falmer",
+  "state": null,
+  "country": "England",
+  "wiki_title": "Falmer Stadium",
+  "wiki_revid": 1375839498,
+  "home_teams": [
+   "BHA"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "192"
+  ],
+  "name": "Anfield",
+  "city": "Liverpool",
+  "state": null,
+  "country": "England",
+  "wiki_title": "Anfield",
+  "wiki_revid": 1373862232,
+  "home_teams": [
+   "LIV"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "1680"
+  ],
+  "name": "Coventry Building Society Arena",
+  "city": "Coventry",
+  "state": null,
+  "country": "England",
+  "wiki_title": "Coventry Building Society Arena",
+  "wiki_revid": 1372083394,
+  "home_teams": [
+   "COV"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "279"
+  ],
+  "name": "Craven Cottage",
+  "city": "London",
+  "state": null,
+  "country": "England",
+  "wiki_title": "Craven Cottage",
+  "wiki_revid": 1376143729,
+  "home_teams": [
+   "FUL"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "190"
+  ],
+  "name": "Elland Road",
+  "city": "Leeds",
+  "state": null,
+  "country": "England",
+  "wiki_title": "Elland Road",
+  "wiki_revid": 1372883515,
+  "home_teams": [
+   "LEE"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "2267"
+  ],
+  "name": "Emirates Stadium",
+  "city": "London",
+  "state": null,
+  "country": "England",
+  "wiki_title": "Emirates Stadium",
+  "wiki_revid": 1376476197,
+  "home_teams": [
+   "ARS"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "4036"
+  ],
+  "name": "Etihad Stadium",
+  "city": "Manchester",
+  "state": null,
+  "country": "England",
+  "wiki_title": "Etihad Stadium",
+  "wiki_revid": 1376402358,
+  "home_teams": [
+   "MNC"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "253"
+  ],
+  "name": "Goodison Park",
+  "city": "Liverpool",
+  "state": null,
+  "country": "England",
+  "wiki_title": "Goodison Park",
+  "wiki_revid": 1375638265,
+  "home_teams": [
+   "EVE"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "8480",
+   "9658"
+  ],
+  "name": "Gtech Community Stadium",
+  "city": "London",
+  "state": null,
+  "country": "England",
+  "wiki_title": "Brentford Community Stadium",
+  "wiki_revid": 1372069969,
+  "home_teams": [
+   "BRE"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "10318"
+  ],
+  "name": "Hill Dickinson Stadium",
+  "city": "Liverpool",
+  "state": null,
+  "country": "England",
+  "wiki_title": "Hill Dickinson Stadium",
+  "wiki_revid": 1376540117,
+  "home_teams": [
+   "EVE"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "5774"
+  ],
+  "name": "King Power Stadium",
+  "city": "Leicester",
+  "state": null,
+  "country": "England",
+  "wiki_title": "King Power Stadium",
+  "wiki_revid": 1374103279,
+  "home_teams": [
+   "LEI"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "6660"
+  ],
+  "name": "London Stadium",
+  "city": "London",
+  "state": null,
+  "country": "England",
+  "wiki_title": "London Stadium",
+  "wiki_revid": 1372329281,
+  "home_teams": [
+   "WHU"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [],
+  "name": "MKM Stadium",
+  "city": "Kingston upon Hull",
+  "state": null,
+  "country": "England",
+  "wiki_title": "MKM Stadium",
+  "wiki_revid": 1372082786,
+  "home_teams": [
+   "HUL"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "136"
+  ],
+  "name": "Molineux Stadium",
+  "city": "Wolverhampton",
+  "state": null,
+  "country": "England",
+  "wiki_title": "Molineux Stadium",
+  "wiki_revid": 1372216834,
+  "home_teams": [
+   "WOL"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "250"
+  ],
+  "name": "Old Trafford",
+  "city": "Manchester",
+  "state": null,
+  "country": "England",
+  "wiki_title": "Old Trafford",
+  "wiki_revid": 1376114762,
+  "home_teams": [
+   "MAN"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "257"
+  ],
+  "name": "Portman Road",
+  "city": "Ipswich",
+  "state": null,
+  "country": "England",
+  "wiki_title": "Portman Road",
+  "wiki_revid": 1372901600,
+  "home_teams": [
+   "IPS"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "135"
+  ],
+  "name": "Selhurst Park",
+  "city": "London",
+  "state": null,
+  "country": "England",
+  "wiki_title": "Selhurst Park",
+  "wiki_revid": 1376302429,
+  "home_teams": [
+   "CRY"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "152",
+   "4684"
+  ],
+  "name": "St. James' Park",
+  "city": "Newcastle-upon-Tyne",
+  "state": null,
+  "country": "England",
+  "wiki_title": "St James' Park",
+  "wiki_revid": 1372845830,
+  "home_teams": [
+   "NEW"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "4850"
+  ],
+  "name": "St. Mary's Stadium",
+  "city": "Southampton",
+  "state": null,
+  "country": "England",
+  "wiki_title": "St Mary's Stadium",
+  "wiki_revid": 1376463204,
+  "home_teams": [
+   "SOU"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "194"
+  ],
+  "name": "Stadium of Light",
+  "city": "Sunderland",
+  "state": null,
+  "country": "England",
+  "wiki_title": "Stadium of Light",
+  "wiki_revid": 1372235958,
+  "home_teams": [
+   "SUN"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "249"
+  ],
+  "name": "Stamford Bridge",
+  "city": "London",
+  "state": null,
+  "country": "England",
+  "wiki_title": "Stamford Bridge (stadium)",
+  "wiki_revid": 1375232985,
+  "home_teams": [
+   "CHE"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "131"
+  ],
+  "name": "The City Ground",
+  "city": "Nottingham",
+  "state": null,
+  "country": "England",
+  "wiki_title": "City Ground",
+  "wiki_revid": 1375729564,
+  "home_teams": [
+   "NFO"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "7827"
+  ],
+  "name": "Tottenham Hotspur Stadium",
+  "city": "London",
+  "state": null,
+  "country": "England",
+  "wiki_title": "Tottenham Hotspur Stadium",
+  "wiki_revid": 1375183094,
+  "home_teams": [
+   "TOT"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "197"
+  ],
+  "name": "Turf Moor",
+  "city": "Burnley",
+  "state": null,
+  "country": "England",
+  "wiki_title": "Turf Moor",
+  "wiki_revid": 1372246296,
+  "home_teams": [
+   "BUR"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "307"
+  ],
+  "name": "Villa Park",
+  "city": "Birmingham",
+  "state": null,
+  "country": "England",
+  "wiki_title": "Villa Park",
+  "wiki_revid": 1372249423,
+  "home_teams": [
+   "AVL"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "epl",
+  "espn_ids": [
+   "6020"
+  ],
+  "name": "Vitality Stadium",
+  "city": "Bournemouth",
+  "state": null,
+  "country": "England",
+  "wiki_title": "Dean Court",
+  "wiki_revid": 1372079891,
+  "home_teams": [
+   "BOU"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": null
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "4242"
+  ],
+  "name": "American Family Field",
+  "city": "Milwaukee",
+  "state": "Wisconsin",
+  "country": null,
+  "wiki_title": "American Family Field",
+  "wiki_revid": 1376438911,
+  "home_teams": [
+   "MIL"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "3"
+  ],
+  "name": "Angel Stadium",
+  "city": "Anaheim",
+  "state": "California",
+  "country": null,
+  "wiki_title": "Angel Stadium",
+  "wiki_revid": 1372944511,
+  "home_teams": [
+   "LAA"
+  ],
+  "espn_neutral_only": false,
+  "walls_manual": {
+   "heights_ft": {
+    "rcf": 19
+   },
+   "source": "https://en.wikipedia.org/wiki/Angel_Stadium",
+   "quote": "the 8 ft high fence in right center field ... replaced by a 19 ft high wall which contains a scoreboard"
+  },
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "87"
+  ],
+  "name": "Busch Stadium",
+  "city": "St. Louis",
+  "state": "Missouri",
+  "country": null,
+  "wiki_title": "Busch Stadium",
+  "wiki_revid": 1372071068,
+  "home_teams": [
+   "STL"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "30"
+  ],
+  "name": "Chase Field",
+  "city": "Phoenix",
+  "state": "Arizona",
+  "country": null,
+  "wiki_title": "Chase Field",
+  "wiki_revid": 1372074897,
+  "home_teams": [
+   "ARI"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "209"
+  ],
+  "name": "Citi Field",
+  "city": "Queens",
+  "state": "New York",
+  "country": null,
+  "wiki_title": "Citi Field",
+  "wiki_revid": 1372075852,
+  "home_teams": [
+   "NYM"
+  ],
+  "espn_neutral_only": false,
+  "walls_manual": {
+   "heights_ft": {
+    "lf": 8
+   },
+   "source": "https://en.wikipedia.org/wiki/Citi_Field",
+   "quote": "building an 8 ft wall in front of the high 16 ft wall in left field"
+  },
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "84"
+  ],
+  "name": "Citizens Bank Park",
+  "city": "Philadelphia",
+  "state": "Pennsylvania",
+  "country": null,
+  "wiki_title": "Citizens Bank Park",
+  "wiki_revid": 1375902485,
+  "home_teams": [
+   "NL",
+   "PHI"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "45"
+  ],
+  "name": "Comerica Park",
+  "city": "Detroit",
+  "state": "Michigan",
+  "country": null,
+  "wiki_title": "Comerica Park",
+  "wiki_revid": 1376178715,
+  "home_teams": [
+   "DET"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "27"
+  ],
+  "name": "Coors Field",
+  "city": "Denver",
+  "state": "Colorado",
+  "country": null,
+  "wiki_title": "Coors Field",
+  "wiki_revid": 1375299958,
+  "home_teams": [
+   "COL"
+  ],
+  "espn_neutral_only": false,
+  "walls_manual": {
+   "heights_ft": {
+    "rcf": 16.5
+   },
+   "source": "https://en.wikipedia.org/wiki/Coors_Field",
+   "quote": "From right field to center field in front of the bullpens the fence was raised 8 feet 9 inches to a height of 16 feet 6 inches"
+  },
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "44"
+  ],
+  "name": "Daikin Park",
+  "city": "Houston",
+  "state": "Texas",
+  "country": null,
+  "wiki_title": "Daikin Park",
+  "wiki_revid": 1372078987,
+  "home_teams": [
+   "HOU"
+  ],
+  "espn_neutral_only": false,
+  "walls_manual": {
+   "heights_ft": {
+    "lf": 19
+   },
+   "source": "https://www.cbssports.com/mlb/news/lets-get-to-know-houstons-minute-maid-park-the-train-and-that-odd-blue-house",
+   "quote": "Wall height: LF - 19 feet"
+  },
+  "espn_indoor": true
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "19"
+  ],
+  "name": "Dodger Stadium",
+  "city": "Los Angeles",
+  "state": "California",
+  "country": null,
+  "wiki_title": "Dodger Stadium",
+  "wiki_revid": 1375093238,
+  "home_teams": [
+   "LAD"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "7103"
+  ],
+  "name": "Estadio Alfredo Harp Helú",
+  "city": "Mexico City",
+  "state": null,
+  "country": null,
+  "wiki_title": "Estadio Alfredo Harp Helú",
+  "wiki_revid": 1372146611,
+  "home_teams": [
+   "ARI"
+  ],
+  "espn_neutral_only": true,
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "2"
+  ],
+  "name": "Fenway Park",
+  "city": "Boston",
+  "state": "Massachusetts",
+  "country": null,
+  "wiki_title": "Fenway Park",
+  "wiki_revid": 1376280796,
+  "home_teams": [
+   "BOS"
+  ],
+  "espn_neutral_only": false,
+  "walls_manual": {
+   "heights_ft": {
+    "lf": 37.17
+   },
+   "source": "https://en.wikipedia.org/wiki/Fenway_Park",
+   "quote": "The Green Monster measures 37.167 ft tall."
+  },
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "232"
+  ],
+  "name": "Field of Dreams",
+  "city": "Dyersville",
+  "state": "Iowa",
+  "country": null,
+  "wiki_title": null,
+  "wiki_revid": null,
+  "home_teams": [
+   "MIN"
+  ],
+  "espn_neutral_only": true,
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "231"
+  ],
+  "name": "Globe Life Field",
+  "city": "Arlington",
+  "state": "Texas",
+  "country": null,
+  "wiki_title": "Globe Life Field",
+  "wiki_revid": 1375074421,
+  "home_teams": [
+   "TEX"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "83"
+  ],
+  "name": "Great American Ball Park",
+  "city": "Cincinnati",
+  "state": "Ohio",
+  "country": null,
+  "wiki_title": "Great American Ball Park",
+  "wiki_revid": 1372183869,
+  "home_teams": [
+   "CIN"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "223"
+  ],
+  "name": "Journey Bank Ballpark at Historic Bowman Field",
+  "city": "Williamsport",
+  "state": "Pennsylvania",
+  "country": null,
+  "wiki_title": "Bowman Field",
+  "wiki_revid": 1372276761,
+  "home_teams": [
+   "MIL"
+  ],
+  "espn_neutral_only": true,
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "7"
+  ],
+  "name": "Kauffman Stadium",
+  "city": "Kansas City",
+  "state": "Missouri",
+  "country": null,
+  "wiki_title": "Kauffman Stadium",
+  "wiki_revid": 1376240550,
+  "home_teams": [
+   "KC"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "234"
+  ],
+  "name": "Las Vegas Ballpark",
+  "city": "Las Vegas",
+  "state": "Nevada",
+  "country": null,
+  "wiki_title": "Las Vegas Ballpark",
+  "wiki_revid": 1376468509,
+  "home_teams": [
+   "ATH"
+  ],
+  "espn_neutral_only": false,
+  "walls_manual": {
+   "heights_ft": {
+    "lf": 14,
+    "lcf": 10,
+    "cf": 10,
+    "rcf": 10,
+    "rf": 10
+   },
+   "source": "https://en.wikipedia.org/wiki/Las_Vegas_Ballpark",
+   "quote": "The home run wall, with the exception of left field where the wall is 14 feet high, is 10 feet high."
+  },
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "89"
+  ],
+  "name": "Nationals Park",
+  "city": "Washington",
+  "state": "District of Columbia",
+  "country": null,
+  "wiki_title": "Nationals Park",
+  "wiki_revid": 1372219153,
+  "home_teams": [
+   "WSH"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "43"
+  ],
+  "name": "Oracle Park",
+  "city": "San Francisco",
+  "state": "California",
+  "country": null,
+  "wiki_title": "Oracle Park",
+  "wiki_revid": 1372223272,
+  "home_teams": [
+   "SF"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "1"
+  ],
+  "name": "Oriole Park at Camden Yards",
+  "city": "Baltimore",
+  "state": "Maryland",
+  "country": null,
+  "wiki_title": "Oriole Park at Camden Yards",
+  "wiki_revid": 1373538120,
+  "home_teams": [
+   "BAL"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "47"
+  ],
+  "name": "PNC Park",
+  "city": "Pittsburgh",
+  "state": "Pennsylvania",
+  "country": null,
+  "wiki_title": "PNC Park",
+  "wiki_revid": 1372203648,
+  "home_teams": [
+   "PIT"
+  ],
+  "espn_neutral_only": false,
+  "walls_manual": {
+   "heights_ft": {
+    "lf": 6,
+    "cf": 10,
+    "rf": 21
+   },
+   "source": "https://en.wikipedia.org/wiki/PNC_Park",
+   "quote": "The outfield fence ranges from a height of 6 ft in left field to 10 ft in center field and 21 ft in right field"
+  },
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "85"
+  ],
+  "name": "Petco Park",
+  "city": "San Diego",
+  "state": "California",
+  "country": null,
+  "wiki_title": "Petco Park",
+  "wiki_revid": 1372213879,
+  "home_teams": [
+   "SD"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "5"
+  ],
+  "name": "Progressive Field",
+  "city": "Cleveland",
+  "state": "Ohio",
+  "country": null,
+  "wiki_title": "Progressive Field",
+  "wiki_revid": 1376167798,
+  "home_teams": [
+   "CLE"
+  ],
+  "espn_neutral_only": false,
+  "walls_manual": {
+   "heights_ft": {
+    "lf": 19
+   },
+   "source": "https://en.wikipedia.org/wiki/Progressive_Field",
+   "quote": "left field has a 19 ft high wall, known as the \"Little Green Monster\""
+  },
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "4"
+  ],
+  "name": "Rate Field",
+  "city": "Chicago",
+  "state": "Illinois",
+  "country": null,
+  "wiki_title": "Rate Field",
+  "wiki_revid": 1374420747,
+  "home_teams": [
+   "CHW"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "14"
+  ],
+  "name": "Rogers Centre",
+  "city": "Toronto",
+  "state": "Ontario",
+  "country": null,
+  "wiki_title": "Rogers Centre",
+  "wiki_revid": 1375472462,
+  "home_teams": [
+   "TOR"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "7109"
+  ],
+  "name": "Sutter Health Park",
+  "city": "Sacramento",
+  "state": "California",
+  "country": null,
+  "wiki_title": "Sutter Health Park",
+  "wiki_revid": 1373978791,
+  "home_teams": [
+   "ATH"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "41"
+  ],
+  "name": "T-Mobile Park",
+  "city": "Seattle",
+  "state": "Washington",
+  "country": null,
+  "wiki_title": "T-Mobile Park",
+  "wiki_revid": 1372704946,
+  "home_teams": [
+   "SEA"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "210"
+  ],
+  "name": "Target Field",
+  "city": "Minneapolis",
+  "state": "Minnesota",
+  "country": null,
+  "wiki_title": "Target Field",
+  "wiki_revid": 1374059233,
+  "home_teams": [
+   "MIN"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "31"
+  ],
+  "name": "Tropicana Field",
+  "city": "St. Petersburg",
+  "state": "Florida",
+  "country": null,
+  "wiki_title": "Tropicana Field",
+  "wiki_revid": 1376380810,
+  "home_teams": [
+   "TB"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "218"
+  ],
+  "name": "Truist Park",
+  "city": "Atlanta",
+  "state": "Georgia",
+  "country": null,
+  "wiki_title": "Truist Park",
+  "wiki_revid": 1372245868,
+  "home_teams": [
+   "ATL"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "16"
+  ],
+  "name": "Wrigley Field",
+  "city": "Chicago",
+  "state": "Illinois",
+  "country": null,
+  "wiki_title": "Wrigley Field",
+  "wiki_revid": 1375399130,
+  "home_teams": [
+   "CHC"
+  ],
+  "espn_neutral_only": false,
+  "walls_manual": {
+   "heights_ft": {
+    "lf": 11,
+    "rf": 11
+   },
+   "source": "https://en.wikipedia.org/wiki/Wrigley_Field",
+   "quote": "The ivy-covered walls in the left and right field corners were reduced from 15 to 11 feet in height prior to the 2015 season"
+  },
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "208"
+  ],
+  "name": "Yankee Stadium",
+  "city": "Bronx",
+  "state": "New York",
+  "country": null,
+  "wiki_title": "Yankee Stadium",
+  "wiki_revid": 1373264787,
+  "home_teams": [
+   "NYY"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "mlb",
+  "espn_ids": [
+   "4223"
+  ],
+  "name": "loanDepot park",
+  "city": "Miami",
+  "state": "Florida",
+  "country": null,
+  "wiki_title": "LoanDepot Park",
+  "wiki_revid": 1376431410,
+  "home_teams": [
+   "MIA"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "516"
+  ],
+  "name": "American Airlines Center",
+  "city": "Dallas",
+  "state": "TX",
+  "country": null,
+  "wiki_title": "American Airlines Center",
+  "wiki_revid": 1372062771,
+  "home_teams": [
+   "DAL"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "892"
+  ],
+  "name": "Ball Arena",
+  "city": "Denver",
+  "state": "CO",
+  "country": null,
+  "wiki_title": "Ball Arena",
+  "wiki_revid": 1376024860,
+  "home_teams": [
+   "DEN"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "3559"
+  ],
+  "name": "Barclays Center",
+  "city": "Brooklyn",
+  "state": "NY",
+  "country": null,
+  "wiki_title": "Barclays Center",
+  "wiki_revid": 1375751232,
+  "home_teams": [
+   "BKN"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "1823"
+  ],
+  "name": "Capital One Arena",
+  "city": "Washington",
+  "state": "DC",
+  "country": null,
+  "wiki_title": "Capital One Arena",
+  "wiki_revid": 1375927841,
+  "home_teams": [
+   "WSH"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "6270"
+  ],
+  "name": "Chase Center",
+  "city": "San Francisco",
+  "state": "CA",
+  "country": null,
+  "wiki_title": "Chase Center",
+  "wiki_revid": 1375801626,
+  "home_teams": [
+   "GS"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "3093"
+  ],
+  "name": "Delta Center",
+  "city": "Salt Lake City",
+  "state": "UT",
+  "country": null,
+  "wiki_title": "Delta Center",
+  "wiki_revid": 1372080061,
+  "home_teams": [
+   "UTAH"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "1392"
+  ],
+  "name": "FedExForum",
+  "city": "Memphis",
+  "state": "TN",
+  "country": null,
+  "wiki_title": "FedExForum",
+  "wiki_revid": 1373012936,
+  "home_teams": [
+   "MEM"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "5777"
+  ],
+  "name": "Fiserv Forum",
+  "city": "Milwaukee",
+  "state": "WI",
+  "country": null,
+  "wiki_title": "Fiserv Forum",
+  "wiki_revid": 1372176420,
+  "home_teams": [
+   "MIL"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "780"
+  ],
+  "name": "Frost Bank Center",
+  "city": "San Antonio",
+  "state": "TX",
+  "country": null,
+  "wiki_title": "Frost Bank Center",
+  "wiki_revid": 1372180807,
+  "home_teams": [
+   "SA"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "2183"
+  ],
+  "name": "Gainbridge Fieldhouse",
+  "city": "Indianapolis",
+  "state": "IN",
+  "country": null,
+  "wiki_title": "Gainbridge Fieldhouse",
+  "wiki_revid": 1374223283,
+  "home_teams": [
+   "IND"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "5310"
+  ],
+  "name": "Golden 1 Center",
+  "city": "Sacramento",
+  "state": "CA",
+  "country": null,
+  "wiki_title": "Golden 1 Center",
+  "wiki_revid": 1372478082,
+  "home_teams": [
+   "SAC"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "10642"
+  ],
+  "name": "Intuit Dome",
+  "city": "Inglewood",
+  "state": "CA",
+  "country": null,
+  "wiki_title": "Intuit Dome",
+  "wiki_revid": 1375752322,
+  "home_teams": [
+   "LAC"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "3438"
+  ],
+  "name": "Kaseya Center",
+  "city": "Miami",
+  "state": "FL",
+  "country": null,
+  "wiki_title": "Kaseya Center",
+  "wiki_revid": 1372209509,
+  "home_teams": [
+   "MIA"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "3432"
+  ],
+  "name": "Kia Center",
+  "city": "Orlando",
+  "state": "FL",
+  "country": null,
+  "wiki_title": "Kia Center",
+  "wiki_revid": 1376082870,
+  "home_teams": [
+   "ORL"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "5404"
+  ],
+  "name": "Little Caesars Arena",
+  "city": "Detroit",
+  "state": "MI",
+  "country": null,
+  "wiki_title": "Little Caesars Arena",
+  "wiki_revid": 1374189433,
+  "home_teams": [
+   "DET"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "1830"
+  ],
+  "name": "Madison Square Garden",
+  "city": "New York",
+  "state": "NY",
+  "country": null,
+  "wiki_title": "Madison Square Garden",
+  "wiki_revid": 1376511512,
+  "home_teams": [
+   "NY"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "3423"
+  ],
+  "name": "Moda Center",
+  "city": "Portland",
+  "state": "OR",
+  "country": null,
+  "wiki_title": "Moda Center",
+  "wiki_revid": 1375298076,
+  "home_teams": [
+   "POR"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "1949"
+  ],
+  "name": "Mortgage Matchup Center",
+  "city": "Phoenix",
+  "state": "AZ",
+  "country": null,
+  "wiki_title": "Mortgage Matchup Center",
+  "wiki_revid": 1373970643,
+  "home_teams": [
+   "PHX"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "2559"
+  ],
+  "name": "Paycom Center",
+  "city": "Oklahoma City",
+  "state": "OK",
+  "country": null,
+  "wiki_title": "Paycom Center",
+  "wiki_revid": 1372206126,
+  "home_teams": [
+   "OKC"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "3417"
+  ],
+  "name": "Rocket Arena",
+  "city": "Cleveland",
+  "state": "OH",
+  "country": null,
+  "wiki_title": "Rocket Arena",
+  "wiki_revid": 1372225680,
+  "home_teams": [
+   "CLE"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "1838"
+  ],
+  "name": "Scotiabank Arena",
+  "city": "Toronto",
+  "state": "ON",
+  "country": null,
+  "wiki_title": "Scotiabank Arena",
+  "wiki_revid": 1375772110,
+  "home_teams": [
+   "TOR"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "985"
+  ],
+  "name": "Smoothie King Center",
+  "city": "New Orleans",
+  "state": "LA",
+  "country": null,
+  "wiki_title": "Smoothie King Center",
+  "wiki_revid": 1372800481,
+  "home_teams": [
+   "NO"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "1893"
+  ],
+  "name": "Spectrum Center",
+  "city": "Charlotte",
+  "state": "NC",
+  "country": null,
+  "wiki_title": "Spectrum Center",
+  "wiki_revid": 1376080717,
+  "home_teams": [
+   "CHA"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "1827"
+  ],
+  "name": "State Farm Arena",
+  "city": "Atlanta",
+  "state": "GA",
+  "country": null,
+  "wiki_title": "State Farm Arena",
+  "wiki_revid": 1372236264,
+  "home_teams": [
+   "ATL"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "5060"
+  ],
+  "name": "T-Mobile Arena",
+  "city": "Las Vegas",
+  "state": "NV",
+  "country": null,
+  "wiki_title": "T-Mobile Arena",
+  "wiki_revid": 1372563222,
+  "home_teams": [
+   "NY"
+  ],
+  "espn_neutral_only": true,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "1824"
+  ],
+  "name": "TD Garden",
+  "city": "Boston",
+  "state": "MA",
+  "country": null,
+  "wiki_title": "TD Garden",
+  "wiki_revid": 1372238200,
+  "home_teams": [
+   "BOS"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "2029"
+  ],
+  "name": "Target Center",
+  "city": "Minneapolis",
+  "state": "MN",
+  "country": null,
+  "wiki_title": "Target Center",
+  "wiki_revid": 1376538851,
+  "home_teams": [
+   "MIN"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "1394"
+  ],
+  "name": "Toyota Center (Houston)",
+  "city": "Houston",
+  "state": "TX",
+  "country": null,
+  "wiki_title": "Toyota Center",
+  "wiki_revid": 1372245040,
+  "home_teams": [
+   "HOU"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "11593"
+  ],
+  "name": "Uber Arena",
+  "city": "Berlin",
+  "state": null,
+  "country": null,
+  "wiki_title": "Uber Arena",
+  "wiki_revid": 1375765960,
+  "home_teams": [
+   "ORL"
+  ],
+  "espn_neutral_only": true,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "1847"
+  ],
+  "name": "United Center",
+  "city": "Chicago",
+  "state": "IL",
+  "country": null,
+  "wiki_title": "United Center",
+  "wiki_revid": 1375751561,
+  "home_teams": [
+   "CHI"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "1845"
+  ],
+  "name": "Xfinity Mobile Arena",
+  "city": "Philadelphia",
+  "state": "PA",
+  "country": null,
+  "wiki_title": "Xfinity Mobile Arena",
+  "wiki_revid": 1375902562,
+  "home_teams": [
+   "PHI"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nba",
+  "espn_ids": [
+   "1841"
+  ],
+  "name": "crypto.com Arena",
+  "city": "Los Angeles",
+  "state": "CA",
+  "country": null,
+  "wiki_title": "Crypto.com Arena",
+  "wiki_revid": 1375769975,
+  "home_teams": [
+   "LAL"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3687"
+  ],
+  "name": "AT&T Stadium",
+  "city": "Arlington",
+  "state": "TX",
+  "country": "USA",
+  "wiki_title": "AT&T Stadium",
+  "wiki_revid": 1375731351,
+  "home_teams": [
+   "DAL"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3752"
+  ],
+  "name": "Acrisure Stadium",
+  "city": "Pittsburgh",
+  "state": "PA",
+  "country": "USA",
+  "wiki_title": "Acrisure Stadium",
+  "wiki_revid": 1372194646,
+  "home_teams": [
+   "PIT"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "6501"
+  ],
+  "name": "Allegiant Stadium",
+  "city": "Las Vegas",
+  "state": "NV",
+  "country": "USA",
+  "wiki_title": "Allegiant Stadium",
+  "wiki_revid": 1376027835,
+  "home_teams": [
+   "LV"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3622"
+  ],
+  "name": "Arrowhead Stadium",
+  "city": "Kansas City",
+  "state": "MO",
+  "country": "USA",
+  "wiki_title": "Arrowhead Stadium",
+  "wiki_revid": 1375749409,
+  "home_teams": [
+   "KC"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3628"
+  ],
+  "name": "Bank of America Stadium",
+  "city": "Charlotte",
+  "state": "NC",
+  "country": "USA",
+  "wiki_title": "Bank of America Stadium",
+  "wiki_revid": 1374879480,
+  "home_teams": [
+   "CAR"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3493"
+  ],
+  "name": "Caesars Superdome",
+  "city": "New Orleans",
+  "state": "LA",
+  "country": "USA",
+  "wiki_title": "Caesars Superdome",
+  "wiki_revid": 1376038977,
+  "home_teams": [
+   "NO"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "8748"
+  ],
+  "name": "Corinthians Arena",
+  "city": "Sao Paulo",
+  "state": null,
+  "country": "Brazil",
+  "wiki_title": "Arena Corinthians",
+  "wiki_revid": 1376487761,
+  "home_teams": [
+   "LAC"
+  ],
+  "espn_neutral_only": true,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "4737"
+  ],
+  "name": "Croke Park",
+  "city": "Dublin",
+  "state": null,
+  "country": "Ireland",
+  "wiki_title": "Croke Park",
+  "wiki_revid": 1373630877,
+  "home_teams": [
+   "PIT"
+  ],
+  "espn_neutral_only": true,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3937"
+  ],
+  "name": "Empower Field at Mile High",
+  "city": "Denver",
+  "state": "CO",
+  "country": "USA",
+  "wiki_title": "Empower Field at Mile High",
+  "wiki_revid": 1375502447,
+  "home_teams": [
+   "DEN"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3712"
+  ],
+  "name": "EverBank Stadium",
+  "city": "Jacksonville",
+  "state": "FL",
+  "country": "USA",
+  "wiki_title": "EverBank Stadium",
+  "wiki_revid": 1372151265,
+  "home_teams": [
+   "JAX"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3727"
+  ],
+  "name": "Ford Field",
+  "city": "Detroit",
+  "state": "MI",
+  "country": "USA",
+  "wiki_title": "Ford Field",
+  "wiki_revid": 1375366384,
+  "home_teams": [
+   "DET"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3738"
+  ],
+  "name": "Gillette Stadium",
+  "city": "Foxborough",
+  "state": "MA",
+  "country": "USA",
+  "wiki_title": "Gillette Stadium",
+  "wiki_revid": 1375562531,
+  "home_teams": [
+   "NE"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3948"
+  ],
+  "name": "Hard Rock Stadium",
+  "city": "Miami Gardens",
+  "state": "FL",
+  "country": "USA",
+  "wiki_title": "Hard Rock Stadium",
+  "wiki_revid": 1375341705,
+  "home_teams": [
+   "MIA"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "11938"
+  ],
+  "name": "Highmark Stadium",
+  "city": "Orchard Park",
+  "state": "NY",
+  "country": "USA",
+  "wiki_title": "Highmark Stadium",
+  "wiki_revid": 1376055436,
+  "home_teams": [
+   "BUF"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3883"
+  ],
+  "name": "Highmark Stadium (Old)",
+  "city": "Orchard Park",
+  "state": "NY",
+  "country": "USA",
+  "wiki_title": "Ralph Wilson Stadium",
+  "wiki_revid": 1374259886,
+  "home_teams": [
+   "BUF"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3679"
+  ],
+  "name": "Huntington Bank Field",
+  "city": "Cleveland",
+  "state": "OH",
+  "country": "USA",
+  "wiki_title": "Huntington Bank Field",
+  "wiki_revid": 1372204591,
+  "home_teams": [
+   "CLE"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3798"
+  ],
+  "name": "Lambeau Field",
+  "city": "Green Bay",
+  "state": "WI",
+  "country": "USA",
+  "wiki_title": "Lambeau Field",
+  "wiki_revid": 1373835701,
+  "home_teams": [
+   "GB"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "4738"
+  ],
+  "name": "Levi's Stadium",
+  "city": "Santa Clara",
+  "state": "CA",
+  "country": "USA",
+  "wiki_title": "Levi's Stadium",
+  "wiki_revid": 1375976386,
+  "home_teams": [
+   "SF"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3806"
+  ],
+  "name": "Lincoln Financial Field",
+  "city": "Philadelphia",
+  "state": "PA",
+  "country": "USA",
+  "wiki_title": "Lincoln Financial Field",
+  "wiki_revid": 1376012877,
+  "home_teams": [
+   "PHI"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3812"
+  ],
+  "name": "Lucas Oil Stadium",
+  "city": "Indianapolis",
+  "state": "IN",
+  "country": "USA",
+  "wiki_title": "Lucas Oil Stadium",
+  "wiki_revid": 1376242711,
+  "home_teams": [
+   "IND"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3673"
+  ],
+  "name": "Lumen Field",
+  "city": "Seattle",
+  "state": "WA",
+  "country": "USA",
+  "wiki_title": "Lumen Field",
+  "wiki_revid": 1373998493,
+  "home_teams": [
+   "SEA"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3814"
+  ],
+  "name": "M&T Bank Stadium",
+  "city": "Baltimore",
+  "state": "MD",
+  "country": "USA",
+  "wiki_title": "M&T Bank Stadium",
+  "wiki_revid": 1375592985,
+  "home_teams": [
+   "BAL"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "9119"
+  ],
+  "name": "Melbourne Cricket Ground",
+  "city": "Melbourne",
+  "state": "VIC",
+  "country": "Australia",
+  "wiki_title": "Melbourne Cricket Ground",
+  "wiki_revid": 1376474031,
+  "home_teams": [
+   "LAR"
+  ],
+  "espn_neutral_only": true,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "5348"
+  ],
+  "name": "Mercedes-Benz Stadium",
+  "city": "Atlanta",
+  "state": "GA",
+  "country": "USA",
+  "wiki_title": "Mercedes-Benz Stadium",
+  "wiki_revid": 1376316081,
+  "home_teams": [
+   "ATL"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3839"
+  ],
+  "name": "MetLife Stadium",
+  "city": "East Rutherford",
+  "state": "NJ",
+  "country": "USA",
+  "wiki_title": "MetLife Stadium",
+  "wiki_revid": 1375726224,
+  "home_teams": [
+   "NYG",
+   "NYJ"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3810"
+  ],
+  "name": "Nissan Stadium",
+  "city": "Nashville",
+  "state": "TN",
+  "country": "USA",
+  "wiki_title": "Nissan Stadium (Nashville)",
+  "wiki_revid": 1375930209,
+  "home_teams": [
+   "TEN"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3719"
+  ],
+  "name": "Northwest Stadium",
+  "city": "Landover",
+  "state": "MD",
+  "country": "USA",
+  "wiki_title": "Northwest Stadium",
+  "wiki_revid": 1374296465,
+  "home_teams": [
+   "WSH"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "7696"
+  ],
+  "name": "Olympic Stadium Berlin",
+  "city": "Berlin",
+  "state": null,
+  "country": "Germany",
+  "wiki_title": "Olympiastadion (Berlin)",
+  "wiki_revid": 1376286858,
+  "home_teams": [
+   "IND"
+  ],
+  "espn_neutral_only": true,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3874"
+  ],
+  "name": "Paycor Stadium",
+  "city": "Cincinnati",
+  "state": "OH",
+  "country": "USA",
+  "wiki_title": "Paycor Stadium",
+  "wiki_revid": 1372206140,
+  "home_teams": [
+   "CIN"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3886"
+  ],
+  "name": "Raymond James Stadium",
+  "city": "Tampa",
+  "state": "FL",
+  "country": "USA",
+  "wiki_title": "Raymond James Stadium",
+  "wiki_revid": 1372224116,
+  "home_teams": [
+   "TB"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3891"
+  ],
+  "name": "Reliant Stadium",
+  "city": "Houston",
+  "state": "TX",
+  "country": "USA",
+  "wiki_title": "Reliant Stadium",
+  "wiki_revid": 1376433325,
+  "home_teams": [
+   "HOU"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "1353"
+  ],
+  "name": "Santiago Bernabéu",
+  "city": "Madrid",
+  "state": null,
+  "country": "Spain",
+  "wiki_title": "Bernabéu (stadium)",
+  "wiki_revid": 1376542686,
+  "home_teams": [
+   "MIA"
+  ],
+  "espn_neutral_only": true,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "7065"
+  ],
+  "name": "SoFi Stadium",
+  "city": "Inglewood",
+  "state": "CA",
+  "country": "USA",
+  "wiki_title": "SoFi Stadium",
+  "wiki_revid": 1376180925,
+  "home_teams": [
+   "LAC",
+   "LAR"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3933"
+  ],
+  "name": "Soldier Field",
+  "city": "Chicago",
+  "state": "IL",
+  "country": "USA",
+  "wiki_title": "Soldier Field",
+  "wiki_revid": 1376287121,
+  "home_teams": [
+   "CHI"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "3970"
+  ],
+  "name": "State Farm Stadium",
+  "city": "Glendale",
+  "state": "AZ",
+  "country": "USA",
+  "wiki_title": "State Farm Stadium",
+  "wiki_revid": 1372236288,
+  "home_teams": [
+   "ARI"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "5534"
+  ],
+  "name": "Tottenham Hotspur Stadium",
+  "city": "London",
+  "state": null,
+  "country": "England",
+  "wiki_title": "Tottenham Hotspur Stadium",
+  "wiki_revid": 1375183094,
+  "home_teams": [
+   "CLE",
+   "NYJ"
+  ],
+  "espn_neutral_only": true,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "5239"
+  ],
+  "name": "U.S. Bank Stadium",
+  "city": "Minneapolis",
+  "state": "MN",
+  "country": "USA",
+  "wiki_title": "U.S. Bank Stadium",
+  "wiki_revid": 1375367007,
+  "home_teams": [
+   "MIN"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nfl",
+  "espn_ids": [
+   "2455"
+  ],
+  "name": "Wembley Stadium",
+  "city": "London",
+  "state": null,
+  "country": "England",
+  "wiki_title": "Wembley Stadium",
+  "wiki_revid": 1375313098,
+  "home_teams": [
+   "JAX"
+  ],
+  "espn_neutral_only": true,
+  "espn_indoor": false
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "1840"
+  ],
+  "name": "Amerant Bank Arena",
+  "city": "Sunrise",
+  "state": "FL",
+  "country": "USA",
+  "wiki_title": "Amerant Bank Arena",
+  "wiki_revid": 1376421226,
+  "home_teams": [
+   "FLA"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "516"
+  ],
+  "name": "American Airlines Center",
+  "city": "Dallas",
+  "state": "TX",
+  "country": "USA",
+  "wiki_title": "American Airlines Center",
+  "wiki_revid": 1372062771,
+  "home_teams": [
+   "DAL"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "2214"
+  ],
+  "name": "Avicii Arena",
+  "city": "Stockholm",
+  "state": null,
+  "country": "Sweden",
+  "wiki_title": "Avicii Arena",
+  "wiki_revid": 1372613267,
+  "home_teams": [
+   "NSH",
+   "PIT"
+  ],
+  "espn_neutral_only": true,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "892"
+  ],
+  "name": "Ball Arena",
+  "city": "Denver",
+  "state": "CO",
+  "country": "USA",
+  "wiki_title": "Ball Arena",
+  "wiki_revid": 1376024860,
+  "home_teams": [
+   "COL"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "1831"
+  ],
+  "name": "Bell Centre",
+  "city": "Montreal",
+  "state": "QC",
+  "country": "Canada",
+  "wiki_title": "Bell Centre",
+  "wiki_revid": 1372067486,
+  "home_teams": [
+   "MTL"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "1396"
+  ],
+  "name": "Benchmark International Arena",
+  "city": "Tampa",
+  "state": "FL",
+  "country": "USA",
+  "wiki_title": "Benchmark International Arena",
+  "wiki_revid": 1376541285,
+  "home_teams": [
+   "TB"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "1834"
+  ],
+  "name": "Bridgestone Arena",
+  "city": "Nashville",
+  "state": "TN",
+  "country": "USA",
+  "wiki_title": "Bridgestone Arena",
+  "wiki_revid": 1373721363,
+  "home_teams": [
+   "NSH"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "1397"
+  ],
+  "name": "Canada Life Centre",
+  "city": "Winnipeg",
+  "state": "MB",
+  "country": "Canada",
+  "wiki_title": "Canada Life Centre",
+  "wiki_revid": 1374001973,
+  "home_teams": [
+   "WPG"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "1832"
+  ],
+  "name": "Canadian Tire Centre",
+  "city": "Ottawa",
+  "state": "ON",
+  "country": "Canada",
+  "wiki_title": "Canadian Tire Centre",
+  "wiki_revid": 1376333088,
+  "home_teams": [
+   "OTT"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "1823"
+  ],
+  "name": "Capital One Arena",
+  "city": "Washington",
+  "state": "DC",
+  "country": "USA",
+  "wiki_title": "Capital One Arena",
+  "wiki_revid": 1375927841,
+  "home_teams": [
+   "WSH"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "7224"
+  ],
+  "name": "Climate Pledge Arena",
+  "city": "Seattle",
+  "state": "WA",
+  "country": "USA",
+  "wiki_title": "Climate Pledge Arena",
+  "wiki_revid": 1376105473,
+  "home_teams": [
+   "SEA"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "3093"
+  ],
+  "name": "Delta Center",
+  "city": "Salt Lake City",
+  "state": "UT",
+  "country": "USA",
+  "wiki_title": "Delta Center",
+  "wiki_revid": 1372080061,
+  "home_teams": [
+   "UTA"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "1839"
+  ],
+  "name": "Enterprise Center",
+  "city": "St. Louis",
+  "state": "MO",
+  "country": "USA",
+  "wiki_title": "Enterprise Center",
+  "wiki_revid": 1372086380,
+  "home_teams": [
+   "STL"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "1835"
+  ],
+  "name": "Grand Casino Arena",
+  "city": "Saint Paul",
+  "state": "MN",
+  "country": "USA",
+  "wiki_title": "Grand Casino Arena",
+  "wiki_revid": 1376094788,
+  "home_teams": [
+   "MIN"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "1842"
+  ],
+  "name": "Honda Center",
+  "city": "Anaheim",
+  "state": "CA",
+  "country": "USA",
+  "wiki_title": "Honda Center",
+  "wiki_revid": 1372399818,
+  "home_teams": [
+   "ANA"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "1848"
+  ],
+  "name": "KeyBank Center",
+  "city": "Buffalo",
+  "state": "NY",
+  "country": "USA",
+  "wiki_title": "KeyBank Center",
+  "wiki_revid": 1375699062,
+  "home_teams": [
+   "BUF"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "999"
+  ],
+  "name": "Lenovo Center",
+  "city": "Raleigh",
+  "state": "NC",
+  "country": "USA",
+  "wiki_title": "Lenovo Center",
+  "wiki_revid": 1375067702,
+  "home_teams": [
+   "CAR"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "5404"
+  ],
+  "name": "Little Caesars Arena",
+  "city": "Detroit",
+  "state": "MI",
+  "country": "USA",
+  "wiki_title": "Little Caesars Arena",
+  "wiki_revid": 1374189433,
+  "home_teams": [
+   "DET"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "1830"
+  ],
+  "name": "Madison Square Garden",
+  "city": "New York",
+  "state": "NY",
+  "country": "USA",
+  "wiki_title": "Madison Square Garden",
+  "wiki_revid": 1376511512,
+  "home_teams": [
+   "NYR"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "1828"
+  ],
+  "name": "Nationwide Arena",
+  "city": "Columbus",
+  "state": "OH",
+  "country": "USA",
+  "wiki_title": "Nationwide Arena",
+  "wiki_revid": 1376025469,
+  "home_teams": [
+   "CBJ"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "1837"
+  ],
+  "name": "PPG Paints Arena",
+  "city": "Pittsburgh",
+  "state": "PA",
+  "country": "USA",
+  "wiki_title": "PPG Paints Arena",
+  "wiki_revid": 1372292889,
+  "home_teams": [
+   "PIT"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "1826"
+  ],
+  "name": "Prudential Center",
+  "city": "Newark",
+  "state": "NJ",
+  "country": "USA",
+  "wiki_title": "Prudential Center",
+  "wiki_revid": 1375499243,
+  "home_teams": [
+   "NJ"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "1833"
+  ],
+  "name": "Rogers Arena",
+  "city": "Vancouver",
+  "state": "BC",
+  "country": "Canada",
+  "wiki_title": "Rogers Arena",
+  "wiki_revid": 1372225854,
+  "home_teams": [
+   "VAN"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "5282"
+  ],
+  "name": "Rogers Place",
+  "city": "Edmonton",
+  "state": "AB",
+  "country": "Canada",
+  "wiki_title": "Rogers Place",
+  "wiki_revid": 1372225908,
+  "home_teams": [
+   "EDM"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "1653"
+  ],
+  "name": "SAP Center at San Jose",
+  "city": "San Jose",
+  "state": "CA",
+  "country": "USA",
+  "wiki_title": "SAP Center",
+  "wiki_revid": 1376082812,
+  "home_teams": [
+   "SJ"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "1838"
+  ],
+  "name": "Scotiabank Arena",
+  "city": "Toronto",
+  "state": "ON",
+  "country": "Canada",
+  "wiki_title": "Scotiabank Arena",
+  "wiki_revid": 1375772110,
+  "home_teams": [
+   "TOR"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "1843"
+  ],
+  "name": "Scotiabank Saddledome",
+  "city": "Calgary",
+  "state": "AB",
+  "country": "Canada",
+  "wiki_title": "Scotiabank Saddledome",
+  "wiki_revid": 1372974591,
+  "home_teams": [
+   "CGY"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "5060"
+  ],
+  "name": "T-Mobile Arena",
+  "city": "Las Vegas",
+  "state": "NV",
+  "country": "USA",
+  "wiki_title": "T-Mobile Arena",
+  "wiki_revid": 1372563222,
+  "home_teams": [
+   "VGK"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "1824"
+  ],
+  "name": "TD Garden",
+  "city": "Boston",
+  "state": "MA",
+  "country": "USA",
+  "wiki_title": "TD Garden",
+  "wiki_revid": 1372238200,
+  "home_teams": [
+   "BOS"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "7226"
+  ],
+  "name": "UBS Arena",
+  "city": "Elmont",
+  "state": "NY",
+  "country": "USA",
+  "wiki_title": "UBS Arena",
+  "wiki_revid": 1374271562,
+  "home_teams": [
+   "NYI"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "1847"
+  ],
+  "name": "United Center",
+  "city": "Chicago",
+  "state": "IL",
+  "country": "USA",
+  "wiki_title": "United Center",
+  "wiki_revid": 1375751561,
+  "home_teams": [
+   "CHI"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "1845"
+  ],
+  "name": "Xfinity Mobile Arena",
+  "city": "Philadelphia",
+  "state": "PA",
+  "country": "USA",
+  "wiki_title": "Xfinity Mobile Arena",
+  "wiki_revid": 1375902562,
+  "home_teams": [
+   "PHI"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ },
+ {
+  "sport": "nhl",
+  "espn_ids": [
+   "1841"
+  ],
+  "name": "crypto.com Arena",
+  "city": "Los Angeles",
+  "state": "CA",
+  "country": "USA",
+  "wiki_title": "Crypto.com Arena",
+  "wiki_revid": 1375769975,
+  "home_teams": [
+   "LA"
+  ],
+  "espn_neutral_only": false,
+  "espn_indoor": true
+ }
+]
