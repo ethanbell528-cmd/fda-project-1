@@ -8,7 +8,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <script type="importmap">
+    { "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.min.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+    } }
+  </script>
+  <link rel="stylesheet" href="css/style.css?v=20260924">
 </head>
 <body>
   <nav class="nav" aria-label="Main">
@@ -36,6 +42,7 @@
         <h2 id="live-title" style="margin:0;font-size:1.15rem">Games today: model vs. market</h2>
         <span class="small muted" id="live-updated" aria-live="polite">Not loaded yet</span>
       </div>
+      <label class="field live-date-field">Games on date<input type="date" id="live-date"></label>
       <p class="small muted" id="live-note" style="margin:4px 0 0"></p>
       <div class="games" id="live-games"></div>
       <div id="live-more"></div>
@@ -109,10 +116,11 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script src="config.js" onerror="void 0"></script>
-  <script src="js/site.js"></script>
-  <script src="js/predict.js"></script>
-  <script src="js/live.js"></script>
-  <script src="js/projections.js"></script>
-  <script src="js/dashboard.js"></script>
+  <script src="js/site.js?v=20260924"></script>
+  <script src="js/predict.js?v=20260924"></script>
+  <script src="js/replay3d.js?v=20260924b"></script>
+  <script src="js/live.js?v=20260924b"></script>
+  <script src="js/projections.js?v=20260924"></script>
+  <script src="js/dashboard.js?v=20260924"></script>
 </body>
 </html>

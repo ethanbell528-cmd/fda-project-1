@@ -188,8 +188,15 @@
   // if today has nothing live/upcoming. ESPN rejects date ranges, so days are probed one by one
   // (at most 7 requests, remembered for 10 minutes).
   const nextBoard = {};
+  let viewDate = null; // YYYYMMDD when the viewer picks another day; null = today (live)
   async function loadEvents(sport) {
     const base = ESPN + LEAGUE[sport] + "/scoreboard";
+    if (viewDate) {
+      const dd = await getJSON(base + "?dates=" + viewDate);
+      const evs = (dd.events || []).map((e) => parseEvent(sport, e)).filter(Boolean);
+      evs.sort((a, b) => new Date(a.date) - new Date(b.date));
+      return { events: evs, note: evs.length ? "" : "No " + window.Site.SPORTS[sport].name + " games on this date." };
+    }
     const d = await getJSON(base);
     let events = (d.events || []).map((e) => parseEvent(sport, e)).filter(Boolean);
     let note = "";
@@ -428,6 +435,30 @@
     if (pr && pr.note) bits.push(pr.note);
     src.textContent = bits.join(" · ");
     card.appendChild(src);
+
+    // 3D replay from ESPN play-by-play (loads on request; disposed when the pop-up closes)
+    const rh = el("h3", null, "3D replay");
+    rh.style.margin = "14px 0 4px";
+    rh.style.fontSize = "1rem";
+    card.appendChild(rh);
+    const rbox = el("div", "replay-host");
+    card.appendChild(rbox);
+    if (g.state === "pre") {
+      rbox.appendChild(el("p", "muted small", "The 3D replay appears here once the game starts, built from ESPN's play-by-play locations."));
+    } else {
+      const rb = el("button", "btn", g.state === "in" ? "Load live 3D replay" : "Load 3D replay");
+      rb.type = "button";
+      rb.addEventListener("click", async () => {
+        rb.disabled = true;
+        if (!window.Replay3D) { rbox.textContent = "3D replay script did not load."; return; }
+        let ctl = null, closed = false;
+        const stop = () => { closed = true; if (ctl) ctl.close(); };
+        if (window.Site.onGameClose) window.Site.onGameClose(stop);
+        ctl = await window.Replay3D.open(rbox, sport, g.id, { live: g.state === "in" });
+        if (closed) ctl.close();
+      });
+      rbox.appendChild(rb);
+    }
 
     // players: rendered when the game pop-up opens
     const ph = el("h3", null, g.state === "pre" ? "Players: model vs market" : "Players: model vs market vs actual");
@@ -838,18 +869,19 @@
   }
 
   // ---------------- controller ----------------
-  let current = null, timer = null, ticker = null, lastAt = 0, running = false, showAll = false;
+  let current = null, timer = null, ticker = null, lastAt = 0, running = false, pending = false, showAll = false;
 
   function tick() {
     const u = $("live-updated");
     if (!u || !lastAt) return;
     const s = Math.round((Date.now() - lastAt) / 1000);
-    u.textContent = "Updated " + s + " second" + (s === 1 ? "" : "s") + " ago · refreshes every 60 s";
+    u.textContent = viewDate ? "Loaded at " + new Date(lastAt).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }) + " · chosen date, no auto-refresh" : "Updated " + s + " second" + (s === 1 ? "" : "s") + " ago · refreshes every 60 s";
   }
 
   async function refresh() {
     const sport = current;
-    if (!sport || running) return;
+    if (!sport) return;
+    if (running) { pending = true; return; } // a sport/date switch during a load runs right after it
     running = true;
     const box = $("live-games"), note = $("live-note"), more = $("live-more");
     box.classList.add("stale");
@@ -893,6 +925,8 @@
       note.textContent = parts.join(" ");
       lastAt = Date.now();
       tick();
+      if (viewDate) parts.push("Showing a chosen date: final scores are ESPN's; model numbers use today's ratings, not the ratings on that date.");
+      note.textContent = parts.join(" ");
     } catch (e) {
       if (sport === current) {
         note.textContent = "Live data unavailable right now (" + (navigator.onLine === false ? "you appear to be offline" : "ESPN could not be reached") + "). The historical dashboard below still works.";
@@ -901,11 +935,36 @@
     } finally {
       box.classList.remove("stale");
       running = false;
+      if (pending) { pending = false; refresh(); }
+    }
+  }
+
+  function todayYmd() { return ymd(new Date()); }
+  function setDateUI() {
+    const inp = $("live-date"), ttl = $("live-title");
+    if (inp && !inp.dataset.bound) {
+      inp.dataset.bound = "1";
+      const t = new Date(); t.setMinutes(t.getMinutes() - t.getTimezoneOffset());
+      inp.value = t.toISOString().slice(0, 10);
+      inp.max = new Date(Date.now() + 30 * 864e5).toISOString().slice(0, 10);
+      inp.addEventListener("change", () => {
+        const v = (inp.value || "").replace(/-/g, "");
+        viewDate = v && v !== todayYmd() ? v : null;
+        if (current) show(current);
+      });
+    }
+    if (ttl) {
+      if (!viewDate) ttl.textContent = "Games today: model vs. market";
+      else {
+        const d = new Date(+viewDate.slice(0, 4), +viewDate.slice(4, 6) - 1, +viewDate.slice(6, 8));
+        ttl.textContent = "Games on " + d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric", year: "numeric" }) + ": model vs. market";
+      }
     }
   }
 
   function show(sport) {
     if (!LEAGUE[sport]) return;
+    setDateUI();
     current = sport;
     showAll = false;
     lastAt = 0;
@@ -915,8 +974,10 @@
     $("live-note").textContent = "";
     clearInterval(timer); clearInterval(ticker);
     refresh();
-    timer = setInterval(() => { if (!document.hidden) refresh(); }, REFRESH_MS);
-    ticker = setInterval(tick, 1000);
+    if (!viewDate) { // only today's board auto-refreshes
+      timer = setInterval(() => { if (!document.hidden) refresh(); }, REFRESH_MS);
+      ticker = setInterval(tick, 1000);
+    }
   }
 
   window.Live = { show, refresh, codeFor, ESPN_CODE, EPL_NAME, _parseEvent: parseEvent, _implied: implied, _loadProps: loadProps, _roster: roster, _matchAthlete: matchAthlete, _coreOdds: coreOdds };

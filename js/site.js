@@ -183,14 +183,22 @@
 (function () {
   "use strict";
   let dlg = null;
+  let cleanups = [];
+  // cleanup callbacks (e.g. dispose a 3D replay) run when the game pop-up closes or is refilled
+  function runCleanups() { const c = cleanups; cleanups = []; c.forEach((f) => { try { f(); } catch (e) { /* ignore */ } }); }
+  function closeGame() { runCleanups(); if (dlg && dlg.open) dlg.close(); }
+  window.Site.onGameClose = function (fn) { cleanups.push(fn); };
   window.Site.showGame = function (o) {
     if (!dlg) {
       dlg = document.createElement("dialog");
       dlg.className = "player-dialog game-dialog";
       dlg.setAttribute("aria-labelledby", "gd-title");
-      dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
+      dlg.addEventListener("click", (e) => { if (e.target === dlg) closeGame(); });
+      dlg.addEventListener("cancel", runCleanups); // Esc key
+      dlg.addEventListener("close", runCleanups);
       document.body.appendChild(dlg);
     }
+    runCleanups();
     dlg.textContent = "";
     const box = document.createElement("div");
     box.className = "pd-box";
@@ -207,7 +215,7 @@
     x.type = "button";
     x.className = "btn ghost pd-close";
     x.textContent = "Close";
-    x.addEventListener("click", () => dlg.close());
+    x.addEventListener("click", closeGame);
     head.appendChild(x);
     box.appendChild(head);
     if (o.node) box.appendChild(o.node);

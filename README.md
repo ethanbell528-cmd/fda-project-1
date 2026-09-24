@@ -18,6 +18,8 @@ Built by **Ethan Bell** for Financial Data Analytics (Data Website Project).
 - **Filters** cover season range, team, opponent, home/away, game type and result, with a reset button.
 - **Six summary tiles and five charts** recalculate with the filters. A measure switch and a breakdown switch change what the charts show. A table lists the numbers behind the current view.
 - **Games today: model vs. market.** Each game is a compact card with the score, the model's pick and the market odds. Click a card to open the full game in a large pop-up. It shows model win % against the market's no-vig odds, moneylines and fair odds, the model and market spread, and the total. Live games show in-game odds, labeled "(live)". The panel refreshes every 60 seconds.
+- **3D replays.** Every live or finished game has a "Load 3D replay" button in its pop-up, for all five sports. It rebuilds the game on a 3D court, rink, field or pitch from ESPN's play-by-play locations: NBA shot spots with arcs to the rim, NHL shot and goal spots, MLB batted-ball arcs plus a strike-zone inset, NFL drives play by play, and EPL shots to goal. It has play/pause, a timeline scrubber, speed and period filters, a running scoreboard, rotate and zoom, and a text list of every play. Plays without a recorded location appear only in the list. Games with no locations at all say so. It is not video or player tracking.
+- **Games on any date.** A date picker loads any day's scoreboard, so past games can be replayed. Only today's board refreshes automatically.
 - **Player pop-ups.** Inside a game, click any featured player to see that player's model projection next to the sportsbook prop. It shows the line, the over and under odds, the market's no-vig chance of the over, and the model's view. Once the game starts, it adds the actual stat.
 - **Player projections table.** It lists every featured player's projected per-game stats, filterable by team, role and name. Click a name for the inputs behind the projection.
 
@@ -57,6 +59,7 @@ Course requirements, printed by `scripts/clean_data.py`: rows ≥ 50,000 (394,70
 | EPL player goals and assists | vaastav Fantasy Premier League archive: https://github.com/vaastav/Fantasy-Premier-League |
 | Live scores and fallback odds | ESPN public scoreboard: `https://site.api.espn.com/apis/site/v2/sports/<sport>/<league>/scoreboard` |
 | Live odds, optional | The Odds API: https://the-odds-api.com |
+| 3D replays (play-by-play locations) | ESPN public game summary: `https://site.api.espn.com/apis/site/v2/sports/<sport>/<league>/summary?event=<id>` |
 | Live player prop lines | ESPN public odds feed (sportsbook as listed by ESPN, e.g. DraftKings): `https://sports.core.api.espn.com/v2/sports/<sport>/leagues/<league>/events/<id>/competitions/<id>/odds/<provider>/propBets` |
 
 *The information used here was obtained free of charge from and is copyrighted by Retrosheet. Interested parties may contact Retrosheet at www.retrosheet.org.*
@@ -107,6 +110,7 @@ To use The Odds API free tier locally, copy `config.example.js` to `config.js` a
 | `js/report.js` | Renders the report's text numbers, tiles and charts from `data/report/*.json` |
 | `js/dashboard.js` | Loads one sport's CSV, applies filters, computes the tiles, charts and table in the browser |
 | `js/live.js` | Live panel: ESPN scoreboard and core odds feed (pre-game and live odds), optional Odds API, team-code mapping, compact game cards, game pop-up, player props matched to ESPN rosters |
+| `js/replay3d.js` | 3D game replays: fetches ESPN's play-by-play summary, maps each sport's coordinates onto a three.js court, rink, field or pitch (three.js loaded from jsDelivr only when a replay opens), with timeline controls and an accessible play list |
 | `js/projections.js` | Player projections table on the dashboard, with a pop-up per player |
 | `js/predict.js` | In-browser model inference per sport, plus Elo and odds math utilities |
 | `config.example.js` | Template for the optional Odds API key (copy to `config.js`) |
