@@ -2492,7 +2492,7 @@
     }
    }
   ],
-  "json_vs_sklearn_max_abs_diff_pH": 4.2422115098528224e-07,
+  "json_vs_sklearn_max_abs_diff_pH": 4.2422115131834914e-07,
   "notes": [
    "Holdout seasons were never used to choose Elo constants, features or coefficients.",
    "Elo constants were chosen on seasons 1992-2019 (mean squared error of Elo expected score).",
@@ -3716,7 +3716,7 @@
    "win_model": {
     "log_loss": 0.6764,
     "brier": 0.2419,
-    "accuracy": 0.5616
+    "accuracy": 0.5609
    },
    "baseline": {
     "name": "training-season home win rate",
@@ -3730,7 +3730,7 @@
     {
      "bin": "0.2-0.3",
      "n": 29,
-     "predicted": 0.2718,
+     "predicted": 0.2717,
      "observed": 0.3103
     },
     {
@@ -3743,30 +3743,30 @@
      "bin": "0.4-0.5",
      "n": 684,
      "predicted": 0.4579,
-     "observed": 0.4985
+     "observed": 0.5
     },
     {
      "bin": "0.5-0.6",
      "n": 1033,
      "predicted": 0.5509,
-     "observed": 0.5082
+     "observed": 0.5073
     },
     {
      "bin": "0.6-0.7",
      "n": 693,
-     "predicted": 0.6418,
+     "predicted": 0.6419,
      "observed": 0.6392
     },
     {
      "bin": "0.7-0.8",
      "n": 163,
-     "predicted": 0.7366,
+     "predicted": 0.7367,
      "observed": 0.7239
     },
     {
      "bin": "0.8-0.9",
      "n": 11,
-     "predicted": 0.8122,
+     "predicted": 0.8123,
      "observed": 0.8182
     }
    ]
@@ -3806,17 +3806,17 @@
     "wins": 554,
     "roi": -0.0452
    },
-   "margin_mae_model": 2.093,
+   "margin_mae_model": 2.0929,
    "line": {
     "games": 2351,
     "margin_mae_model": 2.094,
     "margin_mae_market_line": 2.1057,
     "model_side_vs_line": {
      "bets": 2351,
-     "wins": 1430,
-     "losses": 921,
+     "wins": 1429,
+     "losses": 922,
      "pushes": 0,
-     "win_pct_ex_push": 0.6083
+     "win_pct_ex_push": 0.6078
     }
    },
    "total_mae_model": 1.8551,
@@ -3836,7 +3836,7 @@
     {
      "bin": "0.2-0.3",
      "n": 30,
-     "predicted": 0.2679,
+     "predicted": 0.2678,
      "observed": 0.3333
     },
     {
@@ -3924,9 +3924,9 @@
     "in_sample": true,
     "games": 1148,
     "home_win_rate": 0.4895,
-    "model_log_loss": 0.6748,
+    "model_log_loss": 0.6747,
     "elo_log_loss": 0.6736,
-    "model_accuracy": 0.5906,
+    "model_accuracy": 0.5896,
     "market_games": 0
    },
    {
@@ -3935,7 +3935,7 @@
     "games": 1148,
     "home_win_rate": 0.4617,
     "model_log_loss": 0.6658,
-    "elo_log_loss": 0.6689,
+    "elo_log_loss": 0.669,
     "model_accuracy": 0.5961,
     "market_games": 0
    },
@@ -3954,9 +3954,9 @@
     "in_sample": true,
     "games": 1231,
     "home_win_rate": 0.4939,
-    "model_log_loss": 0.6497,
-    "elo_log_loss": 0.6542,
-    "model_accuracy": 0.6332,
+    "model_log_loss": 0.649,
+    "elo_log_loss": 0.6536,
+    "model_accuracy": 0.6323,
     "market_games": 0
    },
    {
@@ -3965,7 +3965,7 @@
     "games": 1316,
     "home_win_rate": 0.4901,
     "model_log_loss": 0.6479,
-    "elo_log_loss": 0.6531,
+    "elo_log_loss": 0.653,
     "model_accuracy": 0.628,
     "market_games": 0
    },
@@ -3975,7 +3975,7 @@
     "games": 1320,
     "home_win_rate": 0.4947,
     "model_log_loss": 0.6635,
-    "elo_log_loss": 0.6656,
+    "elo_log_loss": 0.6655,
     "model_accuracy": 0.6072,
     "market_games": 0
    },
@@ -4039,7 +4039,7 @@
     "home_win_rate": 0.5611,
     "model_log_loss": 0.6712,
     "elo_log_loss": 0.6731,
-    "model_accuracy": 0.5786,
+    "model_accuracy": 0.5793,
     "market_games": 1315,
     "market_log_loss": 0.6676,
     "model_log_loss_market_games": 0.6709,
@@ -4052,7 +4052,7 @@
     "home_win_rate": 0.558,
     "model_log_loss": 0.6806,
     "elo_log_loss": 0.6789,
-    "model_accuracy": 0.5747,
+    "model_accuracy": 0.5754,
     "market_games": 1317,
     "market_log_loss": 0.6797,
     "model_log_loss_market_games": 0.6801,
@@ -4153,7 +4153,7 @@
     "model_log_loss_market_games": 0.6711,
     "elo_log_loss_market_games": 0.6713,
     "line_mae": 2.0106,
-    "model_margin_mae_line_games": 1.9117
+    "model_margin_mae_line_games": 1.9116
    },
    {
     "season": 2017,
@@ -4162,7 +4162,7 @@
     "home_win_rate": 0.5579,
     "model_log_loss": 0.6695,
     "elo_log_loss": 0.6715,
-    "model_accuracy": 0.597,
+    "model_accuracy": 0.5978,
     "market_games": 1355,
     "market_log_loss": 0.6697,
     "model_log_loss_market_games": 0.6695,
@@ -4225,7 +4225,7 @@
     "model_accuracy": 0.6338,
     "market_games": 1400,
     "market_log_loss": 0.6432,
-    "model_log_loss_market_games": 0.6489,
+    "model_log_loss_market_games": 0.6488,
     "elo_log_loss_market_games": 0.6527,
     "line_mae": 2.1257,
     "model_margin_mae_line_games": 2.1225
@@ -4237,13 +4237,13 @@
     "home_win_rate": 0.52,
     "model_log_loss": 0.6612,
     "elo_log_loss": 0.6638,
-    "model_accuracy": 0.6036,
+    "model_accuracy": 0.6029,
     "market_games": 342,
     "market_log_loss": 0.6686,
     "model_log_loss_market_games": 0.68,
     "elo_log_loss_market_games": 0.6787,
     "line_mae": 2.1316,
-    "model_margin_mae_line_games": 2.0902
+    "model_margin_mae_line_games": 2.0901
    },
    {
     "season": 2023,
@@ -4272,7 +4272,7 @@
     "home_win_rate": 0.5194,
     "model_log_loss": 0.6891,
     "elo_log_loss": 0.6892,
-    "model_accuracy": 0.5344,
+    "model_accuracy": 0.533,
     "market_games": 0
    }
   ],
@@ -4281,7 +4281,7 @@
    "HFA": 35,
    "season_regression": 0.33,
    "tuned_on": "1992-2019 (mean squared error of Elo expected score)",
-   "tune_mse": 0.226893
+   "tune_mse": 0.226883
   },
   "player_projection_check": {
    "season": 2025,
@@ -4309,7 +4309,7 @@
   "parity_samples": [
    {
     "features": {
-     "elo_diff": -1.1062835078500939,
+     "elo_diff": -1.1062835227141932,
      "neutral": 0.0,
      "rest_h": 3.0,
      "rest_a": 3.0,
@@ -4326,14 +4326,14 @@
      "gsv_a": 0.9010804278771712
     },
     "expected": {
-     "margin": -0.056109755394,
-     "total": 6.04724603651,
-     "pH": 0.487663859216
+     "margin": -0.056108720631,
+     "total": 6.04745985538,
+     "pH": 0.487643645271
     }
    },
    {
     "features": {
-     "elo_diff": 58.219158911852446,
+     "elo_diff": 58.21915892358652,
      "neutral": 0.0,
      "rest_h": 1.0,
      "rest_a": 1.0,
@@ -4350,14 +4350,14 @@
      "gsv_a": 0.8935324157217169
     },
     "expected": {
-     "margin": 0.40441769023,
-     "total": 6.774413510261,
-     "pH": 0.565166555074
+     "margin": 0.404049084815,
+     "total": 6.774427624656,
+     "pH": 0.565095001575
     }
    },
    {
     "features": {
-     "elo_diff": -0.786549919994286,
+     "elo_diff": -0.7865498799590114,
      "neutral": 0.0,
      "rest_h": 2.0,
      "rest_a": 2.0,
@@ -4374,14 +4374,14 @@
      "gsv_a": 0.9018903121532654
     },
     "expected": {
-     "margin": -0.145052942039,
-     "total": 6.480298421596,
-     "pH": 0.463341057765
+     "margin": -0.14574874389,
+     "total": 6.480789442182,
+     "pH": 0.46328506806
     }
    },
    {
     "features": {
-     "elo_diff": -25.87399619591224,
+     "elo_diff": -25.8739962228276,
      "neutral": 0.0,
      "rest_h": 2.0,
      "rest_a": 2.0,
@@ -4398,14 +4398,14 @@
      "gsv_a": 0.8884553458892411
     },
     "expected": {
-     "margin": -0.196250430236,
-     "total": 5.990061629122,
-     "pH": 0.468158999724
+     "margin": -0.195654257112,
+     "total": 5.989585997573,
+     "pH": 0.468180774835
     }
    },
    {
     "features": {
-     "elo_diff": 35.264140120720185,
+     "elo_diff": 35.26414028479326,
      "neutral": 0.0,
      "rest_h": 5.0,
      "rest_a": 5.0,
@@ -4422,14 +4422,14 @@
      "gsv_a": 0.905568750424871
     },
     "expected": {
-     "margin": 0.195439954673,
-     "total": 5.985014751648,
-     "pH": 0.54565744504
+     "margin": 0.19620029004,
+     "total": 5.984055181601,
+     "pH": 0.545817811325
     }
    },
    {
     "features": {
-     "elo_diff": 103.71044636073611,
+     "elo_diff": 103.71043524518063,
      "neutral": 0.0,
      "rest_h": 2.0,
      "rest_a": 2.0,
@@ -4446,14 +4446,14 @@
      "gsv_a": 0.9103946399137491
     },
     "expected": {
-     "margin": 0.895613841678,
-     "total": 5.842687925196,
-     "pH": 0.659522427424
+     "margin": 0.896039571815,
+     "total": 5.842425974972,
+     "pH": 0.65958856603
     }
    },
    {
     "features": {
-     "elo_diff": -6.944336062498678,
+     "elo_diff": -6.944336067027734,
      "neutral": 0.0,
      "rest_h": 3.0,
      "rest_a": 2.0,
@@ -4470,14 +4470,14 @@
      "gsv_a": 0.895708042273623
     },
     "expected": {
-     "margin": -0.093489991329,
-     "total": 6.577048842545,
-     "pH": 0.47491248406
+     "margin": -0.093746025957,
+     "total": 6.577257987128,
+     "pH": 0.474981170003
     }
    },
    {
     "features": {
-     "elo_diff": -32.27666015273326,
+     "elo_diff": -32.27666019090543,
      "neutral": 0.0,
      "rest_h": 3.0,
      "rest_a": 2.0,
@@ -4494,14 +4494,14 @@
      "gsv_a": 0.9078762753802421
     },
     "expected": {
-     "margin": -0.261467212666,
-     "total": 6.267548773351,
-     "pH": 0.437933540678
+     "margin": -0.261392189979,
+     "total": 6.267277205569,
+     "pH": 0.437976983347
     }
    },
    {
     "features": {
-     "elo_diff": 78.4641690672504,
+     "elo_diff": 78.46416915692566,
      "neutral": 0.0,
      "rest_h": 2.0,
      "rest_a": 2.0,
@@ -4518,14 +4518,14 @@
      "gsv_a": 0.8821255117515292
     },
     "expected": {
-     "margin": 0.566810833491,
-     "total": 6.635724616954,
-     "pH": 0.604136264578
+     "margin": 0.566599651587,
+     "total": 6.635480668291,
+     "pH": 0.604129775747
     }
    },
    {
     "features": {
-     "elo_diff": -28.64510399664846,
+     "elo_diff": -28.645104026660874,
      "neutral": 0.0,
      "rest_h": 3.0,
      "rest_a": 2.0,
@@ -4542,14 +4542,14 @@
      "gsv_a": 0.8920432955195683
     },
     "expected": {
-     "margin": -0.308977914066,
-     "total": 5.806803228305,
-     "pH": 0.440177027875
+     "margin": -0.308965460573,
+     "total": 5.806884223412,
+     "pH": 0.440146039448
     }
    },
    {
     "features": {
-     "elo_diff": 43.847314829924926,
+     "elo_diff": 43.847314832194115,
      "neutral": 0.0,
      "rest_h": 2.0,
      "rest_a": 3.0,
@@ -4566,14 +4566,14 @@
      "gsv_a": 0.8957730447380591
     },
     "expected": {
-     "margin": 0.346143443893,
-     "total": 6.413373731682,
-     "pH": 0.572004894269
+     "margin": 0.346485448418,
+     "total": 6.413087873813,
+     "pH": 0.572127760341
     }
    },
    {
     "features": {
-     "elo_diff": 30.48701268718196,
+     "elo_diff": 30.487012750483245,
      "neutral": 0.0,
      "rest_h": 2.0,
      "rest_a": 2.0,
@@ -4590,14 +4590,14 @@
      "gsv_a": 0.8899135427235886
     },
     "expected": {
-     "margin": 0.230150361206,
-     "total": 6.343765481931,
-     "pH": 0.542698585897
+     "margin": 0.230484998821,
+     "total": 6.343030152764,
+     "pH": 0.54275574931
     }
    },
    {
     "features": {
-     "elo_diff": 29.528384480403474,
+     "elo_diff": 29.528384104066845,
      "neutral": 0.0,
      "rest_h": 2.0,
      "rest_a": 2.0,
@@ -4614,14 +4614,14 @@
      "gsv_a": 0.9134122699115549
     },
     "expected": {
-     "margin": 0.338917817431,
-     "total": 6.157240228842,
-     "pH": 0.552012543343
+     "margin": 0.339177225615,
+     "total": 6.156953089716,
+     "pH": 0.55204452625
     }
    },
    {
     "features": {
-     "elo_diff": 4.576568688518364,
+     "elo_diff": 4.5765686757602,
      "neutral": 0.0,
      "rest_h": 5.0,
      "rest_a": 1.0,
@@ -4638,14 +4638,14 @@
      "gsv_a": 0.9037352589744921
     },
     "expected": {
-     "margin": 0.316814199282,
-     "total": 5.968609648578,
-     "pH": 0.548360465594
+     "margin": 0.316967102274,
+     "total": 5.968866188519,
+     "pH": 0.548327783207
     }
    },
    {
     "features": {
-     "elo_diff": 50.033069365614665,
+     "elo_diff": 50.033069391336994,
      "neutral": 0.0,
      "rest_h": 3.0,
      "rest_a": 1.0,
@@ -4662,14 +4662,14 @@
      "gsv_a": 0.8743656500331333
     },
     "expected": {
-     "margin": 0.67269419561,
-     "total": 6.195242234786,
-     "pH": 0.636496864358
+     "margin": 0.672984377683,
+     "total": 6.195167217674,
+     "pH": 0.636564262545
     }
    },
    {
     "features": {
-     "elo_diff": 75.74175683375984,
+     "elo_diff": 75.74175685244177,
      "neutral": 0.0,
      "rest_h": 2.0,
      "rest_a": 2.0,
@@ -4686,14 +4686,14 @@
      "gsv_a": 0.8880004780438671
     },
     "expected": {
-     "margin": 0.504929456944,
-     "total": 6.5732506959,
-     "pH": 0.590790012251
+     "margin": 0.505052532172,
+     "total": 6.572438417634,
+     "pH": 0.590786021019
     }
    },
    {
     "features": {
-     "elo_diff": 61.8167413431097,
+     "elo_diff": 61.81674143338728,
      "neutral": 0.0,
      "rest_h": 3.0,
      "rest_a": 1.0,
@@ -4710,14 +4710,14 @@
      "gsv_a": 0.8824405957123862
     },
     "expected": {
-     "margin": 0.705283834059,
-     "total": 6.274310230618,
-     "pH": 0.633885024314
+     "margin": 0.704864088715,
+     "total": 6.274846654302,
+     "pH": 0.633865437013
     }
    },
    {
     "features": {
-     "elo_diff": 42.789976915357556,
+     "elo_diff": 42.78997689578455,
      "neutral": 0.0,
      "rest_h": 5.0,
      "rest_a": 5.0,
@@ -4734,14 +4734,14 @@
      "gsv_a": 0.9125869745366711
     },
     "expected": {
-     "margin": 0.38381964611,
-     "total": 5.958517446394,
-     "pH": 0.573111763657
+     "margin": 0.384771589633,
+     "total": 5.957907139272,
+     "pH": 0.573198363801
     }
    },
    {
     "features": {
-     "elo_diff": 70.44049319806777,
+     "elo_diff": 70.44049504346822,
      "neutral": 0.0,
      "rest_h": 2.0,
      "rest_a": 2.0,
@@ -4758,14 +4758,14 @@
      "gsv_a": 0.9095021739447937
     },
     "expected": {
-     "margin": 0.586335253641,
-     "total": 5.901032975935,
-     "pH": 0.603136864469
+     "margin": 0.586622129125,
+     "total": 5.900618827336,
+     "pH": 0.603192046429
     }
    },
    {
     "features": {
-     "elo_diff": -10.27066129347645,
+     "elo_diff": -10.270661651103637,
      "neutral": 0.0,
      "rest_h": 2.0,
      "rest_a": 2.0,
@@ -4782,9 +4782,9 @@
      "gsv_a": 0.9062630594120524
     },
     "expected": {
-     "margin": -0.107832769497,
-     "total": 6.047076104748,
-     "pH": 0.474913201261
+     "margin": -0.107782607691,
+     "total": 6.047242242683,
+     "pH": 0.474902299655
     }
    }
   ],
@@ -4797,9 +4797,9 @@
     "homeStarter": "8471734",
     "awayStarter": null,
     "expected": {
-     "margin": -0.539511793811,
-     "total": 6.429846400929,
-     "pH": 0.401534414717
+     "margin": -0.539453370027,
+     "total": 6.42972082844,
+     "pH": 0.401549902095
     }
    },
    {
@@ -4810,9 +4810,9 @@
     "homeStarter": "8475660",
     "awayStarter": "8476883",
     "expected": {
-     "margin": 0.770953435766,
-     "total": 6.280760681867,
-     "pH": 0.651981810448
+     "margin": 0.77168831416,
+     "total": 6.279890879988,
+     "pH": 0.652091811974
     }
    },
    {
@@ -4823,9 +4823,9 @@
     "homeStarter": "8475852",
     "awayStarter": "8476999",
     "expected": {
-     "margin": -0.617284166338,
-     "total": 6.529665098728,
-     "pH": 0.381490495767
+     "margin": -0.617379408412,
+     "total": 6.529918541289,
+     "pH": 0.381492142996
     }
    },
    {
@@ -4836,9 +4836,9 @@
     "homeStarter": "8476434",
     "awayStarter": null,
     "expected": {
-     "margin": 0.154701663498,
-     "total": 6.540823005845,
-     "pH": 0.531782313302
+     "margin": 0.154317790376,
+     "total": 6.541345072907,
+     "pH": 0.531823623552
     }
    },
    {
@@ -4849,9 +4849,9 @@
     "homeStarter": "8476945",
     "awayStarter": "8477992",
     "expected": {
-     "margin": -0.507380009111,
-     "total": 5.972949768094,
-     "pH": 0.41901808547
+     "margin": -0.507109173805,
+     "total": 5.972879710663,
+     "pH": 0.419083788368
     }
    },
    {
@@ -4862,9 +4862,9 @@
     "homeStarter": "8477484",
     "awayStarter": "8478406",
     "expected": {
-     "margin": 0.44024249288,
-     "total": 6.308755236879,
-     "pH": 0.588581279212
+     "margin": 0.440713706491,
+     "total": 6.308691814943,
+     "pH": 0.588616724684
     }
    },
    {
@@ -4875,9 +4875,9 @@
     "homeStarter": "8477990",
     "awayStarter": null,
     "expected": {
-     "margin": -0.097839224457,
-     "total": 5.8428596356,
-     "pH": 0.490994857814
+     "margin": -0.096459808219,
+     "total": 5.84188642895,
+     "pH": 0.491071875097
     }
    },
    {
@@ -4888,9 +4888,9 @@
     "homeStarter": "8478048",
     "awayStarter": "8479361",
     "expected": {
-     "margin": 0.911434851868,
-     "total": 6.47981584056,
-     "pH": 0.668637232502
+     "margin": 0.911484305531,
+     "total": 6.479907257364,
+     "pH": 0.66869272873
     }
    },
    {
@@ -4901,9 +4901,9 @@
     "homeStarter": "8478872",
     "awayStarter": "8479979",
     "expected": {
-     "margin": 0.179654978263,
-     "total": 6.589012658966,
-     "pH": 0.535196561437
+     "margin": 0.180457165133,
+     "total": 6.588028541665,
+     "pH": 0.535314042206
     }
    },
    {
@@ -4914,13 +4914,13 @@
     "homeStarter": "8479312",
     "awayStarter": null,
     "expected": {
-     "margin": -0.151410589913,
-     "total": 6.45651550147,
-     "pH": 0.473330311768
+     "margin": -0.151554586067,
+     "total": 6.45671215164,
+     "pH": 0.4733669668
     }
    }
   ],
-  "json_vs_sklearn_max_abs_diff_pH": 1.1364278474923495e-06,
+  "json_vs_sklearn_max_abs_diff_pH": 1.024021525575236e-06,
   "notes": [
    "Holdout seasons were never used to choose Elo constants, features or coefficients.",
    "Elo constants were chosen on seasons 1992-2019 (mean squared error of Elo expected score).",
@@ -6132,7 +6132,7 @@
     }
    }
   ],
-  "json_vs_sklearn_max_abs_diff_pH": 4.513785072379761e-07,
+  "json_vs_sklearn_max_abs_diff_pH": 4.5137850812615454e-07,
   "notes": [
    "Holdout seasons were never used to choose Elo constants, features or coefficients.",
    "Elo constants were chosen on seasons 1995-2023 (mean squared error of Elo expected score).",

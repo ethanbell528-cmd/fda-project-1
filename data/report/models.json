@@ -334,7 +334,7 @@
    "HFA": 35,
    "season_regression": 0.33,
    "tuned_on": "1992-2019 (mean squared error of Elo expected score)",
-   "tune_mse": 0.226893,
+   "tune_mse": 0.226883,
    "base": 1500,
    "mov_multiplier": "ln(|margin|+1) * 2.2 / (0.001 * winner_elo_edge + 2.2)",
    "win_expectancy": "1 / (1 + 10^(-elo_diff/400))"
@@ -360,61 +360,61 @@
    "margin": {
     "intercept": 0.276078,
     "coef": {
-     "elo_diff": 0.5542,
+     "elo_diff": 0.5545,
      "neutral": 0.0,
-     "rest_h": 0.0049,
+     "rest_h": 0.005,
      "rest_a": -0.0247,
      "b2b_h": -0.0774,
      "b2b_a": 0.1025,
-     "wp10_diff": -0.1313,
-     "mg10_diff": 0.061,
-     "pf10_h": 0.0124,
-     "pa10_h": -0.0561,
-     "pf10_a": -0.0284,
+     "wp10_diff": -0.1317,
+     "mg10_diff": 0.0612,
+     "pf10_h": 0.0125,
+     "pa10_h": -0.0564,
+     "pf10_a": -0.0285,
      "pa10_a": 0.0248,
-     "lg_total": 0.0435,
-     "gsv_h": -0.015,
-     "gsv_a": 0.0264
+     "lg_total": 0.0436,
+     "gsv_h": -0.0152,
+     "gsv_a": 0.0265
     }
    },
    "total": {
     "intercept": 5.755039,
     "coef": {
      "elo_diff": 0.0245,
-     "neutral": 0.0,
+     "neutral": -0.0,
      "rest_h": 0.0204,
      "rest_a": 0.0086,
      "b2b_h": 0.0105,
      "b2b_a": 0.007,
-     "wp10_diff": 0.0259,
-     "mg10_diff": -0.0278,
-     "pf10_h": 0.0873,
-     "pa10_h": 0.1378,
-     "pf10_a": 0.0995,
+     "wp10_diff": 0.0261,
+     "mg10_diff": -0.028,
+     "pf10_h": 0.0871,
+     "pa10_h": 0.1381,
+     "pf10_a": 0.0994,
      "pa10_a": 0.0953,
      "lg_total": 0.2418,
-     "gsv_h": -0.0019,
+     "gsv_h": -0.0017,
      "gsv_a": -0.0547
     }
    },
    "win": {
-    "intercept": 0.203264,
+    "intercept": 0.203285,
     "coef": {
-     "elo_diff": 0.4285,
+     "elo_diff": 0.4289,
      "neutral": 0.0,
-     "rest_h": -0.0099,
+     "rest_h": -0.0098,
      "rest_a": 0.0057,
      "b2b_h": -0.0726,
      "b2b_a": 0.0981,
-     "wp10_diff": -0.0987,
+     "wp10_diff": -0.0988,
      "mg10_diff": 0.0434,
      "pf10_h": 0.0055,
-     "pa10_h": -0.0487,
+     "pa10_h": -0.0488,
      "pf10_a": -0.0232,
-     "pa10_a": 0.0092,
+     "pa10_a": 0.0091,
      "lg_total": 0.0084,
-     "gsv_h": -0.0211,
-     "gsv_a": 0.0036
+     "gsv_h": -0.0213,
+     "gsv_a": 0.0037
     }
    }
   }
