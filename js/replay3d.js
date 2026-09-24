@@ -2,8 +2,10 @@
 
    Data: ESPN's public game summary (GET only, no key)
      https://site.api.espn.com/apis/site/v2/sports/<sport>/<league>/summary?event=<id>
-   Every marker is drawn at a location ESPN recorded for that play. Plays without a
-   recorded location appear in the text timeline only; nothing is interpolated or invented.
+   Every play is shown, and nothing is interpolated or invented. Each play is either drawn at a
+   location ESPN recorded, drawn on a spot the rules fix (free-throw line, home plate, penalty
+   spot, center), or placed as a bead on a time-order rail along the near side. Games with no
+   recorded locations also get a scoring-flow line above the surface.
 
    Coordinate conventions (checked on several real games of each sport):
    - NBA   plays[].coordinate: half-court feet, x = 0..50 across the court (25 = middle),
@@ -207,22 +209,40 @@
     return out;
   }
 
+  // Every play gets exactly one category:
+  //   real    - drawn where ESPN recorded it (coordinates, yard lines, pitch location)
+  //   fixed   - drawn on a spot the rules fix (free-throw line, home plate, penalty spot, center)
+  //   carried - NFL play without a yard line, drawn at the previous play's end spot (marked)
+  //   rail    - no location: a bead on the time-order rail along the near side
   function parse(sport, d) {
     const T = headerTeams(d);
     const side = (id) => (id == null ? null : String(id) === T.home.id ? "home" : String(id) === T.away.id ? "away" : null);
+    const other = (s) => (s === "home" ? "away" : s === "away" ? "home" : null);
+    const sgn = (s) => (s === "home" ? 1 : -1);
     const ev = [];
-    const push = (o) => { o.i = ev.length; ev.push(o); };
+    const push = (o) => { o.i = ev.length; if (!o.cat) o.cat = o.draw ? "real" : "rail"; ev.push(o); };
 
     if (sport === "nba") {
       for (const p of d.plays || []) {
         const s = side(p.team && p.team.id);
-        const c = p.coordinate;
-        let draw = null;
-        if (p.shootingPlay && c && c.x > SENTINEL && c.y > -10 && c.y < 94 && s) {
-          const sg = s === "home" ? 1 : -1;
+        const c = p.coordinate, tt = ((p.type && p.type.text) || "").toLowerCase();
+        const valid = c && c.x > SENTINEL && c.y > -10 && c.y < 94 && !(c.x === 0 && c.y === 0); // older feeds use (0, 0) as "no location"
+        let draw = null, cat = null;
+        if (s && /free throw/.test(tt)) {
+          draw = { kind: "spot", X: sgn(s) * 28, Z: 0, made: !!p.scoringPlay }; cat = "fixed"; // free-throw line, 15 ft from the backboard
+        } else if (s && p.shootingPlay && valid) {
+          const sg = sgn(s);
           draw = { kind: "shot", made: !!p.scoringPlay, pts: p.scoreValue, X: sg * (41.75 - c.y), Z: sg * (c.x - 25), hoop: [sg * 41.75, 0] };
+        } else if (s && valid) {
+          // non-shot events share the basket-relative frame: offensive actions at the acting team's
+          // basket, defensive rebounds and defensive fouls at the basket the acting team defends
+          const atOwn = /offensive|turnover|charge|travel|violation|3 second|kicked/.test(tt);
+          const sg = sgn(atOwn ? s : other(s));
+          draw = { kind: "dot", X: sg * (41.75 - c.y), Z: sg * (c.x - 25) };
+        } else if (/jump ?ball/.test(tt)) {
+          draw = { kind: "spot", X: 0, Z: 0, made: false }; cat = "fixed"; // center circle
         }
-        push({ period: p.period.number, plabel: periodLabel(sport, p.period), clock: p.clock && p.clock.displayValue, text: p.text || "", side: s, h: p.homeScore, a: p.awayScore, draw });
+        push({ period: p.period.number, plabel: periodLabel(sport, p.period), clock: p.clock && p.clock.displayValue, text: p.text || "", side: s, h: p.homeScore, a: p.awayScore, draw, cat });
       }
     } else if (sport === "nhl") {
       const SHOT = { Shot: "on", Goal: "goal", Missed: "miss", Blocked: "blocked", "Penalty Shot": "on" };
@@ -230,91 +250,116 @@
         const s = side(p.team && p.team.id);
         const c = p.coordinate, kind = SHOT[p.type && p.type.text];
         let draw = null;
-        if (kind && c && Math.abs(c.x) <= 100 && Math.abs(c.y) <= 43 && s) {
-          const net = [c.x >= 0 ? 89 : -89, 0];
-          draw = { kind: "shot", made: kind === "goal", sub: kind, X: c.x, Z: -c.y, hoop: net, highlight: kind === "goal" };
+        if (c && Math.abs(c.x) <= 100 && Math.abs(c.y) <= 43) {
+          if (kind && s) draw = { kind: "shot", made: kind === "goal", sub: kind, X: c.x, Z: -c.y, hoop: [c.x >= 0 ? 89 : -89, 0], highlight: kind === "goal" };
+          else draw = { kind: "dot", X: c.x, Z: -c.y };
         }
-        push({ period: p.period.number, plabel: periodLabel(sport, p.period), clock: p.clock && p.clock.displayValue, text: p.text || "", side: s, h: p.homeScore, a: p.awayScore, draw });
+        push({ period: p.period.number, plabel: periodLabel(sport, p.period), clock: p.clock && p.clock.displayValue, text: p.text || (p.type && p.type.text) || "", side: s, h: p.homeScore, a: p.awayScore, draw });
       }
     } else if (sport === "mlb") {
       const HIT = new Set(["single", "double", "triple", "home-run"]);
+      let runners = [false, false, false], half = null;
       for (const p of d.plays || []) {
         const bat = p.period && p.period.type === "Top" ? "away" : p.period && p.period.type === "Bottom" ? "home" : null;
-        const hc = p.hitCoordinate;
-        let draw = null;
+        const hk = p.period ? p.period.type + p.period.number : null;
+        if (hk !== half) { half = hk; runners = [false, false, false]; }
+        const tp = (p.type && p.type.type) || "", txt = p.text || (p.type && p.type.text) || "";
+        const hc = p.hitCoordinate, pc = p.pitchCoordinate;
+        let draw = null, cat = null;
         if (hc && bat && Number.isFinite(hc.x) && Number.isFinite(hc.y)) {
-          const tp = (p.type && p.type.type) || "";
-          draw = { kind: "hit", made: HIT.has(tp), hr: tp === "home-run" || /homer|home run/i.test(p.text || ""), traj: p.trajectory || "", X: (hc.x - 125.42) * 2.5, Z: -(198.27 - hc.y) * 2.5 };
+          draw = { kind: "hit", made: HIT.has(tp), hr: tp === "home-run" || /homer|home run/i.test(txt), traj: p.trajectory || "", X: (hc.x - 125.42) * 2.5, Z: -(198.27 - hc.y) * 2.5 };
           draw.highlight = draw.hr;
+        } else if (pc && Number.isFinite(pc.x)) {
+          draw = { kind: "pitch", px: pc.x, py: pc.y, ptype: tp };
+        } else if (bat && /struck out|strikes out|walked|walks|intentionally|hit by pitch/i.test(txt)) {
+          draw = { kind: "spot", X: 0, Z: 0, made: /walk|hit by pitch/i.test(txt) }; cat = "fixed"; // home plate
         }
-        const pc = p.pitchCoordinate;
-        push({ period: p.period ? p.period.number : null, plabel: p.period ? periodLabel(sport, p.period) : "", clock: "", text: p.text || (p.type && p.type.text) || "", side: bat, h: p.homeScore, a: p.awayScore, draw,
-          atBat: p.atBatId, pitch: pc ? { x: pc.x, y: pc.y, type: (p.type && p.type.type) || "", name: p.pitchType && p.pitchType.abbreviation, mph: p.pitchVelocity } : null });
+        // pitch and play events carry onFirst/onSecond/onThird when a runner is on that base
+        if (pc || tp === "play-result" || p.atBatPitchNumber != null) runners = [!!p.onFirst, !!p.onSecond, !!p.onThird];
+        push({ period: p.period ? p.period.number : null, plabel: p.period ? periodLabel(sport, p.period) : "", clock: "", text: txt, side: bat, h: p.homeScore, a: p.awayScore, draw, cat,
+          atBat: p.atBatId, runners: runners.slice(), pitch: pc ? { x: pc.x, y: pc.y, type: tp, name: p.pitchType && p.pitchType.abbreviation, mph: p.pitchVelocity } : null });
       }
     } else if (sport === "nfl") {
       const drives = (d.drives && d.drives.previous) || [];
       if (d.drives && d.drives.current && !drives.some((x) => x.id === d.drives.current.id)) drives.push(d.drives.current);
+      let lastEnd = null;
       drives.forEach((dr, di) => {
         const ds = side(dr.team && dr.team.id);
         for (const p of dr.plays || []) {
           const st = p.start || {}, en = p.end || {};
           const s = side(st.team && st.team.id) || ds;
           const tt = ((p.type && p.type.text) || "").toLowerCase();
-          let draw = null;
+          let draw = null, cat = null;
+          const railType = /timeout|end of|end period|two-minute|two minute|end quarter/.test(tt);
           const y0 = st.yardLine, y1raw = en.yardLine;
-          if (s && Number.isFinite(y0) && !/extra point|two-point|timeout|end of|end period|two minute/.test(tt)) {
+          if (!railType && s && Number.isFinite(y0)) {
             let y1 = y1raw;
             if (/field goal/.test(tt)) y1 = s === "home" ? 110 : -10; // kick travels to the goal posts
-            if (Number.isFinite(y1) && !(y1 === y0 && !p.scoringPlay)) {
-              draw = { kind: "drive", drive: di, driveSide: ds || s, X0: y0 - 50, X1: Math.max(-60, Math.min(60, y1 - 50)), made: !!p.scoringPlay, highlight: !!p.scoringPlay,
-                turnover: !!p.isTurnover, fg: /field goal/.test(tt) };
+            if (Number.isFinite(y1) && y1 !== y0) {
+              draw = { kind: "drive", drive: di, X0: y0 - 50, X1: Math.max(-60, Math.min(60, y1 - 50)), made: !!p.scoringPlay, highlight: !!p.scoringPlay, turnover: !!p.isTurnover };
+            } else {
+              draw = { kind: "los", drive: di, X: y0 - 50, highlight: !!p.scoringPlay }; // no gain, incompletion, penalty: at the line of scrimmage
             }
+          } else if (!railType && s && lastEnd != null) {
+            draw = { kind: "los", drive: di, X: lastEnd, carried: true }; cat = "carried";
           }
-          push({ period: p.period && p.period.number, plabel: p.period ? periodLabel(sport, p.period) : "", clock: p.clock && p.clock.displayValue, text: p.text || "", side: s, h: p.homeScore, a: p.awayScore, draw, drive: di });
+          if (Number.isFinite(y1raw)) lastEnd = y1raw - 50; else if (Number.isFinite(y0)) lastEnd = y0 - 50;
+          push({ period: p.period && p.period.number, plabel: p.period ? periodLabel(sport, p.period) : "", clock: p.clock && p.clock.displayValue, text: p.text || (p.type && p.type.text) || "", side: s, h: p.homeScore, a: p.awayScore, draw, cat, drive: di });
         }
       });
     } else if (sport === "epl") {
       const keyById = {};
       for (const k of d.keyEvents || []) keyById[k.id] = k;
       const nk = (v) => String(v || "").toLowerCase().replace(/&/g, "and").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]/g, "");
+      const matchName = (raw) => { const nm = nk(raw); for (const s of ["home", "away"]) if (T[s].names.some((n) => nk(n) === nm)) return s; return null; };
       const teamFromText = (t) => {
-        const m = String(t || "").match(/\(([^()]+)\)/g) || [];
-        for (const g of m) {
-          const nm = nk(g.slice(1, -1));
-          for (const s of ["home", "away"]) if (T[s].names.some((n) => nk(n) === nm)) return s;
-        }
-        return null;
+        const s0 = String(t || "");
+        for (const g of s0.match(/\(([^()]+)\)/g) || []) { const r = matchName(g.slice(1, -1)); if (r) return r; }
+        const lead = s0.match(/^(?:Corner|Penalty|Substitution),\s*([^.,]+)[.,]/);
+        return lead ? matchName(lead[1]) : null;
       };
-      const items = (d.commentary || []).slice().sort((x, y) => (x.sequence || 0) - (y.sequence || 0));
+      let items = (d.commentary || []).slice().sort((x, y) => (x.sequence || 0) - (y.sequence || 0));
+      // sparse older feeds have no commentary, only key events (goals, cards, substitutions)
+      if (!items.length) items = (d.keyEvents || []).map((k) => ({ play: k, text: k.text || k.shortText || (k.type && k.type.text), time: k.clock }));
       const used = new Set();
       let h = 0, a = 0;
+      const allPos = [...(d.keyEvents || []), ...(d.commentary || []).map((c) => c.play || {})].map((q) => q.fieldPositionX).filter((v) => typeof v === "number");
+      const pctScale = allPos.some((v) => v > 1.5); // the verified 0-100 percent scale
       const addPlay = (p, text, clock) => {
         const kev = keyById[p.id];
         const t = (p.type && p.type.type) || "";
-        let s = side((kev && kev.team && kev.team.id) || (p.team && p.team.id)) || teamFromText(text) || teamFromText(p.text);
+        const s = side((kev && kev.team && kev.team.id) || (p.team && p.team.id)) || teamFromText(text) || teamFromText(p.text);
         if (p.scoringPlay || (kev && kev.scoringPlay)) {
           const m = String((kev && kev.text) || text || "").match(/Goal!\s*(.+?)\s+(\d+),\s*(.+?)\s+(\d+)\./);
           if (m) { h = +m[2]; a = +m[4]; } else if (s === "home") h++; else if (s === "away") a++;
         }
-        let draw = null;
-        const shot = /^(shot|goal|penalty)/.test(t) || p.scoringPlay;
-        if (shot && s && p.fieldPositionX != null && p.fieldPositionY != null) {
-          const sg = s === "home" ? 1 : -1;
-          const mx = (v) => sg * ((v / 100) * 105 - 52.5), mz = (v) => sg * ((v / 100) * 68 - 34);
-          const to = p.fieldPosition2X != null && p.fieldPosition2Y != null ? [mx(p.fieldPosition2X), mz(p.fieldPosition2Y)] : null;
-          const goal = !!(p.scoringPlay || /^goal|scored/.test(t));
-          draw = { kind: "shot", made: goal, sub: goal ? "goal" : /on-target|saved/.test(t) ? "on" : /blocked/.test(t) ? "blocked" : "miss", X: mx(p.fieldPositionX), Z: mz(p.fieldPositionY), to, highlight: goal };
+        let draw = null, cat = null;
+        const sg = sgn(s);
+        const mx = (v) => sg * ((v / 100) * 105 - 52.5), mz = (v) => sg * ((v / 100) * 68 - 34);
+        const shot = /^(shot|goal|penalty---)/.test(t) || p.scoringPlay;
+        // older feeds use (0, 0) as "no position", and some use an unverified 0-1 scale: both are treated as missing
+        const hasPos = pctScale && p.fieldPositionX != null && p.fieldPositionY != null && !(p.fieldPositionX === 0 && p.fieldPositionY === 0);
+        if (s && hasPos) {
+          if (shot) {
+            const to = p.fieldPosition2X != null && p.fieldPosition2Y != null ? [mx(p.fieldPosition2X), mz(p.fieldPosition2Y)] : null;
+            const goal = !!(p.scoringPlay || /^goal|scored/.test(t));
+            draw = { kind: "shot", made: goal, sub: goal ? "goal" : /on-target|saved/.test(t) ? "on" : /blocked/.test(t) ? "blocked" : "miss", X: mx(p.fieldPositionX), Z: mz(p.fieldPositionY), to, highlight: goal };
+          } else draw = { kind: "dot", X: mx(p.fieldPositionX), Z: mz(p.fieldPositionY) };
+        } else if (s && /penalty/.test(t) && !/foul|conceded/.test(t)) {
+          draw = { kind: "spot", X: sg * (52.5 - 11), Z: 0, made: !!p.scoringPlay }; cat = "fixed"; // penalty spot, 11 m from goal
+        } else if (/kickoff|start-2nd-half|start-extra/.test(t)) {
+          draw = { kind: "spot", X: 0, Z: 0, made: false }; cat = "fixed"; // center spot
         }
         const per = (p.period && p.period.number) || (kev && kev.period && kev.period.number) || null;
-        push({ period: per, plabel: per ? periodLabel(sport, { number: per }) : "", clock, text: text || p.text || "", side: s, h, a, draw });
+        push({ period: per, plabel: per ? periodLabel(sport, { number: per }) : "", clock, text: text || p.text || p.shortText || (p.type && p.type.text) || "", side: s, h, a, draw, cat });
       };
       for (const it of items) {
         const p = it.play;
         if (p) { used.add(p.id); addPlay(p, it.text, it.time && it.time.displayValue); }
-        else push({ period: null, plabel: "", clock: it.time && it.time.displayValue, text: it.text || "", side: null, h, a, draw: null });
+        else push({ period: null, plabel: "", clock: it.time && it.time.displayValue, text: it.text || "", side: teamFromText(it.text), h, a, draw: null });
       }
-      // goals present in keyEvents but missing from commentary
-      for (const k of d.keyEvents || []) if (!used.has(k.id) && k.scoringPlay) addPlay(k, k.text, k.clock && k.clock.displayValue);
+      // goals, kickoffs and restarts present in keyEvents but missing from commentary
+      for (const k of d.keyEvents || []) if (!used.has(k.id) && (k.scoringPlay || /kickoff|start-2nd-half/.test((k.type && k.type.type) || ""))) addPlay(k, k.text, k.clock && k.clock.displayValue);
     }
     // a final score that the play list does not reach (e.g. an NHL shootout win) gets one closing row
     const fin = (d.header && d.header.competitions && d.header.competitions[0] && d.header.competitions[0].status && d.header.competitions[0].status.type) || {};
@@ -327,11 +372,13 @@
     // carry the last known score forward so every step has a scoreboard
     let lh = 0, la = 0;
     for (const e of ev) { if (Number.isFinite(e.h)) lh = e.h; else e.h = lh; if (Number.isFinite(e.a)) la = e.a; else e.a = la; }
-    return { teams: T, events: ev };
+    const counts = { real: 0, fixed: 0, carried: 0, rail: 0 };
+    for (const e of ev) counts[e.cat] += 1;
+    return { teams: T, events: ev, counts };
   }
 
   // ---------------- 3D scene ----------------
-  function buildScene(L, sport, data, colors, mount) {
+  function buildScene(L, sport, data, colors, mount, onPick) {
     const { THREE, OrbitControls } = L;
     const S = SURFACE[sport];
     const z0 = S.z0 != null ? S.z0 : -S.W / 2;
@@ -447,12 +494,34 @@
       awayHi: new THREE.MeshStandardMaterial({ color: colors.away, emissive: colors.away, emissiveIntensity: 0.55 }),
       lineHome: new THREE.LineBasicMaterial({ color: colors.home, transparent: true, opacity: 0.85 }),
       lineAway: new THREE.LineBasicMaterial({ color: colors.away, transparent: true, opacity: 0.85 }),
+      neutral: new THREE.MeshStandardMaterial({ color: 0xb8b8b0, roughness: 0.6 }),
+      ghost: new THREE.MeshStandardMaterial({ color: 0xdddddd, transparent: true, opacity: 0.4 }),
+      dimHome: new THREE.MeshStandardMaterial({ color: colors.home, transparent: true, opacity: 0.22 }),
+      dimAway: new THREE.MeshStandardMaterial({ color: colors.away, transparent: true, opacity: 0.22 }),
+      dimNeutral: new THREE.MeshStandardMaterial({ color: 0xb8b8b0, transparent: true, opacity: 0.22 }),
+      pBall: new THREE.MeshBasicMaterial({ color: css("--mlb") || "#1baf7a" }),
+      pStrike: new THREE.MeshBasicMaterial({ color: css("--nba") || "#eb6834" }),
+      pPlay: new THREE.MeshBasicMaterial({ color: css("--nfl") || "#2a78d6" }),
     };
     const geo = {
       ball: new THREE.SphereGeometry(unit, 16, 12),
       ring: new THREE.TorusGeometry(unit * 0.9, unit * 0.25, 8, 20),
       star: new THREE.OctahedronGeometry(unit * 1.9),
+      disc: new THREE.CylinderGeometry(unit * 0.55, unit * 0.55, unit * 0.15, 16),
+      post: new THREE.CylinderGeometry(unit * 0.45, unit * 0.45, unit * 3, 12),
+      cap: new THREE.SphereGeometry(unit * 0.6, 12, 8),
+      bead: new THREE.SphereGeometry(unit * 0.55, 10, 8),
+      pitch: new THREE.SphereGeometry(3, 12, 8),
+      runner: new THREE.SphereGeometry(5, 14, 10),
     };
+    const pickable = [];
+    let zoneGroup = null;
+    if (sport === "mlb") {
+      zoneGroup = new THREE.Group();
+      zoneGroup.position.set(0, 55, 30.5);
+      zoneGroup.rotation.x = -0.75; // face the default camera
+      scene.add(zoneGroup);
+    }
     const arc = (x0, z0_, x1, z1, hgt, lmat, y0 = 0.3, y1 = 0.3) => {
       const curve = new THREE.QuadraticBezierCurve3(new THREE.Vector3(x0, y0, z0_), new THREE.Vector3((x0 + x1) / 2, hgt, (z0_ + z1) / 2), new THREE.Vector3(x1, y1, z1));
       return new THREE.Line(new THREE.BufferGeometry().setFromPoints(curve.getPoints(24)), lmat);
@@ -467,9 +536,9 @@
     const barW = Math.min(1.3, laneGap * 0.7);
     for (const e of data.events) {
       const dr = e.draw;
-      if (!dr || !e.side) continue;
-      const home = e.side === "home";
-      const m = home ? mat.home : mat.away, mh = home ? mat.homeHi : mat.awayHi, lm = home ? mat.lineHome : mat.lineAway;
+      if (!dr) continue;
+      const home = e.side === "home", neutral = !e.side;
+      const m = neutral ? mat.neutral : home ? mat.home : mat.away, mh = neutral ? mat.neutral : home ? mat.homeHi : mat.awayHi, lm = home ? mat.lineHome : mat.lineAway;
       const objs = [];
       const put = (o, x, y, z) => { o.position.set(x, y, z); objs.push(o); };
       if (dr.kind === "shot") {
@@ -494,6 +563,26 @@
           if (dr.made) put(new THREE.Mesh(geo.ball, m), dr.X, unit, dr.Z);
           else { const r = new THREE.Mesh(geo.ring, m); r.rotation.x = Math.PI / 2; put(r, dr.X, 1, dr.Z); }
         }
+      } else if (dr.kind === "dot") {
+        // another recorded event (rebound, hit, foul, faceoff, turnover): flat disc at its spot
+        put(new THREE.Mesh(geo.disc, m), dr.X, unit * 0.1, dr.Z);
+      } else if (dr.kind === "spot") {
+        // fixed rule spot (free-throw line, home plate, penalty spot, center): a post, capped if made
+        put(new THREE.Mesh(geo.post, m), dr.X, unit * 1.5, dr.Z);
+        if (dr.made) put(new THREE.Mesh(geo.cap, mh), dr.X, unit * 3.2, dr.Z);
+      } else if (dr.kind === "los") {
+        const lane = -S.W / 2 + 3 + dr.drive * laneGap;
+        if (dr.highlight) put(new THREE.Mesh(geo.star, mh), dr.X, 1.8, lane);
+        else put(new THREE.Mesh(geo.post, dr.carried ? mat.ghost : m), dr.X, unit * 1.5, lane);
+      } else if (dr.kind === "pitch") {
+        // pitch location on the 3D strike-zone board behind home plate (current at-bat only)
+        const bx = ((dr.px - 117.5) / 95) * 40, by = 55 + ((171.5 - dr.py) / 85) * 35;
+        const t = dr.ptype || "";
+        const pm = /ball|pitchout|intent/.test(t) ? mat.pBall : /strike|foul/.test(t) ? mat.pStrike : mat.pPlay;
+        const pm3 = new THREE.Mesh(geo.pitch, pm);
+        pm3.position.set(bx, by - 55, 0.6);
+        zoneGroup.add(pm3);
+        objs.push(pm3);
       } else if (dr.kind === "drive") {
         const lane = -S.W / 2 + 3 + dr.drive * laneGap; // one lane per drive, in game order from the far sideline
         const x0 = dr.X0, x1 = dr.X1, len = Math.abs(x1 - x0);
@@ -506,8 +595,62 @@
         else if (dr.turnover) { const r = new THREE.Mesh(geo.ring, m); r.rotation.x = Math.PI / 2; put(r, x1, 0.5, lane); }
         else { const cone = new THREE.Mesh(new THREE.ConeGeometry(0.8, 1.6, 12), m); own.push(cone.geometry); cone.rotation.z = x1 >= x0 ? -Math.PI / 2 : Math.PI / 2; put(cone, x1, 0.5, lane); }
       }
-      objs.forEach((o) => scene.add(o));
-      markers.push({ i: e.i, period: e.period, objs });
+      objs.forEach((o) => { if (!o.parent) scene.add(o); });
+      objs.forEach((o) => { o.userData.i = e.i; pickable.push(o); });
+      markers.push({ i: e.i, period: e.period, objs, atBat: dr.kind === "pitch" ? e.atBat : null });
+    }
+
+    // ---- time-order rail: every play without a location, ordered by game time along the near side ----
+    const railZ = { nba: 29, nhl: 50, nfl: S.W / 2 + 3, epl: 38, mlb: 45 }[sport];
+    const railX0 = sport === "mlb" ? -300 : -S.L * 0.48, railX1 = sport === "mlb" ? 300 : S.L * 0.48;
+    const N = Math.max(1, data.events.length - 1);
+    scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(railX0, 0.2, railZ), new THREE.Vector3(railX1, 0.2, railZ)]), new THREE.LineBasicMaterial({ color: 0x888888 })));
+    const rail = [];
+    for (const e of data.events) {
+      if (e.cat !== "rail") continue;
+      const b = new THREE.Mesh(geo.bead, mat.dimNeutral);
+      b.position.set(railX0 + ((railX1 - railX0) * e.i) / N, unit * 0.6, railZ);
+      b.userData.i = e.i;
+      scene.add(b);
+      pickable.push(b);
+      rail.push({ i: e.i, period: e.period, obj: b, lit: e.side === "home" ? mat.home : e.side === "away" ? mat.away : mat.neutral, dim: e.side === "home" ? mat.dimHome : e.side === "away" ? mat.dimAway : mat.dimNeutral });
+    }
+
+    // ---- MLB: strike-zone board and base runners ----
+    const runners = [];
+    if (sport === "mlb") {
+      if (data.events.some((e) => e.draw && e.draw.kind === "pitch")) {
+        zoneGroup.add(new THREE.Mesh(new THREE.PlaneGeometry(90, 50), new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.3, side: THREE.DoubleSide })));
+        const zx = ((90 - 117.5) / 95) * 40, zx2 = ((145 - 117.5) / 95) * 40, zy = ((171.5 - 195) / 85) * 35, zy2 = ((171.5 - 148) / 85) * 35;
+        zoneGroup.add(new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints([[zx, zy], [zx2, zy], [zx2, zy2], [zx, zy2]].map(([x, y]) => new THREE.Vector3(x, y, 0.3))), new THREE.LineBasicMaterial({ color: 0xffffff })));
+      }
+      const d90 = 90 / Math.SQRT2;
+      [[d90, -d90], [0, -2 * d90], [-d90, -d90]].forEach(([x, z]) => { const r = new THREE.Mesh(geo.runner, mat.neutral); r.position.set(x, 5, z); r.visible = false; scene.add(r); runners.push(r); });
+    }
+
+    // ---- scoring-flow ribbon for games without any recorded positions ----
+    let ribbon = null;
+    if (!data.counts.real) {
+      const k = { nba: 0.6, nhl: 7, nfl: 0.7, epl: 7, mlb: 9 }[sport], base = { nba: 16, nhl: 26, nfl: 18, epl: 18, mlb: 45 }[sport];
+      const rz = sport === "mlb" ? -300 : 0;
+      const pts = data.events.map((e) => new THREE.Vector3(railX0 + ((railX1 - railX0) * e.i) / N, base + (e.h - e.a) * k, rz));
+      const g = new THREE.BufferGeometry().setFromPoints(pts);
+      const line = new THREE.Line(g, new THREE.LineBasicMaterial({ color: css("--accent") || "#6da7ec" }));
+      // filled band between the tied line and the running margin, so the flow reads at a glance
+      const band = new THREE.BufferGeometry();
+      const pos = [];
+      for (let q = 1; q < pts.length; q++) {
+        const a0 = pts[q - 1], a1 = pts[q];
+        pos.push(a0.x, base, rz, a1.x, base, rz, a1.x, a0.y, rz, a0.x, base, rz, a1.x, a0.y, rz, a0.x, a0.y, rz); // step shape: margin holds until the next play
+      }
+      band.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
+      const bandMesh = new THREE.Mesh(band, new THREE.MeshBasicMaterial({ color: css("--accent") || "#6da7ec", transparent: true, opacity: 0.45, side: THREE.DoubleSide }));
+      scene.add(bandMesh);
+      const zero = new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(railX0, base, rz), new THREE.Vector3(railX1, base, rz)]), new THREE.LineBasicMaterial({ color: 0x999999, transparent: true, opacity: 0.6 }));
+      const head = new THREE.Mesh(geo.runner, mat.neutral);
+      head.scale.setScalar(sport === "mlb" ? 1.5 : unit / 5 * 2);
+      scene.add(line, zero, head);
+      ribbon = { g, pts, head, band };
     }
 
     let raf = 0, pulseI = -1, alive = true;
@@ -525,6 +668,21 @@
     }
     frame();
 
+    // click or tap a marker or rail bead to read that play (a drag rotates instead)
+    const ray = new THREE.Raycaster(), ptr = new THREE.Vector2();
+    let downAt = null;
+    const onDown = (ev) => { downAt = [ev.clientX, ev.clientY]; };
+    const onUp = (ev) => {
+      if (!downAt || Math.hypot(ev.clientX - downAt[0], ev.clientY - downAt[1]) > 6) return;
+      const r = renderer.domElement.getBoundingClientRect();
+      ptr.set(((ev.clientX - r.left) / r.width) * 2 - 1, -((ev.clientY - r.top) / r.height) * 2 + 1);
+      ray.setFromCamera(ptr, camera);
+      const hit = ray.intersectObjects(pickable.filter((o) => o.visible), false)[0];
+      if (hit && onPick) onPick(hit.object.userData.i);
+    };
+    renderer.domElement.addEventListener("pointerdown", onDown);
+    renderer.domElement.addEventListener("pointerup", onUp);
+
     const ro = new ResizeObserver(() => {
       const w = mount.clientWidth, h = mount.clientHeight;
       if (!w || !h) return;
@@ -541,8 +699,20 @@
 
     return {
       markers,
-      setVisible(step, period) {
-        for (const mk of markers) { const v = mk.i <= step && (!period || mk.period === period); mk.objs.forEach((o) => { o.visible = v; }); }
+      setVisible(step, period, cur) {
+        const ab = cur && cur.atBat;
+        for (const mk of markers) {
+          let v = mk.i <= step && (!period || mk.period === period);
+          if (mk.atBat) v = v && mk.atBat === ab; // pitches: only the at-bat in progress
+          mk.objs.forEach((o) => { o.visible = v; });
+        }
+        for (const r of rail) { r.obj.visible = !period || r.period === period; r.obj.material = r.i <= step ? r.lit : r.dim; r.obj.scale.setScalar(r.i === step ? 1.8 : 1); }
+        if (runners.length) {
+          const rs = (cur && cur.runners) || [false, false, false];
+          const rm = cur && cur.side === "home" ? mat.home : cur && cur.side === "away" ? mat.away : mat.neutral;
+          runners.forEach((o, k) => { o.visible = !!rs[k]; o.material = rm; });
+        }
+        if (ribbon) { ribbon.g.setDrawRange(0, step + 1); ribbon.band.setDrawRange(0, step * 6); ribbon.head.position.copy(ribbon.pts[Math.min(step, ribbon.pts.length - 1)]); }
       },
       setPulse(i) { pulseI = i; },
       resetView() { camera.position.copy(home); controls.target.copy(target); controls.update(); },
@@ -617,7 +787,6 @@
       return { close() {} };
     }
     wrap.textContent = "";
-    const drawn = data.events.filter((e) => e.draw).length;
     if (!data.events.length) {
       wrap.appendChild(el("p", "muted", "No play-by-play has been published for this game yet."));
       return { close() {} };
@@ -655,7 +824,7 @@
     const mount = el("div", "replay-canvas");
     stage.appendChild(mount);
     let szBox = null;
-    if (sport === "mlb") { szBox = el("div", "replay-sz"); stage.appendChild(szBox); }
+    if (sport === "mlb" && data.events.some((e) => e.pitch)) { szBox = el("div", "replay-sz"); stage.appendChild(szBox); }
     wrap.appendChild(stage);
 
     const colors = teamColors({ home: data.teams.home, away: data.teams.away }, SURFACE[sport].base);
@@ -670,9 +839,21 @@
       epl: "Lines run from where each shot was struck to where it ended · star with thick line = goal · filled ball = on target · ring = off target or blocked.",
     }[sport];
     legend.appendChild(el("span", "lg-shapes", shapes));
+    const extra = {
+      nba: "Flat disc = rebound, foul or turnover at its recorded spot · post = free throw on the free-throw line (sphere on top = made) or jump ball at center.",
+      nhl: "Flat disc = hit, faceoff, giveaway, takeaway or penalty at its recorded rink spot.",
+      mlb: "Board behind home plate = pitch locations for the at-bat in progress (green ball, orange strike or foul, blue in play) · large spheres on the bases = runners at that moment · post at home plate = strikeout or walk with no pitch location.",
+      nfl: "Post = play with no yardage change (incompletion, penalty, kneel) at its line of scrimmage · faded post = position carried from the previous play because ESPN gave no yard line.",
+      epl: "Flat disc = foul, corner, offside or other event at its recorded spot · post = penalty on the penalty spot or kickoff at the center spot.",
+    }[sport];
+    legend.appendChild(el("span", "lg-shapes", extra));
+    legend.appendChild(el("span", "lg-shapes", "Beads on the grey line along the near side = plays with no location, placed in game-time order from left (start) to right (end). The rail is time order, not a field position; beads light up as playback reaches them. Click any marker or bead to read that play." +
+      (data.counts.real ? "" : " The raised band above the " + (sport === "epl" ? "pitch" : sport === "nhl" ? "rink" : sport === "nba" ? "court" : "field") + " is the scoring flow: its height is the home lead (above the grey tied line) or the away lead (below), in the same time order.")));
     wrap.appendChild(legend);
-    wrap.appendChild(el("p", "muted small replay-note", "Reconstructed from ESPN play-by-play locations (not video or player tracking). " + drawn + " of " + data.events.length + " plays have a recorded location and are drawn; the rest appear in the play list only."));
-    if (!drawn) {
+    const C = data.counts;
+    wrap.appendChild(el("p", "muted small replay-note", "Reconstructed from ESPN play-by-play (not video or player tracking). All " + data.events.length + " plays are shown: " +
+      C.real + " at real recorded positions, " + (C.fixed + C.carried) + " on fixed rule spots" + (C.carried ? " (including " + C.carried + " carried from the previous play)" : "") + ", and " + C.rail + " on the time-order rail."));
+    if (!C.real) {
       const why = {
         nba: "ESPN published this game's plays without shot locations",
         nhl: "ESPN published this game's plays without rink locations",
@@ -680,7 +861,7 @@
         nfl: "ESPN published this game's plays without yard-line positions",
         epl: "ESPN published this match's commentary without shot positions",
       }[sport];
-      wrap.appendChild(el("p", "replay-empty", "Nothing can be placed on the " + (sport === "epl" ? "pitch" : sport === "nhl" ? "rink" : sport === "mlb" ? "field" : sport === "nfl" ? "field" : "court") + " for this game: " + why + " (yet, if the game is in progress). The full play-by-play list is below and the scoreboard still steps through it."));
+      wrap.appendChild(el("p", "replay-empty", why + " (yet, if the game is in progress), so no play sits at a real position. The view shows every play on the time-order rail and the scoring flow above the surface instead."));
     }
 
     // accessible list
@@ -693,11 +874,11 @@
       tw.textContent = "";
       const t = el("table");
       const hr = t.createTHead().insertRow();
-      ["#", sport === "mlb" ? "Inning" : "Period", "Clock", "Team", "Play", "Score", "Drawn"].forEach((h) => hr.appendChild(el("th", null, h)));
+      ["#", sport === "mlb" ? "Inning" : "Period", "Clock", "Team", "Play", "Score", "Shown as"].forEach((h) => hr.appendChild(el("th", null, h)));
       const tb = t.createTBody();
       data.events.forEach((e) => {
         const r = tb.insertRow();
-        [e.i + 1, e.plabel, e.clock || "", e.side ? data.teams[e.side].abbr : "", e.text, data.teams.away.abbr + " " + e.a + " – " + data.teams.home.abbr + " " + e.h, e.draw ? "yes" : ""].forEach((v, k) => {
+        [e.i + 1, e.plabel, e.clock || "", e.side ? data.teams[e.side].abbr : "", e.text, data.teams.away.abbr + " " + e.a + " – " + data.teams.home.abbr + " " + e.h, { real: "real position", fixed: "fixed spot", carried: "carried spot", rail: "time rail" }[e.cat]].forEach((v, k) => {
           const c = r.insertCell(); c.textContent = v; if (k === 4) { c.style.whiteSpace = "normal"; c.style.textAlign = "left"; c.style.minWidth = "16rem"; }
         });
       });
@@ -705,21 +886,27 @@
     };
     det.addEventListener("toggle", () => { if (det.open && !tw.firstChild) fillList(); });
     wrap.appendChild(det);
-    if (!drawn) { det.open = true; fillList(); }
+
 
     let three = null;
     try {
       const L = await loadThree();
-      three = buildScene(L, sport, data, colors, mount);
+      three = buildScene(L, sport, data, colors, mount, (i) => showPick(i));
     } catch (e) {
       mount.appendChild(el("p", "muted", "3D view unavailable in this browser (" + (e && e.message ? e.message : "WebGL or the 3D library could not load") + "). The play list below still has every play."));
     }
 
     let step = data.events.length - 1, timer = null, alive = true;
+    function showPick(i) {
+      const e = data.events[i];
+      if (!e) return;
+      caption.textContent = "Selected play " + (i + 1) + ": " + [e.plabel, e.clock, e.side ? data.teams[e.side].abbr : "", e.text].filter(Boolean).join(" · ");
+      if (three) three.setPulse(i);
+    }
     function render() {
       const e = data.events[step];
       const pf = per.value ? Number(per.value) : null;
-      if (three) { three.setVisible(step, pf); three.setPulse(e && e.draw ? e.i : -1); }
+      if (three) { three.setVisible(step, pf, e); three.setPulse(e.i); }
       score.textContent = data.teams.away.abbr + " " + e.a + "  –  " + e.h + " " + data.teams.home.abbr;
       caption.textContent = [e.plabel, e.clock, e.text].filter(Boolean).join(" · ");
       range.value = String(step);
@@ -758,7 +945,7 @@
           const atEnd = step >= data.events.length - 1;
           data = fresh;
           range.max = String(data.events.length - 1);
-          if (three) { three.dispose(); three = buildScene(await loadThree(), sport, data, colors, mount); }
+          if (three) { three.dispose(); three = buildScene(await loadThree(), sport, data, colors, mount, (i) => showPick(i)); }
           if (atEnd) step = data.events.length - 1;
           if (det.open) fillList(); else tw.textContent = "";
           render();
