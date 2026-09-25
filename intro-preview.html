@@ -21,6 +21,9 @@
     /* real-footage intro (preview only; nothing here affects index.html) */
     .introv { position: relative; height: 340vh; background: #05070c; }
     .introv-stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: #05070c; transform-origin: 50% 45%; }
+    .introv-switch { position: absolute; top: 14px; left: 50%; transform: translateX(-50%); z-index: 5; display: flex; gap: 0; border: 1px solid rgba(255,255,255,0.35); border-radius: 999px; overflow: hidden; background: rgba(0,0,0,0.55); }
+    .introv-switch a { color: #fff; text-decoration: none; font-size: 0.85rem; font-weight: 700; padding: 7px 14px; }
+    .introv-switch a[aria-current="page"] { background: #fff; color: #000; }
     .introv-stage video, .introv-still { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
     .introv-still[hidden], .introv-stage video[hidden] { display: none; }
     .introv-shade { position: absolute; inset: 0; pointer-events: none;
@@ -62,12 +65,23 @@
         <p class="introv-title">The Closing Line</p>
         <p class="introv-sub">Scroll down to take the snap</p>
       </div>
-      <span class="introv-credit">Footage: Mixkit (free license)</span>
+      <span class="introv-credit" id="introv-credit">Footage: Mixkit (free license)</span>
+      <nav class="introv-switch" aria-label="Choose intro footage">
+        <a href="intro-preview.html" id="sw-real">Real footage</a>
+        <a href="intro-preview.html?clip=ai" id="sw-ai">AI-generated</a>
+      </nav>
+      <script>
+        (function () {
+          var ai = new URLSearchParams(location.search).get("clip") === "ai";
+          document.getElementById(ai ? "sw-ai" : "sw-real").setAttribute("aria-current", "page");
+          if (ai) document.getElementById("introv-credit").textContent = "AI-generated video, not a real player (Wan 2.2)";
+        })();
+      </script>
       <a class="introv-skip" href="#preview">Skip intro</a>
       <div class="introv-flash" aria-hidden="true"></div>
     </div>
   </section>
-  <script type="module" src="js/intro-video.js?v=20260924e"></script>
+  <script type="module" src="js/intro-video.js?v=20260925a"></script>
 
   <main class="wrap" id="preview">
     <section class="card preview-note">

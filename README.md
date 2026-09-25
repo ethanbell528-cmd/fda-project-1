@@ -165,6 +165,8 @@ Add an entry to `SPORTS` in `scripts/config.py`. Write `scripts/sports/<sport>.p
 
 ## Credits
 
+- **AI-generated intro clip (preview only):** made with Wan 2.2 T2V-A14B (Apache-2.0) on the Hugging Face Space Upsampler/wan-2-2-14b-text-to-video; details in `assets/video/ATTRIBUTION-ai.md`. It is labelled AI-generated on the page.
+
 - **Human body model:** "Male Base Mesh" by [orange-juice-games](https://orange-juice-games.itch.io/male-base-mesh), dedicated to the public domain under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). Downloaded from [github.com/BoQsc/Godot-3D-Male-Base-Mesh](https://github.com/BoQsc/Godot-3D-Male-Base-Mesh) (`Original/male_base_mesh.glb`). The uniform, pads, helmet, numbers and motion are added in code.
 - **Intro preview footage:** "Quarterback training his passes" and "Portrait of a quarterback throwing the ball" from [Mixkit](https://mixkit.co/free-stock-video/american-football/) (clips 42553 and 42554), used under the [Mixkit Stock Video Free License](https://mixkit.co/license/#videoFree) (download, modify and distribute allowed; no attribution required). Trimmed, joined and re-encoded; details in `assets/video/ATTRIBUTION.md`.
 - **3D library:** [three.js](https://threejs.org) r169 (MIT), loaded from jsDelivr.

@@ -18,6 +18,9 @@ const copy = section && section.querySelector(".introv-copy");
 const flash = section && section.querySelector(".introv-flash");
 const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const forced = parseFloat(new URLSearchParams(location.search).get("introP")); // test hook
+// ?clip=ai swaps in the AI-generated clip (Wan 2.2) for comparison with the real footage
+const AI = new URLSearchParams(location.search).get("clip") === "ai";
+const BASE = AI ? "assets/video/qb-ai-" : "assets/video/qb-throw-";
 const VIDEO_END = 0.74, BALL_START = 0.7, BALL_END = 0.97;
 
 const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
@@ -27,7 +30,7 @@ function pickSource() {
   const small = Math.min(window.innerWidth, window.innerHeight * 16 / 9) < 900;
   const tier = small ? "480" : "720";
   const webm = video.canPlayType('video/webm; codecs="vp9"');
-  return "assets/video/qb-throw-" + tier + (webm ? ".webm" : ".mp4");
+  return BASE + tier + (webm ? ".webm" : ".mp4");
 }
 
 // Where the quarterback is across the frame (fraction of the video width) at each edit time,
@@ -36,6 +39,7 @@ function pickSource() {
 const SUBJECT_X = [[0, 0.54], [0.9, 0.46], [1.15, 0.29], [1.45, 0.2], [1.75, 0.25], [2.0, 0.3], [2.24, 0.32],
                    [2.26, 0.5], [2.9, 0.47], [3.3, 0.42], [3.67, 0.45]];
 function subjectX(t) {
+  if (AI) return 0.5; // the AI clip keeps the quarterback centred
   for (let i = 1; i < SUBJECT_X.length; i++) {
     const [t1, x1] = SUBJECT_X[i], [t0, x0] = SUBJECT_X[i - 1];
     if (t <= t1) return x0 + (x1 - x0) * clamp((t - t0) / Math.max(t1 - t0, 1e-6), 0, 1);
@@ -171,6 +175,7 @@ function startBall() {
 
 function start() {
   section.classList.add("ready");
+  if (AI) { video.poster = BASE + "poster.jpg"; if (still) still.src = BASE + "still.jpg"; }
   if (reduce) { showStill("reduced-motion"); return; }
   let ball = null;
   try { ball = startBall(); } catch (e) { ball = null; }
