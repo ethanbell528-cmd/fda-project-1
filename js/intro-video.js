@@ -6,7 +6,7 @@
    Progress map (p = 0..1 through the tall #introv section):
      0.00-0.74  video time 0 -> end (snap, drop-back, set, close-up release)
      0.70-0.97  3D ball flies from the release point into the camera
-     0.90-0.98  white flash
+     0.94-0.995 white flash (after the ball covers the screen)
    Fallbacks: reduced motion or a failed video -> still photo; no WebGL -> CSS zoom flash. */
 import * as THREE from "three";
 
@@ -21,7 +21,11 @@ const forced = parseFloat(new URLSearchParams(location.search).get("introP")); /
 // ?clip=ai swaps in the AI-generated clip (Wan 2.2) for comparison with the real footage
 const AI = new URLSearchParams(location.search).get("clip") === "ai";
 const BASE = AI ? "assets/video/qb-ai-" : "assets/video/qb-throw-";
-const VIDEO_END = 0.74, BALL_START = 0.7, BALL_END = 0.97;
+// AI clip: stop on frame 70 (4.375 s at 16 fps), where his arm brings the ball forward and he is still in view;
+// the 3D ball takes over from the real ball's spot in that frame (video pixels: centre 255,212, about 180 px wide of 832).
+const AI_STOP = 70 / 16, AI_BALL = { u: 255 / 832, v: 212 / 480, w: 180 / 832 };
+const VIDEO_END = 0.74, BALL_START = AI ? 0.74 : 0.7, BALL_END = 0.97;
+const FLASH_START = 0.94, FLASH_END = 0.995; // the ball fills the screen first, then the flash
 
 const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
 const ease = (t) => t * t * (3 - 2 * t);
@@ -161,10 +165,30 @@ function startBall() {
       const k = clamp((p - BALL_START) / (BALL_END - BALL_START), 0, 1);
       renderer.domElement.style.opacity = k > 0 ? "1" : "0";
       if (k <= 0) return;
-      const d = 6 * Math.pow(0.36 / 6, ease(k));
-      const sx = 0.30 + (0.5 - 0.30) * easeOut(k), sy = 0.26 + (0.5 - 0.26) * easeOut(k);
-      const halfH = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * d;
-      ball.position.set((sx - 0.5) * 2 * halfH * camera.aspect, (0.5 - sy) * 2 * halfH, -d);
+      const W = stage.clientWidth, H = stage.clientHeight;
+      const tanH = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
+      const EFF = 0.22;                                      // ball's apparent width in metres at this tilt
+      const depthFor = (px) => EFF * (H / 2) / (tanH * Math.max(px, 1));
+      let sx0, sy0, d0;
+      if (AI) {
+        // where the real ball sits on screen (the video is object-fit: cover, centred)
+        const vw = video.videoWidth || 832, vh = video.videoHeight || 480;
+        const sc = Math.max(W / vw, H / vh), dw = vw * sc, dh = vh * sc;
+        sx0 = ((W - dw) / 2 + AI_BALL.u * dw) / W;
+        sy0 = ((H - dh) / 2 + AI_BALL.v * dh) / H;
+        d0 = depthFor(AI_BALL.w * dw);                       // start exactly the size of the real ball
+      } else {
+        sx0 = 0.30; sy0 = 0.26; d0 = 6;                      // release point in the real footage
+      }
+      const dEnd = 0.14;                                     // right in front of the lens: covers the screen
+      const d = d0 * Math.pow(dEnd / d0, ease(k));           // perspective: size grows exponentially
+      const drift = AI ? k * k : easeOut(k);                 // AI: stay over the real ball at first, then centre
+      const sx = sx0 + (0.5 - sx0) * drift, sy = sy0 + (0.5 - sy0) * drift;
+      // closest point: the tilted nose (~0.12 m toward the lens) must stay in front of the camera;
+      // at 0.14 m the ball is wider than the screen, so it covers the view without clipping open
+      const dA = Math.max(d, 0.14);
+      const halfH = tanH * dA;
+      ball.position.set((sx - 0.5) * 2 * halfH * camera.aspect, (0.5 - sy) * 2 * halfH, -dA);
       ball.lookAt(origin);                 // nose points at the viewer
       ball.rotateY(0.62);                  // tilt so the oblong shape reads
       ball.rotateZ(t * 0.012 + k * 30);    // spiral about the long axis
@@ -209,7 +233,7 @@ function start() {
 
   (function loop(now) {
     const p = progress;
-    target = clamp(p / VIDEO_END, 0, 1) * Math.max(duration - 0.02, 0);
+    target = clamp(p / VIDEO_END, 0, 1) * (AI ? Math.min(AI_STOP, duration - 0.02) : Math.max(duration - 0.02, 0));
     if (seeking && (now || 0) - seekAt > 400) seeking = false; // a seek to the same frame fires no "seeked"
     if (ready && !seeking && Math.abs(target - lastSet) > 1 / 60) {
       seeking = true;
@@ -220,7 +244,7 @@ function start() {
     }
     if (ready) video.style.objectPosition = panFor(shownT);
     if (copy) copy.style.opacity = String(1 - clamp((p - 0.05) / 0.12, 0, 1));
-    if (flash) flash.style.opacity = String(clamp((p - 0.9) / 0.08, 0, 1));
+    if (flash) flash.style.opacity = String(clamp((p - FLASH_START) / (FLASH_END - FLASH_START), 0, 1));
     if (ball) ball.draw(p, now || 0);
     else if (stage) stage.style.transform = p > 0.8 ? "scale(" + (1 + (p - 0.8) * 1.5) + ")" : "";
     requestAnimationFrame(loop);
