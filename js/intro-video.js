@@ -9,6 +9,8 @@
      0.94-0.995 white flash (after the ball covers the screen)
    Fallbacks: reduced motion or a failed video -> still photo; no WebGL -> CSS zoom flash. */
 import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 
 const section = document.getElementById("introv");
 const stage = section && section.querySelector(".introv-stage");
@@ -24,6 +26,7 @@ const BASE = AI ? "assets/video/qb-ai-" : "assets/video/qb-throw-";
 // AI clip: stop on frame 70 (4.375 s at 16 fps), where his arm brings the ball forward and he is still in view;
 // the 3D ball takes over from the real ball's spot in that frame (video pixels: centre 255,212, about 180 px wide of 832).
 const AI_STOP = 70 / 16, AI_BALL = { u: 255 / 832, v: 212 / 480, w: 180 / 832 };
+const BALL_ROLL = 0; // roll of the scanned ball about its long axis (tuned from screenshots)
 const VIDEO_END = 0.74, BALL_START = AI ? 0.74 : 0.7, BALL_END = 0.97;
 const FLASH_START = 0.94, FLASH_END = 0.995; // the ball fills the screen first, then the flash
 
@@ -146,6 +149,28 @@ function startBall() {
   rim.position.set(2, 1, -2);
   scene.add(rim);
   const ball = makeBall();
+  // Photo-scanned real football (Poly Haven, CC0) replaces the code-built ball once it loads.
+  // Its long axis is x in the file: turn it to z (the nose axis used below) and scale to 0.284 m.
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+  scene.environmentIntensity = 0.55;
+  new GLTFLoader().load("assets/ball/american_football.gltf", (g) => {
+    const m = g.scene;
+    const box = new THREE.Box3().setFromObject(m);
+    const size = box.getSize(new THREE.Vector3()), c = box.getCenter(new THREE.Vector3());
+    m.position.sub(c);
+    const turn = new THREE.Group();
+    turn.add(m);
+    if (size.x >= size.y && size.x >= size.z) turn.rotation.y = -Math.PI / 2;   // x -> z
+    else if (size.y >= size.z) turn.rotation.x = Math.PI / 2;                    // y -> z
+    const holder = new THREE.Group();
+    holder.add(turn);
+    holder.scale.setScalar(0.284 / Math.max(size.x, size.y, size.z));
+    holder.rotation.z = BALL_ROLL;                                             // laces toward the viewer's upper side
+    m.traverse((o) => { if (o.isMesh) { o.material.envMapIntensity = 1; } });
+    ball.clear();
+    ball.add(holder);
+  }, undefined, () => { /* keep the code-built ball if the model can't load */ });
   scene.add(ball);
   const size = () => {
     const w = stage.clientWidth, h = stage.clientHeight;

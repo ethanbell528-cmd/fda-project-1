@@ -165,6 +165,8 @@ Add an entry to `SPORTS` in `scripts/config.py`. Write `scripts/sports/<sport>.p
 
 ## Credits
 
+- **Football in the intro finale:** "American Football" by Riley Queen, [Poly Haven](https://polyhaven.com/a/american_football), CC0 (a photo-scanned real ball; textures re-compressed). See `assets/ball/ATTRIBUTION.md`.
+
 - **AI-generated intro clip (preview only):** made with Wan 2.2 T2V-A14B (Apache-2.0) on the Hugging Face Space Upsampler/wan-2-2-14b-text-to-video; details in `assets/video/ATTRIBUTION-ai.md`. It is labelled AI-generated on the page.
 
 - **Human body model:** "Male Base Mesh" by [orange-juice-games](https://orange-juice-games.itch.io/male-base-mesh), dedicated to the public domain under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). Downloaded from [github.com/BoQsc/Godot-3D-Male-Base-Mesh](https://github.com/BoQsc/Godot-3D-Male-Base-Mesh) (`Original/male_base_mesh.glb`). The uniform, pads, helmet, numbers and motion are added in code.
