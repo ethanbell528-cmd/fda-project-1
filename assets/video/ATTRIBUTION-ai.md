@@ -13,7 +13,7 @@ This clip is **AI-generated**. It is not real footage, and the player is not a r
   in a purple uniform number 8 cocks his arm and releases a spiraling football directly at the
   camera, the ball rushes toward the lens, crowd lights bokeh in background, realistic skin and
   fabric detail, 24fps film look, no logos, no text."
-- Changes: re-encoded with FFmpeg as all-intra H.264 and VP9 for scroll scrubbing
+- Changes: a dark tinted visor was composited over the helmet opening in every frame (outline marked on frame 40, carried through the clip with optical-flow tracking of the helmet; script kept out of the repo), then re-encoded with FFmpeg as all-intra H.264 and VP9 for scroll scrubbing
   (`qb-ai-720.*` at 832 px, `qb-ai-480.*` at 640 px), audio removed, plus a poster and a still.
 - Known issues: the model drew uniform marks it was asked to avoid; the ball is pushed toward the
   lens but is not cleanly released; the clip is 480p at 16 fps.
