@@ -24,8 +24,8 @@
     .introv-switch { position: absolute; top: 14px; left: 50%; transform: translateX(-50%); z-index: 5; display: flex; gap: 0; border: 1px solid rgba(255,255,255,0.35); border-radius: 999px; overflow: hidden; background: rgba(0,0,0,0.55); }
     .introv-switch a { color: #fff; text-decoration: none; font-size: 0.85rem; font-weight: 700; padding: 7px 14px; }
     .introv-switch a[aria-current="page"] { background: #fff; color: #000; }
-    .introv-stage video, .introv-still { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-    .introv-still[hidden], .introv-stage video[hidden] { display: none; }
+    .introv-stage video, .introv-still, .introv-hold { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+    .introv-still[hidden], .introv-stage video[hidden], .introv-hold[hidden] { display: none; }
     .introv-shade { position: absolute; inset: 0; pointer-events: none;
       background: radial-gradient(ellipse at 50% 55%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 100%), linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0) 35%); }
     .introv-ball { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0; }
@@ -58,6 +58,7 @@
   <section id="introv" class="introv" aria-label="Intro: real footage of a quarterback dropping back and throwing toward you as you scroll">
     <div class="introv-stage">
       <video muted playsinline preload="auto" poster="assets/video/qb-throw-poster.jpg" aria-hidden="true" disablepictureinpicture disableremoteplayback></video>
+      <img class="introv-hold" alt="" aria-hidden="true" hidden>
       <img class="introv-still" src="assets/video/qb-throw-still.jpg" alt="A quarterback in helmet and pads winding up to throw under stadium lights" hidden>
       <div class="introv-shade" aria-hidden="true"></div>
       <div class="introv-copy">
@@ -81,7 +82,7 @@
       <div class="introv-flash" aria-hidden="true"></div>
     </div>
   </section>
-  <script type="module" src="js/intro-video.js?v=20260925g"></script>
+  <script type="module" src="js/intro-video.js?v=20260925i"></script>
 
   <main class="wrap" id="preview">
     <section class="card preview-note">

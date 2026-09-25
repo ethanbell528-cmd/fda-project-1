@@ -16,6 +16,9 @@ const section = document.getElementById("introv");
 const stage = section && section.querySelector(".introv-stage");
 const video = section && section.querySelector("video");
 const still = section && section.querySelector(".introv-still");
+// AI clip: a still of the release frame snaps on top of the video at the handoff, so the frame under
+// the launching ball is always the right one (no dependence on how fast a phone seeks the video)
+const hold = section && section.querySelector(".introv-hold");
 const copy = section && section.querySelector(".introv-copy");
 const flash = section && section.querySelector(".introv-flash");
 const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -25,7 +28,9 @@ const AI = new URLSearchParams(location.search).get("clip") === "ai";
 const BASE = AI ? "assets/video/qb-ai-" : "assets/video/qb-throw-";
 // AI clip: stop on frame 70 (4.375 s at 16 fps), where his arm brings the ball forward and he is still in view;
 // the 3D ball takes over from the real ball's spot in that frame (video pixels: centre 255,212, about 180 px wide of 832).
-const AI_STOP = 70 / 16, AI_BALL = { u: 255 / 832, v: 212 / 480, w: 180 / 832 };
+// measured on the release still at phone width: the blurred ball + fingers blob is centred near (271, 232)
+// and about 156 x 175 px; the 3D ball starts a little larger (its oval is wider than tall) so it fully covers it
+const AI_STOP = 70 / 16, AI_BALL = { u: 271 / 832, v: 232 / 480, w: 260 / 832 };
 const BALL_ROLL = 0; // roll of the scanned ball about its long axis (tuned from screenshots)
 const VIDEO_END = 0.74, BALL_START = AI ? 0.74 : 0.7, BALL_END = 0.97;
 const FLASH_START = 0.94, FLASH_END = 0.995; // the ball fills the screen first, then the flash
@@ -193,7 +198,7 @@ function startBall() {
       let k = clamp((p - BALL_START) / (BALL_END - BALL_START), 0, 1);
       // AI clip: launch only when the release frame is really painted (phones seek slowly;
       // launching early put a second ball on screen while the real one was still in his hand)
-      if (AI && !video.hidden && shown < AI_STOP - 0.1) k = 0;
+      if (AI && !(hold && !hold.hidden && hold.complete && hold.naturalWidth)) k = 0;
       renderer.domElement.style.opacity = k > 0 ? "1" : "0";
       if (k <= 0) return;
       const W = stage.clientWidth, H = stage.clientHeight;
@@ -217,7 +222,7 @@ function startBall() {
       if (AI) {
         // the ball may only move toward the centre by as much as it has grown, so it always
         // keeps covering the real ball still printed in the paused frame underneath
-        const grow = Math.max(0, (d0 / d - 1)) * (EFF * (H / 2) / (tanH * d0)) / 2 * 0.85;
+        const grow = Math.max(0, (d0 / d - 1)) * (EFF * (H / 2) / (tanH * d0)) / 2 * 0.6;
         const dx = (0.5 - sx0) * W, dy = (0.5 - sy0) * H, len = Math.hypot(dx, dy);
         const f = len > 0 ? Math.min(easeOut(k) * len, grow) / len : 0;
         sx = sx0 + (0.5 - sx0) * f; sy = sy0 + (0.5 - sy0) * f;
@@ -240,7 +245,7 @@ function startBall() {
 
 function start() {
   section.classList.add("ready");
-  if (AI) { video.poster = BASE + "poster.jpg"; if (still) still.src = BASE + "still.jpg"; }
+  if (AI) { video.poster = BASE + "poster.jpg"; if (still) still.src = BASE + "still.jpg"; if (hold) hold.src = BASE + "release.jpg"; }
   if (reduce) { showStill("reduced-motion"); return; }
   let ball = null;
   try { ball = startBall(); } catch (e) { ball = null; }
@@ -286,6 +291,11 @@ function start() {
     if (ready) video.style.objectPosition = panFor(shownT);
     if (copy) copy.style.opacity = String(1 - clamp((p - 0.05) / 0.12, 0, 1));
     if (flash) flash.style.opacity = String(clamp((p - FLASH_START) / (FLASH_END - FLASH_START), 0, 1));
+    if (AI && hold) {
+      const on = p >= VIDEO_END - 0.004;                 // from the release frame on, show the still
+      if (hold.hidden === on) hold.hidden = !on;
+      if (on) hold.style.objectPosition = panFor(AI_STOP);
+    }
     if (ball) ball.draw(p, now || 0, shownT);
     else if (stage) stage.style.transform = p > 0.8 ? "scale(" + (1 + (p - 0.8) * 1.5) + ")" : "";
     requestAnimationFrame(loop);
