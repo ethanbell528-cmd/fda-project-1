@@ -113,8 +113,11 @@ To use The Odds API free tier locally, copy `config.example.js` to `config.js` a
 | `index.html` | Report page: summary, headline numbers, findings with charts, methodology |
 | `replays.html` | Games & 3D Replays page: every game since 1990 by date with the model's pre-game pick, plus the latest finished games in 3D |
 | `js/history.js` | Historical game browser: loads `data/predictions_<sport>.csv`, lists a date's games, matches each to ESPN for the 3D view |
-| `js/intro3d.js` | Report-page intro: three.js stadium scene where a purple #8 quarterback (a rigged human body posed by a code-built IK driver) drops back and throws a spiral at the viewer, driven by scroll; removed automatically if 3D can't load |
+| `js/intro3d.js` | Report-page intro: three.js stadium scene where a purple #8 quarterback (the CC0 base-mesh body playing real CMU motion capture: a backpedal, then a pass) throws a spiral at the viewer, scrubbed by scroll, with N8AO contact shading and depth of field on desktop; removed automatically if 3D can't load |
 | `assets/male_base_mesh.glb` | CC0 rigged human base mesh used for the intro's players (see Credits) |
+| `assets/motion/qb_mocap.json` | The intro quarterback's motion: two CMU motion-capture clips baked to joint positions and rotations by `scripts/bake_mocap.py` |
+| `scripts/bake_mocap.py` | Blender script that downloads the two CMU BVH clips and writes `assets/motion/qb_mocap.json` |
+| `assets/env/moonless_golf_1k.hdr` | Night HDRI from the three.js GitHub examples: image-based lighting for the intro stadium, loaded lazily with a built-in fallback (see Credits) |
 | `js/featured3d.js` | Finds each sport's recent finished games on ESPN and opens one in the 3D viewer on the replays page |
 | `dashboard.html` | Dashboard: sport tabs, filters, measure/breakdown switches, charts, table, reset, live games panel, player projections |
 | `css/style.css` | Shared fonts, colors (light and dark), layout for both pages |
@@ -161,3 +164,6 @@ Add an entry to `SPORTS` in `scripts/config.py`. Write `scripts/sports/<sport>.p
 
 - **Human body model:** "Male Base Mesh" by [orange-juice-games](https://orange-juice-games.itch.io/male-base-mesh), dedicated to the public domain under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). Downloaded from [github.com/BoQsc/Godot-3D-Male-Base-Mesh](https://github.com/BoQsc/Godot-3D-Male-Base-Mesh) (`Original/male_base_mesh.glb`). The uniform, pads, helmet, numbers and motion are added in code.
 - **3D library:** [three.js](https://threejs.org) r169 (MIT), loaded from jsDelivr.
+- **Motion capture:** CMU Graphics Lab Motion Capture Database, subject 76 trial 11 (quick large steps backwards) and subject 79 trial 91 ("football"), BVH conversions from [github.com/una-dinosauria/cmu-mocap](https://github.com/una-dinosauria/cmu-mocap), baked by `scripts/bake_mocap.py` and retargeted onto the intro's player in the browser. The data used in this project was obtained from mocap.cs.cmu.edu. The database was created with funding from NSF EIA-0196217.
+- **Ambient occlusion:** [N8AO](https://github.com/N8python/n8ao) 2.0.1 (ISC) with [postprocessing](https://github.com/pmndrs/postprocessing) 6.36.4 (Zlib), loaded from jsDelivr on desktop only.
+- **Intro night lighting:** `moonless_golf_1k.hdr` from the [three.js examples](https://github.com/mrdoob/three.js/tree/dev/examples/textures/equirectangular) (three.js is MIT licensed); image-based lighting for the night-game intro, with a procedural fallback.

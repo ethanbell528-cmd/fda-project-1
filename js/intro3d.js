@@ -1,8 +1,9 @@
 /* Report-page intro: a dual-threat quarterback (generic #8, purple and black) takes the snap in a
    night-game stadium, drops back, and throws a spiral straight at the viewer as they scroll.
-   Scroll progress through the tall #intro3d section scrubs the whole sequence. Everything is built
-   in code (stadium, textures, crowd, helmet); the body is a CC0 rigged human base mesh
-   (assets/male_base_mesh.glb) posed by a code-built IK driver. No real people, names or team marks.
+   Scroll progress through the tall #intro3d section scrubs the whole sequence. The body is a
+   rigged human model (see loadHuman) posed by a code-built IK driver;
+   the stadium, turf, crowd, helmet and PBR uniform are built in code, lit by a night HDRI
+   (assets/env/, via the three.js GitHub examples). No real people, names or team marks.
    Decorative only: the report never depends on it. If WebGL or the three.js CDN fails, the
    section removes itself (see the inline fallback in index.html). Test hook: ?introP=0..1. */
 import * as THREE from "three";
@@ -14,14 +15,17 @@ import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
 import { ShaderPass } from "three/addons/postprocessing/ShaderPass.js";
 import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
+import { BokehPass } from "three/addons/postprocessing/BokehPass.js";
 import { VignetteShader } from "three/addons/shaders/VignetteShader.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { RGBELoader } from "three/addons/loaders/RGBELoader.js";
 import * as SkeletonUtils from "three/addons/utils/SkeletonUtils.js";
 
 const section = document.getElementById("intro3d");
 const stage = section && section.querySelector(".intro-stage");
 const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const forced = parseFloat(new URLSearchParams(location.search).get("introP")); // test hook
+if (section) section.dataset.boot = "1"; // the module ran: the inline fallback in index.html waits longer before giving up
 
 // ---------------------------------------------------------------- small helpers
 const V = (x = 0, y = 0, z = 0) => new THREE.Vector3(x, y, z);
@@ -140,6 +144,7 @@ function makePlayer({ num = "8", sleeveArm = "R", skin = 0x4a2e20 }) {
   const mVisor = new THREE.MeshPhysicalMaterial({ color: 0x07070b, metalness: 0.9, roughness: 0.06, clearcoat: 1 });
   const mGold = new THREE.MeshStandardMaterial({ color: 0xc9a227, metalness: 0.5, roughness: 0.35 });
   const mWhite = new THREE.MeshStandardMaterial({ color: 0xf2f2f2, roughness: 0.5 });
+  mHelmet.envMapIntensity = 1.25; mVisor.envMapIntensity = 1.6; mGold.envMapIntensity = 1.1; // night-HDRI reflections on the hard gear
 
   const root = new THREE.Group();
   const hips = new THREE.Group(); root.add(hips);
@@ -499,6 +504,108 @@ function retarget(H, D) {
   H.holder.position.copy(hipD.sub(hipH));
   H.holder.updateMatrixWorld(true);
 }
+// ---------------------------------------------------------------- CMU motion capture on the base-mesh body
+// assets/motion/qb_mocap.json (built by scripts/bake_mocap.py from the CMU Graphics Lab Motion Capture
+// Database, subject 76 trial 11 "quick large steps backwards" and subject 79 trial 91 "football"):
+// per frame, joint positions (leg-length units) and rest-relative world rotations of torso, head and
+// feet. The quarterback's skeleton takes its limb directions from the joint positions and its torso,
+// head and feet from the rotations; the lower foot is kept on the turf. Falls back to the IK driver.
+const MOCAP_URL = "assets/motion/qb_mocap.json?v=1";
+function loadMocap() {
+  const req = fetch(MOCAP_URL).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+  return Promise.race([req, new Promise((res) => setTimeout(() => res(null), 6000))])
+    .then((d) => (d && d.clips && d.clips.drop && d.clips.throw ? d : null));
+}
+
+function makeBaseMocap(H, M, target) {
+  const PJ = M.pos_joints, RJ = M.rot_joints, fps = M.fps;
+  const clips = {};
+  for (const name of ["drop", "throw"]) {
+    const c = M.clips[name];
+    clips[name] = {
+      n: c.frames,
+      pos: c.pos.map((row) => { const o = {}; PJ.forEach((j, i) => { o[j] = V(row[i * 3], row[i * 3 + 1], row[i * 3 + 2]); }); return o; }),
+      rot: c.rot.map((row) => { const o = {}; RJ.forEach((j, i) => { o[j] = new THREE.Quaternion(row[i * 4], row[i * 4 + 1], row[i * 4 + 2], row[i * 4 + 3]); }); return o; }),
+    };
+  }
+  const B = H.bones, wp = (o) => o.getWorldPosition(V());
+  H.holder.position.set(0, 0, 0); H.holder.updateMatrixWorld(true);
+  // leg length of this body (hip joint to ankle, rest pose) converts the mocap's leg-length units to metres
+  const legLen = wp(B.thighL).distanceTo(wp(B.footL));
+  // standing ankle height above the soles (the model's origin is not at its feet)
+  const sole = new THREE.Box3().setFromObject(H.mesh, true).min.y;
+  const restAnkle = Math.min(wp(B.footL).y, wp(B.footR).y) - sole;
+  const frameOf = (c, t) => {
+    const f = clamp(t * fps, 0, c.n - 1), i = Math.floor(f), j = Math.min(i + 1, c.n - 1), a = f - i;
+    const pos = {}, rot = {};
+    for (const k of PJ) pos[k] = c.pos[i][k].clone().lerp(c.pos[j][k], a);
+    for (const k of RJ) rot[k] = c.rot[i][k].clone().slerp(c.rot[j][k], a);
+    return { pos, rot };
+  };
+  const blend = (A, Bf, w) => {
+    if (w <= 0) return A; if (w >= 1) return Bf;
+    const pos = {}, rot = {};
+    for (const k of PJ) pos[k] = A.pos[k].clone().lerp(Bf.pos[k], w);
+    for (const k of RJ) rot[k] = A.rot[k].clone().slerp(Bf.rot[k], w);
+    return { pos, rot };
+  };
+  const dDur = (clips.drop.n - 1) / fps, tDur = (clips.throw.n - 1) / fps, relT = M.clips.throw.release_index / fps;
+  const frameAt = (p) => {
+    const w = smooth(clamp((p - 0.235) / 0.055, 0, 1));
+    const dt = clamp((p - 0.05) / (0.25 - 0.05), 0, 1) * dDur;
+    const tt = p < 0.29 ? 0 : p < RELEASE ? lerp(0, relT, (p - 0.29) / (RELEASE - 0.29)) : lerp(relT, tDur, clamp((p - RELEASE) / (0.64 - RELEASE), 0, 1));
+    return blend(frameOf(clips.drop, dt), frameOf(clips.throw, tt), w);
+  };
+  let off = V();
+  const apply = (F) => {
+    const wq = (o) => o.getWorldQuaternion(new THREE.Quaternion());
+    const setWorld = (name, q) => { const b = B[name]; b.quaternion.copy(wq(b.parent).invert().multiply(q)); b.updateMatrixWorld(true); };
+    const dq = (name, q) => setWorld(name, q.clone().multiply(H.restWorld[name]));
+    const keep = (name) => { B[name].quaternion.copy(H.restLocal[name]); B[name].updateMatrixWorld(true); };
+    const swing = (name, dir) => {
+      keep(name);
+      const q0 = wq(B[name]);
+      _qs.setFromUnitVectors(V(0, 1, 0).applyQuaternion(q0).normalize(), dir.clone().normalize());
+      setWorld(name, _qs.clone().multiply(q0));
+    };
+    const P = F.pos, d = (a, b) => P[b].clone().sub(P[a]);
+    H.holder.position.set(0, 0, 0);
+    H.holder.updateMatrixWorld(true);
+    dq("spine", F.rot.Hips);
+    dq("spine001", F.rot.LowerBack);
+    dq("spine002", F.rot.Spine);
+    dq("spine003", F.rot.Spine1);
+    for (const [s, S] of [["L", "Left"], ["R", "Right"]]) {
+      keep("shoulder" + s);
+      swing("upper_arm" + s, d(S + "Arm", S + "ForeArm"));
+      swing("forearm" + s, d(S + "ForeArm", S + "Hand"));
+      swing("hand" + s, d(S + "Hand", S + "FingerBase"));
+    }
+    dq("spine004", F.rot.Neck);
+    dq("spine005", F.rot.Head);
+    for (const [s, S] of [["L", "Left"], ["R", "Right"]]) {
+      keep("pelvis" + s);
+      swing("thigh" + s, d(S + "UpLeg", S + "Leg"));
+      swing("shin" + s, d(S + "Leg", S + "Foot"));
+      dq("foot" + s, F.rot[S + "Foot"]);
+    }
+    // hips follow the mocap root (scaled to this body); the lower ankle stays at standing height
+    const hipM = P.LeftUpLeg.clone().add(P.RightUpLeg).multiplyScalar(0.5 * legLen).add(off);
+    const hipH = wp(B.thighL).add(wp(B.thighR)).multiplyScalar(0.5);
+    H.holder.position.set(hipM.x - hipH.x, 0, hipM.z - hipH.z);
+    H.holder.updateMatrixWorld(true);
+    H.holder.position.y = restAnkle - Math.min(wp(B.footL).y, wp(B.footR).y);
+    H.holder.updateMatrixWorld(true);
+  };
+  // place the play so the throw happens where the camera expects the quarterback
+  const F0 = frameAt(0.3);
+  const h0 = F0.pos.LeftUpLeg.clone().add(F0.pos.RightUpLeg).multiplyScalar(0.5 * legLen);
+  off = V(target.x - h0.x, 0, target.z - h0.z);
+  return { at: (p) => apply(frameAt(p)) };
+}
+
+const PALM_SIDE = 1; // +1/-1: which side of the right hand the palm faces (checked on screenshots)
+
 function hideDriver(D) { D.root.traverse((o) => { if (o.isMesh) o.visible = false; }); }
 
 // ---- joint-based posing with two-bone IK
@@ -682,9 +789,10 @@ const CAM = [
   { p: 0.0, pos: [15, 14, -34], look: [0, 9, 30] },
   { p: 0.11, pos: [6, 3.6, -11], look: [0, 1.3, 5] },
   { p: 0.2, pos: [8.5, 2.6, -3.5], look: [0, 1.35, -3.8] },
-  { p: 0.3, pos: [4.2, 2.0, 2.2], look: [-0.1, 1.4, -3.9] },
-  { p: 0.38, pos: [1.0, 1.82, 2.75], look: [-0.15, 1.42, -3.6] },
-  { p: 1.0, pos: [0.85, 1.78, 2.45], look: [-0.15, 1.5, -3.5] },
+  { p: 0.3, pos: [2.9, 1.7, 0.2], look: [-0.1, 1.08, -3.9] },
+  { p: 0.38, pos: [0.85, 1.62, 0.7], look: [-0.15, 1.12, -3.6] },
+  { p: 0.6, pos: [0.78, 1.62, 0.56], look: [-0.15, 1.18, -3.5] },
+  { p: 1.0, pos: [0.75, 1.62, 0.5], look: [-0.1, 1.72, -3.5] }, // tilts up to follow the ball into the lens
 ];
 const camCurve = new THREE.CatmullRomCurve3(CAM.map((c) => vec(c.pos)), false, "centripetal");
 let NARROW = false;
@@ -775,7 +883,32 @@ function makeField(scene) {
     for (let i = 0; i < img.data.length; i += 4) { const v = 90 + Math.random() * 90; img.data[i] = img.data[i + 1] = img.data[i + 2] = v; img.data[i + 3] = 255; }
     g.putImageData(img, 0, 0);
   }, 1.5, [60, 140]);
-  const field = new THREE.Mesh(new THREE.PlaneGeometry(FIELD_W, FIELD_L), new THREE.MeshStandardMaterial({ map: tex, normalMap: grass, normalScale: new THREE.Vector2(0.6, 0.6), roughness: 0.92 }));
+  // grass-blade colour detail: thin strokes of lighter and darker green, tiled over the painted field
+  // and faded out where they would shimmer (far away / grazing angles)
+  const blades = colorTex(canvas(512, 512, (g, w, h) => {
+    g.fillStyle = "rgb(128,128,128)"; g.fillRect(0, 0, w, h);
+    g.lineCap = "round";
+    for (let i = 0; i < 9000; i++) {
+      const x = Math.random() * w, y = Math.random() * h, len = 5 + Math.random() * 11, a = -Math.PI / 2 + (Math.random() - 0.5) * 0.8;
+      const v = Math.round(78 + Math.random() * 110);
+      g.strokeStyle = `rgba(${v},${Math.min(255, v + 8)},${v},0.55)`; g.lineWidth = 0.8 + Math.random() * 1.4;
+      for (const ox of [-w, 0, w]) for (const oy of [-h, 0, h]) {
+        g.beginPath(); g.moveTo(x + ox, y + oy); g.lineTo(x + ox + Math.cos(a) * len, y + oy + Math.sin(a) * len); g.stroke();
+      }
+    }
+  }));
+  blades.wrapS = blades.wrapT = THREE.RepeatWrapping;
+  const fieldMat = new THREE.MeshStandardMaterial({ map: tex, normalMap: grass, normalScale: new THREE.Vector2(0.6, 0.6), roughness: 0.92 });
+  fieldMat.onBeforeCompile = (sh) => {
+    sh.uniforms.uBlades = { value: blades };
+    sh.fragmentShader = sh.fragmentShader
+      .replace("#include <common>", "#include <common>\nuniform sampler2D uBlades;")
+      .replace("#include <map_fragment>", `#include <map_fragment>
+vec2 bUv = vMapUv * vec2(90.0, 200.0);
+float bFade = clamp(1.0 - 1.4 * length(fwidth(bUv)), 0.0, 1.0);
+diffuseColor.rgb *= mix(1.0, texture2D(uBlades, bUv).g * 2.0, 0.55 * bFade);`);
+  };
+  const field = new THREE.Mesh(new THREE.PlaneGeometry(FIELD_W, FIELD_L), fieldMat);
   field.rotation.x = -Math.PI / 2; field.position.set(0, 0, FZ); field.receiveShadow = true;
   scene.add(field);
   const surround = new THREE.Mesh(new THREE.PlaneGeometry(90, 150), new THREE.MeshStandardMaterial({ color: 0x28692e, roughness: 0.95, normalMap: grass, normalScale: new THREE.Vector2(0.5, 0.5) }));
@@ -970,13 +1103,18 @@ function makeStadium(scene, lite) {
   addStairs(LOWER); addStairs(UPPER, noCorners);
   scene.add(new THREE.Mesh(mergeGeometries(stairs), new THREE.MeshStandardMaterial({ color: 0x57536a, roughness: 0.85 })));
 
-  const personGeo = mergeGeometries([
-    new THREE.BoxGeometry(0.42, 0.5, 0.26).translate(0, 0.62, -0.05),  // torso
-    new THREE.BoxGeometry(0.2, 0.22, 0.2).translate(0, 1.0, -0.03),    // head
-    new THREE.BoxGeometry(0.36, 0.16, 0.42).translate(0, 0.36, 0.14),  // lap
+  // crowd: rounded bodies (clothing colors) + separate heads (skin tones and caps),
+  // still two instanced draw calls for the whole bowl
+  const bodyGeo = mergeGeometries([
+    new THREE.CapsuleGeometry(0.17, 0.3, 4, 10).translate(0, 0.62, -0.05), // torso
+    new THREE.SphereGeometry(0.13, 10, 8).scale(1.35, 0.75, 1).translate(0, 0.78, -0.05), // shoulders
+    new THREE.BoxGeometry(0.36, 0.16, 0.42).translate(0, 0.36, 0.14),      // lap
   ]);
-  const crowd = new THREE.InstancedMesh(personGeo, new THREE.MeshLambertMaterial({ color: 0xffffff }), people.length);
+  const headGeo = new THREE.SphereGeometry(0.105, 12, 10).translate(0, 1.03, -0.03);
+  const crowd = new THREE.InstancedMesh(bodyGeo, new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.92 }), people.length);
+  const heads = new THREE.InstancedMesh(headGeo, new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.55 }), people.length);
   const palette = [0x3b2a92, 0x2a1d6e, 0x4b3aa8, 0x2a1d6e, 0x3b2a92, 0x111114, 0x1a1a1f, 0xdedede, 0xb8931f, 0x6c1f1f, 0x2d4b7a, 0x4a3a2a];
+  const skin = [0xc8a184, 0xa06b42, 0x6b4630, 0x4a2e20, 0xe0b896, 0x8a5a3a, 0x2a1b72, 0x1a1a1f]; // skin tones + a few team caps
   const dummy = new THREE.Object3D(), col = new THREE.Color();
   people.forEach((p, i) => {
     dummy.position.set(p.x, p.y, p.z);
@@ -985,13 +1123,17 @@ function makeStadium(scene, lite) {
     dummy.scale.set(s, s * stand, s);
     dummy.updateMatrix();
     crowd.setMatrixAt(i, dummy.matrix);
+    heads.setMatrixAt(i, dummy.matrix);
     crowd.setColorAt(i, col.setHex(palette[(Math.random() * palette.length) | 0]).multiplyScalar(0.7 + Math.random() * 0.5));
+    heads.setColorAt(i, col.setHex(skin[(Math.random() * skin.length) | 0]).multiplyScalar(0.75 + Math.random() * 0.45));
   });
   crowd.instanceMatrix.needsUpdate = true;
+  heads.instanceMatrix.needsUpdate = true;
   if (crowd.instanceColor) crowd.instanceColor.needsUpdate = true;
-  scene.add(crowd);
+  if (heads.instanceColor) heads.instanceColor.needsUpdate = true;
+  scene.add(crowd, heads);
   const seatGeo = mergeGeometries([new THREE.BoxGeometry(0.46, 0.08, 0.42).translate(0, 0.42, 0.05), new THREE.BoxGeometry(0.46, 0.42, 0.06).translate(0, 0.62, -0.16)]);
-  const seatMesh = new THREE.InstancedMesh(seatGeo, new THREE.MeshLambertMaterial({ color: 0x3d2c96 }), seats.length);
+  const seatMesh = new THREE.InstancedMesh(seatGeo, new THREE.MeshStandardMaterial({ color: 0x3d2c96, roughness: 0.8 }), seats.length);
   seats.forEach((p, i) => { dummy.position.set(p.x, p.y, p.z); dummy.rotation.set(0, p.ry, 0); dummy.scale.set(1, 1, 1); dummy.updateMatrix(); seatMesh.setMatrixAt(i, dummy.matrix); });
   seatMesh.instanceMatrix.needsUpdate = true;
   scene.add(seatMesh);
@@ -1011,19 +1153,26 @@ function makeStadium(scene, lite) {
     for (let i = 0; i < (lite ? 30 : 60); i++) sideline.push({ x: sx * (FIELD_W / 2 + 2.6 + Math.random() * 2.2), z: FZ + (Math.random() - 0.5) * 34, ry: sx > 0 ? -Math.PI / 2 : Math.PI / 2, home: sx < 0 });
   }
   scene.add(new THREE.Mesh(mergeGeometries(bench), new THREE.MeshStandardMaterial({ color: 0x202028, roughness: 0.6 })));
-  const standGeo = mergeGeometries([
-    new THREE.BoxGeometry(0.5, 0.75, 0.3).translate(0, 1.3, 0), new THREE.BoxGeometry(0.42, 0.9, 0.26).translate(0, 0.45, 0),
-    new THREE.SphereGeometry(0.15, 8, 6).translate(0, 1.82, 0),
+  const sideBodyGeo = mergeGeometries([
+    new THREE.CapsuleGeometry(0.19, 0.42, 4, 10).translate(0, 1.28, 0),
+    new THREE.BoxGeometry(0.4, 0.85, 0.26).translate(0, 0.44, 0),
   ]);
-  const sidelineMesh = new THREE.InstancedMesh(standGeo, new THREE.MeshLambertMaterial({ color: 0xffffff }), sideline.length);
+  const sideHeadGeo = new THREE.SphereGeometry(0.13, 12, 10).translate(0, 1.83, 0);
+  const sidelineMesh = new THREE.InstancedMesh(sideBodyGeo, new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.85 }), sideline.length);
+  const sidelineHeads = new THREE.InstancedMesh(sideHeadGeo, new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.55 }), sideline.length);
+  const sideSkin = [0xc8a184, 0xa06b42, 0x6b4630, 0x4a2e20, 0xe0b896, 0x8a5a3a];
   sideline.forEach((p, i) => {
     dummy.position.set(p.x, 0, p.z); dummy.rotation.set(0, p.ry + (Math.random() - 0.5) * 1.2, 0); dummy.scale.setScalar(0.95 + Math.random() * 0.12); dummy.updateMatrix();
     sidelineMesh.setMatrixAt(i, dummy.matrix);
+    sidelineHeads.setMatrixAt(i, dummy.matrix);
     sidelineMesh.setColorAt(i, col.setHex(p.home ? (Math.random() < 0.8 ? 0x2a1b72 : 0x151518) : (Math.random() < 0.8 ? 0xe6e6e6 : 0x333338)));
+    sidelineHeads.setColorAt(i, col.setHex(sideSkin[(Math.random() * sideSkin.length) | 0]).multiplyScalar(0.8 + Math.random() * 0.35));
   });
   sidelineMesh.instanceMatrix.needsUpdate = true;
+  sidelineHeads.instanceMatrix.needsUpdate = true;
   if (sidelineMesh.instanceColor) sidelineMesh.instanceColor.needsUpdate = true;
-  scene.add(sidelineMesh);
+  if (sidelineHeads.instanceColor) sidelineHeads.instanceColor.needsUpdate = true;
+  scene.add(sidelineMesh, sidelineHeads);
 
   // end-zone video boards on light trusses (generic score bug)
   const boardTex = colorTex(canvas(1536, 512, (g, w, h) => {
@@ -1102,16 +1251,16 @@ function makeSky(scene) {
 
 // ---------------------------------------------------------------- main
 async function start() {
-  const humanGltf = await loadHuman();
+  const [humanGltf, mocapData] = await Promise.all([loadHuman(), loadMocap()]);
   const w0 = stage.clientWidth;
   const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
-  const lite = w0 < 700 || !renderer.capabilities.isWebGL2;
+  const lite = w0 < 700 || !renderer.capabilities.isWebGL2 || new URLSearchParams(location.search).has("introLite"); // introLite: test hook
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, lite ? 1.5 : 2));
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 0.92;
+  renderer.toneMappingExposure = 1.4; // at least as bright as the previous intro after AO and the night HDRI
   stage.prepend(renderer.domElement);
   renderer.domElement.setAttribute("aria-hidden", "true");
 
@@ -1120,7 +1269,23 @@ async function start() {
   const pmrem = new THREE.PMREMGenerator(renderer);
   scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
   scene.environmentIntensity = 0.3;
+  // night-game HDRI (assets/env/, via the three.js GitHub examples): swapped in when it
+  // arrives so the helmet, visor and turf reflect a night stadium; RoomEnvironment above
+  // stays as the instant fallback and if the file is missing
+  new RGBELoader().load("assets/env/moonless_golf_1k.hdr?v=1", (tex) => {
+    tex.mapping = THREE.EquirectangularReflectionMapping;
+    scene.environment = pmrem.fromEquirectangular(tex).texture;
+    scene.environmentIntensity = 0.5;
+    tex.dispose();
+    section.dataset.env = "hdri";
+  }, undefined, () => {});
   const camera = new THREE.PerspectiveCamera(40, 1, 0.02, 2000);
+  // short-range fill carried by the camera: lights the ball as it spirals into the lens (range 2.2 m,
+  // so the player and stadium are unaffected)
+  const ballFill = new THREE.PointLight(0xfff1dd, 2.4, 2.2, 2);
+  ballFill.position.set(0.35, 0.45, 0.1);
+  camera.add(ballFill);
+  scene.add(camera);
 
   // stadium lighting: key from the light rows (shadow on the QB), fill and rim
   scene.add(new THREE.HemisphereLight(0x9fb0ff, 0x183018, 0.32));
@@ -1143,17 +1308,41 @@ async function start() {
   const center = makePlayer({ num: "66", sleeveArm: "none", skin: 0x6b4630 });
   scene.add(center.root);
   // human bodies (if the model loaded): the code-built players become invisible IK drivers
-  let qbH = null, centerH = null;
+  let qbH = null, centerH = null, mocap = null, ballHold = null, holdFlip = 1;
   if (humanGltf) {
     try {
       hideDriver(qb); hideDriver(center);
-      qbH = makeHuman(humanGltf, qb, { num: "8", sleeveArm: "R", skin: 0x4a2e20, bulk: 1 });
+      // bare forearms on the quarterback (no dark compression sleeve): reads as skin at every frame
+      qbH = makeHuman(humanGltf, qb, { num: "8", sleeveArm: "none", skin: 0x4a2e20, bulk: 1 });
       centerH = makeHuman(humanGltf, center, { num: "66", sleeveArm: "none", skin: 0x6b4630, bulk: 1.45 });
       scene.add(qbH.holder, centerH.holder);
       section.dataset.body = "human";
+      if (mocapData) {
+        try {
+          mocap = makeBaseMocap(qbH, mocapData, V(-0.1, 0, -3.55));
+          // palm frame on the right hand (rest pose): the ball rides it until release
+          const bw = (n) => qbH.bones[n].getWorldPosition(V());
+          qbH.holder.position.set(0, 0, 0); qbH.holder.updateMatrixWorld(true);
+          const hnd = bw("handR"), fb = bw("f_middle01R"), th = bw("thumb01R");
+          const fdir = fb.clone().sub(hnd).normalize();
+          const pn = fdir.clone().cross(th.clone().sub(hnd)).normalize().multiplyScalar(PALM_SIDE);
+          const palm = hnd.clone().addScaledVector(fdir, 0.75 * fb.distanceTo(hnd)).addScaledVector(pn, 0.075);
+          const axis = fdir.clone().cross(pn).normalize();
+          const want = new THREE.Matrix4().compose(palm, new THREE.Quaternion().setFromUnitVectors(V(0, 0, 1), axis), V(1, 1, 1));
+          ballHold = new THREE.Object3D();
+          new THREE.Matrix4().copy(qbH.bones.handR.matrixWorld).invert().multiply(want).decompose(ballHold.position, ballHold.quaternion, ballHold.scale);
+          qbH.bones.handR.add(ballHold);
+          ballHold.updateMatrixWorld(true);
+          holdFlip = ballHold.matrixWorld.determinant() < 0 ? -1 : 1; // the right hand bone may be mirrored
+          section.dataset.motion = "cmu-mocap";
+        } catch (err) {
+          console.warn("motion capture unavailable, using the keyframed throw:", err);
+          mocap = null; ballHold = null;
+        }
+      }
     } catch (err) {
       console.warn("human body unavailable, using the built figure:", err);
-      qbH = centerH = null;
+      qbH = centerH = mocap = ballHold = null;
       [qb, center].forEach((D) => D.root.traverse((o) => { if (o.isMesh) o.visible = true; }));
     }
   }
@@ -1163,11 +1352,12 @@ async function start() {
     const d = qbH.bones.handR.getWorldPosition(V()).sub(qb.arms.R.wr.getWorldPosition(V()));
     return d.applyQuaternion(qb.arms.R.hold.getWorldQuaternion(new THREE.Quaternion()).invert());
   };
-  const pose = (P, H, key, look, p) => { applyPose(P, withSteps(sample(key, p)), look); if (H) retarget(H, P); };
+  const pose = (P, H, key, look, p) => { applyPose(P, withSteps(sample(key, p)), look); if (H) { if (H.retarget) H.retarget(P); else retarget(H, P); } };
   const { ball, geo: ballGeo } = makeFootball(lite);
   const BALL_IN_HAND = [0.25, -1.35, 0.1];
   qb.arms.R.hold.add(ball);
   ball.rotation.set(...BALL_IN_HAND);
+  if (ballHold) { ballHold.add(ball); ball.position.set(0, 0, 0); ball.quaternion.identity(); ball.scale.set(holdFlip, 1, 1); }
   const ghosts = [];
   for (let k = 0; k < 5; k++) {
     const g = new THREE.Mesh(ballGeo, new THREE.MeshBasicMaterial({ color: 0x5a2a12, transparent: true, opacity: 0.2 * (1 - k / 5), depthWrite: false }));
@@ -1175,20 +1365,35 @@ async function start() {
   }
 
   // post-processing: bloom on the stadium lights, subtle vignette; skipped in lite mode
-  let composer = null;
+  let composer = null, bokeh = null, aoPass = null, plainPass = null;
   if (!lite) {
     composer = new EffectComposer(renderer);
-    composer.addPass(new RenderPass(scene, camera));
+    // N8AO ambient occlusion (contact shadows where feet meet turf, under the arms, in the facemask);
+    // loaded only in full mode, and the plain render pass is used if the CDN module is unavailable
+    let base = null;
+    try {
+      const { N8AOPass } = await import("n8ao");
+      base = new N8AOPass(scene, camera, w0, stage.clientHeight);
+      base.setQualityMode("Performance");
+      Object.assign(base.configuration, { aoRadius: 0.7, distanceFalloff: 1.0, intensity: 1.5, halfRes: true, gammaCorrection: false });
+      section.dataset.ao = "n8ao"; aoPass = base;
+    } catch (err) { console.warn("N8AO unavailable, rendering without it:", err); base = null; }
+    plainPass = new RenderPass(scene, camera);
+    composer.addPass(plainPass);
+    if (base) { composer.addPass(base); plainPass.enabled = false; }
+    // shallow depth of field while the quarterback is the subject: he stays sharp, the stands soften
+    bokeh = new BokehPass(scene, camera, { focus: 5, aperture: 0.0014, maxblur: 0.0045 });
+    composer.addPass(bokeh);
     composer.addPass(new UnrealBloomPass(new THREE.Vector2(w0, stage.clientHeight), 0.55, 0.45, 1.35));
-    const vig = new ShaderPass(VignetteShader); vig.uniforms.offset.value = 1.0; vig.uniforms.darkness.value = 1.15;
+    const vig = new ShaderPass(VignetteShader); vig.uniforms.offset.value = 1.0; vig.uniforms.darkness.value = 1.0;
     composer.addPass(vig);
     composer.addPass(new OutputPass());
   }
 
   // release point and the ball's final spot just in front of the lens
   const lookTarget = V(0, 1.7, 30);
-  pose(qb, qbH, QB, lookTarget, RELEASE);
-  ball.position.copy(handOffset());
+  if (mocap) mocap.at(RELEASE);
+  else { pose(qb, qbH, QB, lookTarget, RELEASE); ball.position.copy(handOffset()); }
   const releasePos = ball.getWorldPosition(V());
   let endPos = V();
   const aimFlight = () => { const e = cameraAt(0.965); endPos = e.pos.clone().addScaledVector(e.look.clone().sub(e.pos).normalize(), 0.2).add(V(0, -0.02, 0)); };
@@ -1202,16 +1407,27 @@ async function start() {
 
   function frame() {
     const p = progress, time = clock.getElapsedTime();
-    pose(qb, qbH, QB, lookTarget, p);
+    if (mocap) mocap.at(p); else pose(qb, qbH, QB, lookTarget, p);
     pose(center, centerH, CENTER, V(0, 1.2, 30), p);
     const cam = cameraAt(p);
     camera.position.copy(cam.pos); camera.lookAt(cam.look);
+    // plain render while the ball flies at the lens: screen-space AO turns an object right at the camera dark
+    if (aoPass) { const flight = p > 0.6; aoPass.enabled = !flight; plainPass.enabled = flight; }
+    if (bokeh) {
+      const on = p > 0.15 && p < 0.62;
+      bokeh.enabled = on;
+      if (on) bokeh.uniforms.focus.value = camera.position.distanceTo((mocap ? qbH.bones.spine003 : qb.chest).getWorldPosition(V()));
+    }
     if (p < RELEASE) {
-      if (released) { qb.arms.R.hold.add(ball); ball.rotation.set(...BALL_IN_HAND); released = false; }
-      ball.position.copy(handOffset());
+      if (released) {
+        if (ballHold) { ballHold.add(ball); ball.position.set(0, 0, 0); ball.quaternion.identity(); ball.scale.set(holdFlip, 1, 1); }
+        else { qb.arms.R.hold.add(ball); ball.rotation.set(...BALL_IN_HAND); }
+        released = false;
+      }
+      if (!ballHold) ball.position.copy(handOffset());
       ghosts.forEach((g) => (g.visible = false));
     } else {
-      if (!released) { scene.attach(ball); released = true; }
+      if (!released) { scene.attach(ball); ball.scale.set(1, 1, 1); released = true; } // never carry a mirrored hand matrix into the flight
       const t = Math.pow(clamp((p - RELEASE) / (0.965 - RELEASE), 0, 1), 1.12);
       ball.position.copy(flightAt(t));
       ball.lookAt(camera.position); ball.rotateX(-0.72); ball.rotateZ(time * 9 + t * 60); // nose-first spiral, tilted so the shape reads
