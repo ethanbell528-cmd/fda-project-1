@@ -236,8 +236,12 @@ function startBall() {
       const halfH = tanH * dA;
       ball.position.set((sx - 0.5) * 2 * halfH * camera.aspect, (0.5 - sy) * 2 * halfH, -dA);
       ball.lookAt(origin);                 // nose points at the viewer
-      ball.rotateY(0.62);                  // tilt so the oblong shape reads
-      ball.rotateZ(t * 0.012 + k * 30);    // spiral about the long axis
+      // leaves the hand side-on (covering the real ball), then turns point-first within the first
+      // quarter of the flight; a slight residual tilt and wobble keep it reading as a 3D spiral
+      const turn = ease(clamp(k / 0.25, 0, 1));
+      ball.rotateY(0.62 + (0.34 - 0.62) * turn + 0.04 * Math.sin(k * 40));
+      ball.rotateX(0.03 * Math.cos(k * 40));
+      ball.rotateZ(t * 0.02 + k * 60);     // fast spiral about the long axis (laces circle the tip)
       renderer.render(scene, camera);
     },
   };
