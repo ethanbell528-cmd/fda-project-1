@@ -115,6 +115,9 @@ To use The Odds API free tier locally, copy `config.example.js` to `config.js` a
 | `js/history.js` | Historical game browser: loads `data/predictions_<sport>.csv`, lists a date's games, matches each to ESPN for the 3D view |
 | `js/intro3d.js` | Report-page intro: three.js stadium scene where a purple #8 quarterback (the CC0 base-mesh body playing real CMU motion capture: a backpedal, then a pass) throws a spiral at the viewer, scrubbed by scroll, with N8AO contact shading and depth of field on desktop; removed automatically if 3D can't load |
 | `assets/male_base_mesh.glb` | CC0 rigged human base mesh used for the intro's players (see Credits) |
+| `intro-preview.html` | Preview (not linked from the nav): the report intro rebuilt from real stock footage of a quarterback's snap, drop-back and throw, scrubbed by scroll, ending with a 3D football into the lens, so the owner can pick it or the 3D intro |
+| `js/intro-video.js` | Scroll-scrubs the preview's video (seeks on each animation frame, all-intra files so any frame decodes instantly) and draws the 3D ball finale on a transparent canvas; still-photo fallback for reduced motion or a failed load |
+| `assets/video/` | The preview's footage: `qb-throw-720/480` in WebM (VP9) and MP4 (H.264), a poster and a still, with `ATTRIBUTION.md` (Mixkit free license) |
 | `assets/motion/qb_mocap.json` | The intro quarterback's motion: two CMU motion-capture clips baked to joint positions and rotations by `scripts/bake_mocap.py` |
 | `scripts/bake_mocap.py` | Blender script that downloads the two CMU BVH clips and writes `assets/motion/qb_mocap.json` |
 | `assets/env/moonless_golf_1k.hdr` | Night HDRI from the three.js GitHub examples: image-based lighting for the intro stadium, loaded lazily with a built-in fallback (see Credits) |
@@ -163,6 +166,7 @@ Add an entry to `SPORTS` in `scripts/config.py`. Write `scripts/sports/<sport>.p
 ## Credits
 
 - **Human body model:** "Male Base Mesh" by [orange-juice-games](https://orange-juice-games.itch.io/male-base-mesh), dedicated to the public domain under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). Downloaded from [github.com/BoQsc/Godot-3D-Male-Base-Mesh](https://github.com/BoQsc/Godot-3D-Male-Base-Mesh) (`Original/male_base_mesh.glb`). The uniform, pads, helmet, numbers and motion are added in code.
+- **Intro preview footage:** "Quarterback training his passes" and "Portrait of a quarterback throwing the ball" from [Mixkit](https://mixkit.co/free-stock-video/american-football/) (clips 42553 and 42554), used under the [Mixkit Stock Video Free License](https://mixkit.co/license/#videoFree) (download, modify and distribute allowed; no attribution required). Trimmed, joined and re-encoded; details in `assets/video/ATTRIBUTION.md`.
 - **3D library:** [three.js](https://threejs.org) r169 (MIT), loaded from jsDelivr.
 - **Motion capture:** CMU Graphics Lab Motion Capture Database, subject 76 trial 11 (quick large steps backwards) and subject 79 trial 91 ("football"), BVH conversions from [github.com/una-dinosauria/cmu-mocap](https://github.com/una-dinosauria/cmu-mocap), baked by `scripts/bake_mocap.py` and retargeted onto the intro's player in the browser. The data used in this project was obtained from mocap.cs.cmu.edu. The database was created with funding from NSF EIA-0196217.
 - **Ambient occlusion:** [N8AO](https://github.com/N8python/n8ao) 2.0.1 (ISC) with [postprocessing](https://github.com/pmndrs/postprocessing) 6.36.4 (Zlib), loaded from jsDelivr on desktop only.

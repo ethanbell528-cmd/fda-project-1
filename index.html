@@ -48,7 +48,7 @@
     // if 3D can't start (old browser, blocked CDN), drop the intro so the report opens directly
     (function check(t) { setTimeout(function () { var s = document.getElementById("intro3d"); if (!s || s.classList.contains("ready")) return; if (s.dataset.boot && t < 25000) return check(t + 2000); s.remove(); }, t ? 2000 : 6000); })(0);
   </script>
-  <script type="module" src="js/intro3d.js?v=20260924c"></script>
+  <script type="module" src="js/intro3d.js?v=20260925a"></script>
 
   <main class="wrap" id="report">
     <header class="hero">

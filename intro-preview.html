@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intro Preview · The Closing Line</title>
+  <meta name="description" content="Preview of a real-footage intro: a quarterback's drop-back and throw, scrubbed by scroll.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="importmap">
+    { "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.min.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+    } }
+  </script>
+  <link rel="stylesheet" href="css/style.css?v=20260924h">
+  <link rel="preload" as="image" href="assets/video/qb-throw-poster.jpg">
+  <style>
+    /* real-footage intro (preview only; nothing here affects index.html) */
+    .introv { position: relative; height: 340vh; background: #05070c; }
+    .introv-stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: #05070c; transform-origin: 50% 45%; }
+    .introv-stage video, .introv-still { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+    .introv-still[hidden], .introv-stage video[hidden] { display: none; }
+    .introv-shade { position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse at 50% 55%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 100%), linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0) 35%); }
+    .introv-ball { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0; }
+    .introv-copy { position: absolute; left: 0; right: 0; top: 12vh; text-align: center; color: #fff; pointer-events: none; padding: 0 16px; text-shadow: 0 2px 18px rgba(0,0,0,0.75); }
+    .introv-copy .eyebrow { color: rgba(255,255,255,0.8); }
+    .introv-title { font-size: clamp(2.4rem, 8vw, 5rem); font-weight: 800; letter-spacing: -0.02em; margin: 8px 0 4px; line-height: 1; }
+    .introv-sub { font-size: 1.05rem; margin: 6px 0; color: rgba(255,255,255,0.9); }
+    .introv-flash { position: absolute; inset: 0; background: #fff; opacity: 0; pointer-events: none; }
+    .introv-skip { position: absolute; right: 16px; bottom: 20px; color: #fff; background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.3); padding: 6px 12px; border-radius: 999px; font-size: 0.85rem; font-weight: 700; text-decoration: none; }
+    .introv-credit { position: absolute; left: 16px; bottom: 22px; color: rgba(255,255,255,0.6); font-size: 0.72rem; }
+    .introv.introv-static { height: 100vh; }
+    .preview-note { max-width: 780px; margin: 32px auto; }
+    .preview-note .btn { text-decoration: none; display: inline-block; margin: 6px 8px 0 0; }
+    @media (prefers-reduced-motion: reduce) { .introv { height: 100vh; } }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Main">
+    <div class="wrap">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><i style="background:var(--nfl)"></i><i style="background:var(--nba)"></i><i style="background:var(--mlb)"></i><i style="background:var(--nhl)"></i><i style="background:var(--epl)"></i></span>The Closing Line</a>
+      <div class="nav-links">
+        <a href="index.html">Report</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="replays.html" class="nav-3d">Games &amp; 3D</a>
+        <button class="theme-btn" type="button">Dark mode</button>
+      </div>
+    </div>
+  </nav>
+
+  <section id="introv" class="introv" aria-label="Intro: real footage of a quarterback dropping back and throwing toward you as you scroll">
+    <div class="introv-stage">
+      <video muted playsinline preload="auto" poster="assets/video/qb-throw-poster.jpg" aria-hidden="true" disablepictureinpicture disableremoteplayback></video>
+      <img class="introv-still" src="assets/video/qb-throw-still.jpg" alt="A quarterback in helmet and pads winding up to throw under stadium lights" hidden>
+      <div class="introv-shade" aria-hidden="true"></div>
+      <div class="introv-copy">
+        <div class="eyebrow">NFL · NBA · MLB · NHL · EPL · 1990 to today</div>
+        <p class="introv-title">The Closing Line</p>
+        <p class="introv-sub">Scroll down to take the snap</p>
+      </div>
+      <span class="introv-credit">Footage: Mixkit (free license)</span>
+      <a class="introv-skip" href="#preview">Skip intro</a>
+      <div class="introv-flash" aria-hidden="true"></div>
+    </div>
+  </section>
+  <script type="module" src="js/intro-video.js?v=20260924e"></script>
+
+  <main class="wrap" id="preview">
+    <section class="card preview-note">
+      <div class="eyebrow">Preview</div>
+      <h1 style="margin:6px 0 10px;font-size:1.6rem">Preview: pick this or the 3D version</h1>
+      <p>This page tests a real-footage intro: licensed stock video of a quarterback's snap, drop-back and throw, scrubbed by your scroll, ending with a 3D football spiraling into the screen. The live report still opens with the 3D quarterback. Scroll back up to watch this version again, or compare it with the current intro.</p>
+      <a class="btn" href="index.html">Compare: current 3D intro</a>
+      <a class="btn ghost" href="#introv">Replay this intro</a>
+      <p class="small muted" style="margin-top:14px">Footage: "Quarterback training his passes" and "Portrait of a quarterback throwing the ball" from Mixkit, used under the Mixkit Stock Video Free License (no attribution required). See <code>assets/video/ATTRIBUTION.md</code>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p class="disclaimer"><strong>Educational project, not betting advice.</strong> Odds are shown for comparison only. This site never places bets, has no sportsbook links, and uses read-only public data. If gambling stops being fun, call or text 1-800-GAMBLER.</p>
+      <p>Built by Ethan Bell for Financial Data Analytics. Data sources and formulas are listed in the <a href="index.html#methodology">methodology</a>.</p>
+    </div>
+  </footer>
+
+  <script src="js/site.js?v=20260924"></script>
+</body>
+</html>

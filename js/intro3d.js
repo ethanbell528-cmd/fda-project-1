@@ -535,6 +535,13 @@ function makeBaseMocap(H, M, target) {
   // standing ankle height above the soles (the model's origin is not at its feet)
   const sole = new THREE.Box3().setFromObject(H.mesh, true).min.y;
   const restAnkle = Math.min(wp(B.footL).y, wp(B.footR).y) - sole;
+  // leg IK: thigh and shin lengths, and the hip half-width of this body vs the mocap's
+  const legs = {};
+  for (const s of ["L", "R"]) legs[s] = { l1: wp(B["thigh" + s]).distanceTo(wp(B["shin" + s])), l2: wp(B["shin" + s]).distanceTo(wp(B["foot" + s])) };
+  const hipHalfH = wp(B.thighL).distanceTo(wp(B.thighR)) / 2;
+  // each bone's local vector that points to the body's front (+Z) in the rest pose
+  const frontLocal = {};
+  for (const n of ["thighL", "thighR", "shinL", "shinR"]) frontLocal[n] = V(0, 0, 1).applyQuaternion(H.restWorld[n].clone().invert());
   const frameOf = (c, t) => {
     const f = clamp(t * fps, 0, c.n - 1), i = Math.floor(f), j = Math.min(i + 1, c.n - 1), a = f - i;
     const pos = {}, rot = {};
@@ -583,10 +590,64 @@ function makeBaseMocap(H, M, target) {
     }
     dq("spine004", F.rot.Neck);
     dq("spine005", F.rot.Head);
-    for (const [s, S] of [["L", "Left"], ["R", "Right"]]) {
-      keep("pelvis" + s);
-      swing("thigh" + s, d(S + "UpLeg", S + "Leg"));
-      swing("shin" + s, d(S + "Leg", S + "Foot"));
+    // Legs: two-bone IK instead of copying limb directions, so the knees don't splay (bowlegs).
+    // Ankle targets keep the mocap foot placement relative to the pelvis, with stance width beyond
+    // the hips compressed so the feet stay under the body; each knee points over its toes (mocap
+    // foot direction, plus a little of the mocap knee's own direction) with a slight inward bias;
+    // thigh and shin are then twisted about their own axes so the kneecap faces that way.
+    const twistTo = (name, fwd) => {
+      const b = B[name], q = wq(b);
+      const axis = V(0, 1, 0).applyQuaternion(q).normalize();
+      const cur = frontLocal[name].clone().applyQuaternion(q);
+      cur.addScaledVector(axis, -cur.dot(axis));
+      const want = fwd.clone().addScaledVector(axis, -fwd.dot(axis));
+      if (cur.lengthSq() < 1e-8 || want.lengthSq() < 1e-8) return;
+      cur.normalize(); want.normalize();
+      const ang = Math.atan2(axis.dot(cur.clone().cross(want)), cur.dot(want));
+      setWorld(name, new THREE.Quaternion().setFromAxisAngle(axis, ang).multiply(q));
+    };
+    const latM = P.LeftUpLeg.clone().sub(P.RightUpLeg), hipHalfM = latM.length() / 2 * legLen;
+    const u = latM.normalize(); // body's right -> left, in world space
+    const cM = P.LeftUpLeg.clone().add(P.RightUpLeg).multiplyScalar(0.5);
+    for (const s of ["L", "R"]) keep("pelvis" + s);
+    const cH = wp(B.thighL).add(wp(B.thighR)).multiplyScalar(0.5);
+    if (OLD_LEGS) { // test hook: previous direction-copying legs, for before/after comparisons
+      for (const [s, S] of [["L", "Left"], ["R", "Right"]]) {
+        swing("thigh" + s, d(S + "UpLeg", S + "Leg"));
+        swing("shin" + s, d(S + "Leg", S + "Foot"));
+        dq("foot" + s, F.rot[S + "Foot"]);
+      }
+    } else for (const [s, S, sg] of [["L", "Left", 1], ["R", "Right", -1]]) {
+      const { l1, l2 } = legs[s];
+      const Hp = wp(B["thigh" + s]);
+      // ankle target
+      const o = P[S + "Foot"].clone().sub(cM).multiplyScalar(legLen);
+      const lat = o.dot(u) * sg;                                    // outward distance of the ankle
+      const latWant = hipHalfH + (lat - hipHalfM) * STANCE;         // keep stance, trimmed beyond the hips
+      o.addScaledVector(u, (latWant - lat) * sg);
+      const A = cH.clone().add(o);
+      // knee pole: over the toes, with some of the mocap knee direction, slightly inward
+      const footFwd = V(0, 0, 1).applyQuaternion(F.rot[S + "Foot"]);
+      footFwd.y = 0;
+      const hM = P[S + "UpLeg"], kM = P[S + "Leg"], aM = P[S + "Foot"];
+      const lineM = aM.clone().sub(hM).normalize();
+      const kneeOut = kM.clone().sub(hM); kneeOut.addScaledVector(lineM, -kneeOut.dot(lineM));
+      const bend = clamp(kneeOut.length() / 0.06, 0, 1);
+      const pole = footFwd.normalize().multiplyScalar(0.75).addScaledVector(kneeOut.normalize(), 0.25 * bend).addScaledVector(u, -KNEE_IN * sg);
+      // two-bone IK (law of cosines), knee bent toward the pole
+      const toA = A.clone().sub(Hp);
+      const dist = clamp(toA.length(), 0.25 * (l1 + l2), 0.999 * (l1 + l2));
+      const a = toA.normalize();
+      const cosH = clamp((l1 * l1 + dist * dist - l2 * l2) / (2 * l1 * dist), -1, 1);
+      const perp = pole.clone().addScaledVector(a, -pole.dot(a));
+      if (perp.lengthSq() < 1e-8) perp.set(0, 0, 1).addScaledVector(a, -a.z);
+      perp.normalize();
+      const K = Hp.clone().addScaledVector(a, l1 * cosH).addScaledVector(perp, l1 * Math.sqrt(1 - cosH * cosH));
+      const Aik = Hp.clone().addScaledVector(a, dist);
+      swing("thigh" + s, K.clone().sub(Hp));
+      twistTo("thigh" + s, perp);
+      swing("shin" + s, Aik.clone().sub(K));
+      twistTo("shin" + s, perp.clone().addScaledVector(a, 0.0));
       dq("foot" + s, F.rot[S + "Foot"]);
     }
     // hips follow the mocap root (scaled to this body); the lower ankle stays at standing height
@@ -604,6 +665,10 @@ function makeBaseMocap(H, M, target) {
   return { at: (p) => apply(frameAt(p)) };
 }
 
+const DEBUG_CAM = new URLSearchParams(location.search).get("introCam"); // test hook only
+const OLD_LEGS = new URLSearchParams(location.search).get("introLegs") === "old"; // test hook only
+const STANCE = 0.6;   // share of the mocap stance width beyond the hips that is kept (feet under the body)
+const KNEE_IN = 0.12;  // small inward pull on the knee pole (knees track over the toes, never outward)
 const PALM_SIDE = 1; // +1/-1: which side of the right hand the palm faces (checked on screenshots)
 
 function hideDriver(D) { D.root.traverse((o) => { if (o.isMesh) o.visible = false; }); }
@@ -1411,6 +1476,11 @@ async function start() {
     pose(center, centerH, CENTER, V(0, 1.2, 30), p);
     const cam = cameraAt(p);
     camera.position.copy(cam.pos); camera.lookAt(cam.look);
+    if (DEBUG_CAM && mocap) { // test hook (?introCam=front|side): frame the quarterback's legs
+      const hip = qbH.bones.spine.getWorldPosition(V());
+      const off = DEBUG_CAM === "side" ? V(3.2, 0.2, 0) : V(0, 0.2, 3.2);
+      camera.position.copy(hip).add(off); camera.lookAt(hip.x, hip.y - 0.35, hip.z);
+    }
     // plain render while the ball flies at the lens: screen-space AO turns an object right at the camera dark
     if (aoPass) { const flight = p > 0.6; aoPass.enabled = !flight; plainPass.enabled = flight; }
     if (bokeh) {
