@@ -46,20 +46,23 @@ function pickSource() {
 const SUBJECT_X = [[0, 0.54], [0.9, 0.46], [1.15, 0.29], [1.45, 0.2], [1.75, 0.25], [2.0, 0.3], [2.24, 0.32],
                    [2.26, 0.5], [2.9, 0.47], [3.3, 0.42], [3.67, 0.45]];
 function subjectX(t) {
-  if (AI) return 0.5; // the AI clip keeps the quarterback centred
+  // AI clip: keep the quarterback centred, then pan a little left near the release so the ball in his
+  // hand is on screen on narrow (portrait) screens
+  if (AI) return t < 3.4 ? 0.5 : 0.5 + (0.40 - 0.5) * clamp((t - 3.4) / (AI_STOP - 3.4), 0, 1);
   for (let i = 1; i < SUBJECT_X.length; i++) {
     const [t1, x1] = SUBJECT_X[i], [t0, x0] = SUBJECT_X[i - 1];
     if (t <= t1) return x0 + (x1 - x0) * clamp((t - t0) / Math.max(t1 - t0, 1e-6), 0, 1);
   }
   return SUBJECT_X[SUBJECT_X.length - 1][1];
 }
-function panFor(t) {
+function panFrac(t) {                                 // object-position x as a 0..1 fraction
   const W = stage.clientWidth, H = stage.clientHeight, vw = 16 / 9;
-  if (W / H >= vw) return "50% 50%";                 // wide screens show the full width
+  if (W / H >= vw) return 0.5;                        // wide screens show the full width
   const v = (W / H) / vw;                             // visible share of the video's width
   const left = clamp(subjectX(t) - v / 2, 0, 1 - v);
-  return (left / (1 - v) * 100).toFixed(1) + "% 50%";
+  return left / (1 - v);
 }
+function panFor(t) { return (panFrac(t) * 100).toFixed(1) + "% 50%"; }
 
 function showStill(why) {
   if (still) still.hidden = false;
@@ -186,8 +189,11 @@ function startBall() {
   const origin = new THREE.Vector3(0, 0, 0);
   const easeOut = (x) => 1 - Math.pow(1 - x, 2);
   return {
-    draw(p, t) {
-      const k = clamp((p - BALL_START) / (BALL_END - BALL_START), 0, 1);
+    draw(p, t, shown) {
+      let k = clamp((p - BALL_START) / (BALL_END - BALL_START), 0, 1);
+      // AI clip: launch only when the release frame is really painted (phones seek slowly;
+      // launching early put a second ball on screen while the real one was still in his hand)
+      if (AI && !video.hidden && shown < AI_STOP - 0.1) k = 0;
       renderer.domElement.style.opacity = k > 0 ? "1" : "0";
       if (k <= 0) return;
       const W = stage.clientWidth, H = stage.clientHeight;
@@ -199,7 +205,7 @@ function startBall() {
         // where the real ball sits on screen (the video is object-fit: cover, centred)
         const vw = video.videoWidth || 832, vh = video.videoHeight || 480;
         const sc = Math.max(W / vw, H / vh), dw = vw * sc, dh = vh * sc;
-        sx0 = ((W - dw) / 2 + AI_BALL.u * dw) / W;
+        sx0 = ((W - dw) * panFrac(AI_STOP) + AI_BALL.u * dw) / W;   // same pan as the video
         sy0 = ((H - dh) / 2 + AI_BALL.v * dh) / H;
         d0 = depthFor(AI_BALL.w * dw);                       // start exactly the size of the real ball
       } else {
@@ -207,8 +213,18 @@ function startBall() {
       }
       const dEnd = 0.14;                                     // right in front of the lens: covers the screen
       const d = d0 * Math.pow(dEnd / d0, ease(k));           // perspective: size grows exponentially
-      const drift = AI ? k * k : easeOut(k);                 // AI: stay over the real ball at first, then centre
-      const sx = sx0 + (0.5 - sx0) * drift, sy = sy0 + (0.5 - sy0) * drift;
+      let sx, sy;
+      if (AI) {
+        // the ball may only move toward the centre by as much as it has grown, so it always
+        // keeps covering the real ball still printed in the paused frame underneath
+        const grow = Math.max(0, (d0 / d - 1)) * (EFF * (H / 2) / (tanH * d0)) / 2 * 0.85;
+        const dx = (0.5 - sx0) * W, dy = (0.5 - sy0) * H, len = Math.hypot(dx, dy);
+        const f = len > 0 ? Math.min(easeOut(k) * len, grow) / len : 0;
+        sx = sx0 + (0.5 - sx0) * f; sy = sy0 + (0.5 - sy0) * f;
+      } else {
+        const drift = easeOut(k);
+        sx = sx0 + (0.5 - sx0) * drift; sy = sy0 + (0.5 - sy0) * drift;
+      }
       // closest point: the tilted nose (~0.12 m toward the lens) must stay in front of the camera;
       // at 0.14 m the ball is wider than the screen, so it covers the view without clipping open
       const dA = Math.max(d, 0.14);
@@ -270,7 +286,7 @@ function start() {
     if (ready) video.style.objectPosition = panFor(shownT);
     if (copy) copy.style.opacity = String(1 - clamp((p - 0.05) / 0.12, 0, 1));
     if (flash) flash.style.opacity = String(clamp((p - FLASH_START) / (FLASH_END - FLASH_START), 0, 1));
-    if (ball) ball.draw(p, now || 0);
+    if (ball) ball.draw(p, now || 0, shownT);
     else if (stage) stage.style.transform = p > 0.8 ? "scale(" + (1 + (p - 0.8) * 1.5) + ")" : "";
     requestAnimationFrame(loop);
   })();
