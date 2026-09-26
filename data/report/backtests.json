@@ -2492,7 +2492,7 @@
     }
    }
   ],
-  "json_vs_sklearn_max_abs_diff_pH": 4.2422115098528224e-07,
+  "json_vs_sklearn_max_abs_diff_pH": 4.2422115131834914e-07,
   "notes": [
    "Holdout seasons were never used to choose Elo constants, features or coefficients.",
    "Elo constants were chosen on seasons 1992-2019 (mean squared error of Elo expected score).",
@@ -3076,41 +3076,41 @@
    "by_role": {
     "batter": {
      "h": {
-      "n": 48118,
-      "mae_formula": 0.6966,
-      "mae_season_to_date_avg": 0.6907
+      "n": 48154,
+      "mae_formula": 0.6967,
+      "mae_season_to_date_avg": 0.6908
      },
      "hr": {
-      "n": 48118,
+      "n": 48154,
       "mae_formula": 0.197,
       "mae_season_to_date_avg": 0.1945
      },
      "rbi": {
-      "n": 48118,
+      "n": 48154,
       "mae_formula": 0.5964,
       "mae_season_to_date_avg": 0.6001
      },
      "sb": {
-      "n": 48118,
+      "n": 48154,
       "mae_formula": 0.1171,
       "mae_season_to_date_avg": 0.1164
      }
     },
     "pitcher": {
      "ip": {
-      "n": 4285,
-      "mae_formula": 0.9578,
+      "n": 4288,
+      "mae_formula": 0.9579,
       "mae_season_to_date_avg": 0.963
      },
      "k_p": {
-      "n": 4285,
-      "mae_formula": 1.8258,
-      "mae_season_to_date_avg": 1.8698
+      "n": 4288,
+      "mae_formula": 1.8257,
+      "mae_season_to_date_avg": 1.8696
      },
      "er": {
-      "n": 4285,
-      "mae_formula": 1.6046,
-      "mae_season_to_date_avg": 1.64
+      "n": 4288,
+      "mae_formula": 1.6051,
+      "mae_season_to_date_avg": 1.6408
      }
     }
    }
@@ -3566,9 +3566,9 @@
     "homeStarter": "abboa001",
     "awayStarter": null,
     "expected": {
-     "margin": 0.654027153439,
-     "total": 9.99290620939,
-     "pH": 0.571429517576
+     "margin": 0.654092424736,
+     "total": 9.994428972452,
+     "pH": 0.571438838286
     }
    },
    {
@@ -3579,9 +3579,9 @@
     "homeStarter": "alcas001",
     "awayStarter": "ashba003",
     "expected": {
-     "margin": 0.141996616266,
-     "total": 8.65904432012,
-     "pH": 0.530017135774
+     "margin": 0.211637300469,
+     "total": 8.717352802891,
+     "pH": 0.537145600986
     }
    },
    {
@@ -3592,9 +3592,9 @@
     "homeStarter": "allel003",
     "awayStarter": "backk001",
     "expected": {
-     "margin": 1.15817299216,
-     "total": 9.620086991457,
-     "pH": 0.626501273059
+     "margin": 1.158186824925,
+     "total": 9.621548770468,
+     "pH": 0.626505817661
     }
    },
    {
@@ -3605,9 +3605,9 @@
     "homeStarter": "arris001",
     "awayStarter": null,
     "expected": {
-     "margin": -2.072702437475,
-     "total": 9.961053979462,
-     "pH": 0.300835373951
+     "margin": -2.072637166177,
+     "total": 9.962576742524,
+     "pH": 0.300843379238
     }
    },
    {
@@ -3618,9 +3618,9 @@
     "homeStarter": "bachl001",
     "awayStarter": "bellb002",
     "expected": {
-     "margin": -1.017358772062,
-     "total": 10.160378601217,
-     "pH": 0.450367323516
+     "margin": -1.058901792181,
+     "total": 10.015195284113,
+     "pH": 0.448747536543
     }
    },
    {
@@ -3631,9 +3631,9 @@
     "homeStarter": "barnm002",
     "awayStarter": "bibet001",
     "expected": {
-     "margin": -0.370256853472,
-     "total": 9.679726871123,
-     "pH": 0.467371177144
+     "margin": -0.370397336304,
+     "total": 9.68100569798,
+     "pH": 0.467362092878
     }
    },
    {
@@ -3644,9 +3644,9 @@
     "homeStarter": "beekj001",
     "awayStarter": null,
     "expected": {
-     "margin": 0.502121193017,
-     "total": 8.673091311206,
-     "pH": 0.564337934059
+     "margin": 0.502186464314,
+     "total": 8.674614074269,
+     "pH": 0.564347291415
     }
    },
    {
@@ -3657,9 +3657,9 @@
     "homeStarter": "berrj001",
     "awayStarter": "bousc001",
     "expected": {
-     "margin": 0.033168304723,
-     "total": 8.94300947782,
-     "pH": 0.518362889837
+     "margin": 0.033182137488,
+     "total": 8.944471256832,
+     "pH": 0.518367738696
     }
    },
    {
@@ -3670,9 +3670,9 @@
     "homeStarter": "blacp001",
     "awayStarter": "bradk001",
     "expected": {
-     "margin": 0.845808130414,
-     "total": 9.186885849275,
-     "pH": 0.597888265411
+     "margin": 0.845667647582,
+     "total": 9.188164676132,
+     "pH": 0.597879491927
     }
    },
    {
@@ -3683,9 +3683,9 @@
     "homeStarter": "boltc001",
     "awayStarter": null,
     "expected": {
-     "margin": -0.422992669519,
-     "total": 8.875301976866,
-     "pH": 0.468020341491
+     "margin": -0.43446132184,
+     "total": 8.854020851779,
+     "pH": 0.465328019944
     }
    }
   ],
@@ -4920,7 +4920,7 @@
     }
    }
   ],
-  "json_vs_sklearn_max_abs_diff_pH": 1.0240215252421692e-06,
+  "json_vs_sklearn_max_abs_diff_pH": 1.024021525575236e-06,
   "notes": [
    "Holdout seasons were never used to choose Elo constants, features or coefficients.",
    "Elo constants were chosen on seasons 1992-2019 (mean squared error of Elo expected score).",
@@ -6132,7 +6132,7 @@
     }
    }
   ],
-  "json_vs_sklearn_max_abs_diff_pH": 4.513785072379761e-07,
+  "json_vs_sklearn_max_abs_diff_pH": 4.5137850812615454e-07,
   "notes": [
    "Holdout seasons were never used to choose Elo constants, features or coefficients.",
    "Elo constants were chosen on seasons 1995-2023 (mean squared error of Elo expected score).",
