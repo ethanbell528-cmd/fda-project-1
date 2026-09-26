@@ -168791,6 +168791,8 @@ WAS202509280,CHW,smits003,Shane Smith
 WAS202509280,WSH,lordb001,Brad Lord
 mlb2026_822680,PHI,wheez001,Zack Wheeler
 mlb2026_822680,WSH,mlbam688692,Jared Simpson
+mlb2026_822681,NYM,mlbam642376,Jefry Yan
+mlb2026_822681,WSH,alvaa003,Andrew Alvarez
 mlb2026_822682,LAA,rodrg003,Grayson Rodriguez
 mlb2026_822682,WSH,mlbam683000,Riley Cornelio
 mlb2026_822683,PHI,sancc002,Cristopher Sánchez
@@ -168945,6 +168947,8 @@ mlb2026_822757,LAD,glast001,Tyler Glasnow
 mlb2026_822757,WSH,irvij001,Jake Irvin
 mlb2026_822758,LAD,sheee001,Emmet Sheehan
 mlb2026_822758,WSH,mikom001,Miles Mikolas
+mlb2026_822760,CIN,lodon001,Nick Lodolo
+mlb2026_822760,TOR,sorij002,José Soriano
 mlb2026_822762,DET,anded003,Drew Anderson
 mlb2026_822762,TOR,fishb002,Braydon Fisher
 mlb2026_822763,DET,montk001,Keider Montero
@@ -169587,6 +169591,8 @@ mlb2026_823081,STL,libem001,Matthew Liberatore
 mlb2026_823081,TB,rasmd002,Drew Rasmussen
 mlb2026_823082,STL,mcgrm001,Michael McGreevy
 mlb2026_823082,TB,boylj001,Joe Boyle
+mlb2026_823085,LAA,detmr001,Reid Detmers
+mlb2026_823085,SEA,millb004,Bryce Miller
 mlb2026_823086,HOU,mlbam814490,Ethan Pecko
 mlb2026_823086,SEA,kirbg001,George Kirby
 mlb2026_823087,LAA,rodrg003,Grayson Rodriguez
@@ -169745,6 +169751,8 @@ mlb2026_823163,CLE,bibet001,Tanner Bibee
 mlb2026_823163,SEA,gilbl002,Logan Gilbert
 mlb2026_823166,MIN,bradt002,Taj Bradley
 mlb2026_823166,SF,molia001,Anthony Molina
+mlb2026_823167,LAD,skubt001,Tarik Skubal
+mlb2026_823167,SF,mlbam805074,Yunior Marte
 mlb2026_823168,MIN,mlbam687570,Connor Prielipp
 mlb2026_823168,SF,mlbam702885,Cesar Perdomo
 mlb2026_823169,MIN,mattz001,Zebby Matthews
@@ -169901,6 +169909,8 @@ mlb2026_823244,NYY,friem001,Max Fried
 mlb2026_823244,SF,webbl001,Logan Webb
 mlb2026_823247,MIA,alcas001,Sandy Alcantara
 mlb2026_823247,SD,buehw001,Walker Buehler
+mlb2026_823248,ARI,pfaab001,Brandon Pfaadt
+mlb2026_823248,SD,mizec001,Casey Mize
 mlb2026_823249,MIA,peree004,Eury Pérez
 mlb2026_823249,SD,mizec001,Casey Mize
 mlb2026_823250,SD,mizec001,Casey Mize
@@ -170217,6 +170227,8 @@ mlb2026_823405,BAL,bassc001,Chris Bassitt
 mlb2026_823405,PIT,ashcb001,Braxton Ashcraft
 mlb2026_823406,BAL,bradk001,Kyle Bradish
 mlb2026_823406,PIT,kellm003,Mitch Keller
+mlb2026_823409,PHI,sancc002,Cristopher Sánchez
+mlb2026_823409,TB,peraf001,Freddy Peralta
 mlb2026_823410,MIL,hendl002,Logan Henderson
 mlb2026_823410,PHI,nolaa001,Aaron Nola
 mlb2026_823411,MIL,mlbam675660,Shane Drohan
@@ -170373,6 +170385,8 @@ mlb2026_823487,PHI,luzaj001,Jesús Luzardo
 mlb2026_823487,TEX,gorem001,MacKenzie Gore
 mlb2026_823488,PHI,nolaa001,Aaron Nola
 mlb2026_823488,TEX,latzj001,Jacob Latz
+mlb2026_823489,BAL,younb001,Brandon Young
+mlb2026_823489,NYY,yarbr001,Ryan Yarbrough
 mlb2026_823491,BAL,roget003,Trevor Rogers
 mlb2026_823491,NYY,mlbam694341,Brendan Beck
 mlb2026_823492,NYY,coleg001,Gerrit Cole
@@ -170693,6 +170707,8 @@ mlb2026_823649,NYM,peraf001,Freddy Peralta
 mlb2026_823649,PIT,skenp001,Paul Skenes
 mlb2026_823651,NYM,peted003,David Peterson
 mlb2026_823651,PIT,kellm003,Mitch Keller
+mlb2026_823652,MIN,ryanj002,Joe Ryan
+mlb2026_823652,TEX,degrj001,Jacob deGrom
 mlb2026_823654,MIN,oberb002,Bailey Ober
 mlb2026_823654,NYY,friem001,Max Fried
 mlb2026_823655,MIN,mattz001,Zebby Matthews
@@ -170851,6 +170867,8 @@ mlb2026_823732,MIN,oberb002,Bailey Ober
 mlb2026_823732,TB,boylj001,Joe Boyle
 mlb2026_823734,CIN,burnc003,Chase Burns
 mlb2026_823734,MIL,gassr001,Robert Gasser
+mlb2026_823735,MIL,gassr001,Robert Gasser
+mlb2026_823735,STL,mcgrm001,Michael McGreevy
 mlb2026_823736,CIN,abboa001,Andrew Abbott
 mlb2026_823736,MIL,may-d003,Dustin May
 mlb2026_823737,CIN,singb001,Brady Singer
@@ -171007,6 +171025,8 @@ mlb2026_823812,CHW,smits003,Shane Smith
 mlb2026_823812,MIL,misij001,Jacob Misiorowski
 mlb2026_823815,LAD,sheee001,Emmet Sheehan
 mlb2026_823815,MIA,peree004,Eury Pérez
+mlb2026_823816,ATL,kerrr001,Ray Kerr
+mlb2026_823816,MIA,peree004,Eury Pérez
 mlb2026_823817,LAD,snelb001,Blake Snell
 mlb2026_823817,MIA,gustr001,Ryan Gusto
 mlb2026_823818,MIA,junkj001,Janson Junk
@@ -171485,6 +171505,8 @@ mlb2026_824054,LAA,kochj001,Jack Kochanowicz
 mlb2026_824054,SEA,hance001,Emerson Hancock
 mlb2026_824056,LAA,detmr001,Reid Detmers
 mlb2026_824056,SEA,woo-b001,Bryan Woo
+mlb2026_824058,CLE,willg004,Gavin Williams
+mlb2026_824058,KC,camen001,Noah Cameron
 mlb2026_824059,CHW,mlbam689818,David Sandlin
 mlb2026_824059,KC,dobnr001,Randy Dobnak
 mlb2026_824060,CHW,hudsb001,Bryan Hudson
@@ -171803,6 +171825,8 @@ mlb2026_824216,HOU,burrm001,Mike Burrows
 mlb2026_824216,LAA,kikuy001,Yusei Kikuchi
 mlb2026_824218,HOU,browh001,Hunter Brown
 mlb2026_824218,LAA,sorij002,José Soriano
+mlb2026_824220,DET,jobej001,Jackson Jobe
+mlb2026_824220,PIT,chanb001,Bubba Chandler
 mlb2026_824221,DET,ryanr003,River Ryan
 mlb2026_824221,WSH,herzd001,DJ Herz
 mlb2026_824222,DET,anded003,Drew Anderson
@@ -172445,6 +172469,8 @@ mlb2026_824540,BOS,grays001,Sonny Gray
 mlb2026_824540,CIN,singb001,Brady Singer
 mlb2026_824541,BOS,crocg001,Garrett Crochet
 mlb2026_824541,CIN,abboa001,Andrew Abbott
+mlb2026_824544,CHW,burks001,Sean Burke
+mlb2026_824544,COL,sugat001,Tomoyuki Sugano
 mlb2026_824545,CHW,burks001,Sean Burke
 mlb2026_824545,DET,jobej001,Jackson Jobe
 mlb2026_824546,CHW,martd006,Davis Martin
@@ -173247,6 +173273,8 @@ mlb2026_824945,ATL,loper003,Reynaldo López
 mlb2026_824945,KC,wachm001,Michael Wacha
 mlb2026_824946,ATL,salec001,Chris Sale
 mlb2026_824946,KC,ragac001,Cole Ragans
+mlb2026_824947,ATH,lopej007,Jacob Lopez
+mlb2026_824947,HOU,browh001,Hunter Brown
 mlb2026_824950,ATH,barnm002,Mason Barnett
 mlb2026_824950,HOU,lambp001,Peter Lambert
 mlb2026_824951,ATH,sprij001,Jeffrey Springs

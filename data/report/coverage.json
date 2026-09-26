@@ -73,17 +73,17 @@
  },
  "mlb": {
   "sport": "mlb",
-  "rows": 173566,
+  "rows": 173594,
   "columns": 24,
-  "games": 86783,
+  "games": 86797,
   "first_season": 1990,
   "last_season": 2026,
   "seasons": 37,
   "teams": 30,
   "rows_with_line": 36316,
   "rows_with_total_line": 55964,
-  "player_game_rows": 257365,
-  "player_season_rows": 61845,
+  "player_game_rows": 257770,
+  "player_season_rows": 61847,
   "notes": [
    "The information used here was obtained free of charge from and is copyrighted by Retrosheet. Interested parties may contact Retrosheet at www.retrosheet.org.",
    "Team codes are current franchise codes: Montreal Expos (MON) -> WSH, Florida Marlins (FLO) -> MIA, California/Anaheim Angels (CAL/ANA) -> LAA, Tampa Bay Devil Rays -> TB, Oakland Athletics (OAK) -> ATH, Cleveland Indians -> CLE.",
@@ -93,7 +93,7 @@
    "Odds (closing moneyline, closing total; run line 2014+) from SportsbookReviewsOnline season files 2010–2021, matched on date + teams + final score. No free odds archive covers 1990–2009 or 2022–2026, so those seasons have blank odds columns. Match rate by season: 2010: 2,456/2,462 games (99.8%), 2 ambiguous left blank; 2011: 2,462/2,467 games (99.8%), 2 ambiguous left blank; 2012: 2,467/2,467 games (100.0%); 2013: 2,464/2,469 games (99.8%); 2014: 2,455/2,462 games (99.7%); 2015: 2,461/2,465 games (99.8%); 2016: 2,453/2,463 games (99.6%), 3 ambiguous left blank; 2017: 2,464/2,468 games (99.8%); 2018: 2,460/2,464 games (99.8%); 2019: 2,460/2,466 games (99.8%); 2020: 948/951 games (99.7%); 2021: 2,457/2,466 games (99.6%).",
    "MLB `line` is the run line (±1.5). Run line favorite = the team laying 1.5 runs.",
    "Line scores (runs per inning) for 84,395 games come from Retrosheet game-log fields 20-21 (data/mlb_linescores.csv); 'x' = home half not played, (10) = ten or more runs in an inning.",
-   "Player ids are Retrosheet ids; 2026 Stats API players are mapped via the Chadwick register (6,293 of 69,196 2026 player-game rows unmapped, kept with id 'mlbam<id>').",
+   "Player ids are Retrosheet ids; 2026 Stats API players are mapped via the Chadwick register (6,361 of 69,601 2026 player-game rows unmapped, kept with id 'mlbam<id>').",
    "Player-game file covers 2024–2026 (regular season + postseason; batter and pitcher rows separate). Player-season file covers 1990–2026, regular season only, one row per player/team/role (a traded player has one row per team)."
   ],
   "spans": {

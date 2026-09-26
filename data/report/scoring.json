@@ -764,9 +764,9 @@
    {
     "season": 2026,
     "label": "2026",
-    "avg": 8.947655,
-    "index": 95.775094,
-    "games": 2388
+    "avg": 8.95587,
+    "index": 95.863028,
+    "games": 2402
    }
   ],
   "nhl": [
@@ -1288,8 +1288,8 @@
    "base_label": "1990 to 1999",
    "base_avg": 9.342361,
    "latest_label": "2026",
-   "latest_avg": 8.947655,
-   "latest_index": 95.775094,
+   "latest_avg": 8.95587,
+   "latest_index": 95.863028,
    "low_label": "2014",
    "low_avg": 8.129976,
    "high_label": "2000",
