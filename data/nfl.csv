@@ -18975,6 +18975,8 @@ game_id,date,season,season_label,sport,game_type,team,opponent,home_away,score_f
 2026_02_NYG_LA,2026-09-21,2026,2026,nfl,regular,LA,NYG,H,28,6,W,22,34,REG,-6.5,47.5,-298.0,,,0.718,cover,under,1.0
 2026_03_ATL_GB,2026-09-24,2026,2026,nfl,regular,ATL,GB,A,35,14,W,21,49,REG,4.5,43.5,190.0,,,0.331,cover,over,0.0
 2026_03_ATL_GB,2026-09-24,2026,2026,nfl,regular,GB,ATL,H,14,35,L,-21,49,REG,-4.5,43.5,-230.0,,,0.669,miss,over,1.0
+2026_03_ARI_SF,2026-09-27,2026,2026,nfl,regular,ARI,SF,A,30,36,L,-6,66,REG,7.5,48.5,310.0,,,0.2341,cover,over,0.0
+2026_03_ARI_SF,2026-09-27,2026,2026,nfl,regular,SF,ARI,H,36,30,W,6,66,REG,-7.5,48.5,-395.0,,,0.7659,miss,over,1.0
 2026_03_CAR_CLE,2026-09-27,2026,2026,nfl,regular,CAR,CLE,A,18,21,L,-3,39,REG,-2.5,41.5,-135.0,,,0.5514,miss,under,1.0
 2026_03_CAR_CLE,2026-09-27,2026,2026,nfl,regular,CLE,CAR,H,21,18,W,3,39,REG,2.5,41.5,114.0,,,0.4486,cover,under,0.0
 2026_03_CIN_PIT,2026-09-27,2026,2026,nfl,regular,CIN,PIT,A,27,30,L,-3,57,REG,-3.5,42.5,-180.0,,,0.6164,miss,over,1.0
@@ -18985,6 +18987,8 @@ game_id,date,season,season_label,sport,game_type,team,opponent,home_away,score_f
 2026_03_KC_MIA,2026-09-27,2026,2026,nfl,regular,MIA,KC,H,10,24,L,-14,34,REG,10.0,45.5,440.0,,,0.1777,miss,under,0.0
 2026_03_LAC_BUF,2026-09-27,2026,2026,nfl,regular,LAC,BUF,A,16,24,L,-8,40,REG,7.0,50.5,260.0,,,0.2665,miss,under,0.0
 2026_03_LAC_BUF,2026-09-27,2026,2026,nfl,regular,BUF,LAC,H,24,16,W,8,40,REG,-7.0,50.5,-325.0,,,0.7335,cover,under,1.0
+2026_03_MIN_TB,2026-09-27,2026,2026,nfl,regular,MIN,TB,A,23,16,W,7,39,REG,-1.5,42.5,-112.0,,,0.5043,cover,under,1.0
+2026_03_MIN_TB,2026-09-27,2026,2026,nfl,regular,TB,MIN,H,16,23,L,-7,39,REG,1.5,42.5,-108.0,,,0.4957,miss,under,0.0
 2026_03_NE_JAX,2026-09-27,2026,2026,nfl,regular,NE,JAX,A,6,35,L,-29,41,REG,3.0,46.5,136.0,,,0.4066,miss,under,0.0
 2026_03_NE_JAX,2026-09-27,2026,2026,nfl,regular,JAX,NE,H,35,6,W,29,41,REG,-3.0,46.5,-162.0,,,0.5934,cover,under,1.0
 2026_03_NYJ_DET,2026-09-27,2026,2026,nfl,regular,NYJ,DET,A,24,31,L,-7,55,REG,7.0,49.5,260.0,,,0.2665,push,over,0.0
