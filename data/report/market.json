@@ -2,9 +2,9 @@
  "rows": [
   {
    "sport": "nfl",
-   "games": 5325,
-   "brier": 0.211242,
-   "logloss": 0.609767,
+   "games": 5327,
+   "brier": 0.211267,
+   "logloss": 0.60982,
    "first": "2006",
    "last": "2026"
   },
