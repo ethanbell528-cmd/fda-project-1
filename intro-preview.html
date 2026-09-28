@@ -36,6 +36,7 @@
     .introv-flash { position: absolute; inset: 0; background: #fff; opacity: 0; pointer-events: none; }
     .introv-skip { position: absolute; right: 16px; bottom: 20px; color: #fff; background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.3); padding: 6px 12px; border-radius: 999px; font-size: 0.85rem; font-weight: 700; text-decoration: none; }
     .introv-credit { position: absolute; left: 16px; bottom: 22px; color: rgba(255,255,255,0.6); font-size: 0.72rem; }
+    .introv-credit.introv-credit-wrap { right: 118px; } /* long credit: wrap before the Skip button on phones */
     .introv.introv-static { height: 100vh; }
     .preview-note { max-width: 780px; margin: 32px auto; }
     .preview-note .btn { text-decoration: none; display: inline-block; margin: 6px 8px 0 0; }
@@ -70,19 +71,27 @@
       <nav class="introv-switch" aria-label="Choose intro footage">
         <a href="intro-preview.html" id="sw-real">Real footage</a>
         <a href="intro-preview.html?clip=ai" id="sw-ai">AI-generated</a>
+        <a href="intro-preview.html?clip=ai2" id="sw-ai2">AI v2</a>
       </nav>
       <script>
         (function () {
-          var ai = new URLSearchParams(location.search).get("clip") === "ai";
-          document.getElementById(ai ? "sw-ai" : "sw-real").setAttribute("aria-current", "page");
-          if (ai) document.getElementById("introv-credit").textContent = "AI-generated video, not a real player (Wan 2.2)";
+          var clip = new URLSearchParams(location.search).get("clip");
+          var credits = {
+            ai: "AI-generated video, not a real player (Wan 2.2)",
+            ai2: "AI-generated video, not a real player (Wan 2.2 T2V-A14B)"
+          };
+          var known = Object.prototype.hasOwnProperty.call(credits, clip);
+          document.getElementById(known ? "sw-" + clip : "sw-real").setAttribute("aria-current", "page");
+          var credit = document.getElementById("introv-credit");
+          if (known) credit.textContent = credits[clip];
+          if (clip === "ai2") credit.className += " introv-credit-wrap";
         })();
       </script>
       <a class="introv-skip" href="#preview">Skip intro</a>
       <div class="introv-flash" aria-hidden="true"></div>
     </div>
   </section>
-  <script type="module" src="js/intro-video.js?v=20260925k"></script>
+  <script type="module" src="js/intro-video.js?v=20260928c"></script>
 
   <main class="wrap" id="preview">
     <section class="card preview-note">

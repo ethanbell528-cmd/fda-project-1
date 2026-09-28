@@ -23,14 +23,39 @@ const copy = section && section.querySelector(".introv-copy");
 const flash = section && section.querySelector(".introv-flash");
 const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const forced = parseFloat(new URLSearchParams(location.search).get("introP")); // test hook
-// ?clip=ai swaps in the AI-generated clip (Wan 2.2) for comparison with the real footage
-const AI = new URLSearchParams(location.search).get("clip") === "ai";
-const BASE = AI ? "assets/video/qb-ai-" : "assets/video/qb-throw-";
-// AI clip: stop on frame 70 (4.375 s at 16 fps), where his arm brings the ball forward and he is still in view;
-// the 3D ball takes over from the real ball's spot in that frame (video pixels: centre 255,212, about 180 px wide of 832).
-// measured on the release still at phone width: the blurred ball + fingers blob is centred near (271, 232)
-// and about 156 x 175 px; the 3D ball starts a little larger (its oval is wider than tall) so it fully covers it
-const AI_STOP = 70 / 16, AI_BALL = { u: 271 / 832, v: 232 / 480, w: 260 / 832 };
+// ?clip=<key> swaps in an AI-generated clip for comparison with the real footage (no key: real footage).
+// Each AI clip stops on a release frame (stop, seconds); a still of that frame (release) holds on top of
+// the video, and the 3D ball takes over from the real ball's spot in it (ball: centre u,v as fractions of
+// the 832x480 frame, w = the 3D ball's starting width as a fraction of the frame width, a little larger
+// than the real ball so its oval covers it). pan: [time, x] keys that keep the quarterback in view on
+// screens narrower than the video (x = fraction of the video width), like SUBJECT_X for the real footage.
+// Optional: roll (radians, the real ball's tilt on screen; the 3D ball starts at it) and belowNav (see navCover).
+const CLIPS = {
+  // Wan 2.2, seed 2027 (assets/video/ATTRIBUTION-ai.md): stop on frame 70 (4.375 s at 16 fps), where his
+  // arm brings the ball forward and he is still in view; the real ball there is centred at 255,212, about
+  // 180 px wide of 832. Measured on the release still at phone width: the blurred ball + fingers blob is
+  // centred near (271, 232) and about 156 x 175 px; the 3D ball starts a little larger (its oval is wider
+  // than tall) so it fully covers it. Pan: centred, then a little left near the release so the ball in his
+  // hand is on screen on narrow (portrait) screens.
+  ai: { base: "assets/video/qb-ai-", release: "assets/video/qb-ai-release.jpg", stop: 70 / 16,
+        ball: { u: 257 / 832, v: 210 / 480, w: 260 / 832 }, pan: [[0, 0.5], [3.4, 0.5], [70 / 16, 0.40]],
+        // the real ball cut out of the release frame (square crop in video px, centred on the ball) and the
+        // colour of the 3D ball's leather pulled toward the video ball, so the handoff is the same football
+        cut: { src: "assets/video/qb-ai-ballcut.png", size: 234, r: 70 }, tint: [0.96, 1.2, 1.2] },
+  // Wan 2.2 T2V-A14B, seed 2601, neutral kit (assets/video/ATTRIBUTION-ai2.md): stop on frame 67
+  // (4.1875 s), arm up and forward with the ball still fully in his fingers (from frame 68 it touches the
+  // top edge, by 70 it has left the hand). Real ball: centre (294, 62), box 89 x 79 px, tilted top-left to
+  // bottom-right. Pan: he stays near the middle, then the view moves left onto the raised ball.
+  ai2: { base: "assets/video/qb-ai2-", release: "assets/video/qb-ai2-release.jpg", stop: 67 / 16,
+         ball: { u: 294 / 832, v: 62 / 480, w: 116 / 832 }, roll: -0.9, belowNav: true,
+         pan: [[0, 0.52], [3.4, 0.52], [67 / 16, 0.41]],
+         cut: { src: "assets/video/qb-ai2-ballcut.png", size: 140, r: 38 }, tint: [0.62, 0.66, 0.67] },
+};
+const CLIP_KEY = new URLSearchParams(location.search).get("clip");
+const CLIP = Object.prototype.hasOwnProperty.call(CLIPS, CLIP_KEY) ? CLIPS[CLIP_KEY] : null;
+const AI = !!CLIP;
+const BASE = AI ? CLIP.base : "assets/video/qb-throw-";
+const AI_STOP = AI ? CLIP.stop : 0, AI_BALL = AI ? CLIP.ball : null;
 const BALL_ROLL = 0; // roll of the scanned ball about its long axis (tuned from screenshots)
 const VIDEO_END = 0.74, BALL_START = AI ? 0.74 : 0.7, BALL_END = 0.97;
 const FLASH_START = 0.94, FLASH_END = 0.995; // the ball fills the screen first, then the flash
@@ -51,14 +76,12 @@ function pickSource() {
 const SUBJECT_X = [[0, 0.54], [0.9, 0.46], [1.15, 0.29], [1.45, 0.2], [1.75, 0.25], [2.0, 0.3], [2.24, 0.32],
                    [2.26, 0.5], [2.9, 0.47], [3.3, 0.42], [3.67, 0.45]];
 function subjectX(t) {
-  // AI clip: keep the quarterback centred, then pan a little left near the release so the ball in his
-  // hand is on screen on narrow (portrait) screens
-  if (AI) return t < 3.4 ? 0.5 : 0.5 + (0.40 - 0.5) * clamp((t - 3.4) / (AI_STOP - 3.4), 0, 1);
-  for (let i = 1; i < SUBJECT_X.length; i++) {
-    const [t1, x1] = SUBJECT_X[i], [t0, x0] = SUBJECT_X[i - 1];
+  const keys = AI ? CLIP.pan : SUBJECT_X;             // AI clips: their own pan keys (see CLIPS)
+  for (let i = 1; i < keys.length; i++) {
+    const [t1, x1] = keys[i], [t0, x0] = keys[i - 1];
     if (t <= t1) return x0 + (x1 - x0) * clamp((t - t0) / Math.max(t1 - t0, 1e-6), 0, 1);
   }
-  return SUBJECT_X[SUBJECT_X.length - 1][1];
+  return keys[keys.length - 1][1];
 }
 function panFrac(t) {                                 // object-position x as a 0..1 fraction
   const W = stage.clientWidth, H = stage.clientHeight, vw = 16 / 9;
@@ -68,6 +91,16 @@ function panFrac(t) {                                 // object-position x as a 
   return left / (1 - v);
 }
 function panFor(t) { return (panFrac(t) * 100).toFixed(1) + "% 50%"; }
+
+// Clips with belowNav: the site's sticky nav covers the top of the stuck stage (about 56 px on
+// desktop, 106 px on a 390 px phone where it wraps), so their video, release still and 3D ball shift
+// down by the part it covers (0 until the stage reaches the top); the frame's bottom is cropped instead.
+const siteNav = document.querySelector(".nav");
+function navCover() {
+  if (!(AI && CLIP.belowNav) || !siteNav) return 0;
+  const n = siteNav.getBoundingClientRect(), s = stage.getBoundingClientRect();
+  return Math.round(clamp(n.bottom - s.top, 0, n.height));
+}
 
 function showStill(why) {
   if (still) still.hidden = false;
@@ -162,6 +195,17 @@ function startBall() {
   const pmrem = new THREE.PMREMGenerator(renderer);
   scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
   scene.environmentIntensity = 0.55;
+  // cutout of the real ball: shown on top at the release, cross-fades into the 3D ball in flight
+  let cut = null;
+  if (AI && CLIP.cut) {
+    const tex = new THREE.TextureLoader().load(CLIP.cut.src);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    cut = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthTest: false, depthWrite: false, toneMapped: false }));
+    cut.renderOrder = 10;
+    cut.visible = false;
+    scene.add(cut);
+  }
+  const fadeMats = [];
   new GLTFLoader().load("assets/ball/american_football.gltf", (g) => {
     const m = g.scene;
     const box = new THREE.Box3().setFromObject(m);
@@ -175,7 +219,12 @@ function startBall() {
     holder.add(turn);
     holder.scale.setScalar(0.284 / Math.max(size.x, size.y, size.z));
     holder.rotation.z = BALL_ROLL;                                             // laces toward the viewer's upper side
-    m.traverse((o) => { if (o.isMesh) { o.material.envMapIntensity = 1; } });
+    m.traverse((o) => {
+      if (!o.isMesh) return;
+      o.material.envMapIntensity = 1;
+      if (AI && CLIP.tint) o.material.color.setRGB(CLIP.tint[0], CLIP.tint[1], CLIP.tint[2]);
+      if (cut) { o.material.transparent = true; fadeMats.push(o.material); }
+    });
     ball.clear();
     ball.add(holder);
   }, undefined, () => { /* keep the code-built ball if the model can't load */ });
@@ -194,7 +243,7 @@ function startBall() {
   const origin = new THREE.Vector3(0, 0, 0);
   const easeOut = (x) => 1 - Math.pow(1 - x, 2);
   return {
-    draw(p, t, shown) {
+    draw(p, t, shown, off = 0) {                             // off: px the video is shifted down (belowNav)
       let k = clamp((p - BALL_START) / (BALL_END - BALL_START), 0, 1);
       // AI clip: launch only when the release frame is really painted (phones seek slowly;
       // launching early put a second ball on screen while the real one was still in his hand)
@@ -211,7 +260,7 @@ function startBall() {
         const vw = video.videoWidth || 832, vh = video.videoHeight || 480;
         const sc = Math.max(W / vw, H / vh), dw = vw * sc, dh = vh * sc;
         sx0 = ((W - dw) * panFrac(AI_STOP) + AI_BALL.u * dw) / W;   // same pan as the video
-        sy0 = ((H - dh) / 2 + AI_BALL.v * dh) / H;
+        sy0 = (off + (H - dh) / 2 + AI_BALL.v * dh) / H;
         d0 = depthFor(AI_BALL.w * dw);                       // start exactly the size of the real ball
       } else {
         sx0 = 0.30; sy0 = 0.26; d0 = 6;                      // release point in the real footage
@@ -222,7 +271,12 @@ function startBall() {
       if (AI) {
         // the ball may only move toward the centre by as much as it has grown, so it always
         // keeps covering the real ball still printed in the paused frame underneath
-        const grow = Math.max(0, (d0 / d - 1)) * (EFF * (H / 2) / (tanH * d0)) / 2 * 0.6;
+        let grow = Math.max(0, (d0 / d - 1)) * (EFF * (H / 2) / (tanH * d0)) / 2 * 0.6;
+        if (CLIP.cut) {                                       // flying his own ball: size the limit to it
+          const vw2 = video.videoWidth || 832, vh2 = video.videoHeight || 480;
+          const r0 = CLIP.cut.r * vw2 * Math.max(W / vw2, H / vh2) / vw2;
+          grow = Math.max(0, (d0 / d - 1)) * r0 * 0.85;
+        }
         const dx = (0.5 - sx0) * W, dy = (0.5 - sy0) * H, len = Math.hypot(dx, dy);
         const f = len > 0 ? Math.min(easeOut(k) * len, grow) / len : 0;
         sx = sx0 + (0.5 - sx0) * f; sy = sy0 + (0.5 - sy0) * f;
@@ -239,9 +293,29 @@ function startBall() {
       // leaves the hand side-on (covering the real ball), then turns point-first within the first
       // quarter of the flight; a slight residual tilt and wobble keep it reading as a 3D spiral
       const turn = ease(clamp(k / 0.25, 0, 1));
+      // a clip whose real ball is held tilted: start at the same tilt on screen, level out as it turns
+      if (AI && CLIP.roll) ball.rotateZ(CLIP.roll * (1 - turn));
       ball.rotateY(0.62 + (0.34 - 0.62) * turn + 0.04 * Math.sin(k * 40));
       ball.rotateX(0.03 * Math.cos(k * 40));
       ball.rotateZ(t * 0.02 + k * 60);     // fast spiral about the long axis (laces circle the tip)
+      if (cut) {
+        // AI clips: the ball that flies at the viewer IS the ball in his hand (cut out of the release
+        // frame), never a second model: it grows, spins and fills the screen; the 3D ball is not drawn
+        ball.visible = false;
+        cut.visible = true;
+        const vw = video.videoWidth || 832, vh = video.videoHeight || 480;
+        const dw = vw * Math.max(W / vw, H / vh);
+        const s0 = CLIP.cut.size * dw / vw;                     // cutout size on screen at the release
+        const sNow = s0 * (d0 / d);                             // grows like a ball coming at the lens
+        const world = sNow * 2 * tanH * dA / H;
+        cut.position.copy(ball.position);
+        cut.scale.set(world, world, 1);
+        cut.material.opacity = 1;
+        cut.material.rotation = -k * 9;    // spiral spin
+        // it rushes into the lens: soften it more the closer it gets (the canvas holds only this ball)
+        const blur = clamp((k - 0.45) / 0.5, 0, 1) * 6;
+        renderer.domElement.style.filter = blur > 0.05 ? "blur(" + blur.toFixed(1) + "px)" : "";
+      }
       renderer.render(scene, camera);
     },
   };
@@ -249,7 +323,7 @@ function startBall() {
 
 function start() {
   section.classList.add("ready");
-  if (AI) { video.poster = BASE + "poster.jpg"; if (still) still.src = BASE + "still.jpg"; if (hold) hold.src = BASE + "release.jpg"; }
+  if (AI) { video.poster = BASE + "poster.jpg"; if (still) still.src = BASE + "still.jpg"; if (hold) hold.src = CLIP.release; }
   if (reduce) { showStill("reduced-motion"); return; }
   let ball = null;
   try { ball = startBall(); } catch (e) { ball = null; }
@@ -300,7 +374,12 @@ function start() {
       if (hold.hidden === on) hold.hidden = !on;
       if (on) hold.style.objectPosition = panFor(AI_STOP);
     }
-    if (ball) ball.draw(p, now || 0, shownT);
+    const off = navCover();
+    if (AI && CLIP.belowNav) {
+      const tf = off ? "translateY(" + off + "px)" : "";
+      if (video.style.transform !== tf) { video.style.transform = tf; if (hold) hold.style.transform = tf; }
+    }
+    if (ball) ball.draw(p, now || 0, shownT, off);
     else if (stage) stage.style.transform = p > 0.8 ? "scale(" + (1 + (p - 0.8) * 1.5) + ")" : "";
     requestAnimationFrame(loop);
   })();
