@@ -382,3 +382,25 @@ footer .disclaimer { max-width: 820px; }
 .pill.hist-wrong { background: color-mix(in srgb, var(--bad) 16%, var(--surface-2)); color: var(--ink); }
 .pill.hist-split { border: 1px dashed var(--border); }
 .hist-detail .compare { margin-top: 8px; }
+
+/* video intro (report page and preview page) */
+.introv { position: relative; height: 340vh; background: #05070c; }
+.introv-stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: #05070c; transform-origin: 50% 45%; }
+.introv-switch { position: absolute; top: 14px; left: 50%; transform: translateX(-50%); z-index: 5; display: flex; gap: 0; border: 1px solid rgba(255,255,255,0.35); border-radius: 999px; overflow: hidden; background: rgba(0,0,0,0.55); }
+.introv-switch a { color: #fff; text-decoration: none; font-size: 0.85rem; font-weight: 700; padding: 7px 14px; }
+.introv-switch a[aria-current="page"] { background: #fff; color: #000; }
+.introv-stage video, .introv-still, .introv-hold { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.introv-still[hidden], .introv-stage video[hidden], .introv-hold[hidden] { display: none; }
+.introv-shade { position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 55%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 100%), linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0) 35%); }
+.introv-ball { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0; }
+.introv-copy { position: absolute; left: 0; right: 0; top: 12vh; text-align: center; color: #fff; pointer-events: none; padding: 0 16px; text-shadow: 0 2px 18px rgba(0,0,0,0.75); }
+.introv-copy .eyebrow { color: rgba(255,255,255,0.8); }
+.introv-title { font-size: clamp(2.4rem, 8vw, 5rem); font-weight: 800; letter-spacing: -0.02em; margin: 8px 0 4px; line-height: 1; }
+.introv-sub { font-size: 1.05rem; margin: 6px 0; color: rgba(255,255,255,0.9); }
+.introv-flash { position: absolute; inset: 0; background: #fff; opacity: 0; pointer-events: none; }
+.introv-skip { position: absolute; right: 16px; bottom: 20px; color: #fff; background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.3); padding: 6px 12px; border-radius: 999px; font-size: 0.85rem; font-weight: 700; text-decoration: none; }
+.introv-credit { position: absolute; left: 16px; bottom: 22px; color: rgba(255,255,255,0.6); font-size: 0.72rem; }
+.introv-credit.introv-credit-wrap { right: 118px; } /* long credit: wrap before the Skip button on phones */
+.introv.introv-static { height: 100vh; }
+@media (prefers-reduced-motion: reduce) { .introv { height: 100vh; } }

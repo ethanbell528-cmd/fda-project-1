@@ -17,7 +17,7 @@
         "postprocessing": "https://cdn.jsdelivr.net/npm/postprocessing@6.36.4/build/index.js"
     } }
   </script>
-  <link rel="stylesheet" href="css/style.css?v=20260924h">
+  <link rel="stylesheet" href="css/style.css?v=20260928a">
 </head>
 <body>
   <nav class="nav" aria-label="Main">
@@ -32,23 +32,23 @@
     </div>
   </nav>
 
-  <section id="intro3d" class="intro3d" aria-label="Intro animation: a quarterback throws a football toward you as you scroll">
-    <div class="intro-stage">
-      <div class="intro-copy">
+  <section id="introv" class="introv" data-clip="ai" aria-label="Intro: an AI-generated video of a quarterback throwing a football toward you as you scroll">
+    <div class="introv-stage">
+      <video muted playsinline preload="auto" poster="assets/video/qb-ai-poster.jpg" aria-hidden="true" disablepictureinpicture disableremoteplayback></video>
+      <img class="introv-hold" alt="" aria-hidden="true" hidden>
+      <img class="introv-still" src="assets/video/qb-ai-still.jpg" alt="A quarterback winding up to throw under stadium lights (AI-generated)" hidden>
+      <div class="introv-shade" aria-hidden="true"></div>
+      <div class="introv-copy">
         <div class="eyebrow">NFL · NBA · MLB · NHL · EPL · 1990 to today</div>
-        <p class="intro-title">The Closing Line</p>
-        <p class="intro-sub">Scroll down to take the snap</p>
-        <span class="intro-arrow" aria-hidden="true">↓</span>
+        <p class="introv-title">The Closing Line</p>
+        <p class="introv-sub">Scroll down to take the snap</p>
       </div>
-      <a class="intro-skip" href="#report">Skip intro</a>
-      <div class="intro-flash" aria-hidden="true"></div>
+      <span class="introv-credit">AI-generated video, not a real player (Wan 2.2)</span>
+      <a class="introv-skip" href="#report">Skip intro</a>
+      <div class="introv-flash" aria-hidden="true"></div>
     </div>
   </section>
-  <script>
-    // if 3D can't start (old browser, blocked CDN), drop the intro so the report opens directly
-    (function check(t) { setTimeout(function () { var s = document.getElementById("intro3d"); if (!s || s.classList.contains("ready")) return; if (s.dataset.boot && t < 25000) return check(t + 2000); s.remove(); }, t ? 2000 : 6000); })(0);
-  </script>
-  <script type="module" src="js/intro3d.js?v=20260925a"></script>
+  <script type="module" src="js/intro-video.js?v=20260928g"></script>
 
   <main class="wrap" id="report">
     <header class="hero">

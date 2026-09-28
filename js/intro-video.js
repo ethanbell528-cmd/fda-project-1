@@ -53,7 +53,8 @@ const CLIPS = {
          pan: [[0, 0.52], [3.4, 0.52], [67 / 16, 0.41]],
          cut: { src: "assets/video/qb-ai2-ballcut.png", size: 140, r: 38 }, tint: [0.62, 0.66, 0.67] },
 };
-const CLIP_KEY = new URLSearchParams(location.search).get("clip");
+// ?clip= in the URL wins; otherwise the page picks with data-clip on the section (the report uses "ai")
+const CLIP_KEY = new URLSearchParams(location.search).get("clip") || (section && section.dataset.clip) || null;
 const CLIP = Object.prototype.hasOwnProperty.call(CLIPS, CLIP_KEY) ? CLIPS[CLIP_KEY] : null;
 const AI = !!CLIP;
 const BASE = AI ? CLIP.base : "assets/video/qb-throw-";
