@@ -1082,9 +1082,9 @@
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 1.678487478103,
-    "total": 43.661736161987,
-    "pH": 0.54743328205
+    "margin": 1.675179799373,
+    "total": 43.665830599208,
+    "pH": 0.547302117403
    }
   },
   {
@@ -1095,9 +1095,9 @@
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 6.005815304421,
-    "total": 53.197077704867,
-    "pH": 0.675468644734
+    "margin": 6.002507625691,
+    "total": 53.201172142088,
+    "pH": 0.675352581603
    }
   },
   {
@@ -1108,9 +1108,9 @@
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 5.764304481729,
-    "total": 48.589449491982,
-    "pH": 0.677663941463
+    "margin": 5.760996802999,
+    "total": 48.593543929203,
+    "pH": 0.677548288651
    }
   },
   {
@@ -1121,9 +1121,9 @@
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": -0.348540619133,
-    "total": 46.90932452466,
-    "pH": 0.493577159988
+    "margin": 1.475998048786,
+    "total": 47.254829010069,
+    "pH": 0.551862363007
    }
   },
   {
@@ -1134,9 +1134,9 @@
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 5.81815671186,
-    "total": 44.47417174589,
-    "pH": 0.633109399304
+    "margin": 5.81484903313,
+    "total": 44.478266183111,
+    "pH": 0.632986418301
    }
   },
   {
@@ -1147,9 +1147,9 @@
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 5.558597783696,
-    "total": 42.643379963181,
-    "pH": 0.674785390655
+    "margin": 5.555290104966,
+    "total": 42.647474400402,
+    "pH": 0.674669200861
    }
   },
   {
@@ -1160,9 +1160,9 @@
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": -3.33346719247,
-    "total": 40.954337254197,
-    "pH": 0.405458461319
+    "margin": -3.3367748712,
+    "total": 40.958431691418,
+    "pH": 0.405330847146
    }
   },
   {
@@ -1173,9 +1173,9 @@
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 0.189271252189,
-    "total": 44.540985720946,
-    "pH": 0.505208637188
+    "margin": 0.185963573459,
+    "total": 44.545080158167,
+    "pH": 0.505076298705
    }
   },
   {
@@ -1186,9 +1186,9 @@
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": -2.548704400086,
-    "total": 43.28483273354,
-    "pH": 0.430592658029
+    "margin": -2.552012078816,
+    "total": 43.28892717076,
+    "pH": 0.430462860686
    }
   },
   {
@@ -1199,9 +1199,9 @@
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 5.902733920144,
-    "total": 46.593806448813,
-    "pH": 0.683567510817
+    "margin": 5.899426241414,
+    "total": 46.597900886033,
+    "pH": 0.683452986749
    }
   }
  ],

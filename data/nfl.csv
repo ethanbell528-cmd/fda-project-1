@@ -18989,6 +18989,8 @@ game_id,date,season,season_label,sport,game_type,team,opponent,home_away,score_f
 2026_03_KC_MIA,2026-09-27,2026,2026,nfl,regular,MIA,KC,H,10,24,L,-14,34,REG,10.0,45.5,440.0,,,0.1777,miss,under,0.0
 2026_03_LAC_BUF,2026-09-27,2026,2026,nfl,regular,LAC,BUF,A,16,24,L,-8,40,REG,7.0,50.5,260.0,,,0.2665,miss,under,0.0
 2026_03_LAC_BUF,2026-09-27,2026,2026,nfl,regular,BUF,LAC,H,24,16,W,8,40,REG,-7.0,50.5,-325.0,,,0.7335,cover,under,1.0
+2026_03_LA_DEN,2026-09-27,2026,2026,nfl,regular,LA,DEN,A,26,30,L,-4,56,REG,1.5,43.5,-108.0,,,0.4957,miss,over,0.0
+2026_03_LA_DEN,2026-09-27,2026,2026,nfl,regular,DEN,LA,H,30,26,W,4,56,REG,-1.5,43.5,-112.0,,,0.5043,cover,over,1.0
 2026_03_LV_NO,2026-09-27,2026,2026,nfl,regular,LV,NO,A,35,27,W,8,62,REG,3.5,43.5,160.0,,,0.3691,cover,over,0.0
 2026_03_LV_NO,2026-09-27,2026,2026,nfl,regular,NO,LV,H,27,35,L,-8,62,REG,-3.5,43.5,-192.0,,,0.6309,miss,over,1.0
 2026_03_MIN_TB,2026-09-27,2026,2026,nfl,regular,MIN,TB,A,23,16,W,7,39,REG,-1.5,42.5,-112.0,,,0.5043,cover,under,1.0
