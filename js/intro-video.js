@@ -41,7 +41,9 @@ const CLIPS = {
         ball: { u: 257 / 832, v: 210 / 480, w: 260 / 832 }, pan: [[0, 0.5], [3.4, 0.5], [70 / 16, 0.40]],
         // the real ball cut out of the release frame (square crop in video px, centred on the ball) and the
         // colour of the 3D ball's leather pulled toward the video ball, so the handoff is the same football
-        cut: { src: "assets/video/qb-ai-ballcut.png", size: 234, r: 70 }, tint: [0.96, 1.2, 1.2] },
+        cut: { src: "assets/video/qb-ai-ballcut.png", size: 234, r: 70 }, tint: [0.96, 1.2, 1.2],
+        // his ball (frames 56-64): glossy, deep reddish-brown, fine grain, white laces, white tip stripe
+        look: { map: "assets/ball/textures/american_football_diff_match.jpg", rough: 0.72 } },
   // Wan 2.2 T2V-A14B, seed 2601, neutral kit (assets/video/ATTRIBUTION-ai2.md): stop on frame 67
   // (4.1875 s), arm up and forward with the ball still fully in his fingers (from frame 68 it touches the
   // top edge, by 70 it has left the hand). Real ball: centre (294, 62), box 89 x 79 px, tilted top-left to
@@ -133,7 +135,9 @@ function normalTex(size, drawHeight, strength, repeat) {
   if (repeat) t.repeat.set(repeat[0], repeat[1]);
   return t;
 }
-function makeBall() {
+// look: undefined = the original code-built ball; an object = a ball painted to match the ball in a
+// clip (colour, gloss, grain, white laces and a white stripe near each tip, like his ball in the AI clip)
+function makeBall(look) {
   const pebble = normalTex(256, (g, w) => {
     g.fillStyle = "#808080"; g.fillRect(0, 0, w, w);
     for (let i = 0; i < 1700; i++) {
@@ -142,21 +146,34 @@ function makeBall() {
       gr.addColorStop(0, "rgba(255,255,255,0.9)"); gr.addColorStop(1, "rgba(255,255,255,0)");
       g.fillStyle = gr; g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2); g.fill();
     }
-  }, 2.2, [3, 2]);
+  }, look ? 1.2 : 2.2, look ? [6, 4] : [3, 2]);
   const L = 0.142, R = 0.085, pts = [];
   for (let i = 0; i <= 32; i++) { const y = -L + (2 * L * i) / 32; pts.push([R * Math.pow(Math.max(0, 1 - (y / L) ** 2), 0.72), y]); }
   const geo = new THREE.LatheGeometry(pts.map(([r, y]) => new THREE.Vector2(Math.max(r, 0.0001), y)), 48, 0);
   geo.rotateX(Math.PI / 2); // long axis -> z (nose = +z)
-  const leather = new THREE.MeshPhysicalMaterial({ color: 0x6a3316, roughness: 0.6, normalMap: pebble, normalScale: new THREE.Vector2(0.55, 0.55), clearcoat: 0.25, clearcoatRoughness: 0.5 });
+  const leather = look
+    ? new THREE.MeshPhysicalMaterial({ color: new THREE.Color().setStyle(look.color), roughness: 0.5, normalMap: pebble,
+        normalScale: new THREE.Vector2(0.22, 0.22), clearcoat: 0.7, clearcoatRoughness: 0.3 })
+    : new THREE.MeshPhysicalMaterial({ color: 0x6a3316, roughness: 0.6, normalMap: pebble, normalScale: new THREE.Vector2(0.55, 0.55), clearcoat: 0.25, clearcoatRoughness: 0.5 });
   const ball = new THREE.Group();
   ball.add(new THREE.Mesh(geo, leather));
-  const seamMat = new THREE.MeshStandardMaterial({ color: 0x3a1c0c, roughness: 0.8 });
+  const seamMat = new THREE.MeshStandardMaterial({ color: look ? 0x2a0c08 : 0x3a1c0c, roughness: 0.8 });
   for (let k = 0; k < 4; k++) {
     const a = (k * Math.PI) / 2 + Math.PI / 4, cp = [];
     for (let i = 1; i < 32; i++) { const [r, y] = pts[i]; cp.push(V(Math.cos(a) * r * 1.004, Math.sin(a) * r * 1.004, y)); }
     ball.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(cp), 48, 0.0014, 4, false), seamMat));
   }
   const white = new THREE.MeshStandardMaterial({ color: 0xf4f1ea, roughness: 0.5 });
+  if (look) {
+    // white stripe across the top near each tip (half-way round, like a college ball)
+    for (const zc of [-0.088, 0.088]) {
+      const band = [];
+      for (let i = 0; i <= 6; i++) { const z = zc - 0.006 + (0.012 * i) / 6; band.push(new THREE.Vector2(R * Math.pow(Math.max(0, 1 - (z / L) ** 2), 0.72) * 1.004, z)); }
+      const g = new THREE.LatheGeometry(band, 32, -Math.PI / 2 - 0.9, 1.8);
+      g.rotateX(Math.PI / 2);
+      ball.add(new THREE.Mesh(g, white));
+    }
+  }
   const radiusAt = (z) => R * Math.pow(Math.max(0, 1 - (z / L) ** 2), 0.72);
   const spine = [];
   for (let i = 0; i <= 12; i++) { const z = -0.055 + (0.11 * i) / 12; spine.push(V(0, radiusAt(z) + 0.0008, z)); }
@@ -206,6 +223,13 @@ function startBall() {
     scene.add(cut);
   }
   const fadeMats = [];
+  // a clip can repaint the scanned ball to match the ball in its video (look.map: recoloured leather)
+  let lookMap = null;
+  if (AI && CLIP.look && CLIP.look.map) {
+    lookMap = new THREE.TextureLoader().load(CLIP.look.map);
+    lookMap.colorSpace = THREE.SRGBColorSpace;
+    lookMap.flipY = false;                                    // glTF texture convention
+  }
   new GLTFLoader().load("assets/ball/american_football.gltf", (g) => {
     const m = g.scene;
     const box = new THREE.Box3().setFromObject(m);
@@ -222,7 +246,12 @@ function startBall() {
     m.traverse((o) => {
       if (!o.isMesh) return;
       o.material.envMapIntensity = 1;
-      if (AI && CLIP.tint) o.material.color.setRGB(CLIP.tint[0], CLIP.tint[1], CLIP.tint[2]);
+      if (lookMap) {                                          // his ball: new leather, a little glossier
+        o.material.map = lookMap;
+        o.material.color.setRGB(1, 1, 1);
+        o.material.roughness = CLIP.look.rough != null ? CLIP.look.rough : o.material.roughness;
+        o.material.needsUpdate = true;
+      } else if (AI && CLIP.tint) o.material.color.setRGB(CLIP.tint[0], CLIP.tint[1], CLIP.tint[2]);
       if (cut) { o.material.transparent = true; fadeMats.push(o.material); }
     });
     ball.clear();
@@ -299,21 +328,25 @@ function startBall() {
       ball.rotateX(0.03 * Math.cos(k * 40));
       ball.rotateZ(t * 0.02 + k * 60);     // fast spiral about the long axis (laces circle the tip)
       if (cut) {
-        // AI clips: the ball that flies at the viewer IS the ball in his hand (cut out of the release
-        // frame), never a second model: it grows, spins and fills the screen; the 3D ball is not drawn
-        ball.visible = false;
-        cut.visible = true;
+        // the ball leaving his hand starts as the exact pixels of his ball (cut out of the release frame).
+        // With a matched 3D ball (look), it blends into that ball within the first frames of the flight,
+        // which then spirals point-first into the lens; without one, the cutout itself flies all the way.
         const vw = video.videoWidth || 832, vh = video.videoHeight || 480;
         const dw = vw * Math.max(W / vw, H / vh);
         const s0 = CLIP.cut.size * dw / vw;                     // cutout size on screen at the release
-        const sNow = s0 * (d0 / d);                             // grows like a ball coming at the lens
-        const world = sNow * 2 * tanH * dA / H;
-        cut.position.copy(ball.position);
-        cut.scale.set(world, world, 1);
-        cut.material.opacity = 1;
-        cut.material.rotation = -k * 9;    // spiral spin
-        // it rushes into the lens: soften it more the closer it gets (the canvas holds only this ball)
-        const blur = clamp((k - 0.45) / 0.5, 0, 1) * 6;
+        const world = s0 * (d0 / d) * 2 * tanH * dA / H;        // grows like a ball coming at the lens
+        const blend = CLIP.look ? clamp(k / 0.06, 0, 1) : 0;   // 0 = his pixels, 1 = matched 3D ball (quick)
+        ball.visible = blend > 0.001;
+        fadeMats.forEach((mm) => { mm.opacity = blend; mm.depthWrite = blend > 0.99; });
+        cut.visible = blend < 0.999;
+        if (cut.visible) {
+          cut.position.copy(ball.position);
+          cut.scale.set(world, world, 1);
+          cut.material.opacity = 1 - blend;
+          cut.material.rotation = CLIP.look ? 0 : -k * 9;       // flat spin only when the cutout flies alone
+        }
+        // it rushes into the lens: soften it a little the closer it gets
+        const blur = clamp((k - 0.55) / 0.4, 0, 1) * (CLIP.look ? 2.5 : 6);
         renderer.domElement.style.filter = blur > 0.05 ? "blur(" + blur.toFixed(1) + "px)" : "";
       }
       renderer.render(scene, camera);
