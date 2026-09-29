@@ -1,6 +1,6 @@
 {
- "rows": 394912,
- "games": 197456,
+ "rows": 394914,
+ "games": 197457,
  "games_with_market": 91145,
  "sports": 5,
  "sport_list": [
@@ -11,9 +11,9 @@
   "EPL"
  ],
  "first_season": 1990,
- "last_date": "2026-09-28",
- "last_date_text": "September 28, 2026",
- "player_rows": 627200,
+ "last_date": "2026-09-29",
+ "last_date_text": "September 29, 2026",
+ "player_rows": 627228,
  "teams": 176,
  "per_sport": [
   {
@@ -36,8 +36,8 @@
   },
   {
    "sport": "mlb",
-   "rows": 173648,
-   "games": 86824,
+   "rows": 173650,
+   "games": 86825,
    "first": "1990",
    "last": "2026",
    "seasons": 37,

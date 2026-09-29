@@ -204,11 +204,11 @@
  "mlb": {
   "spans": {
    "first_season": 1990,
-   "train": "1992-2023",
-   "holdout": "2024-2025",
-   "in_progress_season": 2026,
-   "state_through": "2026-09-27",
-   "next_season": 2026
+   "train": "1992-2024",
+   "holdout": "2025-2026",
+   "in_progress_season": null,
+   "state_through": "2026-09-29",
+   "next_season": 2027
   },
   "edge_threshold": 0.03,
   "edge_rationale": "An edge is flagged only when the model's win probability exceeds the no-vig market probability by more than 3 percentage points. The threshold was fixed before any holdout result was seen; it is roughly one sportsbook margin, so smaller gaps are treated as noise.",
@@ -251,57 +251,57 @@
   ],
   "coefficients": {
    "margin": {
-    "intercept": 0.125193,
+    "intercept": 0.120217,
     "coef": {
-     "elo_diff": 0.6156,
-     "neutral": -0.0088,
-     "rest_h": 0.0635,
-     "rest_a": -0.0328,
-     "wp10_diff": -0.0885,
-     "mg10_diff": 0.048,
-     "pf10_h": 0.0174,
-     "pa10_h": -0.0106,
-     "pf10_a": -0.0196,
-     "pa10_a": 0.0503,
-     "lg_total": -0.0336,
-     "sp_h": -0.0985,
-     "sp_a": 0.1678
+     "elo_diff": 0.6162,
+     "neutral": -0.0157,
+     "rest_h": 0.0534,
+     "rest_a": -0.0212,
+     "wp10_diff": -0.0862,
+     "mg10_diff": 0.0461,
+     "pf10_h": 0.0177,
+     "pa10_h": -0.0056,
+     "pf10_a": -0.0216,
+     "pa10_a": 0.0493,
+     "lg_total": -0.0315,
+     "sp_h": -0.1031,
+     "sp_a": 0.1725
     }
    },
    "total": {
-    "intercept": 9.210401,
+    "intercept": 9.196715,
     "coef": {
-     "elo_diff": -0.0533,
-     "neutral": 0.0276,
-     "rest_h": 0.0018,
-     "rest_a": 0.0191,
-     "wp10_diff": -0.0231,
-     "mg10_diff": 0.0117,
-     "pf10_h": 0.2072,
-     "pa10_h": 0.1948,
-     "pf10_a": 0.0792,
-     "pa10_a": 0.0911,
-     "lg_total": 0.1756,
-     "sp_h": 0.3269,
-     "sp_a": 0.199
+     "elo_diff": -0.0592,
+     "neutral": 0.0349,
+     "rest_h": -0.0075,
+     "rest_a": 0.0251,
+     "wp10_diff": -0.0252,
+     "mg10_diff": 0.0129,
+     "pf10_h": 0.2121,
+     "pa10_h": 0.1977,
+     "pf10_a": 0.0785,
+     "pa10_a": 0.0905,
+     "lg_total": 0.1772,
+     "sp_h": 0.3175,
+     "sp_a": 0.1948
     }
    },
    "win": {
-    "intercept": 0.152857,
+    "intercept": 0.150792,
     "coef": {
-     "elo_diff": 0.2513,
-     "neutral": 0.0021,
-     "rest_h": 0.0085,
-     "rest_a": -0.0066,
-     "wp10_diff": -0.0222,
-     "mg10_diff": 0.0172,
-     "pf10_h": 0.0045,
-     "pa10_h": -0.0014,
-     "pf10_a": -0.005,
-     "pa10_a": 0.024,
-     "lg_total": -0.0071,
-     "sp_h": -0.0572,
-     "sp_a": 0.0608
+     "elo_diff": 0.2522,
+     "neutral": -0.0005,
+     "rest_h": 0.0036,
+     "rest_a": -0.0022,
+     "wp10_diff": -0.0233,
+     "mg10_diff": 0.0171,
+     "pf10_h": 0.0049,
+     "pa10_h": 0.0009,
+     "pf10_a": -0.0074,
+     "pa10_a": 0.0234,
+     "lg_total": -0.0061,
+     "sp_h": -0.0593,
+     "sp_a": 0.0626
     }
    }
   }
@@ -361,7 +361,7 @@
     "intercept": 0.276078,
     "coef": {
      "elo_diff": 0.5545,
-     "neutral": 0.0,
+     "neutral": -0.0,
      "rest_h": 0.005,
      "rest_a": -0.0247,
      "b2b_h": -0.0774,
@@ -381,7 +381,7 @@
     "intercept": 5.755039,
     "coef": {
      "elo_diff": 0.0245,
-     "neutral": -0.0,
+     "neutral": 0.0,
      "rest_h": 0.0204,
      "rest_a": 0.0086,
      "b2b_h": 0.0105,
