@@ -19003,3 +19003,5 @@ game_id,date,season,season_label,sport,game_type,team,opponent,home_away,score_f
 2026_03_SEA_WAS,2026-09-27,2026,2026,nfl,regular,WAS,SEA,H,33,31,W,2,64,REG,8.5,40.5,320.0,,,0.2285,cover,over,0.0
 2026_03_TEN_NYG,2026-09-27,2026,2026,nfl,regular,TEN,NYG,A,7,12,L,-5,19,REG,2.5,37.5,110.0,,,0.4573,miss,under,0.0
 2026_03_TEN_NYG,2026-09-27,2026,2026,nfl,regular,NYG,TEN,H,12,7,W,5,19,REG,-2.5,37.5,-130.0,,,0.5427,cover,under,1.0
+2026_03_PHI_CHI,2026-09-28,2026,2026,nfl,regular,PHI,CHI,A,7,27,L,-20,34,REG,-3.5,42.5,-198.0,,,0.6369,miss,under,1.0
+2026_03_PHI_CHI,2026-09-28,2026,2026,nfl,regular,CHI,PHI,H,27,7,W,20,34,REG,3.5,42.5,164.0,,,0.3631,cover,under,0.0
