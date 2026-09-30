@@ -86379,3 +86379,5 @@ game_id,date,season,season_label,sport,game_type,team,opponent,home_away,score_f
 2025030415,2026-06-11,2025,2025-26,nhl,playoff,CAR,VGK,H,4,2,W,2,6,REG,,,,,,,,,
 2025030416,2026-06-14,2025,2025-26,nhl,playoff,CAR,VGK,A,3,0,W,3,3,REG,,,,,,,,,
 2025030416,2026-06-14,2025,2025-26,nhl,playoff,VGK,CAR,H,0,3,L,-3,3,REG,,,,,,,,,
+2026020001,2026-09-29,2026,2026-27,nhl,regular,FLA,CAR,A,1,0,W,1,1,OT,,,,,,,,,
+2026020001,2026-09-29,2026,2026-27,nhl,regular,CAR,FLA,H,0,1,L,-1,1,OT,,,,,,,,,

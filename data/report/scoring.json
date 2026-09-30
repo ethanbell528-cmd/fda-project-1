@@ -764,9 +764,9 @@
    {
     "season": 2026,
     "label": "2026",
-    "avg": 8.961728,
-    "index": 95.925735,
-    "games": 2430
+    "avg": 8.961744,
+    "index": 95.925904,
+    "games": 2431
    }
   ],
   "nhl": [
@@ -1288,15 +1288,17 @@
    "base_label": "1990 to 1999",
    "base_avg": 9.342361,
    "latest_label": "2026",
-   "latest_avg": 8.961728,
-   "latest_index": 95.925735,
+   "latest_avg": 8.961744,
+   "latest_index": 95.925904,
    "low_label": "2014",
    "low_avg": 8.129976,
    "high_label": "2000",
    "high_avg": 10.255285
   },
   {
-   "partial_excluded": [],
+   "partial_excluded": [
+    "2026-27"
+   ],
    "sport": "nhl",
    "unit": "goals",
    "base_label": "1990-91 to 1999-00",
