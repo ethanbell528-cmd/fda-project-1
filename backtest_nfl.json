@@ -1,6 +1,6 @@
 {
  "sport": "nfl",
- "generated_at": "2026-09-28",
+ "generated_at": "2026-10-01",
  "edge_threshold": 0.03,
  "train_seasons": "1992-2023",
  "train_games": 8415,
@@ -1077,131 +1077,131 @@
   {
    "home": "ARI",
    "away": "CLE",
-   "date": "2026-10-01",
-   "neutral": false,
-   "homeStarter": null,
-   "awayStarter": null,
-   "expected": {
-    "margin": 1.577435040119,
-    "total": 43.553870135182,
-    "pH": 0.544767384124
-   }
-  },
-  {
-   "home": "BUF",
-   "away": "DET",
-   "date": "2026-10-02",
-   "neutral": false,
-   "homeStarter": null,
-   "awayStarter": null,
-   "expected": {
-    "margin": 5.904762866436,
-    "total": 53.089211678062,
-    "pH": 0.673106588075
-   }
-  },
-  {
-   "home": "CIN",
-   "away": "IND",
-   "date": "2026-10-03",
-   "neutral": false,
-   "homeStarter": null,
-   "awayStarter": null,
-   "expected": {
-    "margin": 5.663252043744,
-    "total": 48.481583465177,
-    "pH": 0.675310182453
-   }
-  },
-  {
-   "home": "DEN",
-   "away": "LA",
    "date": "2026-10-04",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 1.378253289531,
-    "total": 47.142868546043,
-    "pH": 0.549332138061
+    "margin": 1.833258950664,
+    "total": 43.984947750451,
+    "pH": 0.550422086152
    }
   },
   {
-   "home": "HOU",
-   "away": "MIA",
+   "home": "BUF",
+   "away": "DET",
    "date": "2026-10-05",
-   "neutral": true,
+   "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 5.717104273875,
-    "total": 44.366305719085,
-    "pH": 0.630607639446
+    "margin": 5.56993588528,
+    "total": 52.804816154703,
+    "pH": 0.66483936091
    }
   },
   {
-   "home": "KC",
-   "away": "NO",
+   "home": "CIN",
+   "away": "IND",
    "date": "2026-10-06",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 5.457545345712,
-    "total": 42.535513936376,
-    "pH": 0.672420772746
+    "margin": 5.328425062588,
+    "total": 48.197187941818,
+    "pH": 0.667071120134
    }
   },
   {
-   "home": "LV",
-   "away": "PHI",
+   "home": "DEN",
+   "away": "LA",
    "date": "2026-10-07",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": -0.412919457328,
-    "total": 40.600805371737,
-    "pH": 0.493713830243
+    "margin": 1.043426308375,
+    "total": 46.858473022684,
+    "pH": 0.54007351405
    }
   },
   {
-   "home": "NE",
-   "away": "SF",
+   "home": "HOU",
+   "away": "MIA",
    "date": "2026-10-08",
-   "neutral": false,
+   "neutral": true,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 0.088218814204,
-    "total": 44.433119694141,
-    "pH": 0.502520042699
+    "margin": 5.38227729272,
+    "total": 44.081910195726,
+    "pH": 0.621869397313
    }
   },
   {
-   "home": "NYJ",
-   "away": "WAS",
+   "home": "KC",
+   "away": "NO",
    "date": "2026-10-09",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": -2.64975683807,
-    "total": 43.176966706734,
-    "pH": 0.427957699929
+    "margin": 5.122718364556,
+    "total": 42.251118413017,
+    "pH": 0.66414485536
    }
   },
   {
-   "home": "SEA",
-   "away": "BAL",
+   "home": "LV",
+   "away": "PHI",
    "date": "2026-10-10",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 5.801681482159,
-    "total": 46.485940422007,
-    "pH": 0.681236582941
+    "margin": -0.747746438484,
+    "total": 40.316409848378,
+    "pH": 0.484385072934
+   }
+  },
+  {
+   "home": "NE",
+   "away": "SF",
+   "date": "2026-10-11",
+   "neutral": false,
+   "homeStarter": null,
+   "awayStarter": null,
+   "expected": {
+    "margin": -0.246608166951,
+    "total": 44.148724170782,
+    "pH": 0.493186980261
+   }
+  },
+  {
+   "home": "NYJ",
+   "away": "WAS",
+   "date": "2026-10-12",
+   "neutral": false,
+   "homeStarter": null,
+   "awayStarter": null,
+   "expected": {
+    "margin": -2.875023037098,
+    "total": 42.989905086663,
+    "pH": 0.421795806746
+   }
+  },
+  {
+   "home": "SEA",
+   "away": "BAL",
+   "date": "2026-10-13",
+   "neutral": false,
+   "homeStarter": null,
+   "awayStarter": null,
+   "expected": {
+    "margin": 5.685976065259,
+    "total": 46.396212705224,
+    "pH": 0.678385074412
    }
   }
  ],

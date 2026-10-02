@@ -19129,19 +19129,19 @@ season,game_type,player_id,player,position,team,games,pass_att,completions,pass_
 2026,regular,00-0040208,Tahj Brooks,RB,CIN,2,0,0,0,0,0,0,0,0,0,0,0,0
 2026,regular,00-0034613,Tanner Hudson,TE,CIN,2,0,0,0,0,0,0,0,0,3,3,17,0
 2026,regular,00-0036410,Tee Higgins,WR,CIN,3,0,0,0,0,0,0,0,0,23,14,244,1
-2026,regular,00-0038710,Blake Whiteheart,TE,CLE,2,0,0,0,0,0,0,0,0,3,2,31,1
+2026,regular,00-0038710,Blake Whiteheart,TE,CLE,3,0,0,0,0,0,0,0,0,3,2,31,1
 2026,regular,00-0041131,Carsen Ryan,TE,CLE,2,0,0,0,0,0,0,0,0,0,0,0,0
-2026,regular,00-0041037,Denzel Boston,WR,CLE,3,0,0,0,0,0,0,0,0,15,9,195,2
-2026,regular,00-0033537,Deshaun Watson,QB,CLE,3,82,56,587,5,1,24,105,0,0,0,0,0
+2026,regular,00-0041037,Denzel Boston,WR,CLE,4,0,0,0,0,0,0,0,0,22,13,284,2
+2026,regular,00-0033537,Deshaun Watson,QB,CLE,4,115,80,855,6,2,31,127,0,0,0,0,0
 2026,regular,00-0040162,Dylan Sampson,RB,CLE,1,0,0,0,0,0,0,0,0,0,0,0,0
-2026,regular,00-0040663,Harold Fannin Jr.,TE,CLE,3,0,0,0,0,0,0,0,0,18,14,126,2
-2026,regular,00-0040782,Isaiah Bond,WR,CLE,1,0,0,0,0,0,0,0,0,1,1,10,0
-2026,regular,00-0038794,Jaleel McLaughlin,RB,CLE,1,0,0,0,0,0,1,3,0,1,0,0,0
-2026,regular,00-0036407,Jerry Jeudy,WR,CLE,2,0,0,0,0,0,0,0,0,5,2,26,0
-2026,regular,00-0041547,KC Concepcion,WR,CLE,3,0,0,0,0,0,4,9,0,20,12,80,0
-2026,regular,00-0039920,Malachi Corley,WR,CLE,3,0,0,0,0,0,0,0,0,0,0,0,0
-2026,regular,00-0040784,Quinshon Judkins,RB,CLE,3,0,0,0,0,0,42,124,0,9,9,53,0
-2026,regular,00-0040466,Raheim Sanders,RB,CLE,3,0,0,0,0,0,4,22,0,9,8,66,0
+2026,regular,00-0040663,Harold Fannin Jr.,TE,CLE,4,0,0,0,0,0,0,0,0,23,17,153,3
+2026,regular,00-0040782,Isaiah Bond,WR,CLE,2,0,0,0,0,0,0,0,0,2,2,12,0
+2026,regular,00-0038794,Jaleel McLaughlin,RB,CLE,2,0,0,0,0,0,2,31,1,1,0,0,0
+2026,regular,00-0036407,Jerry Jeudy,WR,CLE,3,0,0,0,0,0,0,0,0,8,5,62,0
+2026,regular,00-0041547,KC Concepcion,WR,CLE,4,0,0,0,0,0,4,9,0,28,17,144,0
+2026,regular,00-0039920,Malachi Corley,WR,CLE,4,0,0,0,0,0,0,0,0,0,0,0,0
+2026,regular,00-0040784,Quinshon Judkins,RB,CLE,4,0,0,0,0,0,59,177,1,16,15,96,0
+2026,regular,00-0040466,Raheim Sanders,RB,CLE,4,0,0,0,0,0,6,31,0,11,10,73,0
 2026,regular,00-0040668,Shedeur Sanders,QB,CLE,1,1,1,0,0,0,0,0,0,0,0,0,0
 2026,regular,00-0036630,Tylan Wallace,WR,CLE,1,0,0,0,0,0,0,0,0,0,0,0,0
 2026,regular,00-0039530,Brevyn Spann-Ford,TE,DAL,3,0,0,0,0,0,0,0,0,3,3,33,0
@@ -19395,22 +19395,22 @@ season,game_type,player_id,player,position,team,games,pass_att,completions,pass_
 2026,regular,00-0038555,Tank Bigsby,RB,PHI,3,0,0,0,0,0,14,36,1,3,3,10,0
 2026,regular,00-0039746,Will Shipley,RB,PHI,3,0,0,0,0,0,9,28,0,5,4,24,0
 2026,regular,00-0030061,Zach Ertz,TE,PHI,1,0,0,0,0,0,0,0,0,2,1,9,0
-2026,regular,00-0023459,Aaron Rodgers,QB,PIT,3,113,66,700,4,2,7,12,0,0,0,0,0
-2026,regular,00-0036862,Ben Skowronek,WR,PIT,2,0,0,0,0,0,0,0,0,2,2,25,1
-2026,regular,00-0035640,DK Metcalf,WR,PIT,3,0,0,0,0,0,0,0,0,24,11,98,1
-2026,regular,00-0038558,Darnell Washington,TE,PIT,3,0,0,0,0,0,0,0,0,8,6,92,0
+2026,regular,00-0023459,Aaron Rodgers,QB,PIT,4,153,88,999,7,4,7,12,0,0,0,0,0
+2026,regular,00-0036862,Ben Skowronek,WR,PIT,3,0,0,0,0,0,0,0,0,4,3,32,1
+2026,regular,00-0035640,DK Metcalf,WR,PIT,4,0,0,0,0,0,0,0,0,33,16,213,1
+2026,regular,00-0038558,Darnell Washington,TE,PIT,4,0,0,0,0,0,0,0,0,13,9,119,1
 2026,regular,00-0041490,Eli Heidenreich,RB,PIT,2,0,0,0,0,0,0,0,0,0,0,0,0
-2026,regular,00-0041489,Germie Bernard,WR,PIT,2,0,0,0,0,0,0,0,0,9,5,49,0
-2026,regular,00-0037228,Jaylen Warren,RB,PIT,3,0,0,0,0,0,38,216,0,14,10,110,0
-2026,regular,00-0041397,Kaden Wetjen,WR,PIT,3,0,0,0,0,0,0,0,0,0,0,0,0
-2026,regular,00-0038409,Lew Nichols III,RB,PIT,1,0,0,0,0,0,1,0,0,0,0,0,0
+2026,regular,00-0041489,Germie Bernard,WR,PIT,3,0,0,0,0,0,0,0,0,11,7,60,0
+2026,regular,00-0037228,Jaylen Warren,RB,PIT,4,0,0,0,0,0,55,309,0,20,13,143,0
+2026,regular,00-0041397,Kaden Wetjen,WR,PIT,4,0,0,0,0,0,0,0,0,0,0,0,0
+2026,regular,00-0038409,Lew Nichols III,RB,PIT,2,0,0,0,0,0,1,0,0,0,0,0,0
 2026,regular,00-0034771,Mason Rudolph,QB,PIT,1,1,0,0,0,0,1,3,0,0,0,0,0
-2026,regular,00-0036252,Michael Pittman,WR,PIT,2,0,0,0,0,0,0,0,0,8,5,74,0
-2026,regular,00-0036894,Pat Freiermuth,TE,PIT,3,0,0,0,0,0,2,3,0,14,11,108,1
+2026,regular,00-0036252,Michael Pittman,WR,PIT,3,0,0,0,0,0,0,0,0,12,7,89,0
+2026,regular,00-0036894,Pat Freiermuth,TE,PIT,4,0,0,0,0,0,2,3,0,19,14,125,2
 2026,regular,00-0036139,Rico Dowdle,RB,PIT,2,0,0,0,0,0,15,37,0,7,4,28,0
 2026,regular,00-0033757,Robert Tonyan,TE,PIT,1,0,0,0,0,0,0,0,0,1,1,2,0
-2026,regular,00-0039739,Roman Wilson,WR,PIT,3,0,0,0,0,0,0,0,0,18,11,114,1
-2026,regular,00-0035594,Travis Homer,RB,PIT,2,0,0,0,0,0,3,16,0,0,0,0,0
+2026,regular,00-0039739,Roman Wilson,WR,PIT,4,0,0,0,0,0,0,0,0,24,14,188,2
+2026,regular,00-0035594,Travis Homer,RB,PIT,3,0,0,0,0,0,5,15,0,0,0,0,0
 2026,regular,00-0039793,AJ Barner,TE,SEA,3,0,0,0,0,0,1,1,1,12,8,90,0
 2026,regular,00-0038488,Brady Russell,RB,SEA,2,0,0,0,0,0,0,0,0,3,3,40,0
 2026,regular,00-0033908,Cooper Kupp,WR,SEA,3,0,0,0,0,0,0,0,0,10,8,101,1

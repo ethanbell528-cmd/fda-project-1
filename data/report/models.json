@@ -5,7 +5,7 @@
    "train": "1992-2023",
    "holdout": "2024-2025",
    "in_progress_season": 2026,
-   "state_through": "2026-09-28",
+   "state_through": "2026-10-01",
    "next_season": 2026
   },
   "edge_threshold": 0.03,
@@ -207,7 +207,7 @@
    "train": "1992-2024",
    "holdout": "2025-2026",
    "in_progress_season": null,
-   "state_through": "2026-09-30",
+   "state_through": "2026-10-01",
    "next_season": 2027
   },
   "edge_threshold": 0.03,
@@ -312,7 +312,7 @@
    "train": "1992-2023",
    "holdout": "2024-2025",
    "in_progress_season": 2026,
-   "state_through": "2026-09-30",
+   "state_through": "2026-10-01",
    "next_season": 2026
   },
   "edge_threshold": 0.03,
