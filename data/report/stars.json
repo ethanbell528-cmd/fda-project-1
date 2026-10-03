@@ -461,7 +461,7 @@
    "stat": "goals",
    "player": "Alex Ovechkin",
    "career_total": 929,
-   "seasons": 21,
+   "seasons": 22,
    "runner_up": "Jaromir Jagr",
    "runner_up_total": 766,
    "peak_label": "2007-08",
@@ -595,6 +595,12 @@
      "label": "2025-26",
      "val": 32,
      "games": 82
+    },
+    {
+     "season": 2026,
+     "label": "2026-27",
+     "val": 0,
+     "games": 1
     }
    ]
   },
