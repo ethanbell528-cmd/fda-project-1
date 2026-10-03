@@ -1,6 +1,6 @@
 {
  "sport": "mlb",
- "generated_at": "2026-10-01",
+ "generated_at": "2026-10-03",
  "edge_threshold": 0.03,
  "train_seasons": "1992-2024",
  "train_games": 77676,
@@ -10,21 +10,21 @@
    2025,
    2026
   ],
-  "games": 4915,
+  "games": 4916,
   "ties_excluded": 0,
   "win_model": {
    "log_loss": 0.6801,
    "brier": 0.2436,
-   "accuracy": 0.5593
+   "accuracy": 0.5592
   },
   "baseline": {
    "name": "training-season home win rate",
    "p": 0.5368,
-   "log_loss": 0.6905,
+   "log_loss": 0.6906,
    "brier": 0.2487
   },
   "margin_mae_model": 3.4866,
-  "total_mae_model": 3.5791,
+  "total_mae_model": 3.5795,
   "calibration_home_win": [
    {
     "bin": "0.2-0.3",
@@ -46,9 +46,9 @@
    },
    {
     "bin": "0.5-0.6",
-    "n": 2525,
+    "n": 2526,
     "predicted": 0.5481,
-    "observed": 0.5473
+    "observed": 0.5471
    },
    {
     "bin": "0.6-0.7",
@@ -561,11 +561,11 @@
   {
    "season": 2026,
    "in_sample": false,
-   "games": 2438,
-   "home_win_rate": 0.5291,
+   "games": 2439,
+   "home_win_rate": 0.5289,
    "model_log_loss": 0.6821,
-   "elo_log_loss": 0.6834,
-   "model_accuracy": 0.5607,
+   "elo_log_loss": 0.6835,
+   "model_accuracy": 0.5605,
    "market_games": 0
   }
  ],
@@ -582,41 +582,41 @@
   "by_role": {
    "batter": {
     "h": {
-     "n": 49191,
-     "mae_formula": 0.6966,
+     "n": 49213,
+     "mae_formula": 0.6967,
      "mae_season_to_date_avg": 0.6906
     },
     "hr": {
-     "n": 49191,
-     "mae_formula": 0.1971,
+     "n": 49213,
+     "mae_formula": 0.197,
      "mae_season_to_date_avg": 0.1947
     },
     "rbi": {
-     "n": 49191,
-     "mae_formula": 0.5962,
-     "mae_season_to_date_avg": 0.6
+     "n": 49213,
+     "mae_formula": 0.5961,
+     "mae_season_to_date_avg": 0.5999
     },
     "sb": {
-     "n": 49191,
+     "n": 49213,
      "mae_formula": 0.1169,
      "mae_season_to_date_avg": 0.1162
     }
    },
    "pitcher": {
     "ip": {
-     "n": 4375,
-     "mae_formula": 0.9655,
-     "mae_season_to_date_avg": 0.9706
+     "n": 4376,
+     "mae_formula": 0.9656,
+     "mae_season_to_date_avg": 0.9707
     },
     "k_p": {
-     "n": 4375,
-     "mae_formula": 1.832,
-     "mae_season_to_date_avg": 1.8757
+     "n": 4376,
+     "mae_formula": 1.8317,
+     "mae_season_to_date_avg": 1.8752
     },
     "er": {
-     "n": 4375,
-     "mae_formula": 1.6025,
-     "mae_season_to_date_avg": 1.6381
+     "n": 4376,
+     "mae_formula": 1.6022,
+     "mae_season_to_date_avg": 1.6378
     }
    }
   }
@@ -646,24 +646,24 @@
   },
   {
    "features": {
-    "elo_diff": -48.017765510201116,
+    "elo_diff": 18.001760352226256,
     "neutral": 0.0,
     "rest_h": 1.0,
     "rest_a": 1.0,
-    "wp10_diff": -0.09999999999999998,
-    "mg10_diff": 0.3,
-    "pf10_h": 4.8,
-    "pa10_h": 4.2,
-    "pf10_a": 6.1,
-    "pa10_a": 5.8,
-    "lg_total": 8.897942386831275,
-    "sp_h": 6.6163237311385465,
-    "sp_a": 3.2829903978052126
+    "wp10_diff": 0.2,
+    "mg10_diff": 1.2000000000000002,
+    "pf10_h": 3.8,
+    "pa10_h": 4.8,
+    "pf10_a": 3.3,
+    "pa10_a": 5.5,
+    "lg_total": 8.904526748971193,
+    "sp_h": 3.884087791495199,
+    "sp_a": 4.217421124828532
    },
    "expected": {
-    "margin": -1.291917089557,
-    "total": 9.884329579313,
-    "pH": 0.38684121524
+    "margin": 0.057818677532,
+    "total": 8.597876213903,
+    "pH": 0.538573204602
    }
   },
   {
@@ -712,24 +712,24 @@
   },
   {
    "features": {
-    "elo_diff": 41.46231329170155,
+    "elo_diff": 39.174916814955395,
     "neutral": 0.0,
-    "rest_h": 2.0,
-    "rest_a": 2.0,
-    "wp10_diff": 0.5,
-    "mg10_diff": 3.0999999999999996,
-    "pf10_h": 5.8,
-    "pa10_h": 3.0,
-    "pf10_a": 3.3,
-    "pa10_a": 3.6,
-    "lg_total": 8.894650205761318,
-    "sp_h": 3.549108367626886,
-    "sp_a": 5.3491083676268865
+    "rest_h": 1.0,
+    "rest_a": 1.0,
+    "wp10_diff": 0.0,
+    "mg10_diff": -2.3000000000000003,
+    "pf10_h": 4.8,
+    "pa10_h": 4.5,
+    "pf10_a": 6.7,
+    "pa10_a": 4.1,
+    "lg_total": 8.896707818930041,
+    "sp_h": 3.949451303155007,
+    "sp_a": 4.68278463648834
    },
    "expected": {
-    "margin": 0.624057525993,
-    "total": 8.64930679693,
-    "pH": 0.587168019352
+    "margin": 0.311112216664,
+    "total": 8.975910793052,
+    "pH": 0.560472549872
    }
   },
   {
@@ -800,24 +800,24 @@
   },
   {
    "features": {
-    "elo_diff": 30.474594412899023,
+    "elo_diff": 10.620681130869116,
     "neutral": 0.0,
-    "rest_h": 1.0,
-    "rest_a": 2.0,
-    "wp10_diff": -0.3,
-    "mg10_diff": -1.3,
-    "pf10_h": 4.4,
-    "pa10_h": 4.6,
-    "pf10_a": 5.1,
-    "pa10_a": 4.0,
-    "lg_total": 8.898765432098765,
-    "sp_h": 4.616460905349794,
-    "sp_a": 4.28312757201646
+    "rest_h": 2.0,
+    "rest_a": 1.0,
+    "wp10_diff": -0.30000000000000004,
+    "mg10_diff": -2.0,
+    "pf10_h": 4.5,
+    "pa10_h": 3.9,
+    "pf10_a": 5.7,
+    "pa10_a": 3.1,
+    "lg_total": 8.899588477366255,
+    "sp_h": 3.2165980795610425,
+    "sp_a": 3.683264746227709
    },
    "expected": {
-    "margin": 0.11270726828,
-    "total": 9.075476944893,
-    "pH": 0.537634239328
+    "margin": 0.028755534126,
+    "total": 8.168234072471,
+    "pH": 0.522953043436
    }
   },
   {
@@ -866,24 +866,24 @@
   },
   {
    "features": {
-    "elo_diff": -20.226524192534498,
+    "elo_diff": -12.027580750516336,
     "neutral": 0.0,
     "rest_h": 1.0,
     "rest_a": 1.0,
-    "wp10_diff": 0.0,
-    "mg10_diff": 0.3999999999999999,
-    "pf10_h": 4.3,
-    "pa10_h": 5.4,
-    "pf10_a": 3.9,
-    "pa10_a": 5.4,
-    "lg_total": 8.902880658436214,
-    "sp_h": 4.417146776406036,
-    "sp_a": 5.617146776406035
+    "wp10_diff": 0.09999999999999998,
+    "mg10_diff": -2.0,
+    "pf10_h": 4.9,
+    "pa10_h": 5.9,
+    "pf10_a": 5.8,
+    "pa10_a": 4.8,
+    "lg_total": 8.903703703703703,
+    "sp_h": 3.6839506172839505,
+    "sp_a": 4.217283950617284
    },
    "expected": {
-    "margin": -0.151576184461,
-    "total": 9.457734329639,
-    "pH": 0.508874405509
+    "margin": -0.395016859661,
+    "total": 9.062882309286,
+    "pH": 0.493419746714
    }
   },
   {
@@ -932,112 +932,112 @@
   },
   {
    "features": {
-    "elo_diff": -18.43766447390908,
-    "neutral": 0.0,
-    "rest_h": 1.0,
-    "rest_a": 1.0,
-    "wp10_diff": -0.09999999999999998,
-    "mg10_diff": 0.0,
-    "pf10_h": 5.5,
-    "pa10_h": 4.8,
-    "pf10_a": 3.4,
-    "pa10_a": 2.7,
-    "lg_total": 8.941152263374486,
-    "sp_h": 3.8901920438957474,
-    "sp_a": 3.5568587105624143
-   },
-   "expected": {
-    "margin": -0.574981773818,
-    "total": 8.622638482479,
-    "pH": 0.469735905583
-   }
-  },
-  {
-   "features": {
-    "elo_diff": 115.06848685959699,
-    "neutral": 0.0,
-    "rest_h": 1.0,
-    "rest_a": 1.0,
-    "wp10_diff": 0.0,
-    "mg10_diff": 0.10000000000000009,
-    "pf10_h": 3.6,
-    "pa10_h": 5.1,
-    "pf10_a": 4.1,
-    "pa10_a": 5.7,
-    "lg_total": 8.9679012345679,
-    "sp_h": 4.627983539094649,
-    "sp_a": 5.22798353909465
-   },
-   "expected": {
-    "margin": 1.449312978772,
-    "total": 9.154850643722,
-    "pH": 0.666576474871
-   }
-  },
-  {
-   "features": {
-    "elo_diff": 51.05774282049833,
+    "elo_diff": 57.646273650937474,
     "neutral": 0.0,
     "rest_h": 1.0,
     "rest_a": 1.0,
     "wp10_diff": -0.19999999999999996,
-    "mg10_diff": 1.0,
-    "pf10_h": 3.9,
-    "pa10_h": 4.0,
-    "pf10_a": 4.0,
-    "pa10_a": 5.1,
-    "lg_total": 8.941563786008231,
-    "sp_h": 4.156927297668038,
-    "sp_a": 5.156927297668038
+    "mg10_diff": -3.4000000000000004,
+    "pf10_h": 2.5,
+    "pa10_h": 3.8,
+    "pf10_a": 4.6,
+    "pa10_a": 2.5,
+    "lg_total": 8.942798353909465,
+    "sp_h": 5.023799725651577,
+    "sp_a": 3.8904663923182445
    },
    "expected": {
-    "margin": 0.751902214875,
-    "total": 8.850436492091,
-    "pH": 0.599320177307
+    "margin": 0.210694494413,
+    "total": 8.39495201923,
+    "pH": 0.543499635532
    }
   },
   {
    "features": {
-    "elo_diff": -20.259666491516555,
+    "elo_diff": -26.252683275515665,
     "neutral": 0.0,
     "rest_h": 1.0,
     "rest_a": 1.0,
     "wp10_diff": -0.09999999999999998,
-    "mg10_diff": 1.0,
-    "pf10_h": 5.2,
-    "pa10_h": 4.5,
-    "pf10_a": 3.5,
-    "pa10_a": 3.8,
-    "lg_total": 9.031687242798354,
-    "sp_h": 4.3719478737997255,
-    "sp_a": 3.505281207133059
+    "mg10_diff": -1.8,
+    "pf10_h": 2.2,
+    "pa10_h": 4.0,
+    "pf10_a": 3.7,
+    "pa10_a": 3.7,
+    "lg_total": 8.965432098765431,
+    "sp_h": 4.926697530864198,
+    "sp_a": 6.294238683127572
    },
    "expected": {
-    "margin": -0.617050663908,
-    "total": 8.829323091045,
-    "pH": 0.463781636553
+    "margin": -0.25556952223,
+    "total": 9.073748242336,
+    "pH": 0.492047622226
    }
   },
   {
    "features": {
-    "elo_diff": -8.651408778947825,
+    "elo_diff": -39.21682415514579,
     "neutral": 0.0,
     "rest_h": 1.0,
     "rest_a": 1.0,
-    "wp10_diff": -0.30000000000000004,
-    "mg10_diff": -3.7,
-    "pf10_h": 4.3,
-    "pa10_h": 4.8,
-    "pf10_a": 6.0,
-    "pa10_a": 2.8,
-    "lg_total": 9.02880658436214,
-    "sp_h": 3.571467764060357,
-    "sp_a": 3.90480109739369
+    "wp10_diff": -0.09999999999999998,
+    "mg10_diff": -2.3,
+    "pf10_h": 3.7,
+    "pa10_h": 4.0,
+    "pf10_a": 5.1,
+    "pa10_a": 3.1,
+    "lg_total": 8.944444444444445,
+    "sp_h": 4.557407407407408,
+    "sp_a": 3.9574074074074077
    },
    "expected": {
-    "margin": -0.408085828547,
-    "total": 8.559635043007,
-    "pH": 0.487852926166
+    "margin": -0.925434955918,
+    "total": 8.680172165618,
+    "pH": 0.431236908453
+   }
+  },
+  {
+   "features": {
+    "elo_diff": -60.869890316225565,
+    "neutral": 0.0,
+    "rest_h": 1.0,
+    "rest_a": 1.0,
+    "wp10_diff": -0.5,
+    "mg10_diff": -4.0,
+    "pf10_h": 4.8,
+    "pa10_h": 6.9,
+    "pf10_a": 5.2,
+    "pa10_a": 3.3,
+    "lg_total": 9.028395061728395,
+    "sp_h": 5.771399176954732,
+    "sp_a": 3.3713991769547325
+   },
+   "expected": {
+    "margin": -1.387888392975,
+    "total": 9.846902655527,
+    "pH": 0.378479168047
+   }
+  },
+  {
+   "features": {
+    "elo_diff": -26.81695377734286,
+    "neutral": 0.0,
+    "rest_h": 1.0,
+    "rest_a": 1.0,
+    "wp10_diff": 0.0,
+    "mg10_diff": 2.4000000000000004,
+    "pf10_h": 7.3,
+    "pa10_h": 6.2,
+    "pf10_a": 3.5,
+    "pa10_a": 4.8,
+    "lg_total": 9.032510288065843,
+    "sp_h": 5.731252857796068,
+    "sp_a": 4.705418381344307
+   },
+   "expected": {
+    "margin": -0.55372631649,
+    "total": 10.458233195093,
+    "pH": 0.461459061273
    }
   },
   {
@@ -1067,7 +1067,7 @@
   {
    "home": "ARI",
    "away": "CIN",
-   "date": "2026-10-04",
+   "date": "2026-10-06",
    "neutral": false,
    "homeStarter": "abboa001",
    "awayStarter": null,
@@ -1080,7 +1080,7 @@
   {
    "home": "BAL",
    "away": "DET",
-   "date": "2026-10-05",
+   "date": "2026-10-07",
    "neutral": false,
    "homeStarter": "aldes001",
    "awayStarter": "bachl001",
@@ -1093,20 +1093,20 @@
   {
    "home": "CHW",
    "away": "LAA",
-   "date": "2026-10-06",
+   "date": "2026-10-08",
    "neutral": false,
    "homeStarter": "anded003",
    "awayStarter": "bassc001",
    "expected": {
-    "margin": 0.849721820904,
-    "total": 9.043489584502,
-    "pH": 0.604810181196
+    "margin": 0.871791735612,
+    "total": 9.024790527564,
+    "pH": 0.606880687679
    }
   },
   {
    "home": "COL",
    "away": "MIL",
-   "date": "2026-10-07",
+   "date": "2026-10-09",
    "neutral": false,
    "homeStarter": "avill002",
    "awayStarter": null,
@@ -1119,7 +1119,7 @@
   {
    "home": "KC",
    "away": "NYY",
-   "date": "2026-10-08",
+   "date": "2026-10-10",
    "neutral": true,
    "homeStarter": "bassb002",
    "awayStarter": "boydm001",
@@ -1132,7 +1132,7 @@
   {
    "home": "MIA",
    "away": "SD",
-   "date": "2026-10-09",
+   "date": "2026-10-11",
    "neutral": false,
    "homeStarter": "bibet001",
    "awayStarter": "brazh001",
@@ -1145,7 +1145,7 @@
   {
    "home": "NYM",
    "away": "STL",
-   "date": "2026-10-10",
+   "date": "2026-10-12",
    "neutral": false,
    "homeStarter": "boltc001",
    "awayStarter": null,
@@ -1158,7 +1158,7 @@
   {
    "home": "PIT",
    "away": "TOR",
-   "date": "2026-10-11",
+   "date": "2026-10-13",
    "neutral": false,
    "homeStarter": "bradt002",
    "awayStarter": "cabre003",
@@ -1171,7 +1171,7 @@
   {
    "home": "SF",
    "away": "ATH",
-   "date": "2026-10-12",
+   "date": "2026-10-14",
    "neutral": false,
    "homeStarter": "bubik001",
    "awayStarter": "cavac001",
@@ -1184,7 +1184,7 @@
   {
    "home": "TEX",
    "away": "BOS",
-   "date": "2026-10-13",
+   "date": "2026-10-15",
    "neutral": false,
    "homeStarter": "burrm001",
    "awayStarter": null,
@@ -1195,7 +1195,7 @@
    }
   }
  ],
- "json_vs_sklearn_max_abs_diff_pH": 4.933313894617264e-07,
+ "json_vs_sklearn_max_abs_diff_pH": 3.9320276901122497e-07,
  "notes": [
   "Holdout seasons were never used to choose Elo constants, features or coefficients.",
   "Elo constants were chosen on seasons 1992-2019 (mean squared error of Elo expected score).",
