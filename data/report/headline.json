@@ -1,6 +1,6 @@
 {
- "rows": 394976,
- "games": 197488,
+ "rows": 394980,
+ "games": 197490,
  "games_with_market": 91146,
  "sports": 5,
  "sport_list": [
@@ -13,7 +13,7 @@
  "first_season": 1990,
  "last_date": "2026-10-03",
  "last_date_text": "October 3, 2026",
- "player_rows": 628886,
+ "player_rows": 628965,
  "teams": 176,
  "per_sport": [
   {
@@ -36,8 +36,8 @@
   },
   {
    "sport": "mlb",
-   "rows": 173668,
-   "games": 86834,
+   "rows": 173672,
+   "games": 86836,
    "first": "1990",
    "last": "2026",
    "seasons": 37,
