@@ -19013,6 +19013,8 @@ game_id,date,season,season_label,sport,game_type,team,opponent,home_away,score_f
 2026_04_DAL_HOU,2026-10-04,2026,2026,nfl,regular,HOU,DAL,H,30,34,L,-4,64,REG,-3.0,48.5,-155.0,,,0.583,miss,over,1.0
 2026_04_DEN_SF,2026-10-04,2026,2026,nfl,regular,DEN,SF,A,14,24,L,-10,38,REG,3.0,48.5,140.0,,,0.4004,miss,under,0.0
 2026_04_DEN_SF,2026-10-04,2026,2026,nfl,regular,SF,DEN,H,24,14,W,10,38,REG,-3.0,48.5,-166.0,,,0.5996,cover,under,1.0
+2026_04_DET_CAR,2026-10-04,2026,2026,nfl,regular,DET,CAR,A,26,32,L,-6,58,REG,-4.5,52.5,-225.0,,,0.6636,miss,over,1.0
+2026_04_DET_CAR,2026-10-04,2026,2026,nfl,regular,CAR,DET,H,32,26,W,6,58,REG,4.5,52.5,185.0,,,0.3364,cover,over,0.0
 2026_04_GB_TB,2026-10-04,2026,2026,nfl,regular,GB,TB,A,17,14,W,3,31,REG,-3.0,38.5,-155.0,,,0.583,push,under,1.0
 2026_04_GB_TB,2026-10-04,2026,2026,nfl,regular,TB,GB,H,14,17,L,-3,31,REG,3.0,38.5,130.0,,,0.417,push,under,0.0
 2026_04_IND_WAS,2026-10-04,2026,2026,nfl,regular,WAS,IND,N,13,30,L,-17,43,REG,4.5,46.5,190.0,,,0.331,miss,under,0.0
