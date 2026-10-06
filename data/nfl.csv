@@ -19035,3 +19035,5 @@ game_id,date,season,season_label,sport,game_type,team,opponent,home_away,score_f
 2026_04_NYJ_CHI,2026-10-04,2026,2026,nfl,regular,CHI,NYJ,H,23,12,W,11,35,REG,-3.5,43.5,-192.0,,,0.6309,cover,under,1.0
 2026_04_TEN_BAL,2026-10-04,2026,2026,nfl,regular,TEN,BAL,A,18,24,L,-6,42,REG,11.5,42.5,550.0,,,0.1475,cover,under,0.0
 2026_04_TEN_BAL,2026-10-04,2026,2026,nfl,regular,BAL,TEN,H,24,18,W,6,42,REG,-11.5,42.5,-800.0,,,0.8525,miss,under,1.0
+2026_04_ATL_NO,2026-10-05,2026,2026,nfl,regular,ATL,NO,A,45,24,W,21,69,REG,1.5,47.5,-102.0,,,0.4826,cover,over,0.0
+2026_04_ATL_NO,2026-10-05,2026,2026,nfl,regular,NO,ATL,H,24,45,L,-21,69,REG,-1.5,47.5,-118.0,,,0.5174,miss,over,1.0
