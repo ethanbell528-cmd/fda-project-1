@@ -33130,7 +33130,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8482221,Devon Levi,goalie,G,EDM,2,0,0,0,,2.0,42.0,34.0,0.8095
 2026,8482445,Devin Cooley,goalie,G,CGY,1,0,0,0,,1.0,25.0,22.0,0.88
 2026,8482447,Leevi Merilainen,goalie,G,VAN,2,0,0,0,,1.0,35.0,33.0,0.9428
-2026,8482487,Jakub Dobes,goalie,G,MTL,3,0,0,0,,3.0,91.0,78.0,0.8571
+2026,8482487,Jakub Dobes,goalie,G,MTL,3,0,0,0,,3.0,90.0,77.0,0.8556
 2026,8482657,Sebastian Cossa,goalie,G,UTA,1,0,0,0,,1.0,19.0,18.0,0.9474
 2026,8482661,Jesper Wallstedt,goalie,G,MIN,3,0,0,0,,3.0,75.0,70.0,0.9333
 2026,8482821,Arvid Soderblom,goalie,G,CHI,1,0,0,0,,1.0,32.0,26.0,0.8125
@@ -33311,7 +33311,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8477934,Leon Draisaitl,skater,C,EDM,3,3,2,5,16.0,,,,
 2026,8477935,Sam Bennett,skater,C,FLA,4,0,3,3,7.0,,,,
 2026,8477939,William Nylander,skater,R,TOR,4,3,3,6,9.0,,,,
-2026,8477940,Nikolaj Ehlers,skater,L,CAR,4,0,2,2,10.0,,,,
+2026,8477940,Nikolaj Ehlers,skater,L,CAR,4,0,2,2,9.0,,,,
 2026,8477946,Dylan Larkin,skater,C,DET,1,1,1,2,4.0,,,,
 2026,8477948,Travis Sanheim,skater,D,PHI,4,1,1,2,9.0,,,,
 2026,8477949,Alex Tuch,skater,R,WSH,2,2,0,2,5.0,,,,
