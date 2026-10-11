@@ -19039,3 +19039,5 @@ game_id,date,season,season_label,sport,game_type,team,opponent,home_away,score_f
 2026_04_ATL_NO,2026-10-05,2026,2026,nfl,regular,NO,ATL,H,24,45,L,-21,69,REG,-1.5,47.5,-118.0,,,0.5174,miss,over,1.0
 2026_05_TB_DAL,2026-10-08,2026,2026,nfl,regular,TB,DAL,A,24,16,W,8,40,REG,9.5,49.5,400.0,,,0.1918,cover,under,0.0
 2026_05_TB_DAL,2026-10-08,2026,2026,nfl,regular,DAL,TB,H,16,24,L,-8,40,REG,-9.5,49.5,-535.0,,,0.8082,miss,under,1.0
+2026_05_PHI_JAX,2026-10-11,2026,2026,nfl,regular,JAX,PHI,N,19,17,W,2,36,REG,-7.5,41.5,-380.0,,,0.76,miss,under,1.0
+2026_05_PHI_JAX,2026-10-11,2026,2026,nfl,regular,PHI,JAX,N,17,19,L,-2,36,REG,7.5,41.5,300.0,,,0.24,cover,under,0.0
