@@ -19045,6 +19045,10 @@ game_id,date,season,season_label,sport,game_type,team,opponent,home_away,score_f
 2026_05_CIN_MIA,2026-10-11,2026,2026,nfl,regular,MIA,CIN,H,24,31,L,-7,55,REG,7.0,44.5,280.0,,,0.2522,push,over,0.0
 2026_05_CLE_NYJ,2026-10-11,2026,2026,nfl,regular,CLE,NYJ,A,12,17,L,-5,29,REG,2.5,38.5,120.0,,,0.4365,miss,under,0.0
 2026_05_CLE_NYJ,2026-10-11,2026,2026,nfl,regular,NYJ,CLE,H,17,12,W,5,29,REG,-2.5,38.5,-142.0,,,0.5635,cover,under,1.0
+2026_05_DEN_LAC,2026-10-11,2026,2026,nfl,regular,DEN,LAC,A,23,17,W,6,40,REG,-3.5,42.5,-192.0,,,0.6309,cover,under,1.0
+2026_05_DEN_LAC,2026-10-11,2026,2026,nfl,regular,LAC,DEN,H,17,23,L,-6,40,REG,3.5,42.5,160.0,,,0.3691,miss,under,0.0
+2026_05_DET_ARI,2026-10-11,2026,2026,nfl,regular,DET,ARI,A,45,21,W,24,66,REG,-5.5,55.5,-265.0,,,0.6958,cover,over,1.0
+2026_05_DET_ARI,2026-10-11,2026,2026,nfl,regular,ARI,DET,H,21,45,L,-24,66,REG,5.5,55.5,215.0,,,0.3042,miss,over,0.0
 2026_05_HOU_TEN,2026-10-11,2026,2026,nfl,regular,HOU,TEN,A,26,3,W,23,29,REG,-6.5,37.5,-310.0,,,0.7258,cover,under,1.0
 2026_05_HOU_TEN,2026-10-11,2026,2026,nfl,regular,TEN,HOU,H,3,26,L,-23,29,REG,6.5,37.5,250.0,,,0.2742,miss,under,0.0
 2026_05_IND_PIT,2026-10-11,2026,2026,nfl,regular,IND,PIT,A,22,34,L,-12,56,REG,3.0,41.5,136.0,,,0.4066,miss,over,0.0
@@ -19057,3 +19061,5 @@ game_id,date,season,season_label,sport,game_type,team,opponent,home_away,score_f
 2026_05_NYG_WAS,2026-10-11,2026,2026,nfl,regular,WAS,NYG,H,27,27,T,0,54,OT,-3.5,41.5,-180.0,,,0.6164,miss,over,1.0
 2026_05_PHI_JAX,2026-10-11,2026,2026,nfl,regular,JAX,PHI,N,19,17,W,2,36,REG,-7.5,41.5,-380.0,,,0.76,miss,under,1.0
 2026_05_PHI_JAX,2026-10-11,2026,2026,nfl,regular,PHI,JAX,N,17,19,L,-2,36,REG,7.5,41.5,300.0,,,0.24,cover,under,0.0
+2026_05_SF_SEA,2026-10-11,2026,2026,nfl,regular,SF,SEA,A,32,29,W,3,61,REG,3.0,46.5,140.0,,,0.4004,cover,over,0.0
+2026_05_SF_SEA,2026-10-11,2026,2026,nfl,regular,SEA,SF,H,29,32,L,-3,61,REG,-3.0,46.5,-166.0,,,0.5996,miss,over,1.0
