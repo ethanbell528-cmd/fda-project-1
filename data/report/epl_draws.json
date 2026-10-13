@@ -267,40 +267,40 @@
   {
    "season": 2026,
    "label": "2026-27",
-   "draw": 0.32,
-   "home": 0.36,
-   "away": 0.32,
-   "games": 50
+   "draw": 0.316667,
+   "home": 0.383333,
+   "away": 0.3,
+   "games": 60
   }
  ],
  "buckets": [
   {
    "bucket": "0–10 pts",
-   "games": 1993,
-   "actual": 0.30858,
-   "implied": 0.287065,
-   "z": 2.123102
+   "games": 1997,
+   "actual": 0.308463,
+   "implied": 0.287042,
+   "z": 2.11598
   },
   {
    "bucket": "10–20 pts",
-   "games": 1821,
-   "actual": 0.291049,
-   "implied": 0.283758,
-   "z": 0.690176
+   "games": 1822,
+   "actual": 0.290889,
+   "implied": 0.283743,
+   "z": 0.676666
   },
   {
    "bucket": "20–30 pts",
-   "games": 1558,
-   "actual": 0.252246,
-   "implied": 0.274186,
-   "z": -1.941206
+   "games": 1561,
+   "actual": 0.252402,
+   "implied": 0.274155,
+   "z": -1.926595
   },
   {
    "bucket": "30–40 pts",
-   "games": 1437,
-   "actual": 0.247738,
-   "implied": 0.259202,
-   "z": -0.991667
+   "games": 1438,
+   "actual": 0.248261,
+   "implied": 0.259179,
+   "z": -0.944775
   },
   {
    "bucket": "40–50 pts",
@@ -311,10 +311,10 @@
   },
   {
    "bucket": "50–60 pts",
-   "games": 880,
-   "actual": 0.182955,
-   "implied": 0.209743,
-   "z": -1.951896
+   "games": 881,
+   "actual": 0.182747,
+   "implied": 0.209745,
+   "z": -1.968327
   },
   {
    "bucket": "60–100 pts",
@@ -324,13 +324,13 @@
    "z": -1.062306
   }
  ],
- "draw_rate": 0.255763,
- "home_rate": 0.455935,
- "away_rate": 0.288302,
- "matches": 12754,
- "odds_matches": 9928,
- "implied_draw": 0.25319,
- "actual_draw_odds": 0.248388,
+ "draw_rate": 0.255798,
+ "home_rate": 0.45597,
+ "away_rate": 0.288233,
+ "matches": 12764,
+ "odds_matches": 9938,
+ "implied_draw": 0.253194,
+ "actual_draw_odds": 0.24844,
  "first": "1993-94",
  "last": "2026-27"
 }
