@@ -86553,3 +86553,7 @@ game_id,date,season,season_label,sport,game_type,team,opponent,home_away,score_f
 2026020086,2026-10-11,2026,2026-27,nhl,regular,PHI,CAR,H,1,4,L,-3,5,REG,,,,,,,,,
 2026020087,2026-10-12,2026,2026-27,nhl,regular,FLA,BUF,A,3,5,L,-2,8,REG,,,,,,,,,
 2026020087,2026-10-12,2026,2026-27,nhl,regular,BUF,FLA,H,5,3,W,2,8,REG,,,,,,,,,
+2026020088,2026-10-12,2026,2026-27,nhl,regular,OTT,NJD,A,4,1,W,3,5,REG,,,,,,,,,
+2026020088,2026-10-12,2026,2026-27,nhl,regular,NJD,OTT,H,1,4,L,-3,5,REG,,,,,,,,,
+2026020089,2026-10-12,2026,2026-27,nhl,regular,VGK,MIN,A,2,4,L,-2,6,REG,,,,,,,,,
+2026020089,2026-10-12,2026,2026-27,nhl,regular,MIN,VGK,H,4,2,W,2,6,REG,,,,,,,,,
