@@ -19067,3 +19067,5 @@ game_id,date,season,season_label,sport,game_type,team,opponent,home_away,score_f
 2026_05_SF_SEA,2026-10-11,2026,2026,nfl,regular,SEA,SF,H,29,32,L,-3,61,REG,-3.0,46.5,-166.0,,,0.5996,miss,over,1.0
 2026_05_BUF_LA,2026-10-12,2026,2026,nfl,regular,BUF,LA,A,37,34,W,3,71,OT,3.5,55.5,154.0,,,0.3775,cover,over,0.0
 2026_05_BUF_LA,2026-10-12,2026,2026,nfl,regular,LA,BUF,H,34,37,L,-3,71,OT,-3.5,55.5,-185.0,,,0.6225,miss,over,1.0
+2026_06_SEA_DEN,2026-10-15,2026,2026,nfl,regular,SEA,DEN,A,14,17,L,-3,31,OT,-2.5,40.5,-155.0,,,0.583,miss,under,1.0
+2026_06_SEA_DEN,2026-10-15,2026,2026,nfl,regular,DEN,SEA,H,17,14,W,3,31,OT,2.5,40.5,130.0,,,0.417,cover,under,0.0
