@@ -33083,12 +33083,12 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2025,8486056,Tyson Gross,skater,C,CGY,6,1,0,1,5.0,,,,
 2025,8486166,Viking Gustafsson Nyberg,skater,D,MIN,2,0,0,0,0.0,,,,
 2025,8486169,Jake Livanavage,skater,D,PIT,1,0,0,0,0.0,,,,
-2026,8473575,Semyon Varlamov,goalie,G,NYI,2,0,0,0,,2.0,41.0,37.0,0.9024
+2026,8473575,Semyon Varlamov,goalie,G,NYI,2,0,0,0,,2.0,42.0,38.0,0.9048
 2026,8474593,Jacob Markstrom,goalie,G,FLA,5,0,0,0,,5.0,94.0,85.0,0.9042
 2026,8474596,Jake Allen,goalie,G,NJD,4,0,0,0,,4.0,104.0,92.0,0.8846
 2026,8475311,Darcy Kuemper,goalie,G,LAK,4,0,0,0,,4.0,98.0,83.0,0.8469
 2026,8475660,Cam Talbot,goalie,G,CBJ,2,0,0,0,,2.0,45.0,37.0,0.8222
-2026,8475683,Sergei Bobrovsky,goalie,G,TOR,5,0,0,0,,5.0,163.0,146.0,0.8957
+2026,8475683,Sergei Bobrovsky,goalie,G,TOR,5,0,0,0,,5.0,164.0,147.0,0.8963
 2026,8475717,Calvin Pickard,goalie,G,MIN,1,0,0,0,,1.0,25.0,20.0,0.8
 2026,8475809,Scott Wedgewood,goalie,G,COL,2,0,0,0,,2.0,51.0,46.0,0.902
 2026,8475831,Philipp Grubauer,goalie,G,SEA,5,0,0,0,,4.0,133.0,121.0,0.9098
@@ -33124,7 +33124,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8480843,Lukas Dostal,goalie,G,ANA,5,0,0,0,,5.0,130.0,116.0,0.8923
 2026,8480947,Kevin Lankinen,goalie,G,VAN,6,0,0,0,,5.0,131.0,103.0,0.7862
 2026,8480981,Joel Hofer,goalie,G,STL,5,0,1,1,,5.0,127.0,115.0,0.9055
-2026,8481033,Akira Schmid,goalie,G,FLA,4,0,0,0,,3.0,97.0,85.0,0.8763
+2026,8481033,Akira Schmid,goalie,G,FLA,4,0,0,0,,3.0,98.0,86.0,0.8776
 2026,8481035,Samuel Ersson,goalie,G,OTT,3,0,0,0,,2.0,70.0,58.0,0.8286
 2026,8481519,Spencer Knight,goalie,G,CHI,6,0,0,0,,6.0,191.0,170.0,0.89
 2026,8481551,Colten Ellis,goalie,G,BUF,3,0,0,0,,3.0,59.0,51.0,0.8644
@@ -33298,7 +33298,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8477409,Carter Verhaeghe,skater,C,FLA,8,3,2,5,11.0,,,,
 2026,8477416,Oliver Bjorkstrand,skater,R,NYR,9,2,1,3,13.0,,,,
 2026,8477426,Nick Paul,skater,L,TOR,8,1,3,4,8.0,,,,
-2026,8477429,Andrew Copp,skater,C,DET,7,1,1,2,14.0,,,,
+2026,8477429,Andrew Copp,skater,C,DET,7,1,1,2,13.0,,,,
 2026,8477444,Andre Burakovsky,skater,L,OTT,4,0,0,0,2.0,,,,
 2026,8477446,Michael McCarron,skater,C,MIN,8,0,4,4,12.0,,,,
 2026,8477447,Shea Theodore,skater,D,VGK,9,1,2,3,19.0,,,,
@@ -33388,7 +33388,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8478439,Travis Konecny,skater,R,PHI,5,0,3,3,8.0,,,,
 2026,8478440,Dylan Strome,skater,C,WSH,7,0,5,5,12.0,,,,
 2026,8478443,Brandon Carlo,skater,D,STL,7,0,1,1,4.0,,,,
-2026,8478444,Brock Boeser,skater,R,VAN,9,2,4,6,12.0,,,,
+2026,8478444,Brock Boeser,skater,R,VAN,9,2,4,6,13.0,,,,
 2026,8478449,Roope Hintz,skater,C,DAL,7,2,2,4,13.0,,,,
 2026,8478450,Parker Wotherspoon,skater,D,VGK,6,0,0,0,5.0,,,,
 2026,8478454,Noah Juulsen,skater,D,COL,5,0,1,1,3.0,,,,
@@ -33608,12 +33608,12 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8482073,Braden Schneider,skater,D,NYR,9,0,1,1,11.0,,,,
 2026,8482074,Connor Zary,skater,C,CGY,2,0,1,1,2.0,,,,
 2026,8482077,Dylan Holloway,skater,L,STL,7,1,4,5,12.0,,,,
-2026,8482078,Lucas Raymond,skater,L,DET,7,0,4,4,20.0,,,,
+2026,8482078,Lucas Raymond,skater,L,DET,7,0,4,4,21.0,,,,
 2026,8482079,Marco Rossi,skater,C,VAN,9,3,1,4,16.0,,,,
 2026,8482087,Kaiden Guhle,skater,D,MTL,3,0,0,0,4.0,,,,
 2026,8482088,Justin Sourdif,skater,C,WSH,7,1,0,1,6.0,,,,
 2026,8482089,Jake Neighbours,skater,L,STL,7,3,0,3,10.0,,,,
-2026,8482092,Ridly Greig,skater,C,OTT,6,1,1,2,9.0,,,,
+2026,8482092,Ridly Greig,skater,C,OTT,6,1,1,2,10.0,,,,
 2026,8482094,Daemon Hunt,skater,D,MIN,8,0,0,0,4.0,,,,
 2026,8482095,Tyler Kleven,skater,D,OTT,8,1,1,2,8.0,,,,
 2026,8482097,Jack Quinn,skater,R,BUF,8,4,4,8,22.0,,,,
@@ -33685,7 +33685,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8482768,Fedor Svechkov,skater,C,COL,7,1,2,3,8.0,,,,
 2026,8482784,Zach Dean,skater,C,STL,3,0,0,0,0.0,,,,
 2026,8482802,Carter Mazur,skater,L,DET,3,0,1,1,3.0,,,,
-2026,8482803,Olen Zellweger,skater,D,BUF,7,2,1,3,16.0,,,,
+2026,8482803,Olen Zellweger,skater,D,BUF,7,2,1,3,17.0,,,,
 2026,8482806,William Trudeau,skater,D,NSH,3,0,0,0,2.0,,,,
 2026,8482807,Ethan Del Mastro,skater,D,CHI,2,0,0,0,1.0,,,,
 2026,8482809,Jackson Blake,skater,R,CAR,8,1,7,8,21.0,,,,
