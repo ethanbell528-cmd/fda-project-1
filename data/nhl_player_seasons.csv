@@ -33105,7 +33105,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8478009,Ilya Sorokin,goalie,G,NYI,5,0,0,0,,5.0,137.0,128.0,0.9343
 2026,8478024,Ville Husso,goalie,G,ANA,2,0,0,0,,1.0,31.0,29.0,0.9355
 2026,8478048,Igor Shesterkin,goalie,G,NYR,5,1,1,2,,5.0,109.0,101.0,0.9266
-2026,8478406,Mackenzie Blackwood,goalie,G,COL,6,0,0,0,,6.0,155.0,138.0,0.8903
+2026,8478406,Mackenzie Blackwood,goalie,G,COL,6,0,0,0,,6.0,156.0,139.0,0.891
 2026,8478435,Dan Vladar,goalie,G,PHI,4,0,1,1,,4.0,136.0,119.0,0.875
 2026,8478499,Adin Hill,goalie,G,VGK,3,0,0,0,,3.0,72.0,65.0,0.9028
 2026,8478872,Karel Vejmelka,goalie,G,UTA,7,0,0,0,,6.0,157.0,141.0,0.8981
@@ -33116,7 +33116,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8479394,Carter Hart,goalie,G,VGK,6,0,0,0,,6.0,157.0,143.0,0.9108
 2026,8479973,Stuart Skinner,goalie,G,WPG,5,0,0,0,,5.0,149.0,135.0,0.906
 2026,8479979,Jake Oettinger,goalie,G,DAL,5,0,0,0,,5.0,107.0,101.0,0.9439
-2026,8480022,Michael DiPietro,goalie,G,BOS,2,0,0,0,,2.0,56.0,51.0,0.9107
+2026,8480022,Michael DiPietro,goalie,G,BOS,2,0,0,0,,2.0,57.0,52.0,0.9123
 2026,8480045,Ukko-Pekka Luukkonen,goalie,G,BUF,6,0,0,0,,5.0,137.0,117.0,0.854
 2026,8480193,Daniil Tarasov,goalie,G,DET,3,0,0,0,,2.0,57.0,55.0,0.9649
 2026,8480280,Jeremy Swayman,goalie,G,BOS,6,0,0,0,,6.0,171.0,159.0,0.9298
@@ -33574,7 +33574,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8481554,Kaapo Kakko,skater,R,SEA,8,2,4,6,7.0,,,,
 2026,8481557,Matt Boldy,skater,L,MIN,8,5,2,7,35.0,,,,
 2026,8481559,Jack Hughes,skater,C,NJD,7,2,7,9,28.0,,,,
-2026,8481563,Drew Helleson,skater,D,ANA,2,0,0,0,3.0,,,,
+2026,8481563,Drew Helleson,skater,D,ANA,2,0,0,0,4.0,,,,
 2026,8481568,Alex Vlasic,skater,D,CHI,8,0,2,2,4.0,,,,
 2026,8481580,Connor McMichael,skater,L,STL,7,2,4,6,11.0,,,,
 2026,8481581,Thomas Harley,skater,D,DAL,7,0,2,2,13.0,,,,
@@ -33821,7 +33821,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8485400,Roger McQueen,skater,C,ANA,2,0,0,0,6.0,,,,
 2026,8485402,Michael Misa,skater,C,SJS,7,0,3,3,6.0,,,,
 2026,8485406,Porter Martone,skater,R,PHI,9,1,0,1,7.0,,,,
-2026,8485414,Ben Kindel,skater,C,PIT,7,2,2,4,17.0,,,,
+2026,8485414,Ben Kindel,skater,C,PIT,7,2,2,4,18.0,,,,
 2026,8485512,Tim Washe,skater,C,ANA,7,2,2,4,6.0,,,,
 2026,8485702,Maxim Shabanov,skater,R,MIN,8,2,3,5,10.0,,,,
 2026,8485957,Alberts Smits,skater,D,NYR,9,0,0,0,4.0,,,,
