@@ -19079,6 +19079,8 @@ game_id,date,season,season_label,sport,game_type,team,opponent,home_away,score_f
 2026_06_CAR_PHI,2026-10-18,2026,2026,nfl,regular,PHI,CAR,H,14,25,L,-11,39,REG,3.0,39.5,136.0,,,0.4066,miss,under,0.0
 2026_06_CHI_ATL,2026-10-18,2026,2026,nfl,regular,CHI,ATL,A,31,23,W,8,54,REG,-1.5,51.5,-118.0,,,0.5174,cover,over,1.0
 2026_06_CHI_ATL,2026-10-18,2026,2026,nfl,regular,ATL,CHI,H,23,31,L,-8,54,REG,1.5,51.5,-102.0,,,0.4826,miss,over,0.0
+2026_06_DAL_GB,2026-10-18,2026,2026,nfl,regular,DAL,GB,A,13,23,L,-10,36,REG,-1.5,53.5,-115.0,,,0.5108,miss,under,1.0
+2026_06_DAL_GB,2026-10-18,2026,2026,nfl,regular,GB,DAL,H,23,13,W,10,36,REG,1.5,53.5,-105.0,,,0.4892,cover,under,0.0
 2026_06_HOU_JAX,2026-10-18,2026,2026,nfl,regular,JAX,HOU,N,31,34,L,-3,65,REG,-2.5,42.5,-142.0,,,0.5635,miss,over,1.0
 2026_06_HOU_JAX,2026-10-18,2026,2026,nfl,regular,HOU,JAX,N,34,31,W,3,65,REG,2.5,42.5,120.0,,,0.4365,cover,over,0.0
 2026_06_LAC_KC,2026-10-18,2026,2026,nfl,regular,LAC,KC,A,6,22,L,-16,28,REG,7.5,41.5,350.0,,,0.2133,miss,under,0.0
