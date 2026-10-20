@@ -1096,9 +1096,9 @@
    "homeStarter": "8471734",
    "awayStarter": null,
    "expected": {
-    "margin": -0.571559699124,
-    "total": 6.331509145992,
-    "pH": 0.39335588265
+    "margin": -0.571554618105,
+    "total": 6.332682993103,
+    "pH": 0.393368732838
    }
   },
   {
@@ -1109,9 +1109,9 @@
    "homeStarter": "8475311",
    "awayStarter": "8476434",
    "expected": {
-    "margin": 0.721501438167,
-    "total": 6.448605068169,
-    "pH": 0.647084720955
+    "margin": 0.72162056432,
+    "total": 6.449551386846,
+    "pH": 0.647101655357
    }
   },
   {
@@ -1122,9 +1122,9 @@
    "homeStarter": "8475831",
    "awayStarter": "8476945",
    "expected": {
-    "margin": -0.859869372372,
-    "total": 6.276276277317,
-    "pH": 0.346693844556
+    "margin": -0.859754008726,
+    "total": 6.27722110445,
+    "pH": 0.346709312415
    }
   },
   {
@@ -1135,9 +1135,9 @@
    "homeStarter": "8476412",
    "awayStarter": null,
    "expected": {
-    "margin": 0.109562728861,
-    "total": 6.303821803875,
-    "pH": 0.529360706795
+    "margin": 0.109569911059,
+    "total": 6.304995891547,
+    "pH": 0.529374853641
    }
   },
   {
@@ -1148,9 +1148,9 @@
    "homeStarter": "8476932",
    "awayStarter": "8477990",
    "expected": {
-    "margin": -0.536788822951,
-    "total": 6.109789683472,
-    "pH": 0.409376748454
+    "margin": -0.536760554227,
+    "total": 6.110916125636,
+    "pH": 0.409390607386
    }
   },
   {
@@ -1161,9 +1161,9 @@
    "homeStarter": "8477480",
    "awayStarter": "8478048",
    "expected": {
-    "margin": 0.270600769798,
-    "total": 6.387431531317,
-    "pH": 0.552610016259
+    "margin": 0.270719193191,
+    "total": 6.38837328358,
+    "pH": 0.552627466992
    }
   },
   {
@@ -1174,9 +1174,9 @@
    "homeStarter": "8477970",
    "awayStarter": null,
    "expected": {
-    "margin": -0.033460388946,
-    "total": 5.888936865111,
-    "pH": 0.504493597398
+    "margin": -0.033452776088,
+    "total": 5.890111002088,
+    "pH": 0.504507942346
    }
   },
   {
@@ -1187,9 +1187,9 @@
    "homeStarter": "8478024",
    "awayStarter": "8479312",
    "expected": {
-    "margin": 0.947653608444,
-    "total": 6.533234776796,
-    "pH": 0.674548583556
+    "margin": 0.902062571021,
+    "total": 6.67504006048,
+    "pH": 0.665449012953
    }
   },
   {
@@ -1200,9 +1200,9 @@
    "homeStarter": "8478499",
    "awayStarter": "8479973",
    "expected": {
-    "margin": 0.026941114721,
-    "total": 6.46645515091,
-    "pH": 0.513041531946
+    "margin": 0.027065520823,
+    "total": 6.467393689682,
+    "pH": 0.513060690236
    }
   },
   {
@@ -1213,13 +1213,13 @@
    "homeStarter": "8479292",
    "awayStarter": null,
    "expected": {
-    "margin": 0.098253405581,
-    "total": 6.408096668745,
-    "pH": 0.523211821849
+    "margin": 0.10332873771,
+    "total": 6.4441890633,
+    "pH": 0.523671658447
    }
   }
  ],
- "json_vs_sklearn_max_abs_diff_pH": 1.0240215252421692e-06,
+ "json_vs_sklearn_max_abs_diff_pH": 1.024021525575236e-06,
  "notes": [
   "Holdout seasons were never used to choose Elo constants, features or coefficients.",
   "Elo constants were chosen on seasons 1992-2019 (mean squared error of Elo expected score).",

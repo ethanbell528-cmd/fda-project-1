@@ -267,70 +267,70 @@
   {
    "season": 2026,
    "label": "2026-27",
-   "draw": 0.316667,
-   "home": 0.383333,
-   "away": 0.3,
-   "games": 60
+   "draw": 0.285714,
+   "home": 0.4,
+   "away": 0.314286,
+   "games": 70
   }
  ],
  "buckets": [
   {
    "bucket": "0–10 pts",
-   "games": 1997,
-   "actual": 0.308463,
-   "implied": 0.287042,
-   "z": 2.11598
+   "games": 2000,
+   "actual": 0.3085,
+   "implied": 0.287016,
+   "z": 2.123929
   },
   {
    "bucket": "10–20 pts",
-   "games": 1822,
-   "actual": 0.290889,
-   "implied": 0.283743,
-   "z": 0.676666
+   "games": 1823,
+   "actual": 0.29073,
+   "implied": 0.283725,
+   "z": 0.66342
   },
   {
    "bucket": "20–30 pts",
-   "games": 1561,
-   "actual": 0.252402,
-   "implied": 0.274155,
-   "z": -1.926595
+   "games": 1562,
+   "actual": 0.252241,
+   "implied": 0.274167,
+   "z": -1.942603
   },
   {
    "bucket": "30–40 pts",
-   "games": 1438,
-   "actual": 0.248261,
-   "implied": 0.259179,
-   "z": -0.944775
+   "games": 1439,
+   "actual": 0.248089,
+   "implied": 0.259161,
+   "z": -0.958564
   },
   {
    "bucket": "40–50 pts",
-   "games": 1093,
-   "actual": 0.224154,
-   "implied": 0.239287,
-   "z": -1.172639
+   "games": 1095,
+   "actual": 0.223744,
+   "implied": 0.239248,
+   "z": -1.202561
   },
   {
    "bucket": "50–60 pts",
-   "games": 881,
-   "actual": 0.182747,
-   "implied": 0.209745,
-   "z": -1.968327
+   "games": 882,
+   "actual": 0.18254,
+   "implied": 0.209729,
+   "z": -1.983388
   },
   {
    "bucket": "60–100 pts",
-   "games": 1146,
-   "actual": 0.144852,
-   "implied": 0.156245,
-   "z": -1.062306
+   "games": 1147,
+   "actual": 0.144725,
+   "implied": 0.156232,
+   "z": -1.073294
   }
  ],
- "draw_rate": 0.255798,
- "home_rate": 0.45597,
- "away_rate": 0.288233,
- "matches": 12764,
- "odds_matches": 9938,
- "implied_draw": 0.253194,
- "actual_draw_odds": 0.24844,
+ "draw_rate": 0.255676,
+ "home_rate": 0.456004,
+ "away_rate": 0.28832,
+ "matches": 12774,
+ "odds_matches": 9948,
+ "implied_draw": 0.253176,
+ "actual_draw_odds": 0.248291,
  "first": "1993-94",
  "last": "2026-27"
 }
