@@ -90369,3 +90369,9 @@ game_id,date,season,season_label,sport,game_type,team,opponent,home_away,score_f
 401859966,2026-06-10,2025,2025-26,nba,playoff,NYK,SAS,H,107,106,W,1,213,REG,-2.5,216.5,,,,,miss,under,1.0
 401859967,2026-06-13,2025,2025-26,nba,playoff,NYK,SAS,A,94,90,W,4,184,REG,5.5,215.5,,,,,cover,under,0.0
 401859967,2026-06-13,2025,2025-26,nba,playoff,SAS,NYK,H,90,94,L,-4,184,REG,-5.5,215.5,,,,,miss,under,1.0
+401909088,2026-10-20,2026,2026-27,nba,regular,BOS,DET,A,113,121,L,-8,234,REG,,,,,,,,,
+401909088,2026-10-20,2026,2026-27,nba,regular,DET,BOS,H,121,113,W,8,234,REG,,,,,,,,,
+401909089,2026-10-20,2026,2026-27,nba,regular,PHI,NYK,A,106,100,W,6,206,REG,,,,,,,,,
+401909089,2026-10-20,2026,2026-27,nba,regular,NYK,PHI,H,100,106,L,-6,206,REG,,,,,,,,,
+401909090,2026-10-20,2026,2026-27,nba,regular,OKC,SAS,A,116,104,W,12,220,REG,,,,,,,,,
+401909090,2026-10-20,2026,2026-27,nba,regular,SAS,OKC,H,104,116,L,-12,220,REG,,,,,,,,,

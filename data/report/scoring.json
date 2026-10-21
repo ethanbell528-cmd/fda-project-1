@@ -1268,7 +1268,9 @@
    "high_avg": 49.490706
   },
   {
-   "partial_excluded": [],
+   "partial_excluded": [
+    "2026-27"
+   ],
    "sport": "nba",
    "unit": "points",
    "base_label": "1990-91 to 1999-00",

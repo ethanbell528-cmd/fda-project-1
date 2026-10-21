@@ -1099,7 +1099,9 @@
    "sport": "nba",
    "home_win": 0.594489,
    "games": 44968,
-   "partial_excluded": [],
+   "partial_excluded": [
+    "2026-27"
+   ],
    "tie_early": 0.0,
    "tie_late": 0.0,
    "draw": null,
