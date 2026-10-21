@@ -33096,7 +33096,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8476412,Jordan Binnington,goalie,G,STL,3,0,0,0,,3.0,83.0,69.0,0.8313
 2026,8476434,John Gibson,goalie,G,DET,6,0,0,0,,6.0,158.0,138.0,0.8734
 2026,8476883,Andrei Vasilevskiy,goalie,G,TBL,7,0,0,0,,7.0,166.0,149.0,0.8976
-2026,8476932,Anthony Stolarz,goalie,G,TOR,4,0,2,2,,4.0,117.0,105.0,0.8974
+2026,8476932,Anthony Stolarz,goalie,G,TOR,4,0,2,2,,4.0,118.0,106.0,0.8983
 2026,8476999,Linus Ullmark,goalie,G,OTT,7,0,0,0,,7.0,164.0,155.0,0.9451
 2026,8477424,Juuse Saros,goalie,G,NSH,7,0,0,0,,7.0,213.0,193.0,0.9061
 2026,8477465,Tristan Jarry,goalie,G,EDM,3,0,0,0,,3.0,71.0,62.0,0.8732
@@ -33396,7 +33396,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8478450,Parker Wotherspoon,skater,D,VGK,6,0,0,0,5.0,,,,
 2026,8478454,Noah Juulsen,skater,D,COL,8,0,1,1,4.0,,,,
 2026,8478458,Jack Roslovic,skater,C,TOR,11,4,5,9,32.0,,,,
-2026,8478460,Zach Werenski,skater,D,CBJ,8,0,6,6,24.0,,,,
+2026,8478460,Zach Werenski,skater,D,CBJ,8,0,6,6,25.0,,,,
 2026,8478462,Nicolas Roy,skater,C,COL,6,2,2,4,10.0,,,,
 2026,8478463,Anthony Beauvillier,skater,R,WSH,9,1,1,2,9.0,,,,
 2026,8478465,Guillaume Brisebois,skater,D,VAN,1,0,0,0,2.0,,,,
@@ -33696,7 +33696,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8482768,Fedor Svechkov,skater,C,COL,10,1,4,5,10.0,,,,
 2026,8482775,Oliver Kapanen,skater,C,MTL,2,0,0,0,5.0,,,,
 2026,8482784,Zach Dean,skater,C,STL,3,0,0,0,0.0,,,,
-2026,8482802,Carter Mazur,skater,L,DET,4,0,1,1,4.0,,,,
+2026,8482802,Carter Mazur,skater,L,DET,4,0,1,1,3.0,,,,
 2026,8482803,Olen Zellweger,skater,D,BUF,8,2,1,3,20.0,,,,
 2026,8482806,William Trudeau,skater,D,NSH,3,0,0,0,2.0,,,,
 2026,8482807,Ethan Del Mastro,skater,D,CHI,3,0,0,0,3.0,,,,
