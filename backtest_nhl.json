@@ -1,6 +1,6 @@
 {
  "sport": "nhl",
- "generated_at": "2026-10-19",
+ "generated_at": "2026-10-20",
  "edge_threshold": 0.03,
  "train_seasons": "1992-2023",
  "train_games": 38500,
@@ -1091,131 +1091,131 @@
   {
    "home": "ANA",
    "away": "COL",
-   "date": "2026-10-22",
+   "date": "2026-10-23",
    "neutral": false,
    "homeStarter": "8471734",
    "awayStarter": null,
    "expected": {
-    "margin": -0.571554618105,
-    "total": 6.332682993103,
-    "pH": 0.393368732838
+    "margin": -0.566190351852,
+    "total": 6.39780045303,
+    "pH": 0.393603760022
    }
   },
   {
    "home": "CAR",
    "away": "EDM",
-   "date": "2026-10-23",
+   "date": "2026-10-24",
    "neutral": false,
    "homeStarter": "8475311",
    "awayStarter": "8476434",
    "expected": {
-    "margin": 0.72162056432,
-    "total": 6.449551386846,
-    "pH": 0.647101655357
+    "margin": 0.720791722245,
+    "total": 6.575898395324,
+    "pH": 0.641972809313
    }
   },
   {
    "home": "CHI",
    "away": "MIN",
-   "date": "2026-10-24",
+   "date": "2026-10-25",
    "neutral": false,
    "homeStarter": "8475831",
    "awayStarter": "8476945",
    "expected": {
-    "margin": -0.859754008726,
-    "total": 6.27722110445,
-    "pH": 0.346709312415
+    "margin": -0.837140832888,
+    "total": 6.280876884963,
+    "pH": 0.350850862195
    }
   },
   {
    "home": "DET",
    "away": "NSH",
-   "date": "2026-10-25",
+   "date": "2026-10-26",
    "neutral": false,
    "homeStarter": "8476412",
    "awayStarter": null,
    "expected": {
-    "margin": 0.109569911059,
-    "total": 6.304995891547,
-    "pH": 0.529374853641
+    "margin": 0.088723737285,
+    "total": 6.307611372173,
+    "pH": 0.525441516565
    }
   },
   {
    "home": "LAK",
    "away": "OTT",
-   "date": "2026-10-26",
+   "date": "2026-10-27",
    "neutral": true,
    "homeStarter": "8476932",
    "awayStarter": "8477990",
    "expected": {
-    "margin": -0.536760554227,
-    "total": 6.110916125636,
-    "pH": 0.409390607386
+    "margin": -0.502433382769,
+    "total": 6.174688453928,
+    "pH": 0.415148370591
    }
   },
   {
    "home": "NJD",
    "away": "SEA",
-   "date": "2026-10-27",
+   "date": "2026-10-28",
    "neutral": false,
    "homeStarter": "8477480",
    "awayStarter": "8478048",
    "expected": {
-    "margin": 0.270719193191,
-    "total": 6.38837328358,
-    "pH": 0.552627466992
+    "margin": 0.302353222081,
+    "total": 6.465132993478,
+    "pH": 0.558031536098
    }
   },
   {
    "home": "NYR",
    "away": "TBL",
-   "date": "2026-10-28",
+   "date": "2026-10-29",
    "neutral": false,
    "homeStarter": "8477970",
    "awayStarter": null,
    "expected": {
-    "margin": -0.033452776088,
-    "total": 5.890111002088,
-    "pH": 0.504507942346
+    "margin": -0.123120190132,
+    "total": 6.006335675919,
+    "pH": 0.486479082126
    }
   },
   {
    "home": "PIT",
    "away": "VAN",
-   "date": "2026-10-29",
+   "date": "2026-10-30",
    "neutral": false,
    "homeStarter": "8478024",
    "awayStarter": "8479312",
    "expected": {
-    "margin": 0.902062571021,
-    "total": 6.67504006048,
-    "pH": 0.665449012953
+    "margin": 0.910686080667,
+    "total": 6.648116299777,
+    "pH": 0.666721438838
    }
   },
   {
    "home": "STL",
    "away": "WSH",
-   "date": "2026-10-30",
+   "date": "2026-10-31",
    "neutral": false,
    "homeStarter": "8478499",
    "awayStarter": "8479973",
    "expected": {
-    "margin": 0.027065520823,
-    "total": 6.467393689682,
-    "pH": 0.513060690236
+    "margin": 0.133653017511,
+    "total": 6.362483878318,
+    "pH": 0.532251497435
    }
   },
   {
    "home": "UTA",
    "away": "BUF",
-   "date": "2026-10-31",
+   "date": "2026-11-01",
    "neutral": false,
    "homeStarter": "8479292",
    "awayStarter": null,
    "expected": {
-    "margin": 0.10332873771,
-    "total": 6.4441890633,
-    "pH": 0.523671658447
+    "margin": 0.103112271117,
+    "total": 6.447715125836,
+    "pH": 0.52371335708
    }
   }
  ],
