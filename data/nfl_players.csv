@@ -13451,7 +13451,7 @@ game_id,date,season,week,game_type,player_id,player,position,team,opponent,home_
 2026_03_NYJ_DET,2026-09-27,2026,3,regular,00-0036963,Amon-Ra St. Brown,WR,DET,NYJ,H,0,0,0,0,0,0,0,0,8,4,19,1
 2026_03_NYJ_DET,2026-09-27,2026,3,regular,00-0036754,Brock Wright,TE,DET,NYJ,H,0,0,0,0,0,0,0,0,2,2,7,0
 2026_03_NYJ_DET,2026-09-27,2026,3,regular,00-0040669,Isaac TeSlaa,WR,DET,NYJ,H,0,0,0,0,0,0,0,0,3,3,66,0
-2026_03_NYJ_DET,2026-09-27,2026,3,regular,00-0040390,Jackson Meeks,WR,DET,NYJ,H,0,0,0,0,0,0,0,0,1,1,8,0
+2026_03_NYJ_DET,2026-09-27,2026,3,regular,00-0040390,Jackson Meeks,TE,DET,NYJ,H,0,0,0,0,0,0,0,0,1,1,8,0
 2026_03_NYJ_DET,2026-09-27,2026,3,regular,00-0038896,Jacob Saylors,RB,DET,NYJ,H,0,0,0,0,0,0,0,0,0,0,0,0
 2026_03_NYJ_DET,2026-09-27,2026,3,regular,00-0039139,Jahmyr Gibbs,RB,DET,NYJ,H,0,0,0,0,0,20,99,2,8,7,65,1
 2026_03_NYJ_DET,2026-09-27,2026,3,regular,00-0037240,Jameson Williams,WR,DET,NYJ,H,0,0,0,0,0,0,0,0,4,4,49,0
