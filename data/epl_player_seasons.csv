@@ -5457,313 +5457,444 @@ season,player_id,player,team,position,games,minutes,goals,assists
 2025,817,Adam Armstrong,Wolves,FWD,14,1141,2,2
 2025,829,Jesse Derry,Chelsea,MID,1,45,0,0
 2025,840,Shumaira Mheuka,Chelsea,FWD,1,1,0,0
-2026,1,David Raya Martín,Arsenal,GK,1,90,0,0
-2026,4,Gabriel dos Santos Magalhães,Arsenal,DEF,1,90,0,0
-2026,7,Myles Lewis-Skelly,Arsenal,MID,1,90,0,0
-2026,8,Riccardo Calafiori,Arsenal,DEF,1,80,0,1
-2026,9,Piero Hincapié,Arsenal,DEF,1,9,0,0
-2026,10,Benjamin White,Arsenal,DEF,1,90,0,1
-2026,11,Cristhian Mosquera,Arsenal,DEF,1,90,0,0
-2026,12,Bukayo Saka,Arsenal,MID,1,67,1,0
-2026,13,Declan Rice,Arsenal,MID,1,67,0,0
-2026,14,Eberechi Eze,Arsenal,MID,1,14,0,0
-2026,15,Martin Ødegaard,Arsenal,MID,1,75,1,0
-2026,16,Noni Madueke,Arsenal,MID,1,22,0,0
-2026,17,Mikel Merino Zazón,Arsenal,MID,1,14,0,0
-2026,19,Martín Zubimendi Ibáñez,Arsenal,MID,1,22,0,0
-2026,26,Kai Havertz,Arsenal,FWD,1,90,1,0
+2026,1,David Raya Martín,Arsenal,GK,6,540,0,0
+2026,4,Gabriel dos Santos Magalhães,Arsenal,DEF,6,540,0,0
+2026,5,Jurriën Timber,Arsenal,DEF,3,131,0,0
+2026,7,Myles Lewis-Skelly,Arsenal,MID,5,333,0,0
+2026,8,Riccardo Calafiori,Arsenal,DEF,6,497,1,2
+2026,9,Piero Hincapié,Arsenal,DEF,3,40,0,0
+2026,10,Benjamin White,Arsenal,DEF,5,377,0,2
+2026,11,Cristhian Mosquera,Arsenal,DEF,2,168,0,0
+2026,12,Bukayo Saka,Arsenal,MID,6,506,3,0
+2026,13,Declan Rice,Arsenal,MID,6,501,0,3
+2026,14,Eberechi Eze,Arsenal,MID,4,85,0,0
+2026,15,Martin Ødegaard,Arsenal,MID,6,466,2,0
+2026,16,Noni Madueke,Arsenal,MID,3,113,0,0
+2026,17,Mikel Merino Zazón,Arsenal,MID,6,82,0,0
+2026,19,Martín Zubimendi Ibáñez,Arsenal,MID,5,89,0,0
+2026,20,Max Dowman,Arsenal,MID,1,9,0,0
+2026,25,Viktor Gyökeres,Arsenal,FWD,3,56,0,0
+2026,26,Kai Havertz,Arsenal,FWD,6,499,2,0
+2026,28,Emiliano Martínez Romero,Chelsea,GK,5,450,0,0
 2026,29,Marco Bizot,Aston Villa,GK,1,90,0,0
-2026,32,Matty Cash,Aston Villa,DEF,1,90,0,0
-2026,33,Tyrone Mings,Aston Villa,DEF,1,16,0,0
-2026,34,Pau Torres,Aston Villa,DEF,1,73,0,0
+2026,31,Ezri Konsa Ngoyo,Arsenal,DEF,5,371,0,0
+2026,32,Matty Cash,Aston Villa,DEF,5,386,0,0
+2026,33,Tyrone Mings,Aston Villa,DEF,5,351,0,0
+2026,34,Pau Torres,Aston Villa,DEF,3,187,0,0
 2026,35,Lamare Bogarde,Aston Villa,MID,1,16,0,0
-2026,36,Ian Maatsen,Aston Villa,DEF,1,81,0,0
-2026,37,Victor Lindelöf,Aston Villa,DEF,1,90,0,0
-2026,40,Morgan Rogers,Chelsea,MID,1,81,1,0
-2026,41,Emiliano Buendía Stati,Aston Villa,MID,1,85,0,0
-2026,42,Evann Guessand,Crystal Palace,MID,1,27,0,0
-2026,43,Youri Tielemans,Man United,MID,1,66,0,0
-2026,45,John McGinn,Aston Villa,MID,1,81,0,0
-2026,46,Ross Barkley,Aston Villa,MID,1,73,0,0
-2026,47,Boubacar Kamara,Aston Villa,MID,1,90,0,0
-2026,51,George Hemmings,Aston Villa,MID,1,90,0,0
-2026,52,Alysson Edward Franco da Rocha dos Santos,Aston Villa,MID,1,8,0,0
-2026,54,Joao Gomes,Aston Villa,MID,1,39,0,0
-2026,57,Đorđe Petrović,Bournemouth,GK,1,90,0,0
-2026,60,James Hill,Bournemouth,DEF,1,90,0,0
-2026,61,Adrien Truffert,Bournemouth,DEF,1,90,0,0
-2026,64,Adam Smith,Bournemouth,DEF,1,90,0,0
-2026,67,Rayan Vitor Simplício Rocha,Bournemouth,MID,1,88,0,0
-2026,68,Marcus Tavernier,Bournemouth,MID,1,90,1,0
-2026,69,Alex Scott,Bournemouth,MID,1,90,0,0
-2026,70,Justin Kluivert,Bournemouth,MID,1,74,0,0
-2026,71,Lewis Cook,Bournemouth,MID,1,75,0,0
-2026,72,Ben Gannon-Doak,Bournemouth,MID,1,1,0,0
-2026,73,Tyler Adams,Bournemouth,MID,1,15,0,0
-2026,76,Alex Tóth,Bournemouth,MID,1,15,0,0
-2026,79,Francisco Evanilson de Lima Barbosa,Bournemouth,FWD,1,74,0,1
-2026,82,Caoimhín Kelleher,Brentford,GK,1,90,0,0
-2026,84,Nathan Collins,Brentford,DEF,1,90,0,0
-2026,86,Keane Lewis-Potter,Brentford,MID,1,90,1,0
-2026,87,Kristoffer Ajer,Brentford,DEF,1,90,0,0
-2026,88,Michael Kayode,Brentford,DEF,1,75,1,0
-2026,90,Aaron Hickey,Brentford,DEF,1,14,0,0
-2026,94,Kevin Schade,Brentford,MID,1,90,0,0
-2026,95,Dango Ouattara,Brentford,MID,1,66,0,0
-2026,96,Mikkel Damsgaard,Brentford,MID,1,14,0,0
-2026,97,Mathias Jensen,Brentford,MID,1,66,0,1
-2026,98,Vitaly Janelt,Brentford,MID,1,90,1,0
-2026,102,Yehor Yarmoliuk,Brentford,MID,1,23,0,0
-2026,104,Frank Onyeka,Coventry,MID,1,90,0,0
-2026,105,Jaidon Anthony,Brentford,MID,1,23,0,0
-2026,106,Igor Thiago Nascimento Rodrigues,Brentford,FWD,1,82,0,0
-2026,108,Callum Wilson,Brentford,FWD,1,7,0,0
-2026,109,Bart Verbruggen,Brighton,GK,1,90,0,0
-2026,110,Carl Rushworth,Coventry,GK,1,90,0,0
-2026,112,Jan Paul van Hecke,Tottenham,DEF,1,90,0,0
-2026,114,Olivier Boscagli,Brighton,DEF,1,90,0,0
-2026,115,Maxim De Cuyper,Brighton,DEF,1,77,1,1
-2026,116,Lewis Dunk,Brighton,DEF,1,90,0,0
-2026,119,João Pedro Loureiro da Costa,Brighton,DEF,1,26,0,0
+2026,36,Ian Maatsen,Aston Villa,DEF,4,335,0,0
+2026,37,Victor Lindelöf,Aston Villa,DEF,6,540,0,0
+2026,40,Morgan Rogers,Chelsea,MID,6,520,4,1
+2026,41,Emiliano Buendía Stati,Aston Villa,MID,6,464,1,1
+2026,42,Evann Guessand,Crystal Palace,MID,2,54,0,0
+2026,43,Youri Tielemans,Man United,MID,6,460,0,0
+2026,45,John McGinn,Aston Villa,MID,6,524,1,2
+2026,46,Ross Barkley,Aston Villa,MID,6,312,0,0
+2026,47,Boubacar Kamara,Aston Villa,MID,6,533,0,1
+2026,51,George Hemmings,Aston Villa,MID,5,297,0,0
+2026,52,Alysson Edward Franco da Rocha dos Santos,Aston Villa,MID,5,91,1,0
+2026,53,Johan Manzambi,Aston Villa,MID,3,183,1,2
+2026,54,Joao Gomes,Aston Villa,MID,3,214,0,0
+2026,56,Tammy Abraham,Aston Villa,FWD,4,71,0,0
+2026,57,Đorđe Petrović,Bournemouth,GK,6,540,0,0
+2026,60,James Hill,Bournemouth,DEF,6,540,0,0
+2026,61,Adrien Truffert,Bournemouth,DEF,6,533,0,0
+2026,64,Adam Smith,Bournemouth,DEF,6,505,0,0
+2026,66,Julio Soler Barreto,Bournemouth,DEF,1,6,0,0
+2026,67,Rayan Vitor Simplício Rocha,Bournemouth,MID,6,524,0,0
+2026,68,Marcus Tavernier,Bournemouth,MID,6,496,3,0
+2026,69,Alex Scott,Bournemouth,MID,5,446,1,2
+2026,70,Justin Kluivert,Bournemouth,MID,4,294,1,0
+2026,71,Lewis Cook,Bournemouth,MID,6,197,0,0
+2026,72,Ben Gannon-Doak,Bournemouth,MID,5,57,0,0
+2026,73,Tyler Adams,Bournemouth,MID,6,369,0,0
+2026,74,David Brooks,Bournemouth,MID,5,90,0,0
+2026,75,Ryan Christie,Bournemouth,MID,5,174,0,0
+2026,76,Alex Tóth,Bournemouth,MID,2,17,0,0
+2026,79,Francisco Evanilson de Lima Barbosa,Bournemouth,FWD,6,514,1,3
+2026,81,Álvaro Rodríguez,Bournemouth,FWD,3,28,0,0
+2026,82,Caoimhín Kelleher,Brentford,GK,6,540,0,0
+2026,84,Nathan Collins,Brentford,DEF,3,196,0,0
+2026,86,Keane Lewis-Potter,Brentford,MID,6,472,1,1
+2026,87,Kristoffer Ajer,Brentford,DEF,6,540,1,0
+2026,88,Michael Kayode,Brentford,DEF,6,384,1,0
+2026,89,Rico Henry,Brentford,DEF,1,2,0,0
+2026,90,Aaron Hickey,Brentford,DEF,6,197,0,0
+2026,91,Ethan Pinnock,Coventry,DEF,5,372,0,0
+2026,93,Jannik Schuster,Brentford,DEF,4,298,0,1
+2026,94,Kevin Schade,Brentford,MID,6,498,3,2
+2026,95,Dango Ouattara,Brentford,MID,6,202,0,0
+2026,96,Mikkel Damsgaard,Brentford,MID,5,283,0,1
+2026,97,Mathias Jensen,Brentford,MID,2,89,0,1
+2026,98,Vitaly Janelt,Brentford,MID,6,540,2,0
+2026,100,Fábio Freitas Gouveia Carvalho,Brentford,MID,1,3,1,0
+2026,101,Jordan Henderson,Chelsea,MID,2,180,2,1
+2026,102,Yehor Yarmoliuk,Brentford,MID,6,282,1,1
+2026,104,Frank Onyeka,Coventry,MID,5,326,0,0
+2026,105,Jaidon Anthony,Brentford,MID,6,351,1,1
+2026,106,Igor Thiago Nascimento Rodrigues,Brentford,FWD,6,532,1,1
+2026,108,Callum Wilson,Brentford,FWD,4,18,0,0
+2026,109,Bart Verbruggen,Brighton,GK,6,540,0,0
+2026,110,Carl Rushworth,Coventry,GK,6,540,0,1
+2026,112,Jan Paul van Hecke,Tottenham,DEF,6,540,1,0
+2026,113,Ferdi Kadıoğlu,Brighton,DEF,5,422,0,0
+2026,114,Olivier Boscagli,Brighton,DEF,6,504,0,0
+2026,115,Maxim De Cuyper,Brighton,DEF,6,490,2,3
+2026,116,Lewis Dunk,Brighton,DEF,5,390,1,0
+2026,119,João Pedro Loureiro da Costa,Brighton,DEF,6,90,0,0
+2026,120,Michael Svoboda,Brighton,DEF,1,4,0,0
 2026,123,Jack Hinshelwood,Brighton,MID,1,63,2,0
-2026,124,Pascal Groß,Brighton,MID,1,90,0,0
-2026,125,Georginio Rutter,Brighton,FWD,1,90,0,1
-2026,127,Diego Gómez Amarilla,Brighton,MID,1,85,0,1
-2026,129,Yasin Ayari,Brighton,MID,1,63,0,0
-2026,130,Mats Wieffer,Brighton,DEF,1,77,0,0
+2026,124,Pascal Groß,Brighton,MID,6,540,3,5
+2026,125,Georginio Rutter,Brighton,FWD,3,106,0,2
+2026,126,Matt O'Riley,Brighton,MID,2,10,0,0
+2026,127,Diego Gómez Amarilla,Brighton,MID,6,520,0,3
+2026,129,Yasin Ayari,Brighton,MID,5,420,1,0
+2026,130,Mats Wieffer,Brighton,DEF,2,156,0,0
+2026,131,Carlos Baleba,Man United,MID,1,31,0,0
 2026,135,Zadok Yohanna,Brighton,MID,1,12,0,0
-2026,138,Charalampos Kostoulas,Brighton,FWD,1,26,0,0
+2026,136,Danny Welbeck,Chelsea,FWD,4,92,0,0
+2026,138,Charalampos Kostoulas,Brighton,FWD,6,412,2,3
 2026,140,Robert Lynch Sánchez,Chelsea,GK,1,90,0,0
-2026,142,Reece James,Chelsea,DEF,1,90,0,0
-2026,144,Malo Gusto,Chelsea,DEF,1,75,0,0
-2026,148,Jorrel Hato,Chelsea,DEF,1,64,0,0
-2026,149,Levi Samuels Colwill,Chelsea,DEF,1,90,0,0
-2026,151,Josh Acheampong,Chelsea,DEF,1,90,0,0
-2026,154,Cole Palmer,Chelsea,MID,1,82,1,1
+2026,142,Reece James,Chelsea,DEF,4,292,0,0
+2026,144,Malo Gusto,Chelsea,DEF,5,274,0,0
+2026,145,Wesley Fofana,Chelsea,DEF,4,312,0,0
+2026,147,Tosin Adarabioyo,Tottenham,DEF,1,5,0,0
+2026,148,Jorrel Hato,Chelsea,DEF,4,258,0,2
+2026,149,Levi Samuels Colwill,Chelsea,DEF,5,431,0,0
+2026,151,Josh Acheampong,Chelsea,DEF,5,311,0,0
+2026,152,Marco Palestra,Chelsea,DEF,1,18,0,0
+2026,153,Axel Disasi,Crystal Palace,DEF,3,139,0,0
+2026,154,Cole Palmer,Chelsea,MID,6,529,2,4
 2026,155,Enzo Fernández,Chelsea,MID,1,25,0,0
-2026,156,Pedro Lomba Neto,Chelsea,MID,1,14,0,0
-2026,157,Estêvão Almeida de Oliveira Gonçalves,Chelsea,MID,1,7,0,0
-2026,160,Alejandro Garnacho Ferreyra,Aston Villa,MID,1,4,0,0
-2026,161,Roméo Lavia,Chelsea,MID,1,64,0,0
-2026,162,Andrey Nascimento dos Santos,Man United,MID,1,66,0,0
-2026,164,Geovany Quenda,Chelsea,MID,1,8,0,0
-2026,165,João Pedro Junqueira de Jesus,Chelsea,FWD,1,90,1,1
-2026,173,Bobby Thomas,Coventry,DEF,1,90,0,0
-2026,175,Milan van Ewijk,Coventry,DEF,1,90,0,0
-2026,176,Jay Dasilva,Coventry,DEF,1,90,0,0
-2026,182,Aurèle Amenda,Coventry,DEF,1,90,0,0
-2026,183,Jack Rudoni,Coventry,MID,1,20,0,0
-2026,184,Matt Grimes,Coventry,MID,1,90,0,0
-2026,188,Victor Torp,Coventry,MID,1,28,0,0
-2026,190,Loum Tchaouna,Coventry,MID,1,81,0,0
-2026,194,Brandon Thomas-Asante,Coventry,FWD,1,69,0,0
-2026,195,Ellis Simms,Coventry,FWD,1,69,0,0
-2026,198,Dean Henderson,Crystal Palace,GK,1,90,0,0
-2026,200,Maxence Lacroix,Chelsea,DEF,1,90,0,1
+2026,155,Enzo Fernández,Man City,MID,4,325,1,0
+2026,156,Pedro Lomba Neto,Chelsea,MID,6,414,1,1
+2026,157,Estêvão Almeida de Oliveira Gonçalves,Chelsea,MID,5,29,0,0
+2026,159,Moisés Caicedo Corozo,Chelsea,MID,2,84,0,0
+2026,160,Alejandro Garnacho Ferreyra,Aston Villa,MID,3,31,0,0
+2026,161,Roméo Lavia,Chelsea,MID,5,276,1,0
+2026,162,Andrey Nascimento dos Santos,Man United,MID,3,82,0,0
+2026,164,Geovany Quenda,Chelsea,MID,2,27,0,0
+2026,165,João Pedro Junqueira de Jesus,Chelsea,FWD,5,431,5,3
+2026,166,Nicolas Jackson,Aston Villa,FWD,5,376,2,0
+2026,167,Liam Delap,Nott'm Forest,FWD,5,348,1,0
+2026,173,Bobby Thomas,Coventry,DEF,6,527,0,0
+2026,175,Milan van Ewijk,Coventry,DEF,5,450,0,1
+2026,176,Jay Dasilva,Coventry,DEF,6,534,1,1
+2026,179,Joel Latibeaudiere,Coventry,DEF,1,1,0,0
+2026,182,Aurèle Amenda,Coventry,DEF,4,360,0,0
+2026,183,Jack Rudoni,Coventry,MID,6,379,1,0
+2026,184,Matt Grimes,Coventry,MID,6,525,0,0
+2026,185,Tatsuhiro Sakamoto,Coventry,MID,2,60,0,0
+2026,186,Ephron Mason-Clark,Coventry,MID,5,291,0,0
+2026,188,Victor Torp,Coventry,MID,4,60,0,0
+2026,190,Loum Tchaouna,Coventry,MID,4,211,0,0
+2026,194,Brandon Thomas-Asante,Coventry,FWD,6,317,0,1
+2026,195,Ellis Simms,Coventry,FWD,4,116,1,0
+2026,198,Dean Henderson,Crystal Palace,GK,3,270,0,0
+2026,199,Walter Benítez,Crystal Palace,GK,3,270,0,0
+2026,200,Maxence Lacroix,Chelsea,DEF,6,454,0,1
 2026,201,Daniel Muñoz Mejía,Crystal Palace,DEF,1,54,0,0
-2026,202,Chris Richards,Crystal Palace,DEF,1,90,0,0
-2026,203,Jaydee Canvot,Crystal Palace,DEF,1,90,0,0
-2026,204,Tyrick Mitchell,Crystal Palace,DEF,1,90,0,0
+2026,201,Daniel Muñoz Mejía,Nott'm Forest,DEF,4,293,0,0
+2026,202,Chris Richards,Crystal Palace,DEF,6,540,0,0
+2026,203,Jaydee Canvot,Crystal Palace,DEF,5,450,0,0
+2026,204,Tyrick Mitchell,Crystal Palace,DEF,6,509,2,0
 2026,206,Chadi Riad Dnanou,Crystal Palace,DEF,1,72,0,0
-2026,209,Brennan Johnson,Everton,MID,1,6,0,0
-2026,210,Adam Wharton,Crystal Palace,MID,1,90,0,0
-2026,211,Yéremy Pino Santos,Crystal Palace,MID,1,35,0,0
-2026,214,Daichi Kamada,Crystal Palace,MID,1,90,0,0
-2026,222,Jørgen Strand Larsen,Crystal Palace,FWD,1,27,0,0
+2026,207,Oscar Mingueza,Crystal Palace,DEF,2,16,0,0
+2026,208,Ismaïla Sarr,Crystal Palace,MID,2,15,0,0
+2026,209,Brennan Johnson,Everton,MID,6,303,0,0
+2026,210,Adam Wharton,Crystal Palace,MID,6,526,0,1
+2026,211,Yéremy Pino Santos,Crystal Palace,MID,6,389,1,2
+2026,212,Will Hughes,Crystal Palace,MID,2,29,0,0
+2026,213,Jefferson Lerma Solís,Crystal Palace,MID,3,122,1,0
+2026,214,Daichi Kamada,Crystal Palace,MID,6,530,1,3
+2026,222,Jørgen Strand Larsen,Crystal Palace,FWD,6,380,1,1
 2026,223,Jean-Philippe Mateta,Crystal Palace,FWD,1,62,0,0
-2026,224,Eddie Nketiah,Crystal Palace,FWD,1,55,0,0
-2026,226,Jordan Pickford,Everton,GK,1,90,0,0
-2026,229,James Tarkowski,Everton,DEF,1,90,0,0
-2026,230,Jarrad Branthwaite,Everton,DEF,1,90,0,0
-2026,233,Vitalii Mykolenko,Everton,DEF,1,90,0,0
-2026,236,Kiernan Dewsbury-Hall,Everton,MID,1,90,1,0
-2026,237,Iliman Ndiaye,Everton,MID,1,90,0,1
+2026,224,Eddie Nketiah,Crystal Palace,FWD,5,182,0,1
+2026,226,Jordan Pickford,Everton,GK,6,540,0,0
+2026,229,James Tarkowski,Everton,DEF,6,540,1,1
+2026,230,Jarrad Branthwaite,Everton,DEF,6,540,0,0
+2026,231,Michael Keane,Everton,DEF,1,90,0,0
+2026,232,Jake O'Brien,Everton,DEF,3,28,0,0
+2026,233,Vitalii Mykolenko,Everton,DEF,5,450,0,0
+2026,236,Kiernan Dewsbury-Hall,Everton,MID,6,540,2,1
+2026,237,Iliman Ndiaye,Everton,MID,2,180,0,1
+2026,237,Iliman Ndiaye,Man City,MID,4,260,0,1
+2026,238,Jack Grealish,Everton,MID,4,212,0,0
 2026,238,Jack Grealish,Man City,MID,1,8,0,0
-2026,239,James Garner,Everton,MID,1,11,0,0
-2026,241,Dwight McNeil,Crystal Palace,MID,1,62,0,0
-2026,242,Tyrique George,Everton,MID,1,83,0,0
-2026,243,Carlos Alcaraz Durán,Everton,MID,1,1,0,0
-2026,244,Harrison Armstrong,Everton,MID,1,90,0,1
-2026,246,Merlin Röhl,Everton,MID,1,90,0,0
-2026,247,Hayden Hackney,Everton,MID,1,78,0,0
-2026,248,Norberto Bercique Gomes Betuncal,Everton,FWD,1,11,0,0
-2026,249,Thierno Barry,Everton,FWD,1,78,1,0
-2026,250,Bernd Leno,Fulham,GK,1,90,0,0
-2026,254,Antonee Robinson,Fulham,DEF,1,81,0,0
+2026,239,James Garner,Everton,MID,6,418,0,0
+2026,240,Tim Iroegbunam,Everton,MID,1,4,0,0
+2026,240,Tim Iroegbunam,Hull,MID,3,91,0,0
+2026,241,Dwight McNeil,Crystal Palace,MID,3,85,0,0
+2026,242,Tyrique George,Everton,MID,6,333,1,0
+2026,243,Carlos Alcaraz Durán,Everton,MID,3,9,0,0
+2026,244,Harrison Armstrong,Everton,MID,6,523,0,1
+2026,245,Tyler Dibling,Everton,MID,2,28,0,0
+2026,246,Merlin Röhl,Everton,MID,3,249,0,0
+2026,247,Hayden Hackney,Everton,MID,6,149,0,1
+2026,248,Norberto Bercique Gomes Betuncal,Everton,FWD,2,31,0,0
+2026,249,Thierno Barry,Everton,FWD,6,502,3,0
+2026,250,Bernd Leno,Fulham,GK,6,540,0,0
+2026,253,Joachim Andersen,Fulham,DEF,3,190,0,0
+2026,254,Antonee Robinson,Fulham,DEF,5,429,0,0
 2026,255,Jorge Cuenca Barreno,Fulham,DEF,1,90,0,0
-2026,257,Calvin Bassey,Fulham,DEF,1,90,0,0
-2026,258,Timothy Castagne,Fulham,DEF,1,90,0,2
-2026,259,Issa Diop,Ipswich,DEF,1,90,0,0
-2026,260,Harry Wilson,Leeds,MID,1,65,0,0
-2026,261,Alex Iwobi,Fulham,MID,1,90,0,0
-2026,263,Kevin Santos Lopes de Macedo,Fulham,MID,1,17,0,0
-2026,264,Oscar Bobb,Fulham,MID,1,66,0,0
-2026,265,Sander Berge,Fulham,MID,1,72,0,0
-2026,267,Saša Lukić,Ipswich,MID,1,90,0,1
-2026,268,Josh King,Fulham,MID,1,90,1,0
-2026,269,Ryan Sessegnon,Fulham,DEF,1,17,0,0
-2026,271,Rodrigo Muniz Carvalho,Fulham,FWD,1,8,0,0
-2026,277,John Egan,Hull,DEF,1,90,0,0
-2026,279,Semi Ajayi,Hull,DEF,1,63,1,0
-2026,280,Lewie Coyle,Hull,DEF,1,69,0,0
-2026,281,Cody Drameh,Hull,DEF,1,20,0,0
-2026,282,Ryan Giles,Hull,DEF,1,84,0,0
+2026,256,Kenny Tete,Fulham,DEF,2,117,0,0
+2026,257,Calvin Bassey,Fulham,DEF,6,540,0,1
+2026,258,Timothy Castagne,Fulham,DEF,5,408,0,2
+2026,259,Issa Diop,Ipswich,DEF,6,540,0,0
+2026,260,Harry Wilson,Leeds,MID,5,164,0,0
+2026,261,Alex Iwobi,Fulham,MID,6,494,0,0
+2026,262,Emile Smith Rowe,Fulham,MID,4,41,0,0
+2026,263,Kevin Santos Lopes de Macedo,Fulham,MID,5,75,0,0
+2026,264,Oscar Bobb,Fulham,MID,6,418,0,0
+2026,265,Sander Berge,Fulham,MID,6,439,0,0
+2026,267,Saša Lukić,Ipswich,MID,6,490,0,1
+2026,268,Josh King,Fulham,MID,6,500,2,0
+2026,269,Ryan Sessegnon,Fulham,DEF,4,140,1,0
+2026,271,Rodrigo Muniz Carvalho,Fulham,FWD,5,52,0,0
+2026,277,John Egan,Hull,DEF,6,527,0,0
+2026,279,Semi Ajayi,Hull,DEF,6,513,1,0
+2026,280,Lewie Coyle,Hull,DEF,6,438,0,0
+2026,281,Cody Drameh,Hull,DEF,2,65,0,0
+2026,282,Ryan Giles,Hull,DEF,6,507,0,1
 2026,285,Paddy McNair,Hull,DEF,1,26,0,0
-2026,286,Mohamed Belloumi,Hull,MID,1,90,0,0
-2026,287,Liam Millar,Hull,MID,1,19,0,0
-2026,289,Matt Crooks,Hull,MID,1,90,0,0
-2026,290,Regan Slater,Hull,MID,1,90,0,1
-2026,295,Oli McBurnie,Hull,FWD,1,90,0,1
-2026,304,Dara O'Shea,Ipswich,DEF,1,90,0,0
-2026,305,Leif Davis,Ipswich,DEF,1,90,0,0
-2026,306,Jacob Greaves,Ipswich,DEF,1,90,0,0
-2026,309,Marcelino Núñez,Ipswich,MID,1,79,0,0
-2026,313,Jack Clarke,Ipswich,MID,1,19,1,0
-2026,315,Abdul Fatawu,Ipswich,MID,1,65,0,0
-2026,316,Emersonn Correia da Silva,Ipswich,FWD,1,65,1,0
-2026,320,Chuba Akpom,Ipswich,FWD,1,24,0,0
-2026,321,Sindre Walle Egeli,Ipswich,FWD,1,10,0,0
-2026,323,Kasey McAteer,Ipswich,MID,1,24,0,0
-2026,327,Jaka Bijol,Leeds,DEF,1,90,0,0
-2026,329,Joe Rodon,Leeds,DEF,1,90,0,0
-2026,330,Jayden Bogle,Leeds,DEF,1,90,0,0
-2026,332,James Justin,Leeds,DEF,1,90,0,0
-2026,334,Tarik Muharemović,Leeds,DEF,1,90,0,0
-2026,335,Anton Stach,Leeds,MID,1,90,1,0
-2026,336,Noah Okafor,Leeds,MID,1,24,0,0
-2026,337,Brenden Aaronson,Leeds,MID,1,81,0,0
-2026,338,Ethan Ampadu,Leeds,MID,1,90,0,0
-2026,339,Sean Longstaff,Leeds,MID,1,8,0,0
-2026,346,Dominic Calvert-Lewin,Leeds,FWD,1,90,0,0
-2026,350,Alisson Becker,Liverpool,GK,1,90,0,0
-2026,356,Virgil van Dijk,Liverpool,DEF,1,90,0,0
-2026,357,Jeremie Frimpong,Liverpool,DEF,1,90,0,0
-2026,358,Milos Kerkez,Liverpool,DEF,1,90,0,0
-2026,362,Jeremy Jacquet,Liverpool,DEF,1,69,0,0
-2026,366,Florian Wirtz,Liverpool,MID,1,62,0,0
-2026,367,Cody Gakpo,Liverpool,MID,1,90,1,0
-2026,368,Dominik Szoboszlai,Liverpool,MID,1,90,1,0
-2026,369,Rio Ngumoha,Liverpool,MID,1,62,0,0
-2026,371,Ryan Gravenberch,Liverpool,MID,1,77,0,1
-2026,372,Alexis Mac Allister,Liverpool,MID,1,27,0,0
-2026,377,Victor Munoz,Liverpool,MID,1,27,0,1
-2026,379,Alexander Isak,Liverpool,FWD,1,90,0,0
-2026,381,Lewis Koumas,Liverpool,MID,1,12,0,0
-2026,384,Gianluigi Donnarumma,Man City,GK,1,90,0,0
-2026,385,James Trafford,Leeds,GK,1,90,0,0
-2026,387,Nico O'Reilly,Man City,DEF,1,62,0,0
-2026,388,Marc Guéhi,Man City,DEF,1,90,1,0
-2026,389,Matheus Nunes,Man City,DEF,1,33,0,0
-2026,390,Rúben dos Santos Gato Alves Dias,Man City,DEF,1,90,0,0
-2026,391,Joško Gvardiol,Man City,DEF,1,90,1,0
-2026,393,Abdukodir Khusanov,Man City,DEF,1,90,0,0
+2026,286,Mohamed Belloumi,Hull,MID,6,420,3,2
+2026,287,Liam Millar,Hull,MID,2,50,1,0
+2026,289,Matt Crooks,Hull,MID,4,267,0,0
+2026,290,Regan Slater,Hull,MID,6,511,0,1
+2026,295,Oli McBurnie,Hull,FWD,6,531,0,2
+2026,300,Christian Walton,Ipswich,GK,2,180,0,0
+2026,304,Dara O'Shea,Ipswich,DEF,6,540,1,0
+2026,305,Leif Davis,Ipswich,DEF,6,540,2,2
+2026,306,Jacob Greaves,Ipswich,DEF,4,357,0,0
+2026,308,Darnell Furlong,Ipswich,DEF,1,17,0,0
+2026,309,Marcelino Núñez,Ipswich,MID,2,140,0,0
+2026,313,Jack Clarke,Ipswich,MID,5,197,1,1
+2026,315,Abdul Fatawu,Ipswich,MID,5,352,0,1
+2026,316,Emersonn Correia da Silva,Ipswich,FWD,6,387,2,1
+2026,318,Jaden Philogene,Ipswich,MID,3,114,0,0
+2026,320,Chuba Akpom,Ipswich,FWD,4,97,1,0
+2026,321,Sindre Walle Egeli,Ipswich,FWD,2,19,0,0
+2026,323,Kasey McAteer,Ipswich,MID,3,42,0,0
+2026,327,Jaka Bijol,Leeds,DEF,4,168,0,0
+2026,328,Pascal Struijk,Brighton,DEF,4,154,0,0
+2026,329,Joe Rodon,Leeds,DEF,2,123,0,0
+2026,330,Jayden Bogle,Leeds,DEF,6,450,2,0
+2026,331,Gabriel Gudmundsson,Leeds,DEF,4,342,0,1
+2026,332,James Justin,Leeds,DEF,6,528,1,0
+2026,334,Tarik Muharemović,Leeds,DEF,6,540,0,1
+2026,335,Anton Stach,Leeds,MID,6,537,1,0
+2026,336,Noah Okafor,Leeds,MID,6,369,1,0
+2026,337,Brenden Aaronson,Leeds,MID,6,213,0,0
+2026,338,Ethan Ampadu,Leeds,MID,6,540,0,1
+2026,339,Sean Longstaff,Leeds,MID,2,10,0,0
+2026,340,Joe Gelhardt,Hull,MID,2,71,1,0
+2026,343,Daniel James,Leeds,MID,3,52,0,0
+2026,345,Tanaka Ao,Leeds,MID,5,325,0,2
+2026,346,Dominic Calvert-Lewin,Leeds,FWD,6,509,2,1
+2026,347,Lukas Nmecha,Leeds,FWD,5,75,0,1
+2026,350,Alisson Becker,Liverpool,GK,6,540,0,0
+2026,356,Virgil van Dijk,Liverpool,DEF,6,540,0,0
+2026,357,Jeremie Frimpong,Liverpool,DEF,4,193,0,0
+2026,358,Milos Kerkez,Liverpool,DEF,6,475,0,0
+2026,359,Joe Gomez,Liverpool,DEF,1,2,0,0
+2026,362,Jeremy Jacquet,Liverpool,DEF,6,502,0,0
+2026,364,Kostas Tsimikas,Liverpool,DEF,2,64,0,0
+2026,366,Florian Wirtz,Liverpool,MID,6,467,0,2
+2026,367,Cody Gakpo,Liverpool,MID,5,370,1,3
+2026,368,Dominik Szoboszlai,Liverpool,MID,5,440,1,0
+2026,369,Rio Ngumoha,Liverpool,MID,4,114,0,0
+2026,370,Federico Chiesa,Liverpool,MID,1,2,0,0
+2026,371,Ryan Gravenberch,Liverpool,MID,6,251,0,1
+2026,372,Alexis Mac Allister,Liverpool,MID,6,396,0,0
+2026,375,Trey Nyoni,Liverpool,MID,4,62,0,0
+2026,377,Victor Munoz,Liverpool,MID,6,347,1,1
+2026,379,Alexander Isak,Liverpool,FWD,5,413,4,0
+2026,381,Lewis Koumas,Liverpool,MID,4,96,0,0
+2026,384,Gianluigi Donnarumma,Man City,GK,6,540,0,0
+2026,385,James Trafford,Leeds,GK,6,540,0,0
+2026,387,Nico O'Reilly,Man City,DEF,5,228,0,0
+2026,388,Marc Guéhi,Man City,DEF,6,540,1,1
+2026,389,Matheus Nunes,Man City,DEF,4,303,0,0
+2026,390,Rúben dos Santos Gato Alves Dias,Man City,DEF,6,540,0,0
+2026,391,Joško Gvardiol,Man City,DEF,6,458,1,4
+2026,393,Abdukodir Khusanov,Man City,DEF,3,268,0,0
 2026,395,Rico Lewis,Man City,DEF,1,56,0,0
-2026,397,Antoine Semenyo,Man City,MID,1,90,0,0
-2026,398,Phil Foden,Man City,MID,1,81,0,0
-2026,399,Rayan Cherki,Man City,MID,1,27,0,2
-2026,406,Mateo Kovačić,Man City,MID,1,27,0,0
-2026,411,Erling Haaland,Man City,FWD,1,90,0,0
-2026,412,Senne Lammens,Man United,GK,1,90,0,0
-2026,415,Patrick Dorgu,Man United,MID,1,45,0,0
-2026,417,Diogo Dalot Teixeira,Man United,DEF,1,10,0,0
-2026,418,Harry Maguire,Man United,DEF,1,90,0,0
-2026,421,Ayden Heaven,Man United,DEF,1,90,0,0
-2026,422,Noussair Mazraoui,Man United,DEF,1,79,0,0
-2026,423,Luke Shaw,Man United,DEF,1,90,0,0
-2026,426,Bruno Borges Fernandes,Man United,MID,1,90,0,0
-2026,427,Bryan Mbeumo,Man United,MID,1,90,0,0
-2026,428,Matheus Santos Carneiro da Cunha,Man United,MID,1,79,0,0
-2026,429,Marcus Rashford,Man United,MID,1,45,0,0
-2026,432,Kobbie Mainoo,Man United,MID,1,23,0,0
+2026,396,Vitor de Oliveira Nunes dos Reis,Man City,DEF,1,1,0,0
+2026,397,Antoine Semenyo,Man City,MID,6,540,2,3
+2026,398,Phil Foden,Man City,MID,4,217,0,2
+2026,399,Rayan Cherki,Man City,MID,6,392,4,2
+2026,400,Jérémy Doku,Man City,MID,2,49,1,1
+2026,401,Omar Marmoush,Tottenham,FWD,5,363,0,0
+2026,403,Sávio Moreira de Oliveira,Tottenham,MID,4,330,0,0
+2026,405,Nico González Iglesias,Newcastle,MID,4,254,0,1
+2026,406,Mateo Kovačić,Man City,MID,2,42,0,0
+2026,411,Erling Haaland,Man City,FWD,6,529,6,0
+2026,412,Senne Lammens,Man United,GK,6,540,0,0
+2026,415,Patrick Dorgu,Man United,MID,5,171,0,1
+2026,417,Diogo Dalot Teixeira,Man United,DEF,6,377,0,0
+2026,418,Harry Maguire,Man United,DEF,6,540,0,1
+2026,419,Lisandro Martínez,Man United,DEF,5,450,0,0
+2026,420,Leny Yoro,Man United,DEF,3,80,0,0
+2026,421,Ayden Heaven,Man United,DEF,2,91,0,0
+2026,422,Noussair Mazraoui,Man United,DEF,3,97,0,0
+2026,423,Luke Shaw,Man United,DEF,5,425,0,1
+2026,426,Bruno Borges Fernandes,Man United,MID,6,540,3,1
+2026,427,Bryan Mbeumo,Man United,MID,6,540,3,1
+2026,428,Matheus Santos Carneiro da Cunha,Man United,MID,6,497,1,3
+2026,429,Marcus Rashford,Man United,MID,6,352,0,0
+2026,430,Mason Mount,Man United,MID,1,10,0,0
+2026,431,Amad Diallo,Man United,MID,1,58,0,0
+2026,432,Kobbie Mainoo,Man United,MID,6,444,0,1
 2026,435,Shea Lacey,Man United,MID,1,10,0,0
-2026,439,Benjamin Sesko,Man United,FWD,1,23,0,0
-2026,445,Malick Thiaw,Newcastle,DEF,1,90,0,0
-2026,446,Fabian Schär,Newcastle,DEF,1,1,0,0
-2026,447,Sven Botman,Newcastle,DEF,1,90,0,0
-2026,449,Lewis Hall,Newcastle,DEF,1,90,0,0
-2026,453,Harvey Barnes,Newcastle,MID,1,90,0,0
-2026,454,Anthony Elanga,Newcastle,MID,1,75,1,0
-2026,455,Sandro Tonali,Tottenham,MID,1,90,0,0
-2026,456,Jacob Ramsey,Newcastle,MID,1,34,0,0
-2026,457,Jacob Murphy,Newcastle,MID,1,14,0,0
-2026,459,Lewis Miley,Newcastle,MID,1,75,0,0
-2026,460,Joe Willock,Newcastle,MID,1,34,1,0
-2026,462,Sean Steur,Newcastle,MID,1,55,0,0
-2026,464,Yoane Wissa,Newcastle,FWD,1,90,0,1
-2026,465,William Osula,Newcastle,FWD,1,55,0,1
-2026,467,Matz Sels,Nott'm Forest,GK,1,90,0,0
-2026,469,Neco Williams,Nott'm Forest,DEF,1,90,0,0
-2026,471,Nikola Milenković,Nott'm Forest,DEF,1,90,0,0
-2026,472,Murillo Costa dos Santos,Nott'm Forest,DEF,1,90,0,0
-2026,473,Ola Aina,Nott'm Forest,DEF,1,73,0,0
-2026,474,Jair Paula da Cunha Filho,Nott'm Forest,DEF,1,90,0,0
-2026,478,Luca Netz,Nott'm Forest,DEF,1,16,0,0
-2026,480,Morgan Gibbs-White,Nott'm Forest,MID,1,90,0,0
-2026,481,Elliot Anderson,Man City,MID,1,62,0,0
-2026,483,Dan Ndoye,Nott'm Forest,MID,1,61,0,0
-2026,486,James McAtee,Nott'm Forest,MID,1,73,0,0
-2026,488,Ibrahim Sangaré,Nott'm Forest,MID,1,90,0,0
-2026,490,Chris Wood,Nott'm Forest,FWD,1,28,0,0
-2026,491,Igor Jesus Maciel da Cruz,Nott'm Forest,FWD,1,90,0,0
-2026,492,Taiwo Awoniyi,Coventry,FWD,1,20,0,0
-2026,493,Arnaud Kalimuendo,Nott'm Forest,FWD,1,1,0,0
-2026,496,Antonín Kinský,Tottenham,GK,1,90,0,0
-2026,498,Marcos Senesi Barón,Tottenham,DEF,1,90,0,0
-2026,502,Andrew Robertson,Tottenham,DEF,1,90,0,0
-2026,504,Luka Vušković,Brighton,DEF,1,90,0,0
-2026,506,Destiny Udogie,Tottenham,DEF,1,4,0,0
-2026,514,Mathys Tel,Tottenham,MID,1,90,0,0
-2026,515,James Maddison,Tottenham,MID,1,22,0,0
-2026,516,Rodrigo Bentancur,Tottenham,MID,1,45,0,0
-2026,519,Conor Gallagher,Tottenham,MID,1,45,0,0
-2026,520,Lucas Bergvall,Tottenham,MID,1,45,0,0
-2026,522,Archie Gray,Tottenham,MID,1,85,0,0
-2026,523,Mikey Moore,Tottenham,MID,1,67,0,0
-2026,525,Mateus Fernandes,Tottenham,MID,1,45,0,0
-2026,526,Dominic Solanke-Mitchell,Tottenham,FWD,1,22,0,0
+2026,439,Benjamin Sesko,Man United,FWD,4,76,1,0
+2026,440,Joshua Zirkzee,Man United,FWD,3,51,0,0
+2026,445,Malick Thiaw,Newcastle,DEF,6,540,0,0
+2026,446,Fabian Schär,Newcastle,DEF,2,25,0,0
+2026,447,Sven Botman,Newcastle,DEF,6,540,1,0
+2026,448,Dan Burn,Newcastle,DEF,1,1,0,0
+2026,449,Lewis Hall,Newcastle,DEF,6,539,1,1
+2026,450,Tino Livramento,Newcastle,DEF,2,33,0,1
+2026,452,Bruno Guimarães Rodriguez Moura,Arsenal,MID,4,150,2,0
+2026,453,Harvey Barnes,Newcastle,MID,6,540,1,3
+2026,454,Anthony Elanga,Newcastle,MID,3,232,2,0
+2026,455,Sandro Tonali,Tottenham,MID,6,517,0,1
+2026,456,Jacob Ramsey,Newcastle,MID,3,69,1,0
+2026,457,Jacob Murphy,Newcastle,MID,6,239,0,0
+2026,458,Joelinton Cássio Apolinário de Lira,Newcastle,MID,1,31,0,0
+2026,459,Lewis Miley,Newcastle,MID,6,454,0,0
+2026,460,Joe Willock,Newcastle,MID,6,342,2,0
+2026,461,Bazoumana Touré,Newcastle,MID,4,81,1,0
+2026,462,Sean Steur,Newcastle,MID,5,223,0,0
+2026,463,Nick Woltemade,Newcastle,FWD,1,19,0,1
+2026,464,Yoane Wissa,Newcastle,FWD,6,518,1,1
+2026,465,William Osula,Newcastle,FWD,2,67,0,1
+2026,467,Matz Sels,Nott'm Forest,GK,6,540,0,0
+2026,469,Neco Williams,Nott'm Forest,DEF,6,540,0,1
+2026,471,Nikola Milenković,Nott'm Forest,DEF,3,270,0,0
+2026,472,Murillo Costa dos Santos,Nott'm Forest,DEF,6,539,0,1
+2026,473,Ola Aina,Nott'm Forest,DEF,5,388,0,0
+2026,474,Jair Paula da Cunha Filho,Nott'm Forest,DEF,4,360,0,0
+2026,478,Luca Netz,Nott'm Forest,DEF,3,27,0,0
+2026,480,Morgan Gibbs-White,Nott'm Forest,MID,6,540,1,2
+2026,481,Elliot Anderson,Man City,MID,6,503,0,1
+2026,482,Callum Hudson-Odoi,Nott'm Forest,MID,2,19,0,0
+2026,483,Dan Ndoye,Nott'm Forest,MID,6,387,2,0
+2026,486,James McAtee,Nott'm Forest,MID,6,506,0,0
+2026,487,Nicolás Domínguez,Nott'm Forest,MID,1,1,0,0
+2026,488,Ibrahim Sangaré,Nott'm Forest,MID,4,129,0,0
+2026,490,Chris Wood,Nott'm Forest,FWD,5,80,0,0
+2026,491,Igor Jesus Maciel da Cruz,Nott'm Forest,FWD,5,257,1,0
+2026,492,Taiwo Awoniyi,Coventry,FWD,4,232,0,0
+2026,493,Arnaud Kalimuendo,Nott'm Forest,FWD,2,8,0,0
+2026,496,Antonín Kinský,Tottenham,GK,6,540,0,0
+2026,498,Marcos Senesi Barón,Tottenham,DEF,2,178,0,0
+2026,499,Pedro Porro Sauceda,Tottenham,DEF,3,198,0,0
+2026,501,Kevin Danso,Sunderland,DEF,4,360,0,0
+2026,502,Andrew Robertson,Tottenham,DEF,5,366,0,1
+2026,503,Micky van de Ven,Tottenham,DEF,5,376,0,0
+2026,504,Luka Vušković,Brighton,DEF,6,527,1,0
+2026,506,Destiny Udogie,Tottenham,DEF,4,159,0,0
+2026,512,Mohammed Kudus,Tottenham,MID,5,188,0,1
+2026,514,Mathys Tel,Tottenham,MID,4,257,0,0
+2026,515,James Maddison,Tottenham,MID,4,75,0,0
+2026,516,Rodrigo Bentancur,Tottenham,MID,6,381,0,0
+2026,519,Conor Gallagher,Tottenham,MID,4,207,1,0
+2026,520,Lucas Bergvall,Tottenham,MID,4,143,0,0
+2026,522,Archie Gray,Tottenham,MID,5,397,0,0
+2026,523,Mikey Moore,Tottenham,MID,2,89,0,0
+2026,525,Mateus Fernandes,Tottenham,MID,6,250,0,0
+2026,526,Dominic Solanke-Mitchell,Tottenham,FWD,6,260,1,0
 2026,527,Richarlison de Andrade,Tottenham,FWD,1,67,0,0
-2026,529,Robin Roefs,Sunderland,GK,1,90,0,0
-2026,532,Daniel Ballard,Sunderland,DEF,1,90,0,0
-2026,534,Trai Hume,Sunderland,DEF,1,79,0,0
+2026,529,Robin Roefs,Sunderland,GK,6,540,0,0
+2026,532,Daniel Ballard,Sunderland,DEF,5,450,0,0
+2026,533,Nordi Mukiele,Sunderland,DEF,5,450,0,0
+2026,534,Trai Hume,Sunderland,DEF,5,296,0,0
 2026,535,Omar Alderete,Sunderland,DEF,1,23,0,0
-2026,536,Reinildo Mandava,Sunderland,DEF,1,90,0,0
+2026,536,Reinildo Mandava,Sunderland,DEF,5,432,0,0
 2026,539,Luke O'Nien,Sunderland,DEF,1,66,0,0
-2026,541,Thomas Meunier,Sunderland,DEF,1,90,0,0
-2026,542,Enzo Le Fée,Sunderland,MID,1,79,0,0
-2026,543,Habib Diarra,Sunderland,MID,1,10,0,0
-2026,544,Granit Xhaka,Sunderland,MID,1,90,0,1
-2026,545,Noah Sadiki,Sunderland,MID,1,90,0,0
-2026,548,Chris Rigg,Sunderland,MID,1,10,0,0
+2026,541,Thomas Meunier,Sunderland,DEF,6,429,0,1
+2026,542,Enzo Le Fée,Sunderland,MID,6,518,1,1
+2026,543,Habib Diarra,Sunderland,MID,2,28,0,1
+2026,544,Granit Xhaka,Sunderland,MID,6,540,0,1
+2026,545,Noah Sadiki,Sunderland,MID,6,500,0,0
+2026,547,Romaine Mundle,Sunderland,MID,1,1,0,0
+2026,548,Chris Rigg,Sunderland,MID,2,17,0,0
 2026,549,Chemsdine Talbi,Sunderland,MID,1,31,0,0
-2026,551,Nilson Angulo,Sunderland,MID,1,58,1,0
-2026,552,Brian Brobbey,Sunderland,FWD,1,66,0,0
-2026,553,Wilson Isidor,Sunderland,FWD,1,23,0,0
+2026,550,Djiamgone Jocelin Ta Bi,Sunderland,MID,1,17,0,0
+2026,551,Nilson Angulo,Sunderland,MID,6,385,1,1
+2026,552,Brian Brobbey,Sunderland,FWD,5,399,3,0
+2026,553,Wilson Isidor,Sunderland,FWD,6,207,1,1
 2026,556,Matt Targett,Hull,DEF,1,5,0,0
-2026,557,Christos Tzolis,Arsenal,MID,1,75,0,1
-2026,558,Xaver Schlager,Nott'm Forest,MID,1,16,0,0
-2026,559,Aladji Bamba,Newcastle,MID,1,14,0,0
-2026,562,Daizen Maeda,Ipswich,MID,1,79,0,0
-2026,564,Kjell Scherpen,Ipswich,GK,1,90,0,0
-2026,565,Mamadou Sangaré,Brentford,MID,1,75,0,2
-2026,566,António João Pereira de Albuquerque Tavares da Silva,Bournemouth,DEF,1,90,0,0
-2026,567,Lukás Hornícek,Newcastle,GK,1,90,0,0
-2026,569,Gonzalo García,Fulham,FWD,1,90,1,0
-2026,570,César Palacios,Fulham,MID,1,72,0,0
-2026,572,Konstantinos Tzolakis,Hull,GK,1,90,0,0
-2026,575,Caleb Yirenkyi,Coventry,MID,1,61,0,0
-2026,576,Elliot Stroud,Hull,MID,1,70,0,0
-2026,577,Takehiro Tomiyasu,Crystal Palace,DEF,1,18,0,0
-2026,579,Ronald Araujo,Liverpool,DEF,1,20,0,0
-2026,580,Shea Charles,Fulham,MID,1,23,0,0
-2026,583,Pep Chavarría,Chelsea,DEF,1,25,0,0
-2026,584,Gustavo Hamer,Coventry,MID,1,8,0,0
-2026,585,Lucas Herrington,Hull,DEF,1,26,0,0
-2026,586,Nobel Mendy,Hull,DEF,1,63,1,0
-2026,588,Anan Khalaili,Crystal Palace,DEF,1,35,0,0
-2026,591,Julio Enciso,Ipswich,MID,1,70,0,1
-2026,592,Abdoul Ouattara,Ipswich,DEF,1,10,0,0
-2026,593,Amar Dedic,Newcastle,DEF,1,90,0,0
-2026,596,Matteo Ruggeri,Aston Villa,DEF,1,8,0,0
-2026,600,Ibrahim Osman,Brighton,MID,1,12,0,0
-2026,605,Malick Yalcouyé,Brighton,MID,1,4,0,0
-2026,608,Daniel Jebbison,Bournemouth,FWD,1,15,0,0
+2026,557,Christos Tzolis,Arsenal,MID,5,362,0,2
+2026,558,Xaver Schlager,Nott'm Forest,MID,6,441,0,0
+2026,559,Aladji Bamba,Newcastle,MID,3,27,0,0
+2026,562,Daizen Maeda,Ipswich,MID,6,339,0,0
+2026,563,Hidemasa Morita,Hull,MID,2,60,0,0
+2026,564,Kjell Scherpen,Ipswich,GK,4,360,0,0
+2026,565,Mamadou Sangaré,Brentford,MID,6,359,0,2
+2026,566,António João Pereira de Albuquerque Tavares da Silva,Bournemouth,DEF,6,540,0,0
+2026,567,Lukás Hornícek,Newcastle,GK,6,540,0,0
+2026,568,Valentín Barco,Chelsea,MID,3,115,0,0
+2026,569,Gonzalo García,Fulham,FWD,6,511,1,0
+2026,570,César Palacios,Fulham,MID,4,226,1,0
+2026,571,Florentino Ibrain Morris Luís,Ipswich,MID,3,92,0,0
+2026,572,Konstantinos Tzolakis,Hull,GK,6,540,0,0
+2026,573,Juanlu Sánchez,Bournemouth,DEF,1,18,0,0
+2026,574,Jens Hjertø-Dahl,Hull,MID,1,8,0,0
+2026,575,Caleb Yirenkyi,Coventry,MID,6,342,0,0
+2026,576,Elliot Stroud,Hull,MID,5,275,0,1
+2026,577,Takehiro Tomiyasu,Crystal Palace,DEF,4,189,0,0
+2026,578,Mykhailo Mudryk,Tottenham,MID,1,16,0,0
+2026,579,Ronald Araujo,Liverpool,DEF,6,358,0,0
+2026,580,Shea Charles,Fulham,MID,6,373,0,0
+2026,581,Ousmane Diomande,Nott'm Forest,DEF,4,253,0,0
+2026,583,Pep Chavarría,Chelsea,DEF,6,298,0,1
+2026,584,Gustavo Hamer,Coventry,MID,3,32,0,0
+2026,585,Lucas Herrington,Hull,DEF,5,197,0,0
+2026,586,Nobel Mendy,Hull,DEF,5,339,1,0
+2026,588,Anan Khalaili,Crystal Palace,DEF,6,469,1,0
+2026,589,Lucas Gourna-Douath,Hull,MID,3,138,0,0
+2026,591,Julio Enciso,Ipswich,MID,6,483,0,2
+2026,592,Abdoul Ouattara,Ipswich,DEF,6,221,1,0
+2026,593,Amar Dedic,Newcastle,DEF,5,358,0,1
+2026,594,Promise David,Brighton,FWD,2,23,0,0
+2026,595,Zavier Gozo,Crystal Palace,MID,2,28,0,0
+2026,596,Matteo Ruggeri,Aston Villa,DEF,4,158,0,0
+2026,597,Zion Suzuki,Aston Villa,GK,5,450,0,0
+2026,598,Nico Elvedi,Leeds,DEF,5,411,0,0
+2026,599,Sidiki Cherif,Coventry,FWD,2,107,1,1
+2026,600,Ibrahim Osman,Brighton,MID,3,40,0,0
+2026,605,Malick Yalcouyé,Brighton,MID,6,258,2,0
+2026,608,Daniel Jebbison,Bournemouth,FWD,3,31,0,0
+2026,611,Aaron Wan-Bissaka,Aston Villa,DEF,5,197,0,0
+2026,612,Dayann Méthalie,Sunderland,DEF,2,107,0,0
+2026,614,Jaouen Hadjam,Brighton,DEF,1,2,1,0
+2026,616,Ayyoub Bouaddi,Man City,MID,3,32,0,0
+2026,617,Mohamed-Ali Cho,Hull,MID,4,72,1,0
+2026,619,Exequiel Palacios,Ipswich,MID,5,302,0,0
+2026,620,El Hadji Malick Diouf,Brentford,DEF,3,129,0,0
+2026,621,Ryan McAidoo,Man City,MID,2,11,0,0
+2026,622,Kaden Braithwaite,Man City,DEF,1,1,0,0
+2026,627,Bradley Barcola,Liverpool,MID,4,255,0,0
+2026,628,Allan Andrade Elias,Man City,MID,1,10,0,0
+2026,631,Ibrahim Mbaye,Aston Villa,MID,3,59,0,0
+2026,633,Honest Ahanor,Crystal Palace,DEF,2,108,0,0
+2026,634,Matias Fernandez-Pardo,Newcastle,FWD,4,247,0,0
+2026,635,Hugo Larsson,Fulham,MID,4,40,0,0
+2026,636,Manuel Ángel Morán Ibáñez,Fulham,MID,1,19,0,0
+2026,637,Robinio Vaz,Hull,FWD,3,24,0,0
+2026,638,Brooke Norton-Cuffy,Hull,DEF,2,34,0,0
+2026,639,José María Andrés Baixauli,Brighton,MID,3,199,1,1
+2026,640,Zian Flemming,Ipswich,FWD,4,79,1,0
+2026,641,Melvin Bard,Leeds,DEF,1,18,0,0
+2026,642,Sorba Thomas,Hull,MID,4,204,0,1
+2026,643,Ben Chilwell,Crystal Palace,DEF,2,29,1,0
+2026,644,Quinten Timber,Crystal Palace,MID,4,343,0,1
+2026,646,Malick Fofana,Sunderland,MID,4,116,0,0
+2026,647,Darío Osorio,Crystal Palace,MID,1,1,0,0
+2026,648,Jean-Mattéo Bahoya,Leeds,MID,2,5,0,0
+2026,649,Ainsley Maitland-Niles,Everton,DEF,4,254,1,1
+2026,650,David Affengruber,Fulham,DEF,3,270,0,0
+2026,651,Juan Angulo,Sunderland,FWD,1,9,0,0
+2026,656,Stephen Mfuni,Coventry,DEF,2,97,1,0
+2026,662,Mahdi Nicoll-Jazuli,Chelsea,MID,1,3,0,0
