@@ -19095,3 +19095,5 @@ game_id,date,season,season_label,sport,game_type,team,opponent,home_away,score_f
 2026_06_TEN_IND,2026-10-18,2026,2026,nfl,regular,IND,TEN,H,20,26,L,-6,46,REG,-6.5,43.5,-298.0,,,0.718,miss,over,1.0
 2026_06_WAS_SF,2026-10-19,2026,2026,nfl,regular,WAS,SF,A,17,23,L,-6,40,REG,7.5,51.5,310.0,,,0.2341,cover,under,0.0
 2026_06_WAS_SF,2026-10-19,2026,2026,nfl,regular,SF,WAS,H,23,17,W,6,40,REG,-7.5,51.5,-395.0,,,0.7659,miss,under,1.0
+2026_07_NE_CHI,2026-10-22,2026,2026,nfl,regular,NE,CHI,A,24,30,L,-6,54,REG,3.0,50.5,130.0,,,0.417,miss,over,0.0
+2026_07_NE_CHI,2026-10-22,2026,2026,nfl,regular,CHI,NE,H,30,24,W,6,54,REG,-3.0,50.5,-155.0,,,0.583,cover,over,1.0
