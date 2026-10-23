@@ -19510,6 +19510,16 @@ season,game_type,player_id,player,team,games,starts,min,pts,reb,ast,fga,fta,tov,
 2026,regular,5105555,Tobe Awaka,CHI,1,0,14.0,2.0,7.0,2.0,1.0,0.0,0.0,F
 2026,regular,4395626,Tre Jones,CHI,1,0,13.0,13.0,3.0,0.0,8.0,4.0,0.0,PG
 2026,regular,4066650,Zach Collins,CHI,1,0,9.0,0.0,5.0,0.0,0.0,0.0,0.0,PF
+2026,regular,4701233,Craig Porter Jr.,CLE,1,0,8.0,0.0,3.0,0.0,1.0,0.0,1.0,G
+2026,regular,3908809,Donovan Mitchell,CLE,1,1,35.0,32.0,10.0,3.0,19.0,11.0,5.0,SG
+2026,regular,4432158,Evan Mobley,CLE,1,1,34.0,18.0,8.0,2.0,13.0,3.0,1.0,PF
+2026,regular,3992,James Harden,CLE,1,1,33.0,16.0,3.0,5.0,12.0,4.0,6.0,SG
+2026,regular,4066328,Jarrett Allen,CLE,1,1,28.0,14.0,7.0,0.0,10.0,4.0,1.0,C
+2026,regular,4683747,Jaylon Tyson,CLE,1,0,24.0,3.0,6.0,2.0,6.0,2.0,2.0,G
+2026,regular,2995706,Mario Hezonja,CLE,1,0,19.0,10.0,3.0,2.0,13.0,0.0,0.0,F
+2026,regular,4576087,Peyton Watson,CLE,1,1,30.0,8.0,1.0,2.0,7.0,4.0,5.0,G
+2026,regular,4066757,Sam Merrill,CLE,1,0,24.0,5.0,5.0,2.0,5.0,0.0,0.0,G
+2026,regular,5023693,Tyrese Proctor,CLE,1,0,5.0,0.0,0.0,0.0,1.0,0.0,0.0,G
 2026,regular,5041939,Cooper Flagg,DAL,1,1,33.0,32.0,5.0,2.0,17.0,13.0,4.0,F
 2026,regular,4278049,Daniel Gafford,DAL,1,1,22.0,2.0,3.0,1.0,1.0,4.0,1.0,C
 2026,regular,6442,Kyrie Irving,DAL,1,1,24.0,15.0,4.0,2.0,9.0,2.0,4.0,PG
@@ -19521,6 +19531,19 @@ season,game_type,player_id,player,team,games,starts,min,pts,reb,ast,fga,fta,tov,
 2026,regular,4278078,P.J. Washington,DAL,1,1,31.0,10.0,4.0,2.0,9.0,2.0,4.0,PF
 2026,regular,5279129,Sergio de Larrea,DAL,1,0,7.0,0.0,2.0,1.0,1.0,0.0,0.0,F
 2026,regular,5211175,Zaccharie Risacher,DAL,1,0,27.0,4.0,6.0,2.0,7.0,0.0,3.0,F
+2026,regular,3064290,Aaron Gordon,DEN,1,1,29.0,20.0,6.0,1.0,9.0,6.0,2.0,PF
+2026,regular,4065813,Alpha Diallo,DEN,1,0,22.0,4.0,2.0,3.0,4.0,0.0,2.0,F
+2026,regular,4565698,Bryce Hopkins,DEN,1,0,2.0,0.0,1.0,0.0,0.0,0.0,0.0,F
+2026,regular,3138196,Cameron Johnson,DEN,1,1,11.0,5.0,2.0,1.0,3.0,0.0,0.0,SF
+2026,regular,4431767,Christian Braun,DEN,1,1,33.0,7.0,6.0,1.0,10.0,0.0,2.0,G
+2026,regular,4433607,DaRon Holmes II,DEN,1,0,2.0,3.0,1.0,1.0,2.0,0.0,0.0,F
+2026,regular,3978,DeMar DeRozan,DEN,1,0,28.0,13.0,2.0,0.0,9.0,6.0,5.0,SF
+2026,regular,3936299,Jamal Murray,DEN,1,1,37.0,6.0,10.0,3.0,11.0,4.0,6.0,PG
+2026,regular,4277848,Marvin Bagley III,DEN,1,0,11.0,2.0,3.0,1.0,3.0,0.0,2.0,PF
+2026,regular,3112335,Nikola Jokic,DEN,1,1,35.0,13.0,7.0,5.0,19.0,4.0,2.0,C
+2026,regular,4433629,Ryan Nembhard,DEN,1,0,2.0,5.0,1.0,1.0,3.0,0.0,0.0,G
+2026,regular,4698719,Trevon Brazile,DEN,1,0,18.0,4.0,12.0,0.0,6.0,2.0,1.0,F
+2026,regular,3135046,Tyus Jones,DEN,1,0,10.0,2.0,0.0,0.0,3.0,0.0,0.0,PG
 2026,regular,4684742,Ausar Thompson,DET,1,1,33.0,11.0,11.0,5.0,8.0,3.0,3.0,G
 2026,regular,4432166,Cade Cunningham,DET,1,1,35.0,22.0,4.0,8.0,18.0,5.0,5.0,G
 2026,regular,5107199,Daniss Jenkins,DET,1,0,15.0,3.0,2.0,3.0,3.0,0.0,1.0,G
@@ -19660,19 +19683,19 @@ season,game_type,player_id,player,team,games,starts,min,pts,reb,ast,fga,fta,tov,
 2026,regular,3147657,Mikal Bridges,NYK,1,1,33.0,4.0,3.0,1.0,8.0,0.0,0.0,SF
 2026,regular,4431823,Miles McBride,NYK,1,0,14.0,3.0,1.0,1.0,5.0,0.0,1.0,PG
 2026,regular,3934719,OG Anunoby,NYK,1,1,32.0,10.0,5.0,0.0,12.0,3.0,2.0,SF
-2026,regular,5174983,Aday Mara,OKC,1,0,12.0,7.0,2.0,1.0,4.0,2.0,1.0,C
-2026,regular,4900671,Ajay Mitchell,OKC,1,0,23.0,4.0,5.0,6.0,8.0,0.0,1.0,G
-2026,regular,2991350,Alex Caruso,OKC,1,0,25.0,9.0,6.0,1.0,4.0,2.0,0.0,SG
-2026,regular,5241364,Bennett Stirtz,OKC,1,0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,G
-2026,regular,4684208,Brooks Barnhizer,OKC,1,0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,F
-2026,regular,4683692,Cason Wallace,OKC,1,1,19.0,6.0,3.0,2.0,8.0,0.0,1.0,G
-2026,regular,4433255,Chet Holmgren,OKC,1,1,31.0,14.0,7.0,2.0,8.0,8.0,1.0,C
-2026,regular,4222252,Isaiah Hartenstein,OKC,1,1,17.0,4.0,3.0,3.0,4.0,0.0,2.0,C
-2026,regular,4593803,Jalen Williams,OKC,1,1,30.0,12.0,7.0,2.0,16.0,2.0,0.0,F
-2026,regular,4683778,Jared McCain,OKC,1,0,22.0,20.0,2.0,2.0,9.0,0.0,2.0,G
-2026,regular,4432823,Jaylin Williams,OKC,1,0,17.0,5.0,4.0,1.0,6.0,2.0,1.0,F
-2026,regular,3133626,Kenrich Williams,OKC,1,0,7.0,3.0,2.0,0.0,1.0,0.0,0.0,SF
-2026,regular,4278073,Shai Gilgeous-Alexander,OKC,1,1,36.0,32.0,6.0,4.0,27.0,4.0,2.0,PG
+2026,regular,5174983,Aday Mara,OKC,2,0,25.0,9.0,5.0,1.0,7.0,2.0,2.0,C
+2026,regular,4900671,Ajay Mitchell,OKC,2,0,46.0,16.0,5.0,6.0,19.0,2.0,4.0,G
+2026,regular,2991350,Alex Caruso,OKC,2,0,45.0,16.0,10.0,6.0,11.0,2.0,0.0,SG
+2026,regular,5241364,Bennett Stirtz,OKC,2,0,3.0,0.0,0.0,0.0,1.0,0.0,0.0,G
+2026,regular,4684208,Brooks Barnhizer,OKC,2,0,3.0,0.0,0.0,1.0,0.0,0.0,0.0,F
+2026,regular,4683692,Cason Wallace,OKC,2,2,43.0,15.0,4.0,3.0,16.0,0.0,1.0,G
+2026,regular,4433255,Chet Holmgren,OKC,2,2,59.0,26.0,24.0,4.0,17.0,10.0,4.0,C
+2026,regular,4222252,Isaiah Hartenstein,OKC,2,2,40.0,10.0,9.0,5.0,14.0,0.0,4.0,C
+2026,regular,4593803,Jalen Williams,OKC,2,2,63.0,33.0,12.0,5.0,31.0,8.0,1.0,F
+2026,regular,4683778,Jared McCain,OKC,2,0,40.0,24.0,2.0,3.0,15.0,2.0,4.0,G
+2026,regular,4432823,Jaylin Williams,OKC,2,0,32.0,8.0,11.0,4.0,10.0,2.0,1.0,F
+2026,regular,3133626,Kenrich Williams,OKC,2,0,13.0,6.0,3.0,1.0,3.0,0.0,0.0,SF
+2026,regular,4278073,Shai Gilgeous-Alexander,OKC,2,2,71.0,49.0,8.0,7.0,46.0,6.0,2.0,PG
 2026,regular,4066320,Desmond Bane,ORL,1,1,33.0,18.0,5.0,2.0,15.0,7.0,2.0,SG
 2026,regular,4566434,Franz Wagner,ORL,1,1,29.0,22.0,6.0,5.0,20.0,4.0,3.0,SF
 2026,regular,4348700,Goga Bitadze,ORL,1,0,12.0,6.0,6.0,1.0,3.0,5.0,1.0,C
@@ -19683,15 +19706,15 @@ season,game_type,player_id,player,team,games,starts,min,pts,reb,ast,fga,fta,tov,
 2026,regular,4432573,Paolo Banchero,ORL,1,1,41.0,35.0,7.0,10.0,12.0,16.0,6.0,PF
 2026,regular,4702382,Tristan da Silva,ORL,1,0,28.0,14.0,2.0,3.0,11.0,0.0,2.0,F
 2026,regular,4277847,Wendell Carter Jr.,ORL,1,1,31.0,22.0,7.0,0.0,10.0,5.0,0.0,C
-2026,regular,5105637,Adem Bona,PHI,1,0,10.0,0.0,3.0,1.0,0.0,0.0,0.0,C
-2026,regular,4351851,Anfernee Simons,PHI,1,0,25.0,13.0,2.0,0.0,10.0,0.0,0.0,SG
-2026,regular,4432446,Jabari Walker,PHI,1,0,3.0,0.0,0.0,1.0,0.0,0.0,0.0,F
-2026,regular,3917376,Jaylen Brown,PHI,1,1,35.0,19.0,8.0,6.0,14.0,4.0,2.0,SG
-2026,regular,3059318,Joel Embiid,PHI,1,1,33.0,13.0,11.0,6.0,15.0,4.0,4.0,C
-2026,regular,2581018,Kentavious Caldwell-Pope,PHI,1,0,26.0,10.0,4.0,1.0,8.0,2.0,0.0,SG
-2026,regular,1966,LeBron James,PHI,1,1,34.0,14.0,9.0,7.0,13.0,6.0,1.0,SF
-2026,regular,4431678,Tyrese Maxey,PHI,1,1,40.0,28.0,4.0,5.0,19.0,9.0,2.0,PG
-2026,regular,5124612,VJ Edgecombe,PHI,1,1,35.0,9.0,4.0,1.0,10.0,2.0,1.0,G
+2026,regular,5105637,Adem Bona,PHI,2,0,24.0,2.0,5.0,1.0,2.0,0.0,1.0,C
+2026,regular,4351851,Anfernee Simons,PHI,2,0,42.0,15.0,5.0,0.0,14.0,3.0,1.0,SG
+2026,regular,4432446,Jabari Walker,PHI,2,0,7.0,2.0,1.0,1.0,1.0,0.0,0.0,F
+2026,regular,3917376,Jaylen Brown,PHI,2,2,73.0,40.0,16.0,10.0,34.0,4.0,6.0,SG
+2026,regular,3059318,Joel Embiid,PHI,2,2,67.0,37.0,18.0,7.0,31.0,13.0,5.0,C
+2026,regular,2581018,Kentavious Caldwell-Pope,PHI,2,0,51.0,13.0,7.0,3.0,9.0,2.0,1.0,SG
+2026,regular,1966,LeBron James,PHI,2,2,67.0,31.0,19.0,12.0,27.0,13.0,6.0,SF
+2026,regular,4431678,Tyrese Maxey,PHI,2,2,82.0,60.0,7.0,11.0,42.0,17.0,4.0,PG
+2026,regular,5124612,VJ Edgecombe,PHI,2,2,68.0,20.0,11.0,7.0,21.0,5.0,2.0,G
 2026,regular,4278585,Collin Gillespie,PHX,1,0,21.0,0.0,1.0,2.0,8.0,1.0,4.0,G
 2026,regular,3136193,Devin Booker,PHX,1,1,29.0,23.0,4.0,2.0,13.0,9.0,2.0,SG
 2026,regular,3155526,Dillon Brooks,PHX,1,1,27.0,10.0,4.0,0.0,11.0,2.0,2.0,SF
@@ -19761,7 +19784,7 @@ season,game_type,player_id,player,team,games,starts,min,pts,reb,ast,fga,fta,tov,
 2026,regular,4873138,Ace Bailey,UTA,1,0,24.0,12.0,5.0,3.0,11.0,0.0,1.0,G
 2026,regular,5105839,Brice Sensabaugh,UTA,1,0,14.0,2.0,2.0,1.0,4.0,0.0,2.0,F
 2026,regular,5041955,Darryn Peterson,UTA,1,1,31.0,9.0,4.0,3.0,7.0,4.0,1.0,G
-2026,regular,4683766,Isaiah Collier,UTA,1,0,16.0,7.0,3.0,3.0,8.0,5.0,3.0,G
+2026,regular,4683766,Isaiah Collier,UTA,1,0,16.0,7.0,3.0,3.0,7.0,5.0,3.0,G
 2026,regular,4277961,Jaren Jackson Jr.,UTA,1,1,28.0,15.0,5.0,2.0,10.0,2.0,5.0,PF
 2026,regular,4397077,Jaxson Hayes,UTA,1,1,26.0,5.0,5.0,3.0,3.0,4.0,1.0,C
 2026,regular,4065663,Josh Okogie,UTA,1,0,8.0,0.0,1.0,0.0,1.0,0.0,0.0,SF

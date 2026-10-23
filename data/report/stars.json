@@ -158,7 +158,7 @@
    "sport": "nba",
    "stat": "points",
    "player": "LeBron James",
-   "career_total": 43449,
+   "career_total": 43466,
    "seasons": 24,
    "runner_up": "Kevin Durant",
    "runner_up_total": 32594,
@@ -309,8 +309,8 @@
     {
      "season": 2026,
      "label": "2026-27",
-     "val": 14,
-     "games": 1
+     "val": 31,
+     "games": 2
     }
    ]
   },
@@ -472,7 +472,7 @@
    "runner_up_total": 766,
    "peak_label": "2007-08",
    "peak": 65,
-   "led_league": 8,
+   "led_league": 9,
    "span_first": "1990-91",
    "span_last": "2026-27",
    "arc": [
@@ -620,7 +620,7 @@
    "runner_up_total": 163,
    "peak_label": "2017-18",
    "peak": 32,
-   "led_league": 3,
+   "led_league": 4,
    "span_first": "2016-17",
    "span_last": "2026-27",
    "arc": [
