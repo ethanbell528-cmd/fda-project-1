@@ -656,8 +656,8 @@
    {
     "season": 2026,
     "label": "2026",
-    "pct": 0.529268,
-    "games": 2460
+    "pct": 0.52946,
+    "games": 2461
    }
   ],
   "nhl": [
@@ -1118,8 +1118,8 @@
   },
   {
    "sport": "mlb",
-   "home_win": 0.536827,
-   "games": 86756,
+   "home_win": 0.536833,
+   "games": 86757,
    "partial_excluded": [],
    "tie_early": 0.000321,
    "tie_late": 0.0,
@@ -1127,7 +1127,7 @@
    "early_label": "1990 to 1999",
    "early": 0.534932,
    "late_label": "2017 to 2026",
-   "late": 0.533027,
+   "late": 0.533048,
    "covid_label": "2020",
    "covid": 0.559013,
    "max_season": "2020",
