@@ -2492,7 +2492,7 @@
     }
    }
   ],
-  "json_vs_sklearn_max_abs_diff_pH": 4.2422115131834914e-07,
+  "json_vs_sklearn_max_abs_diff_pH": 4.2422115098528224e-07,
   "notes": [
    "Holdout seasons were never used to choose Elo constants, features or coefficients.",
    "Elo constants were chosen on seasons 1992-2019 (mean squared error of Elo expected score).",
@@ -3699,7 +3699,7 @@
     }
    }
   ],
-  "json_vs_sklearn_max_abs_diff_pH": 3.245531061679685e-07,
+  "json_vs_sklearn_max_abs_diff_pH": 3.245531060569462e-07,
   "notes": [
    "Holdout seasons were never used to choose Elo constants, features or coefficients.",
    "Elo constants were chosen on seasons 1992-2019 (mean squared error of Elo expected score).",
@@ -4807,9 +4807,9 @@
     "homeStarter": "8471734",
     "awayStarter": null,
     "expected": {
-     "margin": -0.626390625305,
-     "total": 6.368294678476,
-     "pH": 0.388680713844
+     "margin": -0.626513161853,
+     "total": 6.368022604778,
+     "pH": 0.388679589379
     }
    },
    {
@@ -4820,9 +4820,9 @@
     "homeStarter": "8475311",
     "awayStarter": "8476434",
     "expected": {
-     "margin": 0.666833113641,
-     "total": 6.724847052081,
-     "pH": 0.632830877158
+     "margin": 0.666750085975,
+     "total": 6.724495048292,
+     "pH": 0.632831263538
     }
    },
    {
@@ -4833,9 +4833,9 @@
     "homeStarter": "8475831",
     "awayStarter": "8476945",
     "expected": {
-     "margin": -0.874687986847,
-     "total": 6.258106102522,
-     "pH": 0.34421766727
+     "margin": -0.87477141661,
+     "total": 6.257752440376,
+     "pH": 0.34421770582
     }
    },
    {
@@ -4846,9 +4846,9 @@
     "homeStarter": "8476412",
     "awayStarter": null,
     "expected": {
-     "margin": 0.276057765653,
-     "total": 6.2300273841,
-     "pH": 0.560002531108
+     "margin": 0.275935977471,
+     "total": 6.22975539608,
+     "pH": 0.560001622438
     }
    },
    {
@@ -4859,9 +4859,9 @@
     "homeStarter": "8476932",
     "awayStarter": "8477990",
     "expected": {
-     "margin": -0.495353667414,
-     "total": 6.261118520202,
-     "pH": 0.415885044291
+     "margin": -0.517821632798,
+     "total": 6.224121970954,
+     "pH": 0.412045591346
     }
    },
    {
@@ -4872,9 +4872,9 @@
     "homeStarter": "8477480",
     "awayStarter": "8478048",
     "expected": {
-     "margin": 0.343912571031,
-     "total": 6.46002108247,
-     "pH": 0.564693403925
+     "margin": 0.386528825599,
+     "total": 6.437280064525,
+     "pH": 0.572915327449
     }
    },
    {
@@ -4885,9 +4885,9 @@
     "homeStarter": "8477970",
     "awayStarter": null,
     "expected": {
-     "margin": -0.096770229864,
-     "total": 6.166751715012,
-     "pH": 0.489182252818
+     "margin": -0.096891864661,
+     "total": 6.166479744553,
+     "pH": 0.489181384806
     }
    },
    {
@@ -4898,9 +4898,9 @@
     "homeStarter": "8478024",
     "awayStarter": "8479312",
     "expected": {
-     "margin": 0.994271096262,
-     "total": 6.477376697092,
-     "pH": 0.68335612183
+     "margin": 0.994187592472,
+     "total": 6.477023467801,
+     "pH": 0.683356191553
     }
    },
    {
@@ -4911,9 +4911,9 @@
     "homeStarter": "8478499",
     "awayStarter": "8479973",
     "expected": {
-     "margin": 0.218934802902,
-     "total": 6.352944289184,
-     "pH": 0.549861272891
+     "margin": 0.218854958702,
+     "total": 6.35258809412,
+     "pH": 0.549862133411
     }
    },
    {
@@ -4924,13 +4924,13 @@
     "homeStarter": "8479292",
     "awayStarter": null,
     "expected": {
-     "margin": 0.088291694705,
-     "total": 6.503438294626,
-     "pH": 0.520609723299
+     "margin": 0.088168597111,
+     "total": 6.503166156694,
+     "pH": 0.520608346738
     }
    }
   ],
-  "json_vs_sklearn_max_abs_diff_pH": 1.024021525575236e-06,
+  "json_vs_sklearn_max_abs_diff_pH": 1.0240215252421692e-06,
   "notes": [
    "Holdout seasons were never used to choose Elo constants, features or coefficients.",
    "Elo constants were chosen on seasons 1992-2019 (mean squared error of Elo expected score).",
@@ -6142,7 +6142,7 @@
     }
    }
   ],
-  "json_vs_sklearn_max_abs_diff_pH": 4.5137850812615454e-07,
+  "json_vs_sklearn_max_abs_diff_pH": 4.513785072379761e-07,
   "notes": [
    "Holdout seasons were never used to choose Elo constants, features or coefficients.",
    "Elo constants were chosen on seasons 1995-2023 (mean squared error of Elo expected score).",
