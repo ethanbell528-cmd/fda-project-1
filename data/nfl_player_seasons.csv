@@ -19265,21 +19265,22 @@ season,game_type,player_id,player,position,team,games,pass_att,completions,pass_
 2026,regular,00-0038606,Parker Washington,WR,JAX,6,0,0,0,0,0,1,3,0,46,26,416,4
 2026,regular,00-0036590,Quintin Morris,TE,JAX,4,0,0,0,0,0,0,0,0,2,1,7,0
 2026,regular,00-0036971,Trevor Lawrence,QB,JAX,6,184,120,1480,14,4,17,70,0,0,0,0,0
-2026,regular,00-0040298,Andrew Armstrong,WR,KC,1,0,0,0,0,0,0,0,0,2,1,13,0
+2026,regular,00-0040298,Andrew Armstrong,WR,KC,2,0,0,0,0,0,0,0,0,4,2,16,0
 2026,regular,00-0038489,Ben VanSumeren,RB,KC,2,0,0,0,0,0,0,0,0,0,0,0,0
 2026,regular,00-0040078,Brashard Smith,RB,KC,2,0,0,0,0,0,0,0,0,1,1,4,0
-2026,regular,00-0040890,Cyrus Allen,WR,KC,3,0,0,0,0,0,0,0,0,4,2,27,0
-2026,regular,00-0041013,Emmett Johnson,RB,KC,5,0,0,0,0,0,19,62,0,8,7,92,0
+2026,regular,00-0040890,Cyrus Allen,WR,KC,4,0,0,0,0,0,0,0,0,6,3,45,0
+2026,regular,00-0041013,Emmett Johnson,RB,KC,6,0,0,0,0,0,19,62,0,11,9,109,0
 2026,regular,00-0040081,Jake Briningstool,TE,KC,3,0,0,0,0,0,0,0,0,2,1,9,0
-2026,regular,00-0040646,Jalen Royals,WR,KC,5,0,0,0,0,0,0,0,0,9,5,41,1
-2026,regular,00-0038134,Kenneth Walker III,RB,KC,5,0,0,0,0,0,106,665,6,22,14,95,2
-2026,regular,00-0038519,Nikko Remigio,WR,KC,5,0,0,0,0,0,0,0,0,0,0,0,0
-2026,regular,00-0036637,Noah Gray,TE,KC,5,0,0,0,0,0,0,0,0,11,9,114,0
-2026,regular,00-0033873,Patrick Mahomes,QB,KC,5,158,105,1309,9,3,17,57,1,0,0,0,0
+2026,regular,00-0040646,Jalen Royals,WR,KC,6,0,0,0,0,0,0,0,0,11,5,41,1
+2026,regular,00-0034386,Justin Watson,WR,KC,1,0,0,0,0,0,0,0,0,1,1,7,0
+2026,regular,00-0038134,Kenneth Walker III,RB,KC,6,0,0,0,0,0,120,701,6,27,18,116,2
+2026,regular,00-0038519,Nikko Remigio,WR,KC,6,0,0,0,0,0,0,0,0,0,0,0,0
+2026,regular,00-0036637,Noah Gray,TE,KC,6,0,0,0,0,0,0,0,0,14,12,158,0
+2026,regular,00-0033873,Patrick Mahomes,QB,KC,6,191,124,1474,9,4,19,71,1,0,0,0,0
 2026,regular,00-0039067,Rashee Rice,WR,KC,3,0,0,0,0,0,0,0,0,17,13,190,1
-2026,regular,00-0030506,Travis Kelce,TE,KC,5,0,0,0,0,0,0,0,0,27,20,299,2
+2026,regular,00-0030506,Travis Kelce,TE,KC,6,0,0,0,0,0,0,0,0,35,24,343,2
 2026,regular,00-0038104,Tyquan Thornton,WR,KC,4,0,0,0,0,0,0,0,0,15,11,219,2
-2026,regular,00-0039894,Xavier Worthy,WR,KC,5,0,0,0,0,0,0,0,0,29,21,206,1
+2026,regular,00-0039894,Xavier Worthy,WR,KC,6,0,0,0,0,0,0,0,0,35,24,217,1
 2026,regular,00-0035602,Alex Bachman,WR,LA,4,0,0,0,0,0,0,0,0,0,0,0,0
 2026,regular,00-0039738,Blake Corum,RB,LA,7,0,0,0,0,0,64,316,2,14,10,99,1
 2026,regular,00-0036244,Colby Parkinson,TE,LA,6,0,0,0,0,0,0,0,0,19,14,103,1
@@ -19465,22 +19466,22 @@ season,game_type,player_id,player,position,team,games,pass_att,completions,pass_
 2026,regular,00-0033757,Robert Tonyan,TE,PIT,1,0,0,0,0,0,0,0,0,1,1,2,0
 2026,regular,00-0039739,Roman Wilson,WR,PIT,5,0,0,0,0,0,0,0,0,25,14,188,2
 2026,regular,00-0035594,Travis Homer,RB,PIT,5,0,0,0,0,0,5,15,0,0,0,0,0
-2026,regular,00-0039793,AJ Barner,TE,SEA,6,0,0,0,0,0,1,1,1,24,15,138,0
-2026,regular,00-0038488,Brady Russell,RB,SEA,5,0,0,0,0,0,0,0,0,3,3,40,0
-2026,regular,00-0033908,Cooper Kupp,WR,SEA,6,0,0,0,0,0,0,0,0,25,16,179,1
+2026,regular,00-0039793,AJ Barner,TE,SEA,7,0,0,0,0,0,4,5,1,29,19,180,0
+2026,regular,00-0038488,Brady Russell,RB,SEA,6,0,0,0,0,0,0,0,0,3,3,40,0
+2026,regular,00-0033908,Cooper Kupp,WR,SEA,7,0,0,0,0,0,0,0,0,27,18,199,1
 2026,regular,00-0035704,Drew Lock,QB,SEA,2,48,35,422,4,0,2,13,0,0,0,0,0
 2026,regular,00-0040739,Elijah Arroyo,TE,SEA,2,0,0,0,0,0,0,0,0,2,1,17,0
-2026,regular,00-0038797,Emanuel Wilson,RB,SEA,6,0,0,0,0,0,87,303,2,8,5,50,1
-2026,regular,00-0033576,Eric Saubert,TE,SEA,6,0,0,0,0,0,0,0,0,4,2,3,1
-2026,regular,00-0039299,George Holani,RB,SEA,6,0,0,0,0,0,31,97,1,12,11,76,0
-2026,regular,00-0037156,Irvin Charles,WR,SEA,1,0,0,0,0,0,0,0,0,0,0,0,0
+2026,regular,00-0038797,Emanuel Wilson,RB,SEA,7,0,0,0,0,0,111,403,3,9,6,65,1
+2026,regular,00-0033576,Eric Saubert,TE,SEA,7,0,0,0,0,0,0,0,0,5,3,20,1
+2026,regular,00-0039299,George Holani,RB,SEA,7,0,0,0,0,0,36,108,1,14,12,88,0
+2026,regular,00-0037156,Irvin Charles,WR,SEA,2,0,0,0,0,0,0,0,0,0,0,0,0
 2026,regular,00-0041512,Jadarian Price,RB,SEA,3,0,0,0,0,0,28,119,0,7,4,21,0
-2026,regular,00-0038543,Jaxon Smith-Njigba,WR,SEA,6,1,1,14,0,0,1,16,0,66,49,717,7
+2026,regular,00-0038543,Jaxon Smith-Njigba,WR,SEA,7,1,1,14,0,0,3,29,0,78,58,867,8
 2026,regular,00-0040621,Montorie Foster Jr,WR,SEA,1,0,0,0,0,0,0,0,0,0,0,0,0
-2026,regular,00-0037545,Rashid Shaheed,WR,SEA,6,0,0,0,0,0,4,39,1,27,14,162,0
-2026,regular,00-0034869,Sam Darnold,QB,SEA,5,149,90,1033,7,7,7,35,0,0,0,0,0
-2026,regular,00-0040648,Tory Horton,WR,SEA,3,0,0,0,0,0,0,0,0,9,5,67,1
-2026,regular,00-0037745,Velus Jones Jr.,RB,SEA,2,0,0,0,0,0,4,20,0,1,1,-1,0
+2026,regular,00-0037545,Rashid Shaheed,WR,SEA,7,0,0,0,0,0,4,39,1,30,16,163,0
+2026,regular,00-0034869,Sam Darnold,QB,SEA,6,177,110,1290,8,8,9,52,0,0,0,0,0
+2026,regular,00-0040648,Tory Horton,WR,SEA,4,0,0,0,0,0,0,0,0,10,5,67,1
+2026,regular,00-0037745,Velus Jones Jr.,RB,SEA,3,0,0,0,0,0,9,28,0,1,1,-1,0
 2026,regular,00-0031236,Brandin Cooks,WR,SF,4,0,0,0,0,0,0,0,0,8,3,33,1
 2026,regular,00-0038643,Brayden Willis,TE,SF,4,0,0,0,0,0,0,0,0,0,0,0,0
 2026,regular,00-0037834,Brock Purdy,QB,SF,7,211,146,1748,15,4,32,161,1,0,0,0,0
