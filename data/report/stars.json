@@ -158,7 +158,7 @@
    "sport": "nba",
    "stat": "points",
    "player": "LeBron James",
-   "career_total": 43466,
+   "career_total": 43484,
    "seasons": 24,
    "runner_up": "Kevin Durant",
    "runner_up_total": 32636,
@@ -309,8 +309,8 @@
     {
      "season": 2026,
      "label": "2026-27",
-     "val": 31,
-     "games": 2
+     "val": 49,
+     "games": 3
     }
    ]
   },
