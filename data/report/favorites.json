@@ -2,13 +2,13 @@
  "rows": [
   {
    "sport": "nfl",
-   "fav_rows": 9500,
-   "fav_win": 0.665579,
+   "fav_rows": 9503,
+   "fav_win": 0.665685,
    "fav_draw": null,
-   "fav_cover": 0.487227,
-   "fav_cover_n": 9238,
-   "dog_cover": 0.512773,
-   "push_rate": 0.027579,
+   "fav_cover": 0.487285,
+   "fav_cover_n": 9241,
+   "dog_cover": 0.512715,
+   "push_rate": 0.02757,
    "first": "1990",
    "last": "2026",
    "line_name": "point spread"
