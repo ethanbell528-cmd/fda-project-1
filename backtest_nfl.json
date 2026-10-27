@@ -1,6 +1,6 @@
 {
  "sport": "nfl",
- "generated_at": "2026-10-25",
+ "generated_at": "2026-10-26",
  "edge_threshold": 0.03,
  "train_seasons": "1992-2023",
  "train_games": 8415,
@@ -1077,131 +1077,131 @@
   {
    "home": "ARI",
    "away": "CLE",
-   "date": "2026-10-28",
-   "neutral": false,
-   "homeStarter": null,
-   "awayStarter": null,
-   "expected": {
-    "margin": -0.93994550218,
-    "total": 43.720031077555,
-    "pH": 0.459778340622
-   }
-  },
-  {
-   "home": "BUF",
-   "away": "DET",
    "date": "2026-10-29",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 6.895617801347,
-    "total": 52.098472772073,
-    "pH": 0.695567009563
+    "margin": -1.035326552063,
+    "total": 43.605144676515,
+    "pH": 0.457333431231
    }
   },
   {
-   "home": "CIN",
-   "away": "IND",
+   "home": "BUF",
+   "away": "DET",
    "date": "2026-10-30",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 8.472368979369,
-    "total": 48.009586306387,
-    "pH": 0.749691442098
+    "margin": 6.800236751464,
+    "total": 51.983586371032,
+    "pH": 0.693477799531
    }
   },
   {
-   "home": "DEN",
-   "away": "LA",
+   "home": "CIN",
+   "away": "IND",
    "date": "2026-10-31",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 2.755036352025,
-    "total": 44.317222924973,
-    "pH": 0.595279113489
+    "margin": 8.376987929485,
+    "total": 47.894699905346,
+    "pH": 0.747839012797
+   }
+  },
+  {
+   "home": "DEN",
+   "away": "LA",
+   "date": "2026-11-01",
+   "neutral": false,
+   "homeStarter": null,
+   "awayStarter": null,
+   "expected": {
+    "margin": 2.659655302142,
+    "total": 44.202336523932,
+    "pH": 0.592904471354
    }
   },
   {
    "home": "HOU",
    "away": "MIA",
-   "date": "2026-11-01",
+   "date": "2026-11-02",
    "neutral": true,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 5.956691454747,
-    "total": 46.011505365474,
-    "pH": 0.635832005162
+    "margin": 5.861310404863,
+    "total": 45.896618964434,
+    "pH": 0.633548827573
    }
   },
   {
    "home": "KC",
    "away": "NO",
-   "date": "2026-11-02",
-   "neutral": false,
-   "homeStarter": null,
-   "awayStarter": null,
-   "expected": {
-    "margin": 6.44612297883,
-    "total": 42.99895768195,
-    "pH": 0.704724576854
-   }
-  },
-  {
-   "home": "LV",
-   "away": "PHI",
    "date": "2026-11-03",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": -0.997548856361,
-    "total": 43.922070057036,
-    "pH": 0.471719252617
+    "margin": 6.350741928947,
+    "total": 42.88407128091,
+    "pH": 0.702671347937
    }
   },
   {
-   "home": "NE",
-   "away": "SF",
+   "home": "LV",
+   "away": "PHI",
    "date": "2026-11-04",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 1.658694009567,
-    "total": 43.081876368431,
-    "pH": 0.55191661528
+    "margin": 1.89827390048,
+    "total": 44.219183924719,
+    "pH": 0.562554948884
    }
   },
   {
-   "home": "NYJ",
-   "away": "WAS",
+   "home": "NE",
+   "away": "SF",
    "date": "2026-11-05",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": -1.693418002469,
-    "total": 43.353936741926,
-    "pH": 0.457909988529
+    "margin": 1.563312959684,
+    "total": 42.966989967391,
+    "pH": 0.549480102816
    }
   },
   {
-   "home": "SEA",
-   "away": "BAL",
+   "home": "NYJ",
+   "away": "WAS",
    "date": "2026-11-06",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 7.828692351319,
-    "total": 46.927188591299,
-    "pH": 0.731389026908
+    "margin": -1.528303308923,
+    "total": 43.284607928974,
+    "pH": 0.462870829517
+   }
+  },
+  {
+   "home": "SEA",
+   "away": "BAL",
+   "date": "2026-11-07",
+   "neutral": false,
+   "homeStarter": null,
+   "awayStarter": null,
+   "expected": {
+    "margin": 7.733311301436,
+    "total": 46.812302190259,
+    "pH": 0.729450029971
    }
   }
  ],
