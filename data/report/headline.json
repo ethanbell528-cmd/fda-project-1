@@ -1,7 +1,7 @@
 {
- "rows": 395596,
- "games": 197798,
- "games_with_market": 91223,
+ "rows": 395616,
+ "games": 197808,
+ "games_with_market": 91233,
  "sports": 5,
  "sport_list": [
   "NFL",
@@ -54,8 +54,8 @@
   },
   {
    "sport": "epl",
-   "rows": 25548,
-   "games": 12774,
+   "rows": 25568,
+   "games": 12784,
    "first": "1993-94",
    "last": "2026-27",
    "seasons": 34,

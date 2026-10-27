@@ -425,7 +425,7 @@
    "train": "1995-2023",
    "holdout": "2024-2025",
    "in_progress_season": 2026,
-   "state_through": "2026-10-19",
+   "state_through": "2026-10-25",
    "next_season": 2026
   },
   "edge_threshold": 0.03,
