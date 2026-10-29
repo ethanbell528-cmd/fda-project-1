@@ -1,6 +1,6 @@
 {
  "sport": "nba",
- "generated_at": "2026-10-27",
+ "generated_at": "2026-10-28",
  "edge_threshold": 0.03,
  "train_seasons": "1992-2023",
  "train_games": 40187,
@@ -1146,135 +1146,135 @@
   {
    "home": "ATL",
    "away": "DEN",
-   "date": "2026-10-30",
-   "neutral": false,
-   "homeStarter": null,
-   "awayStarter": null,
-   "expected": {
-    "margin": 1.524603762429,
-    "total": 225.014104151212,
-    "pH": 0.556374454877
-   }
-  },
-  {
-   "home": "CHA",
-   "away": "HOU",
    "date": "2026-10-31",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": -1.835119006088,
-    "total": 214.777916136099,
-    "pH": 0.441434581393
+    "margin": -0.185636254441,
+    "total": 223.683181057233,
+    "pH": 0.487047645733
    }
   },
   {
-   "home": "DAL",
-   "away": "LAL",
+   "home": "CHA",
+   "away": "HOU",
    "date": "2026-11-01",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": -3.564393652893,
-    "total": 233.970910777134,
-    "pH": 0.356443696108
+    "margin": -2.489498637648,
+    "total": 213.65546998718,
+    "pH": 0.414496191464
    }
   },
   {
-   "home": "GSW",
-   "away": "MIL",
+   "home": "DAL",
+   "away": "LAL",
    "date": "2026-11-02",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 4.917672423997,
-    "total": 232.824835383876,
-    "pH": 0.672334314176
+    "margin": -2.407179499307,
+    "total": 231.148141449067,
+    "pH": 0.39673995941
+   }
+  },
+  {
+   "home": "GSW",
+   "away": "MIL",
+   "date": "2026-11-03",
+   "neutral": false,
+   "homeStarter": null,
+   "awayStarter": null,
+   "expected": {
+    "margin": 6.175132520958,
+    "total": 233.781649380156,
+    "pH": 0.71410191579
    }
   },
   {
    "home": "LAC",
    "away": "NYK",
-   "date": "2026-11-03",
+   "date": "2026-11-04",
    "neutral": true,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": -4.799126698915,
-    "total": 216.40887731689,
-    "pH": 0.30082905726
+    "margin": -5.129713477212,
+    "total": 216.871443954512,
+    "pH": 0.284546387655
    }
   },
   {
    "home": "MIA",
    "away": "PHI",
-   "date": "2026-11-04",
-   "neutral": false,
-   "homeStarter": null,
-   "awayStarter": null,
-   "expected": {
-    "margin": -0.615930253301,
-    "total": 231.019477922683,
-    "pH": 0.447178246196
-   }
-  },
-  {
-   "home": "NOP",
-   "away": "SAC",
    "date": "2026-11-05",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 5.625967687827,
-    "total": 242.305288031086,
-    "pH": 0.683519427563
+    "margin": 0.171470405517,
+    "total": 230.065509072326,
+    "pH": 0.478063957427
    }
   },
   {
-   "home": "ORL",
-   "away": "UTA",
+   "home": "NOP",
+   "away": "SAC",
    "date": "2026-11-06",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 9.553705220912,
-    "total": 227.474858236652,
-    "pH": 0.816258304323
+    "margin": 5.521269210856,
+    "total": 239.979874555419,
+    "pH": 0.676911899553
    }
   },
   {
-   "home": "POR",
-   "away": "BKN",
+   "home": "ORL",
+   "away": "UTA",
    "date": "2026-11-07",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 11.901752487702,
-    "total": 227.749625501536,
-    "pH": 0.860869168376
+    "margin": 8.555365122508,
+    "total": 227.300773606994,
+    "pH": 0.794427991109
    }
   },
   {
-   "home": "TOR",
-   "away": "CHI",
+   "home": "POR",
+   "away": "BKN",
    "date": "2026-11-08",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 9.301302616877,
-    "total": 229.788724748489,
-    "pH": 0.796511715754
+    "margin": 11.907396296873,
+    "total": 227.763002106553,
+    "pH": 0.860978961366
+   }
+  },
+  {
+   "home": "TOR",
+   "away": "CHI",
+   "date": "2026-11-09",
+   "neutral": false,
+   "homeStarter": null,
+   "awayStarter": null,
+   "expected": {
+    "margin": 10.05899595072,
+    "total": 230.786449805015,
+    "pH": 0.816941897044
    }
   }
  ],
- "json_vs_sklearn_max_abs_diff_pH": 4.2422115098528224e-07,
+ "json_vs_sklearn_max_abs_diff_pH": 4.2422115131834914e-07,
  "notes": [
   "Holdout seasons were never used to choose Elo constants, features or coefficients.",
   "Elo constants were chosen on seasons 1992-2019 (mean squared error of Elo expected score).",

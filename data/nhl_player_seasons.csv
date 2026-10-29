@@ -33086,7 +33086,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8473503,James Reimer,goalie,G,NYR,1,0,0,0,,1.0,8.0,5.0,0.625
 2026,8473575,Semyon Varlamov,goalie,G,NYI,4,0,0,0,,4.0,92.0,82.0,0.8913
 2026,8474593,Jacob Markstrom,goalie,G,FLA,6,0,0,0,,6.0,117.0,105.0,0.8974
-2026,8474596,Jake Allen,goalie,G,NJD,8,0,0,0,,8.0,220.0,195.0,0.8864
+2026,8474596,Jake Allen,goalie,G,NJD,8,0,0,0,,8.0,221.0,196.0,0.8869
 2026,8475311,Darcy Kuemper,goalie,G,LAK,7,0,1,1,,7.0,199.0,177.0,0.8894
 2026,8475660,Cam Talbot,goalie,G,CBJ,6,0,0,0,,5.0,142.0,127.0,0.8944
 2026,8475683,Sergei Bobrovsky,goalie,G,TOR,10,0,0,0,,10.0,288.0,255.0,0.8854
@@ -33881,5 +33881,5 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8486103,Ivar Stenberg,skater,L,SJS,13,3,6,9,18.0,,,,
 2026,8486130,Dylan Hryckowian,skater,R,DAL,2,0,0,0,1.0,,,,
 2026,8486161,Owen Michaels,skater,R,EDM,13,2,2,4,10.0,,,,
-2026,8486171,T.J. Hughes,skater,R,COL,13,2,2,4,28.0,,,,
+2026,8486171,T.J. Hughes,skater,R,COL,13,2,2,4,29.0,,,,
 2026,8486189,Vitali Pinchuk,skater,C,NSH,5,0,1,1,4.0,,,,
