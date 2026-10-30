@@ -19123,3 +19123,5 @@ game_id,date,season,season_label,sport,game_type,team,opponent,home_away,score_f
 2026_07_TB_CAR,2026-10-25,2026,2026,nfl,regular,CAR,TB,H,13,43,L,-30,56,REG,-3.0,44.5,-166.0,,,0.5996,miss,over,1.0
 2026_07_DAL_PHI,2026-10-26,2026,2026,nfl,regular,DAL,PHI,A,38,21,W,17,59,REG,-4.5,43.5,-225.0,,,0.6636,cover,over,1.0
 2026_07_DAL_PHI,2026-10-26,2026,2026,nfl,regular,PHI,DAL,H,21,38,L,-17,59,REG,4.5,43.5,185.0,,,0.3364,miss,over,0.0
+2026_08_CAR_GB,2026-10-29,2026,2026,nfl,regular,CAR,GB,A,19,27,L,-8,46,REG,3.5,47.5,160.0,,,0.3691,miss,under,0.0
+2026_08_CAR_GB,2026-10-29,2026,2026,nfl,regular,GB,CAR,H,27,19,W,8,46,REG,-3.5,47.5,-192.0,,,0.6309,cover,under,1.0

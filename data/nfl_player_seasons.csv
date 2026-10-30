@@ -19092,23 +19092,23 @@ season,game_type,player_id,player,position,team,games,pass_att,completions,pass_
 2026,regular,00-0034487,Trent Sherfield,WR,BUF,1,0,0,0,0,0,0,0,0,0,0,0,0
 2026,regular,00-0035537,Ty Johnson,RB,BUF,4,0,0,0,0,0,2,6,0,12,12,155,0
 2026,regular,00-0036265,AJ Dillon,RB,CAR,4,0,0,0,0,0,17,43,0,2,2,3,0
-2026,regular,00-0040394,Anthony Tyus III,RB,CAR,3,0,0,0,0,0,3,23,1,0,0,0,0
-2026,regular,00-0039150,Bryce Young,QB,CAR,6,228,135,1712,12,4,10,34,1,0,0,0,0
-2026,regular,00-0038840,Brycen Tremayne,WR,CAR,6,0,0,0,0,0,0,0,0,10,6,115,0
-2026,regular,00-0036555,Chuba Hubbard,RB,CAR,6,0,0,0,0,0,96,459,4,18,15,112,2
-2026,regular,00-0031610,Darren Waller,TE,CAR,6,0,0,0,0,0,0,0,0,23,14,198,3
-2026,regular,00-0033589,David Moore,WR,CAR,4,0,0,0,0,0,0,0,0,4,1,27,0
+2026,regular,00-0040394,Anthony Tyus III,RB,CAR,4,0,0,0,0,0,3,23,1,0,0,0,0
+2026,regular,00-0039150,Bryce Young,QB,CAR,7,269,158,1921,13,5,10,34,1,0,0,0,0
+2026,regular,00-0038840,Brycen Tremayne,WR,CAR,7,0,0,0,0,0,0,0,0,11,7,126,0
+2026,regular,00-0036555,Chuba Hubbard,RB,CAR,7,0,0,0,0,0,118,540,5,26,22,150,2
+2026,regular,00-0031610,Darren Waller,TE,CAR,7,0,0,0,0,0,0,0,0,25,15,209,3
+2026,regular,00-0033589,David Moore,WR,CAR,5,0,0,0,0,0,0,0,0,4,1,27,0
 2026,regular,00-0036825,Feleipe Franks,TE,CAR,5,0,0,0,0,0,0,0,0,0,0,0,0
 2026,regular,00-0040265,Ja'Seem Reed,WR,CAR,1,0,0,0,0,0,0,0,0,1,0,0,0
-2026,regular,00-0039491,Jalen Coker,WR,CAR,5,0,0,0,0,0,0,0,0,39,25,328,2
+2026,regular,00-0039491,Jalen Coker,WR,CAR,6,0,0,0,0,0,0,0,0,44,27,364,3
 2026,regular,00-0040218,Jimmy Horn Jr.,WR,CAR,1,0,0,0,0,0,0,0,0,1,0,0,0
-2026,regular,00-0037614,John Metchie III,WR,CAR,5,0,0,0,0,0,0,0,0,17,9,100,1
+2026,regular,00-0037614,John Metchie III,WR,CAR,6,0,0,0,0,0,0,0,0,20,12,114,1
 2026,regular,00-0039344,Jonathon Brooks,RB,CAR,2,0,0,0,0,0,9,30,0,3,2,43,0
 2026,regular,00-0038102,Kenny Pickett,QB,CAR,3,5,3,47,0,0,3,35,0,0,0,0,0
-2026,regular,00-0040187,Mitchell Evans,TE,CAR,6,0,0,0,0,0,1,1,0,10,8,105,0
-2026,regular,00-0040124,Tetairoa McMillan,WR,CAR,6,0,0,0,0,0,0,0,0,54,36,511,2
-2026,regular,00-0037005,Tommy Tremble,TE,CAR,6,0,0,0,0,0,0,0,0,21,16,136,2
-2026,regular,00-0040644,Trevor Etienne,RB,CAR,2,0,0,0,0,0,7,7,0,2,2,17,0
+2026,regular,00-0040187,Mitchell Evans,TE,CAR,7,0,0,0,0,0,1,1,0,12,10,127,0
+2026,regular,00-0040124,Tetairoa McMillan,WR,CAR,7,0,0,0,0,0,0,0,0,65,42,569,2
+2026,regular,00-0037005,Tommy Tremble,TE,CAR,7,0,0,0,0,0,0,0,0,24,17,155,2
+2026,regular,00-0040644,Trevor Etienne,RB,CAR,3,0,0,0,0,0,8,8,0,2,2,17,0
 2026,regular,00-0039342,Xavier Legette,WR,CAR,2,0,0,0,0,0,0,0,0,6,2,64,0
 2026,regular,00-0039918,Caleb Williams,QB,CHI,4,124,88,1020,5,1,24,128,2,0,0,0,0
 2026,regular,00-0028986,Case Keenum,QB,CHI,2,53,35,355,2,1,5,10,1,0,0,0,0
@@ -19199,23 +19199,23 @@ season,game_type,player_id,player,position,team,games,pass_att,completions,pass_
 2026,regular,00-0037524,Tay Martin,WR,DET,4,0,0,0,0,0,0,0,0,0,0,0,0
 2026,regular,00-0035544,Tom Kennedy,WR,DET,5,0,0,0,0,0,0,0,0,0,0,0,0
 2026,regular,00-0034270,Tyler Conklin,TE,DET,1,0,0,0,0,0,0,0,0,1,1,4,0
-2026,regular,00-0037091,Bo Melton,WR,GB,7,0,0,0,0,0,0,0,0,10,5,34,0
+2026,regular,00-0037091,Bo Melton,WR,GB,8,0,0,0,0,0,0,0,0,10,5,34,0
 2026,regular,00-0038685,Chris Brooks,RB,GB,4,0,0,0,0,0,15,70,0,5,3,24,0
-2026,regular,00-0038124,Christian Watson,WR,GB,7,0,0,0,0,0,0,0,0,56,34,595,6
-2026,regular,00-0040352,Coleman Owen,WR,GB,2,0,0,0,0,0,0,0,0,0,0,0,0
-2026,regular,00-0040948,J. Michael Sturdivant,WR,GB,6,0,0,0,0,0,0,0,0,4,3,22,0
+2026,regular,00-0038124,Christian Watson,WR,GB,8,0,0,0,0,0,0,0,0,66,42,708,6
+2026,regular,00-0040352,Coleman Owen,WR,GB,3,0,0,0,0,0,0,0,0,0,0,0,0
+2026,regular,00-0040948,J. Michael Sturdivant,WR,GB,7,0,0,0,0,0,0,0,0,5,4,38,0
 2026,regular,00-0039146,Jayden Reed,WR,GB,2,0,0,0,0,0,0,0,0,8,4,24,0
 2026,regular,00-0033858,Jonnu Smith,TE,GB,4,0,0,0,0,0,0,0,0,8,6,94,0
-2026,regular,00-0036264,Jordan Love,QB,GB,7,271,162,1958,13,5,11,10,1,0,0,0,0
-2026,regular,00-0035700,Josh Jacobs,RB,GB,1,0,0,0,0,0,11,36,0,7,5,55,1
+2026,regular,00-0036264,Jordan Love,QB,GB,8,312,192,2246,16,6,11,10,1,0,0,0,0
+2026,regular,00-0035700,Josh Jacobs,RB,GB,2,0,0,0,0,0,32,75,1,13,11,68,2
 2026,regular,00-0040142,Kaleb Johnson,RB,GB,6,0,0,0,0,0,28,104,0,3,1,10,0
-2026,regular,00-0039811,MarShawn Lloyd,RB,GB,7,0,0,0,0,0,54,142,2,16,12,70,1
+2026,regular,00-0039811,MarShawn Lloyd,RB,GB,8,0,0,0,0,0,57,149,2,17,13,79,1
 2026,regular,00-0040598,Mark Redman,TE,GB,2,0,0,0,0,0,0,0,0,3,2,29,0
-2026,regular,00-0040667,Matthew Golden,WR,GB,7,0,0,0,0,0,1,6,0,69,36,540,3
-2026,regular,00-0038098,Pierre Strong,RB,GB,2,0,0,0,0,0,16,35,0,10,8,50,0
-2026,regular,00-0040009,Savion Williams,WR,GB,2,0,0,0,0,0,4,13,0,7,7,79,0
+2026,regular,00-0040667,Matthew Golden,WR,GB,8,0,0,0,0,0,1,6,0,82,43,619,4
+2026,regular,00-0038098,Pierre Strong,RB,GB,3,0,0,0,0,0,17,37,0,10,8,50,0
+2026,regular,00-0040009,Savion Williams,WR,GB,3,0,0,0,0,0,5,31,0,9,8,84,0
 2026,regular,00-0038090,Skyy Moore,WR,GB,5,0,0,0,0,0,0,0,0,14,7,35,0
-2026,regular,00-0038996,Tucker Kraft,TE,GB,7,0,0,0,0,0,2,5,0,43,29,297,2
+2026,regular,00-0038996,Tucker Kraft,TE,GB,8,0,0,0,0,0,2,5,0,49,35,350,3
 2026,regular,00-0028118,Tyrod Taylor,QB,GB,1,0,0,0,0,0,2,-2,0,0,0,0,0
 2026,regular,00-0036556,Brevin Jordan,TE,HOU,4,0,0,0,0,0,0,0,0,2,2,12,0
 2026,regular,00-0039603,British Brooks,RB,HOU,1,0,0,0,0,0,0,0,0,0,0,0,0
