@@ -19457,18 +19457,18 @@ season,game_type,player_id,player,team,games,starts,min,pts,reb,ast,fga,fta,tov,
 2025,regular,5238230,Tre Johnson,WAS,60,42,1438.0,733.0,170.0,122.0,647.0,87.0,93.0,G
 2025,regular,4997537,Tristan Vukcevic,WAS,49,12,670.0,441.0,147.0,55.0,317.0,111.0,62.0,F
 2025,regular,5144126,Will Riley,WAS,74,18,1631.0,764.0,212.0,146.0,618.0,180.0,94.0,G
-2026,regular,4397183,Aaron Wiggins,ATL,5,0,134.0,73.0,17.0,9.0,54.0,7.0,4.0,SG
+2026,regular,4397183,Aaron Wiggins,ATL,6,0,158.0,93.0,24.0,12.0,68.0,7.0,5.0,SG
 2026,regular,4873201,Asa Newell,ATL,2,0,9.0,3.0,2.0,0.0,2.0,2.0,0.0,F
-2026,regular,2490149,CJ McCollum,ATL,5,5,127.0,82.0,8.0,9.0,58.0,7.0,6.0,SG
+2026,regular,2490149,CJ McCollum,ATL,6,6,158.0,87.0,11.0,17.0,66.0,11.0,10.0,SG
 2026,regular,4280151,Corey Kispert,ATL,2,0,11.0,16.0,1.0,1.0,7.0,0.0,0.0,SF
 2026,regular,2578185,Dorian Finney-Smith,ATL,2,0,9.0,3.0,2.0,1.0,2.0,0.0,1.0,PF
-2026,regular,4869342,Dyson Daniels,ATL,5,5,143.0,60.0,25.0,22.0,49.0,13.0,4.0,G
-2026,regular,4701230,Jalen Johnson,ATL,5,5,167.0,98.0,48.0,44.0,80.0,33.0,14.0,SF
-2026,regular,3146557,Jock Landale,ATL,5,0,91.0,38.0,24.0,13.0,32.0,10.0,8.0,C
-2026,regular,5149077,Kingston Flemings,ATL,5,0,101.0,36.0,17.0,22.0,30.0,4.0,13.0,G
-2026,regular,4397020,Luguentz Dort,ATL,5,0,115.0,43.0,16.0,9.0,40.0,10.0,4.0,G
-2026,regular,4278039,Nickeil Alexander-Walker,ATL,5,5,150.0,98.0,17.0,16.0,74.0,20.0,10.0,SG
-2026,regular,4431680,Onyeka Okongwu,ATL,5,5,137.0,48.0,28.0,15.0,44.0,8.0,5.0,PF
+2026,regular,4869342,Dyson Daniels,ATL,6,6,175.0,64.0,31.0,27.0,57.0,13.0,4.0,G
+2026,regular,4701230,Jalen Johnson,ATL,6,6,201.0,115.0,56.0,51.0,96.0,34.0,18.0,SF
+2026,regular,3146557,Jock Landale,ATL,6,0,106.0,44.0,34.0,14.0,38.0,12.0,8.0,C
+2026,regular,5149077,Kingston Flemings,ATL,6,0,117.0,38.0,18.0,27.0,34.0,4.0,13.0,G
+2026,regular,4397020,Luguentz Dort,ATL,6,0,137.0,49.0,19.0,11.0,45.0,12.0,5.0,G
+2026,regular,4278039,Nickeil Alexander-Walker,ATL,6,6,181.0,123.0,20.0,17.0,91.0,25.0,10.0,SG
+2026,regular,4431680,Onyeka Okongwu,ATL,6,6,170.0,77.0,40.0,17.0,61.0,12.0,6.0,PF
 2026,regular,5106262,Zuby Ejiofor,ATL,2,0,9.0,3.0,2.0,0.0,3.0,0.0,1.0,F
 2026,regular,5242502,Ben Saraf,BKN,1,0,4.0,2.0,1.0,0.0,1.0,0.0,0.0,G
 2026,regular,5174655,Chaney Johnson,BKN,4,0,82.0,29.0,14.0,5.0,27.0,2.0,5.0,F
@@ -19501,11 +19501,11 @@ season,game_type,player_id,player,team,games,starts,min,pts,reb,ast,fga,fta,tov,
 2026,regular,4065804,Sam Hauser,BOS,4,0,86.0,39.0,14.0,4.0,28.0,0.0,0.0,SF
 2026,regular,4433287,Brandon Miller,CHA,5,5,169.0,128.0,31.0,9.0,118.0,25.0,15.0,F
 2026,regular,5060701,Christian Anderson,CHA,5,0,52.0,7.0,7.0,6.0,15.0,0.0,9.0,G
-2026,regular,3032979,Dennis Schroder,CHA,5,5,163.0,70.0,20.0,23.0,61.0,13.0,16.0,PG
+2026,regular,3032979,Dennis Schroder,CHA,5,5,163.0,70.0,20.0,24.0,61.0,13.0,16.0,PG
 2026,regular,3135045,Grayson Allen,CHA,5,0,141.0,76.0,15.0,15.0,45.0,22.0,15.0,SG
 2026,regular,5281370,Hannes Steinbach,CHA,1,0,12.0,6.0,5.0,0.0,5.0,1.0,0.0,F
 2026,regular,5239590,Liam McNeeley,CHA,2,0,15.0,4.0,5.0,0.0,5.0,4.0,3.0,G
-2026,regular,4433249,Moussa Diabate,CHA,5,5,147.0,46.0,47.0,11.0,26.0,13.0,12.0,F
+2026,regular,4433249,Moussa Diabate,CHA,5,5,147.0,46.0,47.0,10.0,26.0,13.0,12.0,F
 2026,regular,4396971,Naz Reid,CHA,5,5,137.0,85.0,44.0,10.0,79.0,4.0,14.0,C
 2026,regular,4701225,PJ Hall,CHA,1,0,10.0,0.0,1.0,3.0,2.0,0.0,0.0,C
 2026,regular,2583632,Royce O'Neale,CHA,5,0,86.0,23.0,11.0,1.0,22.0,0.0,1.0,PF
@@ -19527,17 +19527,17 @@ season,game_type,player_id,player,team,games,starts,min,pts,reb,ast,fga,fta,tov,
 2026,regular,5105555,Tobe Awaka,CHI,2,0,26.0,6.0,13.0,2.0,4.0,0.0,0.0,F
 2026,regular,4395626,Tre Jones,CHI,5,0,88.0,53.0,13.0,14.0,33.0,23.0,4.0,PG
 2026,regular,4066650,Zach Collins,CHI,3,0,26.0,4.0,10.0,1.0,8.0,0.0,0.0,PF
-2026,regular,4701233,Craig Porter Jr.,CLE,2,0,13.0,3.0,4.0,1.0,2.0,0.0,3.0,G
-2026,regular,3908809,Donovan Mitchell,CLE,4,4,139.0,99.0,25.0,21.0,68.0,23.0,17.0,SG
-2026,regular,4432158,Evan Mobley,CLE,4,4,139.0,80.0,40.0,11.0,49.0,20.0,6.0,PF
-2026,regular,3992,James Harden,CLE,4,4,139.0,63.0,18.0,27.0,55.0,21.0,15.0,SG
-2026,regular,4066328,Jarrett Allen,CLE,4,4,112.0,53.0,36.0,4.0,31.0,18.0,4.0,C
-2026,regular,4683747,Jaylon Tyson,CLE,4,0,86.0,36.0,12.0,13.0,32.0,4.0,6.0,G
-2026,regular,2995706,Mario Hezonja,CLE,4,0,71.0,27.0,14.0,6.0,28.0,2.0,4.0,F
+2026,regular,4701233,Craig Porter Jr.,CLE,3,0,17.0,3.0,5.0,1.0,2.0,0.0,3.0,G
+2026,regular,3908809,Donovan Mitchell,CLE,5,5,172.0,121.0,28.0,24.0,87.0,31.0,17.0,SG
+2026,regular,4432158,Evan Mobley,CLE,5,5,172.0,91.0,44.0,18.0,58.0,24.0,7.0,PF
+2026,regular,3992,James Harden,CLE,5,5,175.0,87.0,23.0,31.0,69.0,30.0,18.0,SG
+2026,regular,4066328,Jarrett Allen,CLE,5,5,142.0,67.0,44.0,5.0,39.0,22.0,5.0,C
+2026,regular,4683747,Jaylon Tyson,CLE,5,0,104.0,39.0,18.0,14.0,39.0,4.0,6.0,G
+2026,regular,2995706,Mario Hezonja,CLE,5,0,88.0,37.0,20.0,8.0,34.0,2.0,4.0,F
 2026,regular,5041951,Meleek Thomas,CLE,2,0,39.0,26.0,6.0,1.0,17.0,2.0,2.0,G
-2026,regular,4576087,Peyton Watson,CLE,4,4,126.0,56.0,18.0,9.0,48.0,15.0,11.0,G
-2026,regular,4066757,Sam Merrill,CLE,4,0,96.0,29.0,12.0,8.0,24.0,6.0,0.0,G
-2026,regular,5023693,Tyrese Proctor,CLE,3,0,22.0,7.0,3.0,4.0,5.0,0.0,1.0,G
+2026,regular,4576087,Peyton Watson,CLE,5,5,148.0,60.0,22.0,12.0,56.0,19.0,13.0,G
+2026,regular,4066757,Sam Merrill,CLE,5,0,123.0,45.0,14.0,11.0,35.0,6.0,2.0,G
+2026,regular,5023693,Tyrese Proctor,CLE,4,0,42.0,14.0,9.0,6.0,10.0,0.0,1.0,G
 2026,regular,3138160,Caleb Martin,DAL,1,0,14.0,10.0,2.0,0.0,6.0,0.0,1.0,SF
 2026,regular,5041939,Cooper Flagg,DAL,4,4,123.0,101.0,21.0,27.0,69.0,24.0,12.0,F
 2026,regular,4278049,Daniel Gafford,DAL,5,5,113.0,33.0,35.0,13.0,23.0,4.0,7.0,C
@@ -19657,24 +19657,26 @@ season,game_type,player_id,player,team,games,starts,min,pts,reb,ast,fga,fta,tov,
 2026,regular,4278580,Sandro Mamukelashvili,LAL,5,0,121.0,51.0,24.0,9.0,37.0,11.0,3.0,F
 2026,regular,4433136,Walker Kessler,LAL,5,5,152.0,74.0,41.0,5.0,44.0,18.0,8.0,C
 2026,regular,4433137,Ziaire Williams,LAL,4,4,114.0,45.0,12.0,9.0,28.0,7.0,3.0,F
-2026,regular,4433083,Cam Spencer,MEM,4,0,67.0,35.0,12.0,9.0,25.0,0.0,5.0,G
-2026,regular,5041935,Cameron Boozer,MEM,4,4,132.0,59.0,42.0,19.0,61.0,19.0,9.0,F
-2026,regular,4903027,Cedric Coward,MEM,3,3,91.0,40.0,29.0,6.0,31.0,0.0,4.0,F
-2026,regular,5105550,GG Jackson,MEM,4,1,60.0,19.0,16.0,3.0,22.0,5.0,8.0,F
-2026,regular,4432810,Isaiah Stewart,MEM,3,1,53.0,21.0,11.0,2.0,15.0,3.0,3.0,C
-2026,regular,5112087,Jaylen Wells,MEM,4,4,116.0,59.0,19.0,6.0,35.0,12.0,2.0,F
-2026,regular,2991070,Jerami Grant,MEM,4,0,96.0,39.0,11.0,9.0,31.0,10.0,7.0,SF
-2026,regular,4594326,Kris Murray,MEM,1,0,13.0,0.0,3.0,1.0,2.0,0.0,0.0,F
-2026,regular,4593016,Quinten Post,MEM,4,0,68.0,28.0,9.0,3.0,19.0,2.0,4.0,C
-2026,regular,4431785,Scotty Pippen Jr.,MEM,4,0,67.0,30.0,11.0,11.0,25.0,10.0,10.0,G
-2026,regular,4684806,Taylor Hendricks,MEM,1,0,7.0,0.0,1.0,0.0,2.0,0.0,0.0,F
-2026,regular,4065733,Ty Jerome,MEM,4,4,126.0,119.0,14.0,26.0,79.0,33.0,7.0,SG
-2026,regular,4600663,Zach Edey,MEM,3,3,64.0,18.0,22.0,5.0,13.0,5.0,3.0,C
+2026,regular,4433083,Cam Spencer,MEM,5,0,90.0,43.0,18.0,17.0,31.0,1.0,6.0,G
+2026,regular,5041935,Cameron Boozer,MEM,5,5,160.0,77.0,54.0,31.0,71.0,21.0,11.0,F
+2026,regular,4903027,Cedric Coward,MEM,4,4,118.0,57.0,36.0,10.0,45.0,0.0,6.0,F
+2026,regular,5105550,GG Jackson,MEM,5,1,81.0,31.0,23.0,5.0,34.0,7.0,8.0,F
+2026,regular,4432810,Isaiah Stewart,MEM,4,1,69.0,39.0,14.0,2.0,25.0,5.0,4.0,C
+2026,regular,5112087,Jaylen Wells,MEM,5,5,141.0,69.0,20.0,6.0,44.0,12.0,2.0,F
+2026,regular,2991070,Jerami Grant,MEM,5,0,123.0,41.0,12.0,12.0,39.0,10.0,8.0,SF
+2026,regular,5231919,Karim Lopez,MEM,1,0,3.0,0.0,1.0,0.0,1.0,0.0,0.0,F
+2026,regular,4594326,Kris Murray,MEM,2,0,16.0,0.0,4.0,1.0,3.0,0.0,0.0,F
+2026,regular,4595400,Olivier-Maxence Prosper,MEM,1,0,3.0,4.0,1.0,0.0,4.0,0.0,0.0,F
+2026,regular,4593016,Quinten Post,MEM,5,0,75.0,38.0,13.0,3.0,24.0,4.0,4.0,C
+2026,regular,4431785,Scotty Pippen Jr.,MEM,5,0,81.0,32.0,11.0,11.0,26.0,10.0,10.0,G
+2026,regular,4684806,Taylor Hendricks,MEM,2,0,10.0,0.0,2.0,0.0,3.0,0.0,0.0,F
+2026,regular,4065733,Ty Jerome,MEM,5,5,150.0,129.0,16.0,29.0,91.0,36.0,10.0,SG
+2026,regular,4600663,Zach Edey,MEM,4,4,83.0,31.0,29.0,5.0,21.0,5.0,3.0,C
 2026,regular,3059319,Andrew Wiggins,MIA,5,5,134.0,53.0,16.0,7.0,49.0,4.0,5.0,SF
 2026,regular,4066261,Bam Adebayo,MIA,5,5,156.0,71.0,38.0,17.0,61.0,22.0,11.0,C
 2026,regular,3064482,Bobby Portis,MIA,5,0,120.0,52.0,41.0,9.0,47.0,5.0,7.0,F
 2026,regular,4278053,Davion Mitchell,MIA,5,5,170.0,82.0,4.0,38.0,62.0,12.0,14.0,PG
-2026,regular,4066993,Dru Smith,MIA,3,0,35.0,12.0,2.0,5.0,6.0,2.0,3.0,G
+2026,regular,4066993,Dru Smith,MIA,3,0,35.0,12.0,3.0,5.0,6.0,2.0,3.0,G
 2026,regular,3032977,Giannis Antetokounmpo,MIA,5,5,158.0,138.0,56.0,23.0,97.0,42.0,16.0,PF
 2026,regular,6475,Klay Thompson,MIA,5,5,99.0,39.0,8.0,5.0,41.0,1.0,3.0,SG
 2026,regular,4431772,Myron Gardner,MIA,2,0,6.0,4.0,2.0,0.0,0.0,4.0,1.0,F
@@ -19683,10 +19685,10 @@ season,game_type,player_id,player,team,games,starts,min,pts,reb,ast,fga,fta,tov,
 2026,regular,4601025,Pelle Larsson,MIA,5,0,154.0,53.0,18.0,21.0,36.0,20.0,5.0,G
 2026,regular,5107157,Ryan Conwell,MIA,3,0,10.0,5.0,1.0,2.0,5.0,0.0,0.0,G
 2026,regular,3899664,Simone Fontecchio,MIA,2,0,6.0,0.0,1.0,0.0,3.0,0.0,0.0,F
-2026,regular,2528210,Tim Hardaway Jr.,MIA,5,0,98.0,35.0,13.0,4.0,35.0,11.0,4.0,SF
+2026,regular,2528210,Tim Hardaway Jr.,MIA,5,0,98.0,35.0,12.0,4.0,35.0,11.0,4.0,SF
 2026,regular,4397475,AJ Green,MIL,5,0,95.0,40.0,9.0,6.0,28.0,0.0,4.0,G
 2026,regular,5214989,Bogoljub Markovic,MIL,1,0,5.0,2.0,1.0,0.0,1.0,0.0,0.0,F
-2026,regular,5082206,Brayden Burries,MIL,5,0,74.0,39.0,18.0,7.0,27.0,16.0,5.0,G
+2026,regular,5082206,Brayden Burries,MIL,5,0,74.0,39.0,19.0,7.0,27.0,16.0,5.0,G
 2026,regular,4277843,Gary Trent Jr.,MIL,1,0,7.0,3.0,0.0,0.0,3.0,0.0,0.0,SG
 2026,regular,4432848,Jaime Jaquez Jr.,MIL,5,5,145.0,89.0,36.0,13.0,62.0,21.0,11.0,F
 2026,regular,4277922,Jericho Sims,MIL,2,0,9.0,0.0,0.0,0.0,0.0,0.0,0.0,C
@@ -19694,7 +19696,7 @@ season,game_type,player_id,player,team,games,starts,min,pts,reb,ast,fga,fta,tov,
 2026,regular,5105623,Kel'el Ware,MIL,5,0,94.0,59.0,42.0,2.0,46.0,14.0,7.0,C
 2026,regular,3134907,Kyle Kuzma,MIL,5,5,139.0,54.0,40.0,14.0,48.0,4.0,9.0,SF
 2026,regular,3133628,Myles Turner,MIL,5,5,132.0,33.0,24.0,11.0,37.0,3.0,14.0,C
-2026,regular,5164559,Nate Ament,MIL,3,0,45.0,16.0,10.0,0.0,16.0,8.0,3.0,F
+2026,regular,5164559,Nate Ament,MIL,3,0,45.0,16.0,10.0,0.0,17.0,8.0,3.0,F
 2026,regular,4997526,Ousmane Dieng,MIL,4,0,53.0,12.0,5.0,4.0,15.0,2.0,1.0,F
 2026,regular,4591725,Ryan Rollins,MIL,5,5,132.0,58.0,23.0,22.0,65.0,10.0,8.0,G
 2026,regular,4395725,Tyler Herro,MIL,5,5,154.0,117.0,26.0,23.0,86.0,20.0,12.0,PG
@@ -19705,26 +19707,27 @@ season,game_type,player_id,player,team,games,starts,min,pts,reb,ast,fga,fta,tov,
 2026,regular,5061585,Isaiah Evans,MIN,3,0,8.0,0.0,1.0,2.0,2.0,0.0,1.0,F
 2026,regular,4431671,Jaden McDaniels,MIN,5,5,162.0,79.0,33.0,15.0,62.0,5.0,8.0,PF
 2026,regular,4432247,Jaylen Clark,MIN,4,0,18.0,7.0,6.0,3.0,5.0,6.0,1.0,G
-2026,regular,5279133,Joan Beringer,MIN,5,0,79.0,34.0,37.0,3.0,22.0,7.0,4.0,F
+2026,regular,5279133,Joan Beringer,MIN,5,0,79.0,34.0,38.0,3.0,22.0,7.0,4.0,F
 2026,regular,4433247,Jonathan Kuminga,MIN,5,5,151.0,66.0,26.0,15.0,50.0,19.0,1.0,PF
-2026,regular,4432816,LaMelo Ball,MIN,5,5,128.0,67.0,12.0,33.0,60.0,9.0,19.0,PG
+2026,regular,4432816,LaMelo Ball,MIN,5,5,128.0,67.0,11.0,33.0,60.0,9.0,19.0,PG
 2026,regular,3032976,Rudy Gobert,MIN,5,5,150.0,33.0,61.0,5.0,27.0,26.0,8.0,C
 2026,regular,4432847,Terrence Shannon Jr.,MIN,5,0,116.0,71.0,19.0,12.0,45.0,24.0,10.0,G
 2026,regular,3136196,Trey Lyles,MIN,5,0,78.0,23.0,17.0,6.0,16.0,5.0,2.0,PF
 2026,regular,4592979,Zyon Pullin,MIN,1,0,5.0,2.0,1.0,0.0,1.0,0.0,0.0,G
-2026,regular,4683634,Bennedict Mathurin,NOP,4,0,67.0,29.0,10.0,8.0,26.0,6.0,5.0,G
-2026,regular,4576086,Bryce McGowens,NOP,1,0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,G
+2026,regular,4683634,Bennedict Mathurin,NOP,5,0,86.0,39.0,13.0,10.0,32.0,8.0,7.0,G
+2026,regular,4576086,Bryce McGowens,NOP,2,0,9.0,4.0,1.0,2.0,3.0,0.0,1.0,G
 2026,regular,3442,DeAndre Jordan,NOP,2,2,33.0,12.0,13.0,2.0,4.0,6.0,1.0,C
 2026,regular,3907497,Dejounte Murray,NOP,4,4,129.0,71.0,23.0,24.0,62.0,11.0,11.0,SG
-2026,regular,4869780,Derik Queen,NOP,4,0,97.0,50.0,37.0,6.0,29.0,22.0,8.0,C
-2026,regular,4277813,Herbert Jones,NOP,4,0,70.0,14.0,8.0,1.0,14.0,2.0,4.0,SF
-2026,regular,5144091,Jeremiah Fears,NOP,4,4,92.0,36.0,13.0,7.0,45.0,6.0,9.0,G
+2026,regular,4869780,Derik Queen,NOP,5,0,119.0,59.0,39.0,9.0,36.0,22.0,12.0,C
+2026,regular,4277813,Herbert Jones,NOP,5,1,102.0,30.0,12.0,2.0,26.0,5.0,7.0,SF
+2026,regular,5144091,Jeremiah Fears,NOP,5,5,121.0,58.0,21.0,20.0,61.0,9.0,12.0,G
 2026,regular,4277956,Jordan Poole,NOP,4,0,64.0,24.0,8.0,12.0,21.0,14.0,3.0,SG
-2026,regular,4997538,Karlo Matkovic,NOP,3,0,35.0,15.0,7.0,2.0,10.0,2.0,2.0,F
-2026,regular,4397136,Saddiq Bey,NOP,4,0,97.0,56.0,12.0,7.0,40.0,14.0,5.0,SF
-2026,regular,4397688,Trey Murphy III,NOP,4,4,130.0,52.0,17.0,11.0,44.0,4.0,8.0,SG
+2026,regular,4997538,Karlo Matkovic,NOP,4,1,63.0,27.0,11.0,3.0,17.0,6.0,4.0,F
+2026,regular,4397136,Saddiq Bey,NOP,5,0,121.0,66.0,16.0,10.0,46.0,17.0,6.0,SF
+2026,regular,4431675,Trendon Watford,NOP,1,0,17.0,8.0,1.0,2.0,3.0,5.0,1.0,PF
+2026,regular,4397688,Trey Murphy III,NOP,5,5,162.0,71.0,22.0,14.0,56.0,12.0,8.0,SG
 2026,regular,5061589,Yves Missi,NOP,2,2,39.0,19.0,15.0,5.0,9.0,4.0,1.0,C
-2026,regular,4395628,Zion Williamson,NOP,4,4,130.0,87.0,14.0,9.0,53.0,25.0,9.0,PF
+2026,regular,4395628,Zion Williamson,NOP,5,5,161.0,109.0,20.0,11.0,65.0,29.0,12.0,PF
 2026,regular,6585,Andre Drummond,NYK,5,0,67.0,32.0,38.0,8.0,31.0,6.0,2.0,C
 2026,regular,4683730,Jaden Akins,NYK,2,0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,G
 2026,regular,3934672,Jalen Brunson,NYK,5,5,174.0,129.0,12.0,25.0,107.0,44.0,11.0,PG
@@ -19797,32 +19800,34 @@ season,game_type,player_id,player,team,games,starts,min,pts,reb,ast,fga,fta,tov,
 2026,regular,4592714,Pat Spencer,PHX,1,0,7.0,3.0,3.0,1.0,2.0,0.0,1.0,G
 2026,regular,5105977,Rasheer Fleming,PHX,2,0,15.0,1.0,3.0,0.0,6.0,2.0,0.0,F
 2026,regular,4888725,Ryan Dunn,PHX,3,0,41.0,14.0,10.0,1.0,8.0,6.0,2.0,F
-2026,regular,6606,Damian Lillard,POR,3,3,88.0,65.0,13.0,12.0,42.0,19.0,5.0,PG
-2026,regular,4683021,Deni Avdija,POR,3,3,94.0,67.0,21.0,19.0,47.0,23.0,8.0,SF
-2026,regular,5105565,Donovan Clingan,POR,3,3,68.0,28.0,28.0,6.0,18.0,8.0,2.0,C
-2026,regular,4279888,Ja Morant,POR,3,3,81.0,49.0,8.0,19.0,34.0,6.0,4.0,PG
+2026,regular,4592435,Branden Carlson,POR,1,0,12.0,2.0,2.0,1.0,2.0,0.0,3.0,C
+2026,regular,6606,Damian Lillard,POR,4,4,118.0,74.0,15.0,14.0,55.0,23.0,6.0,PG
+2026,regular,4683021,Deni Avdija,POR,4,4,126.0,91.0,30.0,26.0,63.0,35.0,8.0,SF
+2026,regular,5105565,Donovan Clingan,POR,4,4,97.0,39.0,36.0,7.0,27.0,9.0,4.0,C
+2026,regular,4279888,Ja Morant,POR,4,4,104.0,63.0,10.0,22.0,48.0,6.0,5.0,PG
 2026,regular,4703889,Jayson Kent,POR,1,0,7.0,0.0,1.0,0.0,4.0,0.0,2.0,G
-2026,regular,3995,Jrue Holiday,POR,3,0,77.0,42.0,9.0,12.0,28.0,12.0,1.0,PG
-2026,regular,4066399,Micah Potter,POR,1,0,12.0,4.0,3.0,0.0,3.0,0.0,1.0,C
+2026,regular,4593043,John Tonje,POR,1,0,5.0,5.0,0.0,0.0,2.0,2.0,0.0,G
+2026,regular,3995,Jrue Holiday,POR,4,0,101.0,48.0,15.0,16.0,35.0,12.0,3.0,PG
+2026,regular,4066399,Micah Potter,POR,2,0,21.0,5.0,5.0,0.0,5.0,1.0,3.0,C
 2026,regular,4066211,Robert Williams III,POR,3,0,54.0,29.0,26.0,2.0,17.0,4.0,2.0,C
-2026,regular,4683678,Scoot Henderson,POR,3,0,57.0,21.0,5.0,6.0,24.0,4.0,9.0,G
-2026,regular,5081727,Sidy Cissoko,POR,3,0,71.0,24.0,13.0,8.0,15.0,7.0,1.0,G
-2026,regular,4431736,Toumani Camara,POR,3,3,74.0,49.0,5.0,5.0,26.0,2.0,1.0,F
-2026,regular,4578893,Vit Krejci,POR,3,0,26.0,5.0,4.0,3.0,6.0,4.0,2.0,G
-2026,regular,5217746,Yang Hansen,POR,1,0,12.0,5.0,3.0,0.0,4.0,0.0,2.0,C
-2026,regular,4917149,Alex Karaban,SAC,2,0,16.0,1.0,2.0,1.0,1.0,2.0,1.0,F
+2026,regular,4683678,Scoot Henderson,POR,4,0,76.0,30.0,9.0,6.0,32.0,6.0,11.0,G
+2026,regular,5081727,Sidy Cissoko,POR,4,0,90.0,28.0,19.0,10.0,20.0,9.0,2.0,G
+2026,regular,4431736,Toumani Camara,POR,4,4,100.0,62.0,7.0,6.0,36.0,2.0,3.0,F
+2026,regular,4578893,Vit Krejci,POR,4,0,34.0,7.0,4.0,4.0,8.0,6.0,2.0,G
+2026,regular,5217746,Yang Hansen,POR,2,0,17.0,8.0,5.0,1.0,5.0,0.0,2.0,C
+2026,regular,4917149,Alex Karaban,SAC,3,0,28.0,7.0,2.0,1.0,4.0,2.0,4.0,F
 2026,regular,4279318,Daeqwon Plowden,SAC,4,0,66.0,10.0,7.0,2.0,9.0,0.0,1.0,G
-2026,regular,5142620,Darius Acuff Jr.,SAC,4,4,141.0,86.0,11.0,19.0,93.0,19.0,11.0,G
-2026,regular,4065732,De'Andre Hunter,SAC,4,4,107.0,41.0,21.0,5.0,29.0,10.0,4.0,SF
-2026,regular,3155942,Domantas Sabonis,SAC,4,4,145.0,76.0,66.0,29.0,43.0,15.0,13.0,PF
-2026,regular,5106058,Emanuel Sharp,SAC,4,0,65.0,21.0,2.0,3.0,18.0,2.0,2.0,G
+2026,regular,5142620,Darius Acuff Jr.,SAC,5,5,182.0,120.0,17.0,33.0,119.0,24.0,17.0,G
+2026,regular,4065732,De'Andre Hunter,SAC,5,5,144.0,65.0,26.0,6.0,42.0,16.0,7.0,SF
+2026,regular,3155942,Domantas Sabonis,SAC,5,5,185.0,85.0,81.0,36.0,50.0,17.0,20.0,PF
+2026,regular,5106058,Emanuel Sharp,SAC,5,0,83.0,21.0,2.0,3.0,20.0,2.0,2.0,G
 2026,regular,5107897,Jonathan Mogbo,SAC,3,0,44.0,9.0,8.0,1.0,13.0,0.0,3.0,F
 2026,regular,4594327,Keegan Murray,SAC,2,2,54.0,14.0,6.0,1.0,17.0,4.0,1.0,SF
 2026,regular,4395650,Leaky Black,SAC,2,0,8.0,2.0,1.0,1.0,3.0,0.0,0.0,F
-2026,regular,4066262,Malik Monk,SAC,3,0,37.0,9.0,5.0,10.0,21.0,0.0,3.0,SG
-2026,regular,4702384,Nique Clifford,SAC,3,0,24.0,8.0,1.0,3.0,10.0,0.0,3.0,G
-2026,regular,4431679,Precious Achiuwa,SAC,4,2,108.0,45.0,22.0,3.0,38.0,11.0,2.0,PF
-2026,regular,3064440,Zach LaVine,SAC,4,4,144.0,109.0,14.0,13.0,69.0,30.0,13.0,SG
+2026,regular,4066262,Malik Monk,SAC,4,0,45.0,11.0,6.0,11.0,24.0,0.0,5.0,SG
+2026,regular,4702384,Nique Clifford,SAC,4,0,28.0,8.0,1.0,4.0,10.0,0.0,3.0,G
+2026,regular,4431679,Precious Achiuwa,SAC,5,3,149.0,69.0,31.0,5.0,55.0,12.0,3.0,PF
+2026,regular,3064440,Zach LaVine,SAC,5,5,183.0,130.0,17.0,18.0,86.0,36.0,16.0,SG
 2026,regular,5061568,Carter Bryant,SAS,5,0,44.0,8.0,2.0,3.0,11.0,2.0,0.0,F
 2026,regular,4713010,David Jones Garcia,SAS,1,0,1.0,2.0,0.0,0.0,1.0,2.0,0.0,F
 2026,regular,4066259,De'Aaron Fox,SAS,5,5,157.0,77.0,21.0,35.0,49.0,23.0,15.0,PG
