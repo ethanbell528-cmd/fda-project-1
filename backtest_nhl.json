@@ -1,6 +1,6 @@
 {
  "sport": "nhl",
- "generated_at": "2026-10-30",
+ "generated_at": "2026-10-31",
  "edge_threshold": 0.03,
  "train_seasons": "1992-2023",
  "train_games": 38500,
@@ -1091,135 +1091,135 @@
   {
    "home": "ANA",
    "away": "COL",
-   "date": "2026-11-02",
+   "date": "2026-11-03",
    "neutral": false,
    "homeStarter": "8471734",
    "awayStarter": null,
    "expected": {
-    "margin": -0.609831999509,
-    "total": 6.643726933491,
-    "pH": 0.390089292535
+    "margin": -0.603763802178,
+    "total": 6.670583261658,
+    "pH": 0.387698787642
    }
   },
   {
    "home": "CAR",
    "away": "EDM",
-   "date": "2026-11-03",
+   "date": "2026-11-04",
    "neutral": false,
    "homeStarter": "8475311",
    "awayStarter": "8476434",
    "expected": {
-    "margin": 0.819110522772,
-    "total": 6.395035333873,
-    "pH": 0.665011178295
+    "margin": 0.773137901669,
+    "total": 6.367734391645,
+    "pH": 0.65355185652
    }
   },
   {
    "home": "CHI",
    "away": "MIN",
-   "date": "2026-11-04",
+   "date": "2026-11-05",
    "neutral": false,
    "homeStarter": "8475831",
    "awayStarter": "8476945",
    "expected": {
-    "margin": -0.909709620946,
-    "total": 6.155689536943,
-    "pH": 0.339937513135
+    "margin": -0.907899747068,
+    "total": 6.220740307231,
+    "pH": 0.339522817099
    }
   },
   {
    "home": "DET",
    "away": "NSH",
-   "date": "2026-11-05",
+   "date": "2026-11-06",
    "neutral": false,
    "homeStarter": "8476412",
    "awayStarter": null,
    "expected": {
-    "margin": 0.222315476144,
-    "total": 6.319259999965,
-    "pH": 0.550805331883
+    "margin": 0.211083935396,
+    "total": 6.335937128968,
+    "pH": 0.547496109269
    }
   },
   {
    "home": "LAK",
    "away": "OTT",
-   "date": "2026-11-06",
+   "date": "2026-11-07",
    "neutral": true,
    "homeStarter": "8476932",
    "awayStarter": "8477990",
    "expected": {
-    "margin": -0.43911160507,
-    "total": 6.290191134866,
-    "pH": 0.424535474428
+    "margin": -0.438262442122,
+    "total": 6.295714392001,
+    "pH": 0.424585960615
    }
   },
   {
    "home": "NJD",
    "away": "SEA",
-   "date": "2026-11-07",
+   "date": "2026-11-08",
    "neutral": false,
    "homeStarter": "8477480",
    "awayStarter": "8478048",
    "expected": {
-    "margin": 0.647088952896,
-    "total": 6.475760819703,
-    "pH": 0.618572354931
+    "margin": 0.648013450569,
+    "total": 6.481129746921,
+    "pH": 0.618623726014
    }
   },
   {
    "home": "NYR",
    "away": "TBL",
-   "date": "2026-11-08",
+   "date": "2026-11-09",
    "neutral": false,
    "homeStarter": "8477970",
    "awayStarter": null,
    "expected": {
-    "margin": -0.254707364757,
-    "total": 6.571327472875,
-    "pH": 0.455279842604
+    "margin": -0.247394782116,
+    "total": 6.639305607025,
+    "pH": 0.455023254148
    }
   },
   {
    "home": "PIT",
    "away": "VAN",
-   "date": "2026-11-09",
+   "date": "2026-11-10",
    "neutral": false,
    "homeStarter": "8478024",
    "awayStarter": "8479312",
    "expected": {
-    "margin": 1.005798739215,
-    "total": 6.466338224152,
-    "pH": 0.685839542784
+    "margin": 1.00671976833,
+    "total": 6.471710651822,
+    "pH": 0.685885896385
    }
   },
   {
    "home": "STL",
    "away": "WSH",
-   "date": "2026-11-10",
+   "date": "2026-11-11",
    "neutral": false,
    "homeStarter": "8478499",
    "awayStarter": "8479973",
    "expected": {
-    "margin": 0.135863698823,
-    "total": 6.363825470903,
-    "pH": 0.532730665752
+    "margin": 0.112870271167,
+    "total": 6.43993208082,
+    "pH": 0.527642488537
    }
   },
   {
    "home": "UTA",
    "away": "BUF",
-   "date": "2026-11-11",
+   "date": "2026-11-12",
    "neutral": false,
    "homeStarter": "8479292",
    "awayStarter": null,
    "expected": {
-    "margin": -0.000394116558,
-    "total": 6.573067704109,
-    "pH": 0.503249515202
+    "margin": 0.000434647493,
+    "total": 6.578630456491,
+    "pH": 0.503300093803
    }
   }
  ],
- "json_vs_sklearn_max_abs_diff_pH": 1.024021525575236e-06,
+ "json_vs_sklearn_max_abs_diff_pH": 1.0240215252421692e-06,
  "notes": [
   "Holdout seasons were never used to choose Elo constants, features or coefficients.",
   "Elo constants were chosen on seasons 1992-2019 (mean squared error of Elo expected score).",
