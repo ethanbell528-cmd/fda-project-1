@@ -12783,3 +12783,12 @@ epl_2026_hull_brentford,2026-10-25,2026,R,Hull,Brentford,1,1,0,0.269,0.2711,-0.4
 epl_2026_liverpool_brighton,2026-10-25,2026,R,Liverpool,Brighton,2,0,0,0.3779,0.2945,0.06,2.96,1566.5,1580.9,-0.5,2.5,1.96,3.82,3.45,current
 epl_2026_man-united_bournemouth,2026-10-25,2026,R,Man United,Bournemouth,0,3,0,0.5171,0.2495,0.57,2.87,1549.4,1522.2,0.0,2.5,2.4,3.41,2.8,current
 epl_2026_sunderland_leeds,2026-10-25,2026,R,Sunderland,Leeds,0,0,0,0.3521,0.3026,-0.01,2.57,1450.3,1502.1,0.0,2.5,2.64,3.12,2.77,current
+epl_2026_aston-villa_fulham,2026-10-31,2026,R,Aston Villa,Fulham,1,1,0,0.5042,0.2685,0.57,2.69,1537.5,1490.0,-0.5,2.5,1.95,3.67,3.61,current
+epl_2026_bournemouth_leeds,2026-10-31,2026,R,Bournemouth,Leeds,2,0,0,0.5424,0.2446,0.67,2.76,1540.7,1502.6,-0.5,2.5,2.05,3.42,3.56,current
+epl_2026_brentford_nott-m-forest,2026-10-31,2026,R,Brentford,Nott'm Forest,2,0,0,0.5063,0.2557,0.59,2.74,1531.0,1489.7,-0.25,2.5,2.1,3.61,3.26,current
+epl_2026_chelsea_man-united,2026-10-31,2026,R,Chelsea,Man United,2,0,0,0.4363,0.2828,0.3,2.85,1524.7,1530.9,-0.25,2.5,2.16,3.63,3.07,current
+epl_2026_coventry_sunderland,2026-10-31,2026,R,Coventry,Sunderland,3,1,0,0.4215,0.2815,0.19,2.56,1422.1,1449.8,0.25,2.5,2.94,3.35,2.34,current
+epl_2026_hull_ipswich,2026-10-31,2026,R,Hull,Ipswich,2,2,0,0.4913,0.2765,0.48,2.72,1436.3,1401.5,0.25,2.5,2.88,3.38,2.35,current
+epl_2026_man-city_brighton,2026-10-31,2026,R,Man City,Brighton,0,1,0,0.5801,0.2413,0.85,3.18,1660.2,1571.9,-0.75,2.5,1.68,4.1,4.36,current
+epl_2026_tottenham_crystal-palace,2026-10-31,2026,R,Tottenham,Crystal Palace,2,0,0,0.5059,0.2493,0.48,2.74,1473.1,1460.0,-0.75,2.5,1.63,4.13,4.91,current
+epl_2026_liverpool_arsenal,2026-11-01,2026,R,Liverpool,Arsenal,0,1,0,0.3428,0.2543,-0.09,2.73,1575.5,1659.0,0.25,2.5,2.81,3.53,2.37,current

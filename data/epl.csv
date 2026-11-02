@@ -25567,3 +25567,21 @@ epl_2026_man-united_bournemouth,2026-10-25,2026,2026-27,epl,regular,Bournemouth,
 epl_2026_man-united_bournemouth,2026-10-25,2026,2026-27,epl,regular,Man United,Bournemouth,H,0,3,L,-3,3,,0.0,2.5,,2.4,3.41,0.3905,miss,over,1.0
 epl_2026_sunderland_leeds,2026-10-25,2026,2026-27,epl,regular,Leeds,Sunderland,A,0,0,D,0,0,,0.0,2.5,,2.77,3.12,0.3405,push,under,0.0
 epl_2026_sunderland_leeds,2026-10-25,2026,2026-27,epl,regular,Sunderland,Leeds,H,0,0,D,0,0,,0.0,2.5,,2.64,3.12,0.3572,push,under,1.0
+epl_2026_aston-villa_fulham,2026-10-31,2026,2026-27,epl,regular,Fulham,Aston Villa,A,1,1,D,0,2,,0.5,2.5,,3.61,3.67,0.2608,cover,under,0.0
+epl_2026_aston-villa_fulham,2026-10-31,2026,2026-27,epl,regular,Aston Villa,Fulham,H,1,1,D,0,2,,-0.5,2.5,,1.95,3.67,0.4827,miss,under,1.0
+epl_2026_bournemouth_leeds,2026-10-31,2026,2026-27,epl,regular,Leeds,Bournemouth,A,0,2,L,-2,2,,0.5,2.5,,3.56,3.42,0.2647,miss,under,0.0
+epl_2026_bournemouth_leeds,2026-10-31,2026,2026-27,epl,regular,Bournemouth,Leeds,H,2,0,W,2,2,,-0.5,2.5,,2.05,3.42,0.4597,cover,under,1.0
+epl_2026_brentford_nott-m-forest,2026-10-31,2026,2026-27,epl,regular,Nott'm Forest,Brentford,A,0,2,L,-2,2,,0.25,2.5,,3.26,3.61,0.2894,miss,under,0.0
+epl_2026_brentford_nott-m-forest,2026-10-31,2026,2026-27,epl,regular,Brentford,Nott'm Forest,H,2,0,W,2,2,,-0.25,2.5,,2.1,3.61,0.4493,cover,under,1.0
+epl_2026_chelsea_man-united,2026-10-31,2026,2026-27,epl,regular,Man United,Chelsea,A,0,2,L,-2,2,,0.25,2.5,,3.07,3.63,0.3061,miss,under,0.0
+epl_2026_chelsea_man-united,2026-10-31,2026,2026-27,epl,regular,Chelsea,Man United,H,2,0,W,2,2,,-0.25,2.5,,2.16,3.63,0.435,cover,under,1.0
+epl_2026_coventry_sunderland,2026-10-31,2026,2026-27,epl,regular,Sunderland,Coventry,A,1,3,L,-2,4,,-0.25,2.5,,2.34,3.35,0.4009,miss,over,1.0
+epl_2026_coventry_sunderland,2026-10-31,2026,2026-27,epl,regular,Coventry,Sunderland,H,3,1,W,2,4,,0.25,2.5,,2.94,3.35,0.3191,cover,over,0.0
+epl_2026_hull_ipswich,2026-10-31,2026,2026-27,epl,regular,Ipswich,Hull,A,2,2,D,0,4,,-0.25,2.5,,2.35,3.38,0.3982,miss,over,1.0
+epl_2026_hull_ipswich,2026-10-31,2026,2026-27,epl,regular,Hull,Ipswich,H,2,2,D,0,4,,0.25,2.5,,2.88,3.38,0.3249,cover,over,0.0
+epl_2026_man-city_brighton,2026-10-31,2026,2026-27,epl,regular,Brighton,Man City,A,1,0,W,1,1,,0.75,2.5,,4.36,4.1,0.2147,cover,under,0.0
+epl_2026_man-city_brighton,2026-10-31,2026,2026-27,epl,regular,Man City,Brighton,H,0,1,L,-1,1,,-0.75,2.5,,1.68,4.1,0.5571,miss,under,1.0
+epl_2026_tottenham_crystal-palace,2026-10-31,2026,2026-27,epl,regular,Crystal Palace,Tottenham,A,0,2,L,-2,2,,0.75,2.5,,4.91,4.13,0.1923,miss,under,0.0
+epl_2026_tottenham_crystal-palace,2026-10-31,2026,2026-27,epl,regular,Tottenham,Crystal Palace,H,2,0,W,2,2,,-0.75,2.5,,1.63,4.13,0.5792,cover,under,1.0
+epl_2026_liverpool_arsenal,2026-11-01,2026,2026-27,epl,regular,Arsenal,Liverpool,A,1,0,W,1,1,,-0.25,2.5,,2.37,3.53,0.3976,cover,under,1.0
+epl_2026_liverpool_arsenal,2026-11-01,2026,2026-27,epl,regular,Liverpool,Arsenal,H,0,1,L,-1,1,,0.25,2.5,,2.81,3.53,0.3354,miss,under,0.0
