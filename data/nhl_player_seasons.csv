@@ -33093,7 +33093,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8475717,Calvin Pickard,goalie,G,MIN,2,0,0,0,,2.0,42.0,35.0,0.8333
 2026,8475809,Scott Wedgewood,goalie,G,COL,4,0,0,0,,4.0,126.0,112.0,0.8889
 2026,8475831,Philipp Grubauer,goalie,G,SEA,9,0,0,0,,8.0,229.0,203.0,0.8865
-2026,8476316,Laurent Brossoit,goalie,G,ANA,1,0,0,0,,1.0,22.0,19.0,0.8636
+2026,8476316,Laurent Brossoit,goalie,G,ANA,1,0,0,0,,1.0,23.0,20.0,0.8696
 2026,8476341,Anton Forsberg,goalie,G,LAK,6,0,0,0,,5.0,143.0,129.0,0.9021
 2026,8476412,Jordan Binnington,goalie,G,STL,4,0,0,0,,4.0,104.0,88.0,0.8462
 2026,8476434,John Gibson,goalie,G,DET,10,0,0,0,,10.0,222.0,191.0,0.8604
@@ -33125,7 +33125,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8480045,Ukko-Pekka Luukkonen,goalie,G,BUF,10,0,0,0,,9.0,261.0,228.0,0.8736
 2026,8480193,Daniil Tarasov,goalie,G,DET,4,0,0,0,,3.0,84.0,79.0,0.9405
 2026,8480280,Jeremy Swayman,goalie,G,BOS,11,0,0,0,,11.0,297.0,271.0,0.9124
-2026,8480313,Logan Thompson,goalie,G,WSH,9,0,1,1,,9.0,255.0,229.0,0.898
+2026,8480313,Logan Thompson,goalie,G,WSH,9,0,1,1,,9.0,254.0,228.0,0.8976
 2026,8480843,Lukas Dostal,goalie,G,ANA,9,0,0,0,,9.0,242.0,211.0,0.8719
 2026,8480947,Kevin Lankinen,goalie,G,VAN,8,0,0,0,,7.0,197.0,160.0,0.8122
 2026,8480981,Joel Hofer,goalie,G,STL,10,0,1,1,,10.0,286.0,262.0,0.9161
@@ -33139,7 +33139,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8481692,Dustin Wolf,goalie,G,CGY,7,0,0,0,,6.0,190.0,161.0,0.8474
 2026,8482076,Nico Daws,goalie,G,"NJD,WPG",6,0,0,0,,5.0,132.0,117.0,0.8864
 2026,8482137,Yaroslav Askarov,goalie,G,SJS,9,0,0,0,,9.0,271.0,244.0,0.9004
-2026,8482193,Dylan Garand,goalie,G,NYR,11,0,0,0,,9.0,252.0,226.0,0.8968
+2026,8482193,Dylan Garand,goalie,G,NYR,11,0,0,0,,9.0,251.0,225.0,0.8964
 2026,8482221,Devon Levi,goalie,G,EDM,7,0,0,0,,7.0,194.0,172.0,0.8866
 2026,8482445,Devin Cooley,goalie,G,CGY,7,0,1,1,,7.0,197.0,180.0,0.9137
 2026,8482447,Leevi Merilainen,goalie,G,VAN,11,0,0,0,,9.0,312.0,280.0,0.8974
@@ -33147,7 +33147,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8482657,Sebastian Cossa,goalie,G,UTA,5,0,0,0,,4.0,83.0,71.0,0.8554
 2026,8482661,Jesper Wallstedt,goalie,G,MIN,14,0,0,0,,14.0,362.0,333.0,0.9199
 2026,8482821,Arvid Soderblom,goalie,G,CHI,3,0,0,0,,3.0,82.0,68.0,0.8293
-2026,8482949,Arsenii Sergeev,goalie,G,CGY,1,0,0,0,,1.0,33.0,28.0,0.8485
+2026,8482949,Arsenii Sergeev,goalie,G,CGY,1,0,0,0,,1.0,34.0,29.0,0.8529
 2026,8482982,Jet Greaves,goalie,G,CBJ,8,0,0,0,,7.0,180.0,159.0,0.8833
 2026,8483532,Clay Stevenson,goalie,G,WPG,5,0,0,0,,4.0,123.0,107.0,0.8699
 2026,8483548,Brandon Bussi,goalie,G,CAR,6,0,0,0,,6.0,148.0,128.0,0.8649
@@ -33326,7 +33326,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8477478,William Carrier,skater,L,CAR,16,0,8,8,27.0,,,,
 2026,8477479,Tyler Bertuzzi,skater,L,CHI,14,2,4,6,16.0,,,,
 2026,8477488,Brett Pesce,skater,D,NJD,14,1,4,5,13.0,,,,
-2026,8477492,Nathan MacKinnon,skater,C,COL,14,9,15,24,57.0,,,,
+2026,8477492,Nathan MacKinnon,skater,C,COL,14,9,15,24,58.0,,,,
 2026,8477493,Aleksander Barkov,skater,C,FLA,2,0,0,0,2.0,,,,
 2026,8477495,Seth Jones,skater,D,FLA,14,2,16,18,37.0,,,,
 2026,8477496,Elias Lindholm,skater,C,BOS,15,5,7,12,26.0,,,,
@@ -33423,7 +33423,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8478476,Kyle Capobianco,skater,D,DAL,5,0,0,0,3.0,,,,
 2026,8478483,Mitch Marner,skater,R,VGK,13,2,13,15,31.0,,,,
 2026,8478493,Joel Eriksson Ek,skater,C,MIN,16,5,9,14,54.0,,,,
-2026,8478498,Jake DeBrusk,skater,L,VAN,14,3,5,8,30.0,,,,
+2026,8478498,Jake DeBrusk,skater,L,VAN,14,3,5,8,31.0,,,,
 2026,8478500,Ivan Provorov,skater,D,CBJ,1,0,0,0,1.0,,,,
 2026,8478502,Dennis Gilbert,skater,D,BUF,5,1,1,2,1.0,,,,
 2026,8478507,John Marino,skater,D,UTA,9,2,3,5,8.0,,,,
@@ -33472,7 +33472,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8479407,Jesper Bratt,skater,L,NJD,14,2,10,12,28.0,,,,
 2026,8479410,Mikhail Sergachev,skater,D,UTA,15,5,12,17,36.0,,,,
 2026,8479420,Tage Thompson,skater,C,BUF,14,10,7,17,63.0,,,,
-2026,8479425,Filip Hronek,skater,D,VAN,16,1,11,12,20.0,,,,
+2026,8479425,Filip Hronek,skater,D,VAN,16,1,11,12,19.0,,,,
 2026,8479442,Troy Stecher,skater,D,TOR,16,2,3,5,19.0,,,,
 2026,8479520,Brandon Duhaime,skater,L,TOR,16,1,3,4,13.0,,,,
 2026,8479525,Ross Colton,skater,C,NSH,14,2,2,4,21.0,,,,
@@ -33524,7 +33524,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8480113,Alex Iafallo,skater,L,WPG,15,3,2,5,20.0,,,,
 2026,8480145,Neal Pionk,skater,D,WPG,15,3,7,10,36.0,,,,
 2026,8480185,Eetu Luostarinen,skater,C,FLA,14,2,2,4,18.0,,,,
-2026,8480188,Fabian Zetterlund,skater,L,OTT,16,1,5,6,35.0,,,,
+2026,8480188,Fabian Zetterlund,skater,L,OTT,16,1,5,6,36.0,,,,
 2026,8480192,Johnathan Kovacevic,skater,D,NJD,8,0,1,1,8.0,,,,
 2026,8480208,Drake Batherson,skater,R,OTT,16,9,9,18,37.0,,,,
 2026,8480220,Noah Cates,skater,L,PHI,16,2,3,5,14.0,,,,
@@ -33548,7 +33548,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8480800,Quinn Hughes,skater,D,MIN,16,5,16,21,47.0,,,,
 2026,8480801,Brady Tkachuk,skater,L,FLA,14,8,7,15,46.0,,,,
 2026,8480802,Ryan McLeod,skater,C,BUF,14,1,2,3,13.0,,,,
-2026,8480803,Evan Bouchard,skater,D,EDM,15,8,18,26,45.0,,,,
+2026,8480803,Evan Bouchard,skater,D,EDM,15,8,18,26,44.0,,,,
 2026,8480807,Mattias Samuelsson,skater,D,BUF,14,2,7,9,21.0,,,,
 2026,8480813,Joseph Veleno,skater,C,NYR,4,0,0,0,2.0,,,,
 2026,8480817,K'Andre Miller,skater,D,CAR,16,1,3,4,23.0,,,,
@@ -33643,7 +33643,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8482062,Cole Smith,skater,R,CHI,14,1,1,2,17.0,,,,
 2026,8482070,Mitchell Chaffee,skater,R,NYI,6,0,0,0,3.0,,,,
 2026,8482072,Jack Ahcan,skater,D,NSH,3,0,1,1,0.0,,,,
-2026,8482073,Braden Schneider,skater,D,NYR,15,0,2,2,23.0,,,,
+2026,8482073,Braden Schneider,skater,D,NYR,15,0,2,2,22.0,,,,
 2026,8482074,Connor Zary,skater,C,CGY,2,0,1,1,2.0,,,,
 2026,8482077,Dylan Holloway,skater,L,STL,14,3,9,12,29.0,,,,
 2026,8482078,Lucas Raymond,skater,L,DET,14,5,9,14,43.0,,,,
@@ -33673,7 +33673,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8482148,Hendrix Lapierre,skater,C,PIT,10,2,4,6,10.0,,,,
 2026,8482149,Cole Perfetti,skater,C,WPG,15,6,5,11,43.0,,,,
 2026,8482155,Alex Laferriere,skater,R,LAK,13,2,7,9,33.0,,,,
-2026,8482157,Will Cuylle,skater,L,NYR,15,4,4,8,33.0,,,,
+2026,8482157,Will Cuylle,skater,L,NYR,15,4,4,8,34.0,,,,
 2026,8482159,Tyson Foerster,skater,R,PHI,15,2,1,3,33.0,,,,
 2026,8482160,Martin Chromiak,skater,R,LAK,1,0,0,0,1.0,,,,
 2026,8482165,Yan Kuznetsov,skater,D,CGY,13,0,2,2,14.0,,,,
@@ -33888,7 +33888,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8485414,Ben Kindel,skater,C,PIT,11,3,3,6,28.0,,,,
 2026,8485468,Trey Taylor,skater,D,DAL,1,0,0,0,0.0,,,,
 2026,8485512,Tim Washe,skater,C,ANA,14,3,3,6,16.0,,,,
-2026,8485702,Maxim Shabanov,skater,R,MIN,15,5,5,10,21.0,,,,
+2026,8485702,Maxim Shabanov,skater,R,MIN,15,5,5,10,20.0,,,,
 2026,8485957,Alberts Smits,skater,D,NYR,15,0,0,0,6.0,,,,
 2026,8486025,Viggo Björck,skater,C,WPG,15,0,0,0,11.0,,,,
 2026,8486052,Nikita Klepov,skater,R,ANA,4,0,0,0,0.0,,,,
