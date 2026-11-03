@@ -19149,3 +19149,5 @@ game_id,date,season,season_label,sport,game_type,team,opponent,home_away,score_f
 2026_08_PHI_WAS,2026-11-01,2026,2026,nfl,regular,WAS,PHI,H,27,10,W,17,37,REG,-6.0,40.5,-278.0,,,0.705,cover,under,1.0
 2026_08_TEN_CIN,2026-11-01,2026,2026,nfl,regular,TEN,CIN,A,36,43,L,-7,79,OT,13.5,45.5,600.0,,,0.137,cover,over,0.0
 2026_08_TEN_CIN,2026-11-01,2026,2026,nfl,regular,CIN,TEN,H,43,36,W,7,79,OT,-13.5,45.5,-900.0,,,0.863,miss,over,1.0
+2026_08_CHI_SEA,2026-11-02,2026,2026,nfl,regular,CHI,SEA,A,34,17,W,17,51,REG,3.0,46.5,140.0,,,0.4004,cover,over,0.0
+2026_08_CHI_SEA,2026-11-02,2026,2026,nfl,regular,SEA,CHI,H,17,34,L,-17,51,REG,-3.0,46.5,-166.0,,,0.5996,miss,over,1.0

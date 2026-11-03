@@ -2,14 +2,14 @@
  "rows": [
   {
    "sport": "nfl",
-   "over": 0.494377,
-   "games": 9426,
-   "push_rate": 0.015561,
-   "avg_line": 42.671718,
-   "avg_actual": 43.39906,
+   "over": 0.494431,
+   "games": 9427,
+   "push_rate": 0.01556,
+   "avg_line": 42.672118,
+   "avg_actual": 43.399854,
    "first": "1990",
    "last": "2026",
-   "mae": 10.633368
+   "mae": 10.632728
   },
   {
    "sport": "nba",
