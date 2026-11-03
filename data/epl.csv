@@ -25585,3 +25585,5 @@ epl_2026_tottenham_crystal-palace,2026-10-31,2026,2026-27,epl,regular,Crystal Pa
 epl_2026_tottenham_crystal-palace,2026-10-31,2026,2026-27,epl,regular,Tottenham,Crystal Palace,H,2,0,W,2,2,,-0.75,2.5,,1.63,4.13,0.5792,cover,under,1.0
 epl_2026_liverpool_arsenal,2026-11-01,2026,2026-27,epl,regular,Arsenal,Liverpool,A,1,0,W,1,1,,-0.25,2.5,,2.37,3.53,0.3976,cover,under,1.0
 epl_2026_liverpool_arsenal,2026-11-01,2026,2026-27,epl,regular,Liverpool,Arsenal,H,0,1,L,-1,1,,0.25,2.5,,2.81,3.53,0.3354,miss,under,0.0
+epl_2026_newcastle_everton,2026-11-02,2026,2026-27,epl,regular,Everton,Newcastle,A,1,0,W,1,1,,0.25,2.5,,3.25,3.47,0.2894,cover,under,0.0
+epl_2026_newcastle_everton,2026-11-02,2026,2026-27,epl,regular,Newcastle,Everton,H,0,1,L,-1,1,,-0.25,2.5,,2.14,3.47,0.4395,miss,under,1.0
