@@ -3711,7 +3711,7 @@
  },
  "nhl": {
   "sport": "nhl",
-  "generated_at": "2026-11-02",
+  "generated_at": "2026-11-03",
   "edge_threshold": 0.03,
   "train_seasons": "1992-2023",
   "train_games": 38500,
@@ -4802,131 +4802,131 @@
    {
     "home": "ANA",
     "away": "COL",
-    "date": "2026-11-05",
+    "date": "2026-11-06",
     "neutral": false,
     "homeStarter": "8471734",
     "awayStarter": null,
     "expected": {
-     "margin": -0.575638276625,
-     "total": 6.615718854593,
-     "pH": 0.38582379245
+     "margin": -0.513197904688,
+     "total": 6.717098174073,
+     "pH": 0.398052148942
     }
    },
    {
     "home": "CAR",
     "away": "EDM",
-    "date": "2026-11-06",
+    "date": "2026-11-07",
     "neutral": false,
     "homeStarter": "8475311",
     "awayStarter": "8476434",
     "expected": {
-     "margin": 0.769158193535,
-     "total": 6.368832832424,
-     "pH": 0.658436603124
+     "margin": 0.727015067306,
+     "total": 6.397310300809,
+     "pH": 0.647390770514
     }
    },
    {
     "home": "CHI",
     "away": "MIN",
-    "date": "2026-11-07",
+    "date": "2026-11-08",
     "neutral": false,
     "homeStarter": "8475831",
     "awayStarter": "8476945",
     "expected": {
-     "margin": -1.018769975272,
-     "total": 6.256392342893,
-     "pH": 0.320742423534
+     "margin": -1.0477562487,
+     "total": 6.263867194448,
+     "pH": 0.317823277032
     }
    },
    {
     "home": "DET",
     "away": "NSH",
-    "date": "2026-11-08",
+    "date": "2026-11-09",
     "neutral": false,
     "homeStarter": "8476412",
     "awayStarter": null,
     "expected": {
-     "margin": 0.207560872868,
-     "total": 6.453762691638,
-     "pH": 0.545782007162
+     "margin": 0.142541487965,
+     "total": 6.406697079274,
+     "pH": 0.534311774412
     }
    },
    {
     "home": "LAK",
     "away": "OTT",
-    "date": "2026-11-09",
+    "date": "2026-11-10",
     "neutral": true,
     "homeStarter": "8476932",
     "awayStarter": "8477970",
     "expected": {
-     "margin": -0.489526535233,
-     "total": 6.392665604516,
-     "pH": 0.411664197124
+     "margin": -0.488461537857,
+     "total": 6.397371973374,
+     "pH": 0.411669543014
     }
    },
    {
     "home": "NJD",
     "away": "SEA",
-    "date": "2026-11-10",
+    "date": "2026-11-11",
     "neutral": false,
     "homeStarter": "8477465",
     "awayStarter": "8478024",
     "expected": {
-     "margin": 0.618829984729,
-     "total": 6.579472110172,
-     "pH": 0.623150291123
+     "margin": 0.626377383733,
+     "total": 6.608080910448,
+     "pH": 0.624720532377
     }
    },
    {
     "home": "NYR",
     "away": "TBL",
-    "date": "2026-11-11",
+    "date": "2026-11-12",
     "neutral": false,
     "homeStarter": "8477968",
     "awayStarter": null,
     "expected": {
-     "margin": -0.306624431165,
-     "total": 6.624321581142,
-     "pH": 0.442079485118
+     "margin": -0.318018700691,
+     "total": 6.633540568875,
+     "pH": 0.439750720512
     }
    },
    {
     "home": "PIT",
     "away": "VAN",
-    "date": "2026-11-12",
+    "date": "2026-11-13",
     "neutral": false,
     "homeStarter": "8478009",
     "awayStarter": "8479292",
     "expected": {
-     "margin": 0.977252226267,
-     "total": 6.554160390656,
-     "pH": 0.682634378065
+     "margin": 0.947707936238,
+     "total": 6.58220067533,
+     "pH": 0.677957831392
     }
    },
    {
     "home": "STL",
     "away": "WSH",
-    "date": "2026-11-13",
+    "date": "2026-11-14",
     "neutral": false,
     "homeStarter": "8478470",
     "awayStarter": "8479496",
     "expected": {
-     "margin": 0.187038579171,
-     "total": 6.388462688739,
-     "pH": 0.541304705488
+     "margin": 0.174956167339,
+     "total": 6.444852956927,
+     "pH": 0.537478616593
     }
    },
    {
     "home": "UTA",
     "away": "BUF",
-    "date": "2026-11-14",
+    "date": "2026-11-15",
     "neutral": false,
     "homeStarter": "8479193",
     "awayStarter": null,
     "expected": {
-     "margin": -0.058380701784,
-     "total": 6.614735626745,
-     "pH": 0.490355189109
+     "margin": -0.054039682765,
+     "total": 6.63151225411,
+     "pH": 0.491044499139
     }
    }
   ],
