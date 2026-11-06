@@ -90611,3 +90611,7 @@ game_id,date,season,season_label,sport,game_type,team,opponent,home_away,score_f
 401909934,2026-11-04,2026,2026-27,nba,regular,SAC,LAL,H,103,116,L,-13,219,REG,,,,,,,,,
 401909935,2026-11-04,2026,2026-27,nba,regular,MIA,LAC,A,117,116,W,1,233,OT,,,,,,,,,
 401909935,2026-11-04,2026,2026-27,nba,regular,LAC,MIA,H,116,117,L,-1,233,OT,,,,,,,,,
+401909936,2026-11-05,2026,2026-27,nba,regular,ORL,PHX,A,104,117,L,-13,221,REG,,,,,,,,,
+401909936,2026-11-05,2026,2026-27,nba,regular,PHX,ORL,H,117,104,W,13,221,REG,,,,,,,,,
+401909937,2026-11-05,2026,2026-27,nba,regular,MIA,GSW,A,100,120,L,-20,220,REG,,,,,,,,,
+401909937,2026-11-05,2026,2026-27,nba,regular,GSW,MIA,H,120,100,W,20,220,REG,,,,,,,,,
