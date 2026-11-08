@@ -1200,7 +1200,7 @@
    }
   }
  ],
- "json_vs_sklearn_max_abs_diff_pH": 4.5137850812615454e-07,
+ "json_vs_sklearn_max_abs_diff_pH": 4.513785072379761e-07,
  "notes": [
   "Holdout seasons were never used to choose Elo constants, features or coefficients.",
   "Elo constants were chosen on seasons 1995-2023 (mean squared error of Elo expected score).",
