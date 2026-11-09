@@ -252,6 +252,13 @@
     "avg": 45.957895,
     "index": 113.395892,
     "games": 285
+   },
+   {
+    "season": 2026,
+    "label": "2026",
+    "avg": 46.014925,
+    "index": 113.536609,
+    "games": 134
    }
   ],
   "nba": [
@@ -1252,16 +1259,14 @@
  },
  "summary": [
   {
-   "partial_excluded": [
-    "2026"
-   ],
+   "partial_excluded": [],
    "sport": "nfl",
    "unit": "points",
    "base_label": "1990 to 1999",
    "base_avg": 40.528712,
-   "latest_label": "2025",
-   "latest_avg": 45.957895,
-   "latest_index": 113.395892,
+   "latest_label": "2026",
+   "latest_avg": 46.014925,
+   "latest_index": 113.536609,
    "low_label": "1992",
    "low_avg": 37.731915,
    "high_label": "2020",
