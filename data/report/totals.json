@@ -46,14 +46,14 @@
   },
   {
    "sport": "epl",
-   "over": 0.518074,
-   "games": 9074,
+   "over": 0.518054,
+   "games": 9084,
    "push_rate": 0.0,
    "avg_line": 2.5,
-   "avg_actual": 2.73132,
+   "avg_actual": 2.731616,
    "first": "2002-03",
    "last": "2026-27",
-   "mae": 1.346264
+   "mae": 1.346543
   }
  ]
 }
