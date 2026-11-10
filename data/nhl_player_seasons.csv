@@ -33085,7 +33085,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2025,8486169,Jake Livanavage,skater,D,PIT,1,0,0,0,0.0,,,,
 2026,8473503,James Reimer,goalie,G,NYR,1,0,0,0,,1.0,8.0,5.0,0.625
 2026,8473575,Semyon Varlamov,goalie,G,NYI,5,0,0,0,,5.0,130.0,116.0,0.8923
-2026,8474593,Jacob Markstrom,goalie,G,FLA,9,0,0,0,,9.0,201.0,178.0,0.8856
+2026,8474593,Jacob Markstrom,goalie,G,FLA,9,0,0,0,,9.0,202.0,179.0,0.8861
 2026,8474596,Jake Allen,goalie,G,NJD,9,0,0,0,,9.0,244.0,215.0,0.8811
 2026,8475311,Darcy Kuemper,goalie,G,LAK,10,0,1,1,,10.0,271.0,238.0,0.8782
 2026,8475660,Cam Talbot,goalie,G,CBJ,8,0,0,0,,7.0,203.0,185.0,0.9113
@@ -33097,7 +33097,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8476341,Anton Forsberg,goalie,G,LAK,6,0,0,0,,5.0,143.0,129.0,0.9021
 2026,8476412,Jordan Binnington,goalie,G,STL,5,0,0,0,,5.0,141.0,120.0,0.8511
 2026,8476434,John Gibson,goalie,G,DET,11,0,0,0,,11.0,235.0,202.0,0.8596
-2026,8476883,Andrei Vasilevskiy,goalie,G,TBL,13,0,0,0,,13.0,316.0,279.0,0.8829
+2026,8476883,Andrei Vasilevskiy,goalie,G,TBL,13,0,0,0,,13.0,317.0,280.0,0.8833
 2026,8476914,Joonas Korpisalo,goalie,G,NYR,1,0,0,0,,1.0,28.0,25.0,0.8928
 2026,8476932,Anthony Stolarz,goalie,G,TOR,7,0,3,3,,7.0,206.0,187.0,0.9078
 2026,8476945,Connor Hellebuyck,goalie,G,NJD,5,0,0,0,,5.0,115.0,105.0,0.913
@@ -33125,7 +33125,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8480022,Michael DiPietro,goalie,G,BOS,5,0,0,0,,5.0,146.0,135.0,0.9246
 2026,8480045,Ukko-Pekka Luukkonen,goalie,G,BUF,11,0,0,0,,10.0,287.0,252.0,0.878
 2026,8480193,Daniil Tarasov,goalie,G,DET,8,0,0,0,,6.0,185.0,170.0,0.9189
-2026,8480280,Jeremy Swayman,goalie,G,BOS,13,0,0,0,,13.0,361.0,332.0,0.9197
+2026,8480280,Jeremy Swayman,goalie,G,BOS,13,0,0,0,,13.0,362.0,333.0,0.9199
 2026,8480313,Logan Thompson,goalie,G,WSH,11,0,1,1,,11.0,294.0,261.0,0.8878
 2026,8480843,Lukas Dostal,goalie,G,ANA,10,0,0,0,,10.0,253.0,219.0,0.8656
 2026,8480947,Kevin Lankinen,goalie,G,VAN,9,0,0,0,,8.0,219.0,177.0,0.8082
@@ -33908,7 +33908,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8485554,Dillon Boucher,skater,L,CHI,3,0,0,0,2.0,,,,
 2026,8485702,Maxim Shabanov,skater,R,MIN,18,8,5,13,27.0,,,,
 2026,8485957,Alberts Smits,skater,D,NYR,17,0,0,0,8.0,,,,
-2026,8486025,Viggo Björck,skater,C,WPG,18,0,3,3,14.0,,,,
+2026,8486025,Viggo Björck,skater,C,WPG,18,0,3,3,15.0,,,,
 2026,8486052,Nikita Klepov,skater,R,ANA,4,0,0,0,0.0,,,,
 2026,8486067,Gavin McKenna,skater,L,TOR,19,6,6,12,35.0,,,,
 2026,8486103,Ivar Stenberg,skater,L,SJS,19,5,6,11,28.0,,,,
