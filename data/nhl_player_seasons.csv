@@ -33126,7 +33126,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8480045,Ukko-Pekka Luukkonen,goalie,G,BUF,11,0,0,0,,10.0,287.0,252.0,0.878
 2026,8480193,Daniil Tarasov,goalie,G,DET,8,0,0,0,,6.0,185.0,170.0,0.9189
 2026,8480280,Jeremy Swayman,goalie,G,BOS,13,0,0,0,,13.0,362.0,333.0,0.9199
-2026,8480313,Logan Thompson,goalie,G,WSH,12,0,1,1,,12.0,320.0,285.0,0.8906
+2026,8480313,Logan Thompson,goalie,G,WSH,12,0,1,1,,12.0,321.0,286.0,0.891
 2026,8480843,Lukas Dostal,goalie,G,ANA,10,0,0,0,,10.0,253.0,219.0,0.8656
 2026,8480947,Kevin Lankinen,goalie,G,VAN,9,0,0,0,,8.0,219.0,177.0,0.8082
 2026,8480981,Joel Hofer,goalie,G,STL,13,0,1,1,,13.0,376.0,346.0,0.9202
@@ -33166,7 +33166,7 @@ season,player_id,player,role,position,teams,games,goals,assists,points,shots,gam
 2026,8471724,Kris Letang,skater,D,PIT,18,1,8,9,35.0,,,,
 2026,8473419,Brad Marchand,skater,L,FLA,2,1,0,1,5.0,,,,
 2026,8473422,Nick Foligno,skater,L,MIN,5,1,0,1,3.0,,,,
-2026,8473512,Claude Giroux,skater,R,OTT,19,3,8,11,27.0,,,,
+2026,8473512,Claude Giroux,skater,R,OTT,19,3,8,11,28.0,,,,
 2026,8473533,Jordan Staal,skater,C,CAR,6,0,0,0,6.0,,,,
 2026,8473986,Alex Killorn,skater,L,ANA,18,2,4,6,24.0,,,,
 2026,8473994,Jamie Benn,skater,L,DAL,17,3,4,7,20.0,,,,
