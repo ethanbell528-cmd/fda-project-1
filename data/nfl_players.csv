@@ -14291,7 +14291,7 @@ game_id,date,season,week,game_type,player_id,player,position,team,opponent,home_
 2026_06_BAL_CLE,2026-10-18,2026,6,regular,00-0036550,Rashod Bateman,WR,BAL,CLE,A,0,0,0,0,0,0,0,0,1,0,0,0
 2026_06_BAL_CLE,2026-10-18,2026,6,regular,00-0035993,Tyler Huntley,QB,BAL,CLE,A,31,19,165,1,0,5,28,0,0,0,0,0
 2026_06_BAL_CLE,2026-10-18,2026,6,regular,00-0039064,Zay Flowers,WR,BAL,CLE,A,0,0,0,0,0,1,1,0,11,6,66,0
-2026_06_BAL_CLE,2026-10-18,2026,6,regular,00-0039373,Audric Estimé,RB,CLE,BAL,H,0,0,0,0,0,9,19,1,0,0,0,0
+2026_06_BAL_CLE,2026-10-18,2026,6,regular,00-0039373,Audric Estime,RB,CLE,BAL,H,0,0,0,0,0,9,19,1,0,0,0,0
 2026_06_BAL_CLE,2026-10-18,2026,6,regular,00-0038710,Blake Whiteheart,TE,CLE,BAL,H,0,0,0,0,0,0,0,0,1,1,8,0
 2026_06_BAL_CLE,2026-10-18,2026,6,regular,00-0041037,Denzel Boston,WR,CLE,BAL,H,0,0,0,0,0,0,0,0,5,1,15,0
 2026_06_BAL_CLE,2026-10-18,2026,6,regular,00-0033537,Deshaun Watson,QB,CLE,BAL,H,26,16,164,0,0,8,29,0,0,0,0,0
@@ -15237,7 +15237,7 @@ game_id,date,season,week,game_type,player_id,player,position,team,opponent,home_
 2026_09_CLE_NO,2026-11-08,2026,9,regular,00-0040668,Shedeur Sanders,QB,CLE,NO,A,31,19,297,2,0,10,28,0,0,0,0,0
 2026_09_CLE_NO,2026-11-08,2026,9,regular,00-0036630,Tylan Wallace,WR,CLE,NO,A,0,0,0,0,0,0,0,0,1,1,6,0
 2026_09_CLE_NO,2026-11-08,2026,9,regular,00-0033906,Alvin Kamara,RB,NO,CLE,H,0,0,0,0,0,6,32,0,4,3,17,0
-2026_09_CLE_NO,2026-11-08,2026,9,regular,00-0039373,Audric Estimé,RB,NO,CLE,H,0,0,0,0,0,15,72,1,1,1,5,0
+2026_09_CLE_NO,2026-11-08,2026,9,regular,00-0039373,Audric Estime,RB,NO,CLE,H,0,0,0,0,0,15,72,1,1,1,5,0
 2026_09_CLE_NO,2026-11-08,2026,9,regular,00-0041099,Barion Brown,WR,NO,CLE,H,0,0,0,0,0,0,0,0,1,1,52,0
 2026_09_CLE_NO,2026-11-08,2026,9,regular,00-0041067,Bryce Lance,WR,NO,CLE,H,0,0,0,0,0,0,0,0,1,0,0,0
 2026_09_CLE_NO,2026-11-08,2026,9,regular,00-0037239,Chris Olave,WR,NO,CLE,H,0,0,0,0,0,0,0,0,12,7,98,0

@@ -19149,7 +19149,7 @@ season,game_type,player_id,player,position,team,games,pass_att,completions,pass_
 2026,regular,00-0040208,Tahj Brooks,RB,CIN,6,0,0,0,0,0,3,6,0,0,0,0,0
 2026,regular,00-0034613,Tanner Hudson,TE,CIN,4,0,0,0,0,0,0,0,0,7,7,33,1
 2026,regular,00-0036410,Tee Higgins,WR,CIN,8,0,0,0,0,0,0,0,0,67,48,758,6
-2026,regular,00-0039373,Audric Estimé,RB,CLE,1,0,0,0,0,0,9,19,1,0,0,0,0
+2026,regular,00-0039373,Audric Estime,RB,CLE,1,0,0,0,0,0,9,19,1,0,0,0,0
 2026,regular,00-0038710,Blake Whiteheart,TE,CLE,6,0,0,0,0,0,0,0,0,6,4,48,1
 2026,regular,00-0041131,Carsen Ryan,TE,CLE,2,0,0,0,0,0,0,0,0,0,0,0,0
 2026,regular,00-0041037,Denzel Boston,WR,CLE,9,0,0,0,0,0,0,0,0,60,32,507,3
@@ -19406,7 +19406,7 @@ season,game_type,player_id,player,position,team,games,pass_att,completions,pass_
 2026,regular,00-0038476,Tommy DeVito,QB,NE,2,8,4,51,0,0,1,2,0,0,0,0,0
 2026,regular,00-0040734,TreVeyon Henderson,RB,NE,6,0,0,0,0,0,52,203,1,7,5,45,0
 2026,regular,00-0033906,Alvin Kamara,RB,NO,7,0,0,0,0,0,47,157,2,31,25,150,1
-2026,regular,00-0039373,Audric Estimé,RB,NO,1,0,0,0,0,0,15,72,1,1,1,5,0
+2026,regular,00-0039373,Audric Estime,RB,NO,1,0,0,0,0,0,15,72,1,1,1,5,0
 2026,regular,00-0041099,Barion Brown,WR,NO,7,0,0,0,0,0,2,-2,0,5,5,114,0
 2026,regular,00-0041067,Bryce Lance,WR,NO,8,0,0,0,0,0,0,0,0,23,9,78,1
 2026,regular,00-0041326,CJ Donaldson,RB,NO,6,0,0,0,0,0,17,81,0,6,4,10,0
