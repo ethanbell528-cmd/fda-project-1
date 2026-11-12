@@ -1218,7 +1218,7 @@
  },
  "nba": {
   "sport": "nba",
-  "generated_at": "2026-11-10",
+  "generated_at": "2026-11-11",
   "edge_threshold": 0.03,
   "train_seasons": "1992-2023",
   "train_games": 40187,
@@ -2364,131 +2364,131 @@
    {
     "home": "ATL",
     "away": "DEN",
-    "date": "2026-11-13",
-    "neutral": false,
-    "homeStarter": null,
-    "awayStarter": null,
-    "expected": {
-     "margin": 0.135041117399,
-     "total": 229.703017617942,
-     "pH": 0.498067052433
-    }
-   },
-   {
-    "home": "CHA",
-    "away": "HOU",
     "date": "2026-11-14",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": -5.504450062425,
-     "total": 213.164509158733,
-     "pH": 0.311440185032
+     "margin": 0.340897683443,
+     "total": 231.615548307686,
+     "pH": 0.502740766604
     }
    },
    {
-    "home": "DAL",
-    "away": "LAL",
+    "home": "CHA",
+    "away": "HOU",
     "date": "2026-11-15",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": -2.625505765212,
-     "total": 230.084358659652,
-     "pH": 0.3796291588
+     "margin": -5.752641244818,
+     "total": 213.080208753535,
+     "pH": 0.302380429872
     }
    },
    {
-    "home": "GSW",
-    "away": "MIL",
+    "home": "DAL",
+    "away": "LAL",
     "date": "2026-11-16",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": 11.256578380341,
-     "total": 229.028232005997,
-     "pH": 0.842812264831
+     "margin": -2.870655398438,
+     "total": 228.977949772461,
+     "pH": 0.371179441507
+    }
+   },
+   {
+    "home": "GSW",
+    "away": "MIL",
+    "date": "2026-11-17",
+    "neutral": false,
+    "homeStarter": null,
+    "awayStarter": null,
+    "expected": {
+     "margin": 11.114929308421,
+     "total": 228.037068283688,
+     "pH": 0.840010969788
     }
    },
    {
     "home": "LAC",
     "away": "NYK",
-    "date": "2026-11-17",
+    "date": "2026-11-18",
     "neutral": true,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": -8.25352064467,
-     "total": 220.111078171127,
-     "pH": 0.20409006509
+     "margin": -7.239927849959,
+     "total": 221.040825934928,
+     "pH": 0.230843811399
     }
    },
    {
     "home": "MIA",
     "away": "PHI",
-    "date": "2026-11-18",
-    "neutral": false,
-    "homeStarter": null,
-    "awayStarter": null,
-    "expected": {
-     "margin": -0.538327064735,
-     "total": 228.014115200677,
-     "pH": 0.461075062451
-    }
-   },
-   {
-    "home": "NOP",
-    "away": "SAC",
     "date": "2026-11-19",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": 4.084262920244,
-     "total": 236.083641211817,
-     "pH": 0.652260571738
+     "margin": -0.536510300216,
+     "total": 228.018421182797,
+     "pH": 0.461148410576
     }
    },
    {
-    "home": "ORL",
-    "away": "UTA",
+    "home": "NOP",
+    "away": "SAC",
     "date": "2026-11-20",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": 7.977599198232,
-     "total": 222.754512023175,
-     "pH": 0.78076532349
+     "margin": 1.916635726221,
+     "total": 237.041669052164,
+     "pH": 0.578493460285
     }
    },
    {
-    "home": "POR",
-    "away": "BKN",
+    "home": "ORL",
+    "away": "UTA",
     "date": "2026-11-21",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": 11.249674206221,
-     "total": 227.819214752706,
-     "pH": 0.848981507533
+     "margin": 8.250979590097,
+     "total": 220.937896277014,
+     "pH": 0.791461906812
     }
    },
    {
-    "home": "TOR",
-    "away": "CHI",
+    "home": "POR",
+    "away": "BKN",
     "date": "2026-11-22",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": 8.968262517045,
-     "total": 238.936747996333,
-     "pH": 0.786332122045
+     "margin": 9.79505941634,
+     "total": 231.304920427164,
+     "pH": 0.821900945348
+    }
+   },
+   {
+    "home": "TOR",
+    "away": "CHI",
+    "date": "2026-11-23",
+    "neutral": false,
+    "homeStarter": null,
+    "awayStarter": null,
+    "expected": {
+     "margin": 7.891938561948,
+     "total": 235.146630059805,
+     "pH": 0.763226404964
     }
    }
   ],
@@ -4807,9 +4807,9 @@
     "homeStarter": "8471734",
     "awayStarter": null,
     "expected": {
-     "margin": -0.495983646159,
-     "total": 6.834955676358,
-     "pH": 0.40036613132
+     "margin": -0.559308000017,
+     "total": 6.814250488339,
+     "pH": 0.395322492766
     }
    },
    {
@@ -4820,9 +4820,9 @@
     "homeStarter": "8475311",
     "awayStarter": "8476434",
     "expected": {
-     "margin": 0.789141157585,
-     "total": 6.409049669285,
-     "pH": 0.655112288328
+     "margin": 0.789253010996,
+     "total": 6.409270794446,
+     "pH": 0.655103502066
     }
    },
    {
@@ -4833,9 +4833,9 @@
     "homeStarter": "8475831",
     "awayStarter": "8476945",
     "expected": {
-     "margin": -1.17663049414,
-     "total": 6.286363322309,
-     "pH": 0.297170320695
+     "margin": -1.17651968974,
+     "total": 6.286592833137,
+     "pH": 0.297162918496
     }
    },
    {
@@ -4846,9 +4846,9 @@
     "homeStarter": "8476412",
     "awayStarter": null,
     "expected": {
-     "margin": 0.053974381062,
-     "total": 6.221722372558,
-     "pH": 0.519924212417
+     "margin": -0.002982384086,
+     "total": 6.230761861699,
+     "pH": 0.510559975871
     }
    },
    {
@@ -4859,9 +4859,9 @@
     "homeStarter": "8476932",
     "awayStarter": "8477970",
     "expected": {
-     "margin": -0.601636228596,
-     "total": 6.456953518881,
-     "pH": 0.391062687971
+     "margin": -0.60152614226,
+     "total": 6.457184512054,
+     "pH": 0.391054224694
     }
    },
    {
@@ -4872,9 +4872,9 @@
     "homeStarter": "8477465",
     "awayStarter": "8478024",
     "expected": {
-     "margin": 0.663942856778,
-     "total": 6.478962445638,
-     "pH": 0.632006260128
+     "margin": 0.664043862278,
+     "total": 6.479209232354,
+     "pH": 0.631997306333
     }
    },
    {
@@ -4885,9 +4885,9 @@
     "homeStarter": "8477968",
     "awayStarter": null,
     "expected": {
-     "margin": -0.425527032911,
-     "total": 6.675678271552,
-     "pH": 0.421158117043
+     "margin": -0.425283437602,
+     "total": 6.675632988359,
+     "pH": 0.421153852214
     }
    },
    {
@@ -4898,9 +4898,9 @@
     "homeStarter": "8478009",
     "awayStarter": "8479292",
     "expected": {
-     "margin": 1.012955881998,
-     "total": 6.677035220888,
-     "pH": 0.687403359152
+     "margin": 1.041554006444,
+     "total": 6.606077066898,
+     "pH": 0.692596306532
     }
    },
    {
@@ -4911,9 +4911,9 @@
     "homeStarter": "8478470",
     "awayStarter": "8479496",
     "expected": {
-     "margin": 0.143000323742,
-     "total": 6.301226641086,
-     "pH": 0.534039027576
+     "margin": 0.143110254525,
+     "total": 6.301456501737,
+     "pH": 0.534029969493
     }
    },
    {
@@ -4924,9 +4924,9 @@
     "homeStarter": "8479193",
     "awayStarter": null,
     "expected": {
-     "margin": 0.036153200288,
-     "total": 6.601269871151,
-     "pH": 0.507815777195
+     "margin": 0.028578046254,
+     "total": 6.588052310143,
+     "pH": 0.506179367331
     }
    }
   ],
