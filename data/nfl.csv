@@ -19183,3 +19183,5 @@ game_id,date,season,season_label,sport,game_type,team,opponent,home_away,score_f
 2026_09_BUF_MIN,2026-11-09,2026,2026,nfl,regular,MIN,BUF,H,6,23,L,-17,29,REG,3.0,45.5,154.0,,,0.3775,miss,under,0.0
 2026_10_WAS_NYG,2026-11-12,2026,2026,nfl,regular,WAS,NYG,A,24,21,W,3,45,REG,1.5,40.5,102.0,,,0.4739,cover,over,0.0
 2026_10_WAS_NYG,2026-11-12,2026,2026,nfl,regular,NYG,WAS,H,21,24,L,-3,45,REG,-1.5,40.5,-122.0,,,0.5261,miss,over,1.0
+2026_10_NE_DET,2026-11-15,2026,2026,nfl,regular,DET,NE,N,35,10,W,25,45,REG,-2.5,50.5,-148.0,,,0.5721,cover,under,1.0
+2026_10_NE_DET,2026-11-15,2026,2026,nfl,regular,NE,DET,N,10,35,L,-25,45,REG,2.5,50.5,124.0,,,0.4279,miss,under,0.0
