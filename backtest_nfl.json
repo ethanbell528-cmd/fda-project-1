@@ -610,63 +610,63 @@
   "by_role": {
    "QB": {
     "pass_yds": {
-     "n": 300,
-     "mae_formula": 67.3481,
-     "mae_season_to_date_avg": 72.1391
+     "n": 303,
+     "mae_formula": 67.5013,
+     "mae_season_to_date_avg": 72.0969
     },
     "pass_td": {
-     "n": 300,
-     "mae_formula": 0.901,
-     "mae_season_to_date_avg": 0.9998
+     "n": 303,
+     "mae_formula": 0.8988,
+     "mae_season_to_date_avg": 0.9949
     },
     "int": {
-     "n": 300,
-     "mae_formula": 0.6458,
-     "mae_season_to_date_avg": 0.6313
+     "n": 303,
+     "mae_formula": 0.6449,
+     "mae_season_to_date_avg": 0.63
     },
     "rush_yds": {
-     "n": 300,
-     "mae_formula": 12.1582,
-     "mae_season_to_date_avg": 12.3692
+     "n": 303,
+     "mae_formula": 12.0849,
+     "mae_season_to_date_avg": 12.2929
     }
    },
    "RB": {
     "rush_yds": {
-     "n": 715,
-     "mae_formula": 20.7542,
-     "mae_season_to_date_avg": 20.2509
+     "n": 722,
+     "mae_formula": 20.7614,
+     "mae_season_to_date_avg": 20.2645
     },
     "rush_td": {
-     "n": 715,
-     "mae_formula": 0.348,
-     "mae_season_to_date_avg": 0.347
+     "n": 722,
+     "mae_formula": 0.3468,
+     "mae_season_to_date_avg": 0.3457
     },
     "rec": {
-     "n": 715,
-     "mae_formula": 1.1342,
-     "mae_season_to_date_avg": 1.2056
+     "n": 722,
+     "mae_formula": 1.1364,
+     "mae_season_to_date_avg": 1.2073
     },
     "rec_yds": {
-     "n": 715,
-     "mae_formula": 10.932,
-     "mae_season_to_date_avg": 11.4145
+     "n": 722,
+     "mae_formula": 10.8853,
+     "mae_season_to_date_avg": 11.3739
     }
    },
    "WR/TE": {
     "rec": {
-     "n": 1800,
-     "mae_formula": 1.3296,
-     "mae_season_to_date_avg": 1.4014
+     "n": 1811,
+     "mae_formula": 1.3312,
+     "mae_season_to_date_avg": 1.4027
     },
     "rec_yds": {
-     "n": 1800,
-     "mae_formula": 19.4189,
-     "mae_season_to_date_avg": 20.6396
+     "n": 1811,
+     "mae_formula": 19.4586,
+     "mae_season_to_date_avg": 20.6837
     },
     "rec_td": {
-     "n": 1800,
-     "mae_formula": 0.3032,
-     "mae_season_to_date_avg": 0.3053
+     "n": 1811,
+     "mae_formula": 0.3047,
+     "mae_season_to_date_avg": 0.307
     }
    }
   }
