@@ -87069,3 +87069,5 @@ game_id,date,season,season_label,sport,game_type,team,opponent,home_away,score_f
 2026020344,2026-11-18,2026,2026-27,nhl,regular,DET,BOS,H,1,4,L,-3,5,REG,,,,,,,,,
 2026020345,2026-11-18,2026,2026-27,nhl,regular,MTL,NJD,A,3,2,W,1,5,REG,,,,,,,,,
 2026020345,2026-11-18,2026,2026-27,nhl,regular,NJD,MTL,H,2,3,L,-1,5,REG,,,,,,,,,
+2026020346,2026-11-18,2026,2026-27,nhl,regular,COL,UTA,A,1,4,L,-3,5,REG,,,,,,,,,
+2026020346,2026-11-18,2026,2026-27,nhl,regular,UTA,COL,H,4,1,W,3,5,REG,,,,,,,,,
