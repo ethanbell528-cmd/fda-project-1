@@ -1218,7 +1218,7 @@
  },
  "nba": {
   "sport": "nba",
-  "generated_at": "2026-11-20",
+  "generated_at": "2026-11-21",
   "edge_threshold": 0.03,
   "train_seasons": "1992-2023",
   "train_games": 40187,
@@ -2364,131 +2364,131 @@
    {
     "home": "ATL",
     "away": "DEN",
-    "date": "2026-11-23",
-    "neutral": false,
-    "homeStarter": null,
-    "awayStarter": null,
-    "expected": {
-     "margin": 0.666534050381,
-     "total": 229.792961898935,
-     "pH": 0.513844467375
-    }
-   },
-   {
-    "home": "CHA",
-    "away": "HOU",
     "date": "2026-11-24",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": -4.669486557891,
-     "total": 218.750994311007,
-     "pH": 0.321423185868
+     "margin": 0.71099179002,
+     "total": 229.985446228783,
+     "pH": 0.518534183406
     }
    },
    {
-    "home": "DAL",
-    "away": "LAL",
+    "home": "CHA",
+    "away": "HOU",
     "date": "2026-11-25",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": -2.406441951204,
-     "total": 229.001537890761,
-     "pH": 0.391349875849
+     "margin": -4.625028818251,
+     "total": 218.943478640855,
+     "pH": 0.325532672022
     }
    },
    {
-    "home": "GSW",
-    "away": "MIL",
+    "home": "DAL",
+    "away": "LAL",
     "date": "2026-11-26",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": 6.534590907731,
-     "total": 223.046006654525,
-     "pH": 0.740574850834
+     "margin": -1.945822745153,
+     "total": 228.080899148521,
+     "pH": 0.40803669398
+    }
+   },
+   {
+    "home": "GSW",
+    "away": "MIL",
+    "date": "2026-11-27",
+    "neutral": false,
+    "homeStarter": null,
+    "awayStarter": null,
+    "expected": {
+     "margin": 6.513725540377,
+     "total": 225.786847717936,
+     "pH": 0.74083533571
     }
    },
    {
     "home": "LAC",
     "away": "NYK",
-    "date": "2026-11-27",
+    "date": "2026-11-28",
     "neutral": true,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": -9.43700426925,
-     "total": 221.779773227111,
-     "pH": 0.178439582292
+     "margin": -8.97721756496,
+     "total": 220.810204929658,
+     "pH": 0.184145320043
     }
    },
    {
     "home": "MIA",
     "away": "PHI",
-    "date": "2026-11-28",
-    "neutral": false,
-    "homeStarter": null,
-    "awayStarter": null,
-    "expected": {
-     "margin": 1.10051452501,
-     "total": 239.698576606367,
-     "pH": 0.523490256483
-    }
-   },
-   {
-    "home": "NOP",
-    "away": "SAC",
     "date": "2026-11-29",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": 2.280962504899,
-     "total": 230.641131488052,
-     "pH": 0.594055380421
+     "margin": 1.157525665477,
+     "total": 242.361691852226,
+     "pH": 0.524739139424
     }
    },
    {
-    "home": "ORL",
-    "away": "UTA",
+    "home": "NOP",
+    "away": "SAC",
     "date": "2026-11-30",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": 7.395499234576,
-     "total": 220.791084780717,
-     "pH": 0.765982516316
+     "margin": 1.799889325797,
+     "total": 226.455386565361,
+     "pH": 0.577477419278
     }
    },
    {
-    "home": "POR",
-    "away": "BKN",
+    "home": "ORL",
+    "away": "UTA",
     "date": "2026-12-01",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": 12.250897070501,
-     "total": 229.063384458306,
-     "pH": 0.868270534569
+     "margin": 7.402225209684,
+     "total": 220.807026268045,
+     "pH": 0.766178347403
     }
    },
    {
-    "home": "TOR",
-    "away": "CHI",
+    "home": "POR",
+    "away": "BKN",
     "date": "2026-12-02",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": 3.94606751152,
-     "total": 227.053118662368,
-     "pH": 0.645740790054
+     "margin": 12.527424536891,
+     "total": 227.10672704264,
+     "pH": 0.871650304073
+    }
+   },
+   {
+    "home": "TOR",
+    "away": "CHI",
+    "date": "2026-12-03",
+    "neutral": false,
+    "homeStarter": null,
+    "awayStarter": null,
+    "expected": {
+     "margin": 3.952793486628,
+     "total": 227.069060149696,
+     "pH": 0.645990738762
     }
    }
   ],
