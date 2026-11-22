@@ -220,8 +220,8 @@
    {
     "season": 2026,
     "label": "2026",
-    "pct": 0.48951,
-    "games": 143
+    "pct": 0.513333,
+    "games": 150
    }
   ],
   "nba": [
@@ -1082,22 +1082,22 @@
  "overall": [
   {
    "sport": "nfl",
-   "home_win": 0.571985,
-   "games": 9495,
+   "home_win": 0.572301,
+   "games": 9502,
    "partial_excluded": [],
    "tie_early": 0.000824,
-   "tie_late": 0.003482,
+   "tie_late": 0.003472,
    "draw": null,
    "early_label": "1990 to 1999",
    "early": 0.601318,
    "late_label": "2017 to 2026",
-   "late": 0.542747,
+   "late": 0.543981,
    "covid_label": "2020",
    "covid": 0.501887,
    "max_season": "1998",
    "max": 0.636,
-   "min_season": "2026",
-   "min": 0.48951
+   "min_season": "2020",
+   "min": 0.501887
   },
   {
    "sport": "nba",

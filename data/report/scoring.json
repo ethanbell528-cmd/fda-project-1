@@ -256,9 +256,9 @@
    {
     "season": 2026,
     "label": "2026",
-    "avg": 46.039735,
-    "index": 113.597824,
-    "games": 151
+    "avg": 46.189873,
+    "index": 113.968274,
+    "games": 158
    }
   ],
   "nba": [
@@ -1265,8 +1265,8 @@
    "base_label": "1990 to 1999",
    "base_avg": 40.528712,
    "latest_label": "2026",
-   "latest_avg": 46.039735,
-   "latest_index": 113.597824,
+   "latest_avg": 46.189873,
+   "latest_index": 113.968274,
    "low_label": "1992",
    "low_avg": 37.731915,
    "high_label": "2020",
