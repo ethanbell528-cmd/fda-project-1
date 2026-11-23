@@ -1,6 +1,6 @@
 {
  "sport": "epl",
- "generated_at": "2026-11-08",
+ "generated_at": "2026-11-22",
  "edge_threshold": 0.03,
  "train_seasons": "1995-2023",
  "train_games": 11020,
@@ -1052,155 +1052,155 @@
   {
    "home": "Arsenal",
    "away": "Coventry",
-   "date": "2026-11-11",
+   "date": "2026-11-25",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 1.7839400289,
-    "total": 2.857936259977,
-    "pH": 0.770098992687,
-    "pD": 0.167002305649,
-    "pA": 0.062898701664
+    "margin": 1.760420567159,
+    "total": 2.926796495532,
+    "pH": 0.767389542517,
+    "pD": 0.171007650458,
+    "pA": 0.061602807025
    }
   },
   {
    "home": "Brentford",
    "away": "Fulham",
-   "date": "2026-11-12",
+   "date": "2026-11-26",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 0.634854714502,
-    "total": 2.626085265707,
-    "pH": 0.521179788698,
-    "pD": 0.257651665878,
-    "pA": 0.221168545423
+    "margin": 0.585108536136,
+    "total": 2.699472747676,
+    "pH": 0.51343406355,
+    "pD": 0.267588661998,
+    "pA": 0.218977274452
    }
   },
   {
    "home": "Chelsea",
    "away": "Leeds",
-   "date": "2026-11-13",
+   "date": "2026-11-27",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 0.517092750664,
-    "total": 2.627009958838,
-    "pH": 0.484734420907,
-    "pD": 0.279174068218,
-    "pA": 0.236091510874
+    "margin": 0.283282410582,
+    "total": 2.701943733264,
+    "pH": 0.425361088698,
+    "pD": 0.291594650487,
+    "pA": 0.283044260815
    }
   },
   {
    "home": "Everton",
    "away": "Man United",
-   "date": "2026-11-14",
+   "date": "2026-11-28",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 0.190958410254,
-    "total": 2.821924046938,
-    "pH": 0.415643913791,
-    "pD": 0.27517294399,
-    "pA": 0.309183142219
+    "margin": 0.29039234083,
+    "total": 2.835806495839,
+    "pH": 0.448994063422,
+    "pD": 0.271327241431,
+    "pA": 0.279678695146
    }
   },
   {
    "home": "Ipswich",
    "away": "Sunderland",
-   "date": "2026-11-15",
+   "date": "2026-11-29",
    "neutral": true,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": -0.434122644672,
-    "total": 2.593642143114,
-    "pH": 0.253695136234,
-    "pD": 0.270920315375,
-    "pA": 0.475384548391
+    "margin": -0.468050586789,
+    "total": 2.533669619138,
+    "pH": 0.248458000473,
+    "pD": 0.264799940009,
+    "pA": 0.486742059518
    }
   },
   {
    "home": "Man City",
    "away": "Wolves",
-   "date": "2026-11-16",
+   "date": "2026-11-30",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 1.885069354543,
-    "total": 2.923414153721,
-    "pH": 0.781550324662,
-    "pD": 0.161634963063,
-    "pA": 0.056814712274
+    "margin": 1.858894504327,
+    "total": 2.894349068228,
+    "pH": 0.779098446434,
+    "pD": 0.16264552542,
+    "pA": 0.058256028146
    }
   },
   {
    "home": "Nott'm Forest",
    "away": "Bournemouth",
-   "date": "2026-11-17",
+   "date": "2026-12-01",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 0.058860262354,
-    "total": 2.804091571926,
-    "pH": 0.389726898362,
-    "pD": 0.250971132694,
-    "pA": 0.359301968944
+    "margin": -0.048890664122,
+    "total": 2.726196665968,
+    "pH": 0.358472441482,
+    "pD": 0.261385024959,
+    "pA": 0.380142533559
    }
   },
   {
    "home": "West Ham",
    "away": "Burnley",
-   "date": "2026-11-18",
+   "date": "2026-12-02",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 0.846514986774,
-    "total": 2.741680411242,
-    "pH": 0.571926547455,
-    "pD": 0.255499878248,
-    "pA": 0.172573574297
+    "margin": 0.848947718178,
+    "total": 2.738267265464,
+    "pH": 0.572384490467,
+    "pD": 0.25555935646,
+    "pA": 0.172056153073
    }
   },
   {
    "home": "Aston Villa",
    "away": "Crystal Palace",
-   "date": "2026-11-19",
+   "date": "2026-12-03",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 1.025513622575,
-    "total": 2.971987906295,
-    "pH": 0.633010004014,
-    "pD": 0.216970102119,
-    "pA": 0.150019893867
+    "margin": 1.014143640677,
+    "total": 2.90556899046,
+    "pH": 0.625697385607,
+    "pD": 0.226823707954,
+    "pA": 0.147478906439
    }
   },
   {
    "home": "Brighton",
    "away": "Hull",
-   "date": "2026-11-20",
+   "date": "2026-12-04",
    "neutral": false,
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 1.40374281185,
-    "total": 2.845522315227,
-    "pH": 0.693666104382,
-    "pD": 0.213255932907,
-    "pA": 0.093077962711
+    "margin": 1.204620988243,
+    "total": 2.826920251167,
+    "pH": 0.656115944545,
+    "pD": 0.225743793154,
+    "pA": 0.118140262301
    }
   }
  ],
- "json_vs_sklearn_max_abs_diff_pH": 4.513785072379761e-07,
+ "json_vs_sklearn_max_abs_diff_pH": 4.5137850812615454e-07,
  "notes": [
   "Holdout seasons were never used to choose Elo constants, features or coefficients.",
   "Elo constants were chosen on seasons 1995-2023 (mean squared error of Elo expected score).",
