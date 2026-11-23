@@ -19221,6 +19221,8 @@ game_id,date,season,season_label,sport,game_type,team,opponent,home_away,score_f
 2026_11_LV_DEN,2026-11-22,2026,2026,nfl,regular,DEN,LV,H,38,24,W,14,62,REG,-11.5,41.5,-650.0,,,0.8326,cover,over,1.0
 2026_11_MIA_BUF,2026-11-22,2026,2026,nfl,regular,MIA,BUF,A,9,26,L,-17,35,REG,16.5,45.5,980.0,,,0.089,miss,under,0.0
 2026_11_MIA_BUF,2026-11-22,2026,2026,nfl,regular,BUF,MIA,H,26,9,W,17,35,REG,-16.5,45.5,-1820.0,,,0.911,cover,under,1.0
+2026_11_MIN_SF,2026-11-22,2026,2026,nfl,regular,SF,MIN,N,35,10,W,25,45,REG,-4.5,44.5,-203.0,,,0.644,cover,over,1.0
+2026_11_MIN_SF,2026-11-22,2026,2026,nfl,regular,MIN,SF,N,10,35,L,-25,45,REG,4.5,44.5,170.0,,,0.356,miss,over,0.0
 2026_11_NO_CHI,2026-11-22,2026,2026,nfl,regular,NO,CHI,A,13,21,L,-8,34,REG,11.5,47.5,488.0,,,0.1635,cover,under,0.0
 2026_11_NO_CHI,2026-11-22,2026,2026,nfl,regular,CHI,NO,H,21,13,W,8,34,REG,-11.5,47.5,-670.0,,,0.8365,miss,under,1.0
 2026_11_NYJ_LAC,2026-11-22,2026,2026,nfl,regular,NYJ,LAC,A,27,24,W,3,51,REG,3.0,43.5,152.0,,,0.3812,cover,over,0.0

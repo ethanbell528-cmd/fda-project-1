@@ -610,62 +610,62 @@
   "by_role": {
    "QB": {
     "pass_yds": {
-     "n": 324,
-     "mae_formula": 66.2901,
-     "mae_season_to_date_avg": 70.2253
+     "n": 331,
+     "mae_formula": 66.3674,
+     "mae_season_to_date_avg": 69.6726
     },
     "pass_td": {
-     "n": 324,
-     "mae_formula": 0.8915,
-     "mae_season_to_date_avg": 0.9771
+     "n": 331,
+     "mae_formula": 0.8946,
+     "mae_season_to_date_avg": 0.9773
     },
     "int": {
-     "n": 324,
-     "mae_formula": 0.633,
-     "mae_season_to_date_avg": 0.62
+     "n": 331,
+     "mae_formula": 0.6335,
+     "mae_season_to_date_avg": 0.6184
     },
     "rush_yds": {
-     "n": 324,
-     "mae_formula": 12.1558,
-     "mae_season_to_date_avg": 12.3745
+     "n": 331,
+     "mae_formula": 12.0969,
+     "mae_season_to_date_avg": 12.2734
     }
    },
    "RB": {
     "rush_yds": {
-     "n": 779,
-     "mae_formula": 20.9523,
-     "mae_season_to_date_avg": 20.505
+     "n": 791,
+     "mae_formula": 20.8488,
+     "mae_season_to_date_avg": 20.4218
     },
     "rush_td": {
-     "n": 779,
-     "mae_formula": 0.3433,
-     "mae_season_to_date_avg": 0.3416
+     "n": 791,
+     "mae_formula": 0.3422,
+     "mae_season_to_date_avg": 0.3401
     },
     "rec": {
-     "n": 779,
-     "mae_formula": 1.1398,
-     "mae_season_to_date_avg": 1.2026
+     "n": 791,
+     "mae_formula": 1.1349,
+     "mae_season_to_date_avg": 1.196
     },
     "rec_yds": {
-     "n": 779,
-     "mae_formula": 10.8258,
-     "mae_season_to_date_avg": 11.2558
+     "n": 791,
+     "mae_formula": 10.7563,
+     "mae_season_to_date_avg": 11.1795
     }
    },
    "WR/TE": {
     "rec": {
-     "n": 1958,
-     "mae_formula": 1.3282,
-     "mae_season_to_date_avg": 1.3952
+     "n": 1984,
+     "mae_formula": 1.3295,
+     "mae_season_to_date_avg": 1.3958
     },
     "rec_yds": {
-     "n": 1958,
-     "mae_formula": 19.2617,
-     "mae_season_to_date_avg": 20.4193
+     "n": 1984,
+     "mae_formula": 19.2375,
+     "mae_season_to_date_avg": 20.3853
     },
     "rec_td": {
-     "n": 1958,
-     "mae_formula": 0.3032,
+     "n": 1984,
+     "mae_formula": 0.3029,
      "mae_season_to_date_avg": 0.3045
     }
    }
@@ -1082,9 +1082,9 @@
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": -4.373456654733,
-    "total": 42.811543949477,
-    "pH": 0.367052674948
+    "margin": -4.36872923599,
+    "total": 42.805692075449,
+    "pH": 0.367228480454
    }
   },
   {
@@ -1095,9 +1095,9 @@
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 6.112226791488,
-    "total": 51.371226555733,
-    "pH": 0.671661465606
+    "margin": 6.11695421023,
+    "total": 51.365374681705,
+    "pH": 0.671828308879
    }
   },
   {
@@ -1108,9 +1108,9 @@
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 13.683528946137,
-    "total": 46.788150567435,
-    "pH": 0.851435422047
+    "margin": 13.688256364879,
+    "total": 46.782298693406,
+    "pH": 0.851531107153
    }
   },
   {
@@ -1121,9 +1121,9 @@
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 0.26327104535,
-    "total": 44.773233927384,
-    "pH": 0.516096215148
+    "margin": 0.267998464092,
+    "total": 44.767382053356,
+    "pH": 0.516285178343
    }
   },
   {
@@ -1134,9 +1134,9 @@
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 8.920441880982,
-    "total": 44.706528003874,
-    "pH": 0.718828831831
+    "margin": 8.925169299725,
+    "total": 44.700676129845,
+    "pH": 0.718981735248
    }
   },
   {
@@ -1147,9 +1147,9 @@
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 10.552231496513,
-    "total": 45.797018131498,
-    "pH": 0.798286919427
+    "margin": 10.556958915255,
+    "total": 45.79116625747,
+    "pH": 0.798408730813
    }
   },
   {
@@ -1160,9 +1160,9 @@
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 2.512996385077,
-    "total": 46.101452867388,
-    "pH": 0.576164428648
+    "margin": 2.517723803819,
+    "total": 46.09560099336,
+    "pH": 0.576349190215
    }
   },
   {
@@ -1173,9 +1173,9 @@
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": -3.582317809797,
-    "total": 47.549711235582,
-    "pH": 0.380560080679
+    "margin": -4.345197240028,
+    "total": 48.061624720192,
+    "pH": 0.35161368013
    }
   },
   {
@@ -1186,9 +1186,9 @@
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": -2.499403945074,
-    "total": 44.603950419812,
-    "pH": 0.421909418115
+    "margin": -2.494676526332,
+    "total": 44.598098545784,
+    "pH": 0.422093976421
    }
   },
   {
@@ -1199,9 +1199,9 @@
    "homeStarter": null,
    "awayStarter": null,
    "expected": {
-    "margin": 9.956141238128,
-    "total": 43.082571167842,
-    "pH": 0.78954684649
+    "margin": 9.96086865687,
+    "total": 43.076719293814,
+    "pH": 0.789672545259
    }
   }
  ],
