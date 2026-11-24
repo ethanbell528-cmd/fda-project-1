@@ -267,10 +267,10 @@
   {
    "season": 2026,
    "label": "2026-27",
-   "draw": 0.275229,
-   "home": 0.431193,
-   "away": 0.293578,
-   "games": 109
+   "draw": 0.272727,
+   "home": 0.436364,
+   "away": 0.290909,
+   "games": 110
   }
  ],
  "buckets": [
@@ -283,10 +283,10 @@
   },
   {
    "bucket": "10–20 pts",
-   "games": 1832,
-   "actual": 0.290393,
-   "implied": 0.283625,
-   "z": 0.642627
+   "games": 1833,
+   "actual": 0.290235,
+   "implied": 0.283621,
+   "z": 0.628216
   },
   {
    "bucket": "20–30 pts",
@@ -324,13 +324,13 @@
    "z": -1.082519
   }
  ],
- "draw_rate": 0.255678,
- "home_rate": 0.456099,
- "away_rate": 0.288223,
- "matches": 12813,
- "odds_matches": 9987,
- "implied_draw": 0.253142,
- "actual_draw_odds": 0.248323,
+ "draw_rate": 0.255658,
+ "home_rate": 0.456142,
+ "away_rate": 0.2882,
+ "matches": 12814,
+ "odds_matches": 9988,
+ "implied_draw": 0.253145,
+ "actual_draw_odds": 0.248298,
  "first": "1993-94",
  "last": "2026-27"
 }

@@ -19233,3 +19233,5 @@ game_id,date,season,season_label,sport,game_type,team,opponent,home_away,score_f
 2026_11_TB_DET,2026-11-22,2026,2026,nfl,regular,DET,TB,H,31,21,W,10,52,REG,-3.5,48.5,-221.0,,,0.6616,cover,over,1.0
 2026_11_TEN_DAL,2026-11-22,2026,2026,nfl,regular,TEN,DAL,A,30,51,L,-21,81,REG,7.5,55.5,288.0,,,0.2479,miss,over,0.0
 2026_11_TEN_DAL,2026-11-22,2026,2026,nfl,regular,DAL,TEN,H,51,30,W,21,81,REG,-7.5,55.5,-359.0,,,0.7521,cover,over,1.0
+2026_11_CIN_WAS,2026-11-23,2026,2026,nfl,regular,CIN,WAS,A,20,22,L,-2,42,REG,-6.0,54.5,-292.0,,,0.7157,miss,under,1.0
+2026_11_CIN_WAS,2026-11-23,2026,2026,nfl,regular,WAS,CIN,H,22,20,W,2,42,REG,6.0,54.5,238.0,,,0.2843,cover,under,0.0

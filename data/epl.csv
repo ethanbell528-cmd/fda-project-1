@@ -25625,3 +25625,5 @@ epl_2026_hull_brighton,2026-11-22,2026,2026-27,epl,regular,Brighton,Hull,A,0,2,L
 epl_2026_hull_brighton,2026-11-22,2026,2026-27,epl,regular,Hull,Brighton,H,2,0,W,2,2,,1.25,2.5,,6.31,4.47,0.1498,cover,under,0.0
 epl_2026_liverpool_man-united,2026-11-22,2026,2026-27,epl,regular,Man United,Liverpool,A,0,4,L,-4,4,,0.5,2.5,,4.01,4.12,0.2352,miss,over,0.0
 epl_2026_liverpool_man-united,2026-11-22,2026,2026-27,epl,regular,Liverpool,Man United,H,4,0,W,4,4,,-0.5,2.5,,1.76,4.12,0.5359,cover,over,1.0
+epl_2026_brentford_everton,2026-11-23,2026,2026-27,epl,regular,Everton,Brentford,A,0,4,L,-4,4,,0.5,2.5,,3.41,3.43,0.2764,miss,over,0.0
+epl_2026_brentford_everton,2026-11-23,2026,2026-27,epl,regular,Brentford,Everton,H,4,0,W,4,4,,-0.5,2.5,,2.1,3.43,0.4488,cover,over,1.0

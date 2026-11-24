@@ -1,7 +1,7 @@
 {
  "nfl": {
   "sport": "nfl",
-  "generated_at": "2026-11-22",
+  "generated_at": "2026-11-23",
   "edge_threshold": 0.03,
   "train_seasons": "1992-2023",
   "train_games": 8415,
@@ -611,63 +611,63 @@
    "by_role": {
     "QB": {
      "pass_yds": {
-      "n": 331,
-      "mae_formula": 66.3674,
-      "mae_season_to_date_avg": 69.6726
+      "n": 333,
+      "mae_formula": 66.2721,
+      "mae_season_to_date_avg": 69.5107
      },
      "pass_td": {
-      "n": 331,
-      "mae_formula": 0.8946,
-      "mae_season_to_date_avg": 0.9773
+      "n": 333,
+      "mae_formula": 0.8955,
+      "mae_season_to_date_avg": 0.9787
      },
      "int": {
-      "n": 331,
-      "mae_formula": 0.6335,
-      "mae_season_to_date_avg": 0.6184
+      "n": 333,
+      "mae_formula": 0.6329,
+      "mae_season_to_date_avg": 0.6175
      },
      "rush_yds": {
-      "n": 331,
-      "mae_formula": 12.0969,
-      "mae_season_to_date_avg": 12.2734
+      "n": 333,
+      "mae_formula": 12.1064,
+      "mae_season_to_date_avg": 12.2761
      }
     },
     "RB": {
      "rush_yds": {
-      "n": 791,
-      "mae_formula": 20.8488,
-      "mae_season_to_date_avg": 20.4218
+      "n": 797,
+      "mae_formula": 20.8258,
+      "mae_season_to_date_avg": 20.4105
      },
      "rush_td": {
-      "n": 791,
-      "mae_formula": 0.3422,
-      "mae_season_to_date_avg": 0.3401
+      "n": 797,
+      "mae_formula": 0.3408,
+      "mae_season_to_date_avg": 0.3389
      },
      "rec": {
-      "n": 791,
-      "mae_formula": 1.1349,
-      "mae_season_to_date_avg": 1.196
+      "n": 797,
+      "mae_formula": 1.1346,
+      "mae_season_to_date_avg": 1.1953
      },
      "rec_yds": {
-      "n": 791,
-      "mae_formula": 10.7563,
-      "mae_season_to_date_avg": 11.1795
+      "n": 797,
+      "mae_formula": 10.8138,
+      "mae_season_to_date_avg": 11.2261
      }
     },
     "WR/TE": {
      "rec": {
-      "n": 1984,
-      "mae_formula": 1.3295,
-      "mae_season_to_date_avg": 1.3958
+      "n": 1997,
+      "mae_formula": 1.3313,
+      "mae_season_to_date_avg": 1.3973
      },
      "rec_yds": {
-      "n": 1984,
-      "mae_formula": 19.2375,
-      "mae_season_to_date_avg": 20.3853
+      "n": 1997,
+      "mae_formula": 19.2826,
+      "mae_season_to_date_avg": 20.4278
      },
      "rec_td": {
-      "n": 1984,
-      "mae_formula": 0.3029,
-      "mae_season_to_date_avg": 0.3045
+      "n": 1997,
+      "mae_formula": 0.3026,
+      "mae_season_to_date_avg": 0.3046
      }
     }
    }
@@ -1078,131 +1078,131 @@
    {
     "home": "ARI",
     "away": "CLE",
-    "date": "2026-11-25",
-    "neutral": false,
-    "homeStarter": null,
-    "awayStarter": null,
-    "expected": {
-     "margin": -4.36872923599,
-     "total": 42.805692075449,
-     "pH": 0.367228480454
-    }
-   },
-   {
-    "home": "BUF",
-    "away": "DET",
     "date": "2026-11-26",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": 6.11695421023,
-     "total": 51.365374681705,
-     "pH": 0.671828308879
+     "margin": -4.470254920646,
+     "total": 42.698411860912,
+     "pH": 0.364715349216
     }
    },
    {
-    "home": "CIN",
-    "away": "IND",
+    "home": "BUF",
+    "away": "DET",
     "date": "2026-11-27",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": 13.688256364879,
-     "total": 46.782298693406,
-     "pH": 0.851531107153
+     "margin": 6.015428525574,
+     "total": 51.258094467168,
+     "pH": 0.669435960865
     }
    },
    {
-    "home": "DEN",
-    "away": "LA",
+    "home": "CIN",
+    "away": "IND",
     "date": "2026-11-28",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": 0.267998464092,
-     "total": 44.767382053356,
-     "pH": 0.516285178343
+     "margin": 11.807791466444,
+     "total": 47.272286431934,
+     "pH": 0.820292894622
+    }
+   },
+   {
+    "home": "DEN",
+    "away": "LA",
+    "date": "2026-11-29",
+    "neutral": false,
+    "homeStarter": null,
+    "awayStarter": null,
+    "expected": {
+     "margin": 0.166472779437,
+     "total": 44.66010183882,
+     "pH": 0.513579902101
     }
    },
    {
     "home": "HOU",
     "away": "MIA",
-    "date": "2026-11-29",
+    "date": "2026-11-30",
     "neutral": true,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": 8.925169299725,
-     "total": 44.700676129845,
-     "pH": 0.718981735248
+     "margin": 8.823643615069,
+     "total": 44.593395915309,
+     "pH": 0.716788225273
     }
    },
    {
     "home": "KC",
     "away": "NO",
-    "date": "2026-11-30",
-    "neutral": false,
-    "homeStarter": null,
-    "awayStarter": null,
-    "expected": {
-     "margin": 10.556958915255,
-     "total": 45.79116625747,
-     "pH": 0.798408730813
-    }
-   },
-   {
-    "home": "LV",
-    "away": "PHI",
     "date": "2026-12-01",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": 2.517723803819,
-     "total": 46.09560099336,
-     "pH": 0.576349190215
+     "margin": 10.4554332306,
+     "total": 45.683886042933,
+     "pH": 0.796659855467
     }
    },
    {
-    "home": "NE",
-    "away": "SF",
+    "home": "LV",
+    "away": "PHI",
     "date": "2026-12-02",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": -4.345197240028,
-     "total": 48.061624720192,
-     "pH": 0.35161368013
+     "margin": 2.416198119164,
+     "total": 45.988320778823,
+     "pH": 0.573702464361
     }
    },
    {
-    "home": "NYJ",
-    "away": "WAS",
+    "home": "NE",
+    "away": "SF",
     "date": "2026-12-03",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": -2.494676526332,
-     "total": 44.598098545784,
-     "pH": 0.422093976421
+     "margin": -4.597657885985,
+     "total": 48.006120820855,
+     "pH": 0.345137200829
     }
    },
    {
-    "home": "SEA",
-    "away": "BAL",
+    "home": "NYJ",
+    "away": "WAS",
     "date": "2026-12-04",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": 9.96086865687,
-     "total": 43.076719293814,
-     "pH": 0.789672545259
+     "margin": -2.06121994263,
+     "total": 44.719343392529,
+     "pH": 0.432465803746
+    }
+   },
+   {
+    "home": "SEA",
+    "away": "BAL",
+    "date": "2026-12-05",
+    "neutral": false,
+    "homeStarter": null,
+    "awayStarter": null,
+    "expected": {
+     "margin": 9.708408010913,
+     "total": 43.021215394476,
+     "pH": 0.784894824122
     }
    }
   ],
@@ -3711,7 +3711,7 @@
  },
  "nhl": {
   "sport": "nhl",
-  "generated_at": "2026-11-22",
+  "generated_at": "2026-11-23",
   "edge_threshold": 0.03,
   "train_seasons": "1992-2023",
   "train_games": 38500,
@@ -4802,131 +4802,131 @@
    {
     "home": "ANA",
     "away": "COL",
-    "date": "2026-11-25",
+    "date": "2026-11-26",
     "neutral": false,
     "homeStarter": "8471734",
     "awayStarter": null,
     "expected": {
-     "margin": -0.656857862588,
-     "total": 6.577064394795,
-     "pH": 0.383552703114
+     "margin": -0.636156113913,
+     "total": 6.481913694855,
+     "pH": 0.391339917463
     }
    },
    {
     "home": "CAR",
     "away": "EDM",
-    "date": "2026-11-26",
+    "date": "2026-11-27",
     "neutral": false,
     "homeStarter": "8475311",
     "awayStarter": "8476434",
     "expected": {
-     "margin": 0.896558390418,
-     "total": 6.42929128552,
-     "pH": 0.675069207119
+     "margin": 0.876088162544,
+     "total": 6.456085941091,
+     "pH": 0.674072886698
     }
    },
    {
     "home": "CHI",
     "away": "MIN",
-    "date": "2026-11-27",
+    "date": "2026-11-28",
     "neutral": false,
     "homeStarter": "8475831",
     "awayStarter": "8476945",
     "expected": {
-     "margin": -1.241916520779,
-     "total": 6.64908958121,
-     "pH": 0.282079493819
+     "margin": -1.26555298634,
+     "total": 6.657072641485,
+     "pH": 0.278082051987
     }
    },
    {
     "home": "DET",
     "away": "NSH",
-    "date": "2026-11-28",
+    "date": "2026-11-29",
     "neutral": false,
     "homeStarter": "8476412",
     "awayStarter": null,
     "expected": {
-     "margin": 0.146923498446,
-     "total": 6.21449031252,
-     "pH": 0.538023599565
+     "margin": 0.146340641873,
+     "total": 6.211255295994,
+     "pH": 0.537995740447
     }
    },
    {
     "home": "LAK",
     "away": "OTT",
-    "date": "2026-11-29",
+    "date": "2026-11-30",
     "neutral": true,
     "homeStarter": "8476932",
     "awayStarter": "8477970",
     "expected": {
-     "margin": -0.658773277018,
-     "total": 6.361594579427,
-     "pH": 0.382061272874
+     "margin": -0.587002731979,
+     "total": 6.163371861896,
+     "pH": 0.396643552503
     }
    },
    {
     "home": "NJD",
     "away": "SEA",
-    "date": "2026-11-30",
+    "date": "2026-12-01",
     "neutral": false,
     "homeStarter": "8477465",
     "awayStarter": "8478024",
     "expected": {
-     "margin": 0.625288197034,
-     "total": 6.741339680735,
-     "pH": 0.623184874155
+     "margin": 0.61771529903,
+     "total": 6.665795053238,
+     "pH": 0.622727036645
     }
    },
    {
     "home": "NYR",
     "away": "TBL",
-    "date": "2026-12-01",
+    "date": "2026-12-02",
     "neutral": false,
     "homeStarter": "8477968",
     "awayStarter": null,
     "expected": {
-     "margin": -0.278408112298,
-     "total": 6.196013073489,
-     "pH": 0.453606910078
+     "margin": -0.278990968871,
+     "total": 6.192778056963,
+     "pH": 0.453579130413
     }
    },
    {
     "home": "PIT",
     "away": "VAN",
-    "date": "2026-12-02",
+    "date": "2026-12-03",
     "neutral": false,
     "homeStarter": "8478009",
     "awayStarter": "8479292",
     "expected": {
-     "margin": 0.966939679965,
-     "total": 6.547168485859,
-     "pH": 0.6803504158
+     "margin": 0.966356823392,
+     "total": 6.543933469333,
+     "pH": 0.680326039938
     }
    },
    {
     "home": "STL",
     "away": "WSH",
-    "date": "2026-12-03",
+    "date": "2026-12-04",
     "neutral": false,
     "homeStarter": "8478470",
     "awayStarter": "8479496",
     "expected": {
-     "margin": 0.333858504615,
-     "total": 6.829669898671,
-     "pH": 0.561015979799
+     "margin": 0.333275648042,
+     "total": 6.826434882145,
+     "pH": 0.560988375844
     }
    },
    {
     "home": "UTA",
     "away": "BUF",
-    "date": "2026-12-04",
+    "date": "2026-12-05",
     "neutral": false,
     "homeStarter": "8479193",
     "awayStarter": null,
     "expected": {
-     "margin": 0.02827191021,
-     "total": 6.427784881262,
-     "pH": 0.507186779114
+     "margin": 0.01384897477,
+     "total": 6.363945348488,
+     "pH": 0.504973255819
     }
    }
   ],
@@ -4942,7 +4942,7 @@
  },
  "epl": {
   "sport": "epl",
-  "generated_at": "2026-11-22",
+  "generated_at": "2026-11-23",
   "edge_threshold": 0.03,
   "train_seasons": "1995-2023",
   "train_games": 11020,
@@ -5994,97 +5994,97 @@
    {
     "home": "Arsenal",
     "away": "Coventry",
-    "date": "2026-11-25",
-    "neutral": false,
-    "homeStarter": null,
-    "awayStarter": null,
-    "expected": {
-     "margin": 1.760420567159,
-     "total": 2.926796495532,
-     "pH": 0.767389542517,
-     "pD": 0.171007650458,
-     "pA": 0.061602807025
-    }
-   },
-   {
-    "home": "Brentford",
-    "away": "Fulham",
     "date": "2026-11-26",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": 0.585108536136,
-     "total": 2.699472747676,
-     "pH": 0.51343406355,
-     "pD": 0.267588661998,
-     "pA": 0.218977274452
+     "margin": 1.754384756254,
+     "total": 2.932745453304,
+     "pH": 0.766294713083,
+     "pD": 0.171408137616,
+     "pA": 0.062297149302
     }
    },
    {
-    "home": "Chelsea",
-    "away": "Leeds",
+    "home": "Brentford",
+    "away": "Fulham",
     "date": "2026-11-27",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": 0.283282410582,
-     "total": 2.701943733264,
-     "pH": 0.425361088698,
-     "pD": 0.291594650487,
-     "pA": 0.283044260815
+     "margin": 0.734739669202,
+     "total": 2.696343567321,
+     "pH": 0.552796420402,
+     "pD": 0.240904677542,
+     "pA": 0.206298902056
     }
    },
    {
-    "home": "Everton",
-    "away": "Man United",
+    "home": "Chelsea",
+    "away": "Leeds",
     "date": "2026-11-28",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": 0.29039234083,
-     "total": 2.835806495839,
-     "pH": 0.448994063422,
-     "pD": 0.271327241431,
-     "pA": 0.279678695146
+     "margin": 0.277246599677,
+     "total": 2.707892691037,
+     "pH": 0.42337136963,
+     "pD": 0.291325984377,
+     "pA": 0.285302645993
+    }
+   },
+   {
+    "home": "Everton",
+    "away": "Man United",
+    "date": "2026-11-29",
+    "neutral": false,
+    "homeStarter": null,
+    "awayStarter": null,
+    "expected": {
+     "margin": 0.204852601097,
+     "total": 2.752402708806,
+     "pH": 0.420051416863,
+     "pD": 0.277504361845,
+     "pA": 0.302444221292
     }
    },
    {
     "home": "Ipswich",
     "away": "Sunderland",
-    "date": "2026-11-29",
+    "date": "2026-11-30",
     "neutral": true,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": -0.468050586789,
-     "total": 2.533669619138,
-     "pH": 0.248458000473,
-     "pD": 0.264799940009,
-     "pA": 0.486742059518
+     "margin": -0.474086397694,
+     "total": 2.53961857691,
+     "pH": 0.246684628544,
+     "pD": 0.263902150126,
+     "pA": 0.48941322133
     }
    },
    {
     "home": "Man City",
     "away": "Wolves",
-    "date": "2026-11-30",
+    "date": "2026-12-01",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
     "expected": {
-     "margin": 1.858894504327,
-     "total": 2.894349068228,
-     "pH": 0.779098446434,
-     "pD": 0.16264552542,
-     "pA": 0.058256028146
+     "margin": 1.855416691815,
+     "total": 2.910027395327,
+     "pH": 0.779080267338,
+     "pD": 0.162824130512,
+     "pA": 0.05809560215
     }
    },
    {
     "home": "Nott'm Forest",
     "away": "Bournemouth",
-    "date": "2026-12-01",
+    "date": "2026-12-02",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
@@ -6099,7 +6099,7 @@
    {
     "home": "West Ham",
     "away": "Burnley",
-    "date": "2026-12-02",
+    "date": "2026-12-03",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
@@ -6114,7 +6114,7 @@
    {
     "home": "Aston Villa",
     "away": "Crystal Palace",
-    "date": "2026-12-03",
+    "date": "2026-12-04",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,
@@ -6129,7 +6129,7 @@
    {
     "home": "Brighton",
     "away": "Hull",
-    "date": "2026-12-04",
+    "date": "2026-12-05",
     "neutral": false,
     "homeStarter": null,
     "awayStarter": null,

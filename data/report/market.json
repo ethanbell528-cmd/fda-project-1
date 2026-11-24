@@ -2,9 +2,9 @@
  "rows": [
   {
    "sport": "nfl",
-   "games": 5442,
-   "brier": 0.211023,
-   "logloss": 0.609303,
+   "games": 5443,
+   "brier": 0.211079,
+   "logloss": 0.609422,
    "first": "2006",
    "last": "2026"
   },
@@ -34,9 +34,9 @@
   },
   {
    "sport": "epl",
-   "games": 9987,
-   "brier": 0.177761,
-   "logloss": 0.532269,
+   "games": 9988,
+   "brier": 0.177751,
+   "logloss": 0.532248,
    "first": "2000-01",
    "last": "2026-27"
   }
