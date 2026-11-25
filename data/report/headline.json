@@ -1,6 +1,6 @@
 {
- "rows": 396626,
- "games": 198313,
+ "rows": 396634,
+ "games": 198317,
  "games_with_market": 91320,
  "sports": 5,
  "sport_list": [
@@ -11,9 +11,9 @@
   "EPL"
  ],
  "first_season": 1990,
- "last_date": "2026-11-23",
- "last_date_text": "November 23, 2026",
- "player_rows": 656824,
+ "last_date": "2026-11-24",
+ "last_date_text": "November 24, 2026",
+ "player_rows": 656894,
  "teams": 176,
  "per_sport": [
   {
@@ -27,8 +27,8 @@
   },
   {
    "sport": "nba",
-   "rows": 90886,
-   "games": 45443,
+   "rows": 90892,
+   "games": 45446,
    "first": "1990-91",
    "last": "2026-27",
    "seasons": 37,
@@ -45,8 +45,8 @@
   },
   {
    "sport": "nhl",
-   "rows": 87148,
-   "games": 43574,
+   "rows": 87150,
+   "games": 43575,
    "first": "1990-91",
    "last": "2026-27",
    "seasons": 36,
