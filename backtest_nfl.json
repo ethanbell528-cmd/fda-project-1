@@ -610,63 +610,63 @@
   "by_role": {
    "QB": {
     "pass_yds": {
-     "n": 333,
-     "mae_formula": 66.2721,
-     "mae_season_to_date_avg": 69.5107
+     "n": 335,
+     "mae_formula": 66.5065,
+     "mae_season_to_date_avg": 69.7169
     },
     "pass_td": {
-     "n": 333,
-     "mae_formula": 0.8955,
-     "mae_season_to_date_avg": 0.9787
+     "n": 335,
+     "mae_formula": 0.8993,
+     "mae_season_to_date_avg": 0.9815
     },
     "int": {
-     "n": 333,
-     "mae_formula": 0.6329,
-     "mae_season_to_date_avg": 0.6175
+     "n": 335,
+     "mae_formula": 0.6335,
+     "mae_season_to_date_avg": 0.6177
     },
     "rush_yds": {
-     "n": 333,
-     "mae_formula": 12.1064,
-     "mae_season_to_date_avg": 12.2761
+     "n": 335,
+     "mae_formula": 12.0452,
+     "mae_season_to_date_avg": 12.2219
     }
    },
    "RB": {
     "rush_yds": {
-     "n": 797,
-     "mae_formula": 20.8258,
-     "mae_season_to_date_avg": 20.4105
+     "n": 803,
+     "mae_formula": 20.9012,
+     "mae_season_to_date_avg": 20.5198
     },
     "rush_td": {
-     "n": 797,
-     "mae_formula": 0.3408,
-     "mae_season_to_date_avg": 0.3389
+     "n": 803,
+     "mae_formula": 0.3398,
+     "mae_season_to_date_avg": 0.3379
     },
     "rec": {
-     "n": 797,
-     "mae_formula": 1.1346,
-     "mae_season_to_date_avg": 1.1953
+     "n": 803,
+     "mae_formula": 1.1339,
+     "mae_season_to_date_avg": 1.1939
     },
     "rec_yds": {
-     "n": 797,
-     "mae_formula": 10.8138,
-     "mae_season_to_date_avg": 11.2261
+     "n": 803,
+     "mae_formula": 10.8029,
+     "mae_season_to_date_avg": 11.2154
     }
    },
    "WR/TE": {
     "rec": {
-     "n": 1997,
-     "mae_formula": 1.3313,
-     "mae_season_to_date_avg": 1.3973
+     "n": 2009,
+     "mae_formula": 1.3316,
+     "mae_season_to_date_avg": 1.398
     },
     "rec_yds": {
-     "n": 1997,
-     "mae_formula": 19.2826,
-     "mae_season_to_date_avg": 20.4278
+     "n": 2009,
+     "mae_formula": 19.2852,
+     "mae_season_to_date_avg": 20.4189
     },
     "rec_td": {
-     "n": 1997,
-     "mae_formula": 0.3026,
-     "mae_season_to_date_avg": 0.3046
+     "n": 2009,
+     "mae_formula": 0.3019,
+     "mae_season_to_date_avg": 0.304
     }
    }
   }
